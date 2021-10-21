@@ -1,0 +1,138 @@
+h1, h2, h3, h4, h5, h6, hgroup, ol, li, ul, div, header, section,
+aside, p, a {
+    margin: 0;
+    list-style-type: none;
+}
+
+.video, .text, .practice, .test, aside {
+    border: gray 1px solid;
+    height: 100px;
+}
+
+html {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: black;
+    color: white;
+}
+
+section {
+    margin-bottom: 4%;
+}
+
+header{
+    margin-bottom: 50px;
+}
+
+header .logo, .logo_list{
+    display: flex;
+    align-items: center;
+}
+
+h1 {
+    font-size: 50px;
+    margin-right: 50px;
+    margin-bottom: 2%;
+    margin-top: 20px;
+    margin-left: 10%;
+}
+
+.logo_list{
+    width: 77.5%;
+    margin-left: 10%;
+    display: flex;
+    height: 50px;
+    text-align: center;
+}
+
+.logo_list > div {
+    margin-right: 5px;
+    width: 100%;
+    height: 50px;
+    background-color: lightslategray;
+    border-radius: 10px;
+}
+
+.logo_list > div > p {
+    margin-top: 16px;
+}
+
+/* .logo_list > ul {
+    padding-right: 30px;
+    padding-left: 30px;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    border-bottom: white 2px solid;
+    border-top: white 2px solid;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.logo_list > ul > li{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    list-style-type: circle;
+    font-size: 16px;
+} */
+
+
+.name > img {
+    margin-left: 10%;
+    margin-right: 2%;
+}
+
+.name {
+    display: flex;
+}
+
+.name > div > a {
+    text-decoration: none;
+    color: white;
+}
+
+.name > div > h2 {
+    margin-bottom: 10%;
+}
+
+.content {
+    float: left;
+    width: 50%;
+    margin-left: 10%;
+    margin-right: 2%;
+}
+
+.right_panel {
+    float: left;
+    width: 25%;
+    height: 782px;
+}
+
+.test {
+    text-align: right;
+}
+
+.btn_sec {
+    text-align: right;
+    border: gray 1px solid;
+}
+
+.gradient-button {
+    text-decoration: none;
+    display: inline-block;
+    color: black;
+    padding: 20px 30px;
+    border-radius: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    background-image: linear-gradient(to right, #ef9eca 0%, #f03030 51%, #ef9eca 100%);
+    background-size: 200% auto;
+    transition: .5s;
+  }
+  .gradient-button:hover {
+    background-position: right center;
+  }
