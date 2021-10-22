@@ -61,26 +61,6 @@ h1 {
     margin-top: 16px;
 }
 
-/* .logo_list > ul {
-    padding-right: 30px;
-    padding-left: 30px;
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
-    border-bottom: white 2px solid;
-    border-top: white 2px solid;
-    margin-left: 10%;
-    margin-right: 10%;
-}
-
-.logo_list > ul > li{
-    margin-top: 20px;
-    margin-bottom: 20px;
-    list-style-type: circle;
-    font-size: 16px;
-} */
-
-
 .name > img {
     margin-left: 10%;
     margin-right: 2%;
@@ -109,11 +89,11 @@ h1 {
 .right_panel {
     float: left;
     width: 25%;
-    height: 782px;
+    height: 780px;
 }
 
 .test {
-    text-align: right;
+    height: auto;
 }
 
 .btn_sec {
@@ -121,18 +101,91 @@ h1 {
     border: gray 1px solid;
 }
 
-.gradient-button {
+.btn:hover, .btn:focus {
+    color: #fff;
+    outline: 0;
+}
+.btn {
+    box-sizing: border-box;
+    background-color: transparent;
+    border: 2px solid #e74c3c;
+    border-radius: 0.6em;
+    color: #e74c3c;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1;
+    padding: 1.2em 2.8em;
     text-decoration: none;
-    display: inline-block;
-    color: black;
-    padding: 20px 30px;
-    border-radius: 10px;
+    text-align: center;
     text-transform: uppercase;
-    letter-spacing: 1.2px;
-    background-image: linear-gradient(to right, #ef9eca 0%, #f03030 51%, #ef9eca 100%);
-    background-size: 200% auto;
-    transition: .5s;
-  }
-  .gradient-button:hover {
-    background-position: right center;
-  }
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+}
+
+.btn_go {
+    transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+}
+.btn_go:hover {
+    box-shadow: 0 0 40px 40px #e74c3c inset;
+}
+
+.checked {
+    border: 2px solid hsl(118, 83%, 61%);
+    color: hsl(118, 83%, 61%);
+}
+.checked:hover {
+    box-shadow: 0 0 40px 40px hsl(118, 83%, 61%) inset;
+}
+
+label {
+    display: block;
+    margin-bottom: 2px;
+}
+
+#calc, #res {
+    box-sizing: border-box;
+    border-radius: 0.6em;
+    cursor: pointer;
+    font-size: 12px;
+    line-height: 1;
+    padding: 15px 20px;
+    text-decoration: none;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 10px;
+    border-color: #3498db;
+    color: #fff;
+    transition: all 150ms ease-in-out;
+    margin-right: 5px;
+}
+#res {
+    padding: 15px 25px;
+}
+#calc:hover {
+    box-shadow: 0 0 10px 0 #3498db inset, 0 0 10px 4px #3498db;
+}
+#res:hover {
+    box-shadow: 0 0 10px 0 #3498db inset, 0 0 10px 4px #3498db;
+}
+
+form > div {
+    margin-bottom: 15px;
+}
+form > div > h3 {
+    margin-bottom: 10px;
+}
+.grade {
+    margin-left: 10px;
+}
+.ans {
+    border: #3498db 2px solid;
+    border-radius: 0.6em;
+    padding-left: 20px;
+    padding: 15px 0px 15px 20px;
+    width: 31%;
+}
+.ans > p {
+    display: inline;
+}

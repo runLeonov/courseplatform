@@ -18,12 +18,6 @@
             <div><p>Быстрое обучение</p></div>
             <div><p>Онлайн практика</p></div>
             <div><p>Тестовые задания</p></div>
-            <!-- <ul>
-                <li>15 уроков</li>
-                <li>Быстрое обучение</li>
-                <li>Онлайн практика</li>
-                <li>Тестовые задания</li>
-            </ul> -->
         </div>
     </header>
 
@@ -40,15 +34,140 @@
             <section class="text"></section>
             <section class="practice" id="practice"></section>
             <section class="test">
-                <form action="#">
-                    <input type="submit" value="Проверить">
+                <form action="#" onsubmit="return false;">
+                    <div id="q1">
+                        <h3>Вопрос №1</h3>
+                        <label>
+                            <input type="radio" value="0" name="var1" class="var">Вариант №1
+                        </label>
+                        <label>
+                            <input type="radio" value="0" name="var1" class="var">Вариант №2
+                        </label>
+                        <label>
+                            <input type="radio" value="1" name="var1" class="var">Вариант №3
+                        </label>
+                    </div>
+                    <div id="q2">
+                        <h3>Вопрос №2</h3>
+                        <label>
+                            <input type="radio" value="0" name="var2" class="var">Вариант №1
+                        </label>
+                        <label>
+                            <input type="radio" value="0" name="var2" class="var">Вариант №2
+                        </label>
+                        <label>
+                            <input type="radio" value="1" name="var2" class="var">Вариант №3
+                        </label>
+                    </div>
+                    <div id="q3">
+                        <h3>Вопрос №3</h3>
+                        <label>
+                            <input type="radio" value="0" name="var3" class="var">Вариант №1
+                        </label>
+                        <label>
+                            <input type="radio" value="0" name="var3" class="var">Вариант №2
+                        </label>
+                        <label>
+                            <input type="radio" value="1" name="var3" class="var">Вариант №3
+                        </label>
+                    </div>
+                    <div id="q4">
+                        <h3>Вопрос №4</h3>
+                        <label>
+                            <input type="radio" value="0" name="var4" class="var">Вариант №1
+                        </label>
+                        <label>
+                            <input type="radio" value="0" name="var4" class="var">Вариант №2
+                        </label>
+                        <label>
+                            <input type="radio" value="1" name="var4" class="var">Вариант №3
+                        </label>
+                    </div>
+                    <div id="q5">
+                        <h3>Вопрос №5</h3>
+                        <label>
+                            <input type="radio" value="0" name="var5" class="var">Вариант №1
+                        </label>
+                        <label>
+                            <input type="radio" value="0" name="var5" class="var">Вариант №2
+                        </label>
+                        <label>
+                            <input type="radio" value="1" name="var5" class="var">Вариант №3
+                        </label>
+                    </div>
+                    <div id="q6">
+                        <h3>Вопрос №6</h3>
+                        <label>
+                            <input type="radio" value="0" name="var6" class="var">Вариант №1
+                        </label>
+                        <label>
+                            <input type="radio" value="0" name="var6" class="var">Вариант №2
+                        </label>
+                        <label>
+                            <input type="radio" value="1" name="var6" class="var">Вариант №3
+                        </label>
+                    </div>
+                    <div id="q7">
+                        <h3>Вопрос №7</h3>
+                        <label>
+                            <input type="radio" value="0" name="var7" class="var">Вариант №1
+                        </label>
+                        <label>
+                            <input type="radio" value="0" name="var7" class="var">Вариант №2
+                        </label>
+                        <label>
+                            <input type="radio" value="1" name="var7" class="var">Вариант №3
+                        </label>
+                    </div>
+                    <div id="q8">
+                        <h3>Вопрос №8</h3>
+                        <label>
+                            <input type="radio" value="0" name="var8" class="var">Вариант №1
+                        </label>
+                        <label>
+                            <input type="radio" value="0" name="var8" class="var">Вариант №2
+                        </label>
+                        <label>
+                            <input type="radio" value="1" name="var8" class="var">Вариант №3
+                        </label>
+                    </div>
+                    <div id="q9">
+                        <h3>Вопрос №9</h3>
+                        <label>
+                            <input type="radio" value="0" name="var9" class="var">Вариант №1
+                        </label>
+                        <label>
+                            <input type="radio" value="0" name="var9" class="var">Вариант №2
+                        </label>
+                        <label>
+                            <input type="radio" value="1" name="var9" class="var">Вариант №3
+                        </label>
+                    </div>
+                    <div id="q10">
+                        <h3>Вопрос №10</h3>
+                        <label>
+                            <input type="radio" value="0" name="var10" class="var">Вариант №1
+                        </label>
+                        <label>
+                            <input type="radio" value="0" name="var10" class="var">Вариант №2
+                        </label>
+                        <label>
+                            <input type="radio" value="1" name="var10" class="var">Вариант №3
+                        </label>
+                    </div>
+                    <br>
+                    <input type="submit" value="Проверить" id="calc" class="btn">
+                    <input type="reset" value="Сбросить" id="res" class="btn"><br>
+                    <div  class="ans"><p class="q">Правильных ответов: <p class="grade">0</p></p></div>
                 </form>
             </section>
             <section class="btn_sec">
-                <a href="1.html" class="gradient-button">Следующий урок</a>
+                <a href="1.html" class="btn_go btn" id="next">Следующий урок</a>
             </section>
         </div>
         <aside class="right_panel"></aside>
     </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
