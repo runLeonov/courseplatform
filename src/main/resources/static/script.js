@@ -12,6 +12,7 @@ calc.onclick = function() {
     grade.innerHTML = val
     if (val == 7 || val > 7) {
         nextLesson.classList.add('checked')
+        nextLesson.href = '/courseplatform/src/main/resources/static/1.html'
     }
 }
 
