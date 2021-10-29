@@ -146,7 +146,7 @@ h1 {
 
 label {
     display: block;
-    margin-bottom: 2px;
+    margin-bottom: 8px;
 }
 
 #calc, #res {
@@ -179,9 +179,10 @@ label {
 form > div {
     margin-bottom: 15px;
 }
-form > div > h3 {
+form > div > p {
     margin-bottom: 10px;
 }
+
 .grade {
     margin-left: 10px;
 }
@@ -190,7 +191,7 @@ form > div > h3 {
     border-radius: 0.6em;
     padding-left: 20px;
     padding: 15px 0px 15px 20px;
-    width: 31%;
+    width: 28.5%;
 }
 .ans > p {
     display: inline;
@@ -269,6 +270,10 @@ h3 {
     color: #e06149;
 }
 
+h4 {
+    margin-bottom: 10px;
+}
+
 .info {
     display: flex;
     justify-content: space-between;
@@ -339,4 +344,11 @@ pre {
 
 .disable {
     pointer-events: none;
+}
+
+label {
+    border: #e06149 1px solid;
+    border-radius: 5px;
+    width: 30%;
+    padding: 5px;
 }

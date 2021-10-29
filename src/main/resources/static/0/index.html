@@ -137,11 +137,11 @@
                     <p>Для комп'ютера в ролі команд виступають числа: кожна команда закодована певним числом (його ще називають машинним кодом).</p> <br>
                     <p>Писати програму у вигляді чисел дуже складно, тому люди вигадали мови програмування та компілятори. Така мова, з одного боку, зрозуміла людині, з іншого — компілятору. Компілятор — це спеціальна програма, яка перетворює текст програми, написаний мовою програмування, на набір машинних кодів.</p> <br>
                     <p>Зазвичай програміст пише програму мовою програмування, а потім запускає компілятор, який на основі написаних програмістом файлів із кодом програми робить один файл із машинним кодом — кінцеву (скомпільовану) програму.</p> <br>
-                    <img src="/img/first.png" alt="">
+                    <img src="img/first.png" alt="">
                     <p> <br>Отримана в результаті програма відразу може виконуватись на комп'ютері. Такий підхід має свій мінус — код отриманої програми значно залежить від процесора й операційної системи. Програма, скомпільована для Windows, не буде працювати на телефоні з Android.</p> <br>
                     <p>Якщо ж ви написали програму для Android, то в операційній системі Windows вона не запуститься!</p> <br> 
                     <p>У Java використовується набагато інноваційніший підхід:</p> <br>
-                    <img src="/img/second.png" alt="">
+                    <img src="img/second.png" alt="">
                     <p><br>Компілятор Java не компілює всі класи в одну програму з машинних кодів. Натомість він компілює кожен клас окремо, і не в машинні коди, а в спеціальний проміжний код (байт-код). Компіляція в машинний код відбувається під час запуску програми.</p> <br>
                     <p>А хто ж компілює програму в машинний код під час запуску?</p> <br>
                     <p>Для цього є спеціальна програма під назвою JVM (Java Virtual Machine) — віртуальна машина Java. Спочатку запускають її, а потім — програму, що складається з байт-коду. А вже JVM перед виконанням потрібної програми компілює її в машинний код.</p> <br> <br>
@@ -170,7 +170,7 @@
             </section>
             <section class="practice" id="practice">
                 <h2>Практичні завдання</h2>
-                <h4>Завдання №1</h4> <br>
+                <h4>Завдання №1</h4>
                 <p>Оголоси змінні a, b типу int. <br>Відразу ж у рядку оголошення присвой їм різні значення. <br>Значеннями можуть бути будь-які цілі числа.</p> <br>
                 <p>Натисність на кнопку нижче, щоб відкрити рішення.</p> <br>
                 <p class="solution">Показати рішення</p>
@@ -184,7 +184,7 @@
                     </code></pre> <br>
                     <p class="collapse">Згорнути</p> <br>
                 </div>
-                <h4>Завдання №2</h4> <br>
+                <h4>Завдання №2</h4>
                 <p>Напиши програму, яка в методі main оголошує такі змінні:<br>name типу String, age типу int і city типу String.</p> <br>
                 <p>Натисність на кнопку нижче, щоб відкрити рішення.</p> <br>
                 <p class="solution">Показати рішення</p>
@@ -202,124 +202,135 @@
             </section>
             <section class="test">
                 <form action="#" onsubmit="return false;">
+                    <h2>Тестові завдання</h2>
                     <div id="q1">
-                        <h3>Вопрос №1</h3>
+                        <h4>Питання №1</h4>
+                        <p>У мові програмування Java виконання програми починається з методу:</p>
                         <label>
-                            <input type="radio" value="0" name="var1" class="var">Вариант №1
+                            <input type="radio" value="0" name="var1" class="var">begin()
                         </label>
                         <label>
-                            <input type="radio" value="0" name="var1" class="var">Вариант №2
+                            <input type="radio" value="0" name="var1" class="var">start()
                         </label>
                         <label>
-                            <input type="radio" value="1" name="var1" class="var">Вариант №3
+                            <input type="radio" value="1" name="var1" class="var">main()
                         </label>
                     </div>
                     <div id="q2">
-                        <h3>Вопрос №2</h3>
+                        <h4>Питання №2</h4>
+                        <p>За допомогою якої функції можна вивести текст на екран?</p>
                         <label>
-                            <input type="radio" value="0" name="var2" class="var">Вариант №1
+                            <input type="radio" value="1" name="var2" class="var">print()
                         </label>
                         <label>
-                            <input type="radio" value="0" name="var2" class="var">Вариант №2
+                            <input type="radio" value="0" name="var2" class="var">echo()
                         </label>
                         <label>
-                            <input type="radio" value="1" name="var2" class="var">Вариант №3
+                            <input type="radio" value="0" name="var2" class="var">wtite()
                         </label>
                     </div>
                     <div id="q3">
-                        <h3>Вопрос №3</h3>
+                        <h4>Питання №3</h4>
+                        <p>За допомогою якої функції можна вивести текст на екран з різних рядків?</p>
                         <label>
-                            <input type="radio" value="0" name="var3" class="var">Вариант №1
+                            <input type="radio" value="0" name="var3" class="var">print()
                         </label>
                         <label>
-                            <input type="radio" value="0" name="var3" class="var">Вариант №2
+                            <input type="radio" value="1" name="var3" class="var">println()
                         </label>
                         <label>
-                            <input type="radio" value="1" name="var3" class="var">Вариант №3
+                            <input type="radio" value="0" name="var3" class="var">printLines()
                         </label>
                     </div>
                     <div id="q4">
-                        <h3>Вопрос №4</h3>
+                        <h4>Питання №4</h4>
+                        <p>У мові Java кожна зміна має:</p>
                         <label>
-                            <input type="radio" value="0" name="var4" class="var">Вариант №1
+                            <input type="radio" value="0" name="var4" class="var">ім'я
                         </label>
                         <label>
-                            <input type="radio" value="0" name="var4" class="var">Вариант №2
+                            <input type="radio" value="0" name="var4" class="var">ім'я і тип
                         </label>
                         <label>
-                            <input type="radio" value="1" name="var4" class="var">Вариант №3
+                            <input type="radio" value="1" name="var4" class="var">ім'я, тип і значення
                         </label>
                     </div>
                     <div id="q5">
-                        <h3>Вопрос №5</h3>
+                        <h4>Питання №5</h4>
+                        <p>Оголосити змінну name можна за допомогою: </p>
                         <label>
-                            <input type="radio" value="0" name="var5" class="var">Вариант №1
+                            <input type="radio" value="0" name="var5" class="var">var name
                         </label>
                         <label>
-                            <input type="radio" value="0" name="var5" class="var">Вариант №2
+                            <input type="radio" value="1" name="var5" class="var">String name
                         </label>
                         <label>
-                            <input type="radio" value="1" name="var5" class="var">Вариант №3
+                            <input type="radio" value="0" name="var5" class="var">name: string
                         </label>
                     </div>
                     <div id="q6">
-                        <h3>Вопрос №6</h3>
+                        <h4>Питання №6</h4>
+                        <p>В яку змінну зберігають цілі числа?</p>
                         <label>
-                            <input type="radio" value="0" name="var6" class="var">Вариант №1
+                            <input type="radio" value="1" name="var6" class="var">int
                         </label>
                         <label>
-                            <input type="radio" value="0" name="var6" class="var">Вариант №2
+                            <input type="radio" value="0" name="var6" class="var">integer
                         </label>
                         <label>
-                            <input type="radio" value="1" name="var6" class="var">Вариант №3
+                            <input type="radio" value="0" name="var6" class="var">Number
                         </label>
                     </div>
                     <div id="q7">
-                        <h3>Вопрос №7</h3>
+                        <h4>Питання №7</h4>
+                        <p>Багаторядковий коментар починається з...</p>
                         <label>
-                            <input type="radio" value="0" name="var7" class="var">Вариант №1
+                            <input type="radio" value="0" name="var7" class="var">--
                         </label>
                         <label>
-                            <input type="radio" value="0" name="var7" class="var">Вариант №2
+                            <input type="radio" value="0" name="var7" class="var">//
                         </label>
                         <label>
-                            <input type="radio" value="1" name="var7" class="var">Вариант №3
+                            <input type="radio" value="1" name="var7" class="var">/*
                         </label>
                     </div>
                     <div id="q8">
-                        <h3>Вопрос №8</h3>
+                        <h4>Питання №8</h4>
+                        <p>У мові Java найчастіше вживають типи даних...</p>
                         <label>
-                            <input type="radio" value="0" name="var8" class="var">Вариант №1
+                            <input type="radio" value="0" name="var8" class="var">int & str
                         </label>
                         <label>
-                            <input type="radio" value="0" name="var8" class="var">Вариант №2
+                            <input type="radio" value="1" name="var8" class="var">int & String
                         </label>
                         <label>
-                            <input type="radio" value="1" name="var8" class="var">Вариант №3
+                            <input type="radio" value="0" name="var8" class="var">integer & String
                         </label>
                     </div>
                     <div id="q9">
-                        <h3>Вопрос №9</h3>
+                        <h4>Питання №9</h4>
+                        <p>Java-компілятор після компіляції видає...</p>
                         <label>
-                            <input type="radio" value="0" name="var9" class="var">Вариант №1
+                            <input type="radio" value="0" name="var9" class="var">програму з машинних кодів
                         </label>
                         <label>
-                            <input type="radio" value="0" name="var9" class="var">Вариант №2
+                            <input type="radio" value="1" name="var9" class="var">програму з байт-кодів
                         </label>
                         <label>
-                            <input type="radio" value="1" name="var9" class="var">Вариант №3
+                            <input type="radio" value="0" name="var9" class="var">архів з файлами
                         </label>
                     </div>
                     <div id="q10">
-                        <h3>Вопрос №10</h3>
+                        <h4>Питання №10</h4>
+                        <p>JVM - це?</p>
                         <label>
-                            <input type="radio" value="0" name="var10" class="var">Вариант №1
+                            <input type="radio" value="0" name="var10" class="var">Java Visual Module
                         </label>
                         <label>
-                            <input type="radio" value="0" name="var10" class="var">Вариант №2
+                            <input type="radio" value="0" name="var10" class="var">Java Virtual Module
                         </label>
                         <label>
-                            <input type="radio" value="1" name="var10" class="var">Вариант №3
+                            <input type="radio" value="1" name="var10" class="var">Java Virtual Machine
                         </label>
                     </div>
                     <br>
@@ -340,55 +351,55 @@
             <div class="top"></div>
             <div class="lessons">
             <div class="panel activeP">
-                <a href="/courseplatform/src/main/resources/static/first/index.html" class="nL">Урок №1 "Команди й перша програма"</a>
+                <a href="/courseplatform/src/main/resources/static/0/index.html" class="nL">Урок №1 "Команди й перша програма"</a>
             </div>
             <div class="panel">
-                <a href="/courseplatform/src/main/resources/static/second/index.html" class="nL disable" >Урок №2 "Тема уроку"</a>
+                <a href="/courseplatform/src/main/resources/static/1/index.html" class="nL disable" >Урок №2 "Тема уроку"</a>
             </div>
             <div class="panel">
-                <a href="/courseplatform/src/main/resources/static/third/index.html" class="nL disable" >Урок №3 "Тема уроку"</a>
+                <a href="/courseplatform/src/main/resources/static/2/index.html" class="nL disable" >Урок №3 "Тема уроку"</a>
             </div>
             <div class="panel">
-                <a href="/courseplatform/src/main/resources/static/forth/index.html" class="nL disable" >Урок №4 "Тема уроку"</a>
+                <a href="/courseplatform/src/main/resources/static/3/index.html" class="nL disable" >Урок №4 "Тема уроку"</a>
             </div>
             <div class="panel">
-                <a href="/courseplatform/src/main/resources/static/fifth/index.html" class="nL disable" >Урок №5 "Тема уроку"</a>
+                <a href="/courseplatform/src/main/resources/static/4/index.html" class="nL disable" >Урок №5 "Тема уроку"</a>
             </div>
             <div class="panel">
-                <a href="/courseplatform/src/main/resources/static/six/index.html" class="nL disable" >Урок №6 "Тема уроку"</a>
+                <a href="/courseplatform/src/main/resources/static/5/index.html" class="nL disable" >Урок №6 "Тема уроку"</a>
             </div>
             <div class="panel">
-                <a href="/courseplatform/src/main/resources/static/seven/index.html" class="nL disable" >Урок №7 "Тема уроку"</a>
+                <a href="/courseplatform/src/main/resources/static/6/index.html" class="nL disable" >Урок №7 "Тема уроку"</a>
             </div>
             <div class="panel">
-                <a href="/courseplatform/src/main/resources/static/eight/index.html" class="nL disable" >Урок №8 "Тема уроку"</a>
+                <a href="/courseplatform/src/main/resources/static/7/index.html" class="nL disable" >Урок №8 "Тема уроку"</a>
             </div>
             <div class="panel">
-                <a href="/courseplatform/src/main/resources/static/nine/index.html" class="nL disable" >Урок №9 "Тема уроку"</a>
+                <a href="/courseplatform/src/main/resources/static/8/index.html" class="nL disable" >Урок №9 "Тема уроку"</a>
             </div>
             <div class="panel">
-                <a href="/courseplatform/src/main/resources/static/ten/index.html" class="nL disable" >Урок №10 "Тема уроку"</a>
+                <a href="/courseplatform/src/main/resources/static/9/index.html" class="nL disable" >Урок №10 "Тема уроку"</a>
             </div>
             <div class="panel">
-                <a href="/courseplatform/src/main/resources/static/eleven/index.html" class="nL disable" >Урок №11 "Тема уроку"</a>
+                <a href="/courseplatform/src/main/resources/static/10/index.html" class="nL disable" >Урок №11 "Тема уроку"</a>
             </div>
             <div class="panel">
-                <a href="/courseplatform/src/main/resources/static/twelve/index.html" class="nL disable" >Урок №12 "Тема уроку"</a>
+                <a href="/courseplatform/src/main/resources/static/11/index.html" class="nL disable" >Урок №12 "Тема уроку"</a>
             </div>
             <div class="panel">
-                <a href="/courseplatform/src/main/resources/static/thirteen/index.html" class="nL disable" >Урок №13 "Тема уроку"</a>
+                <a href="/courseplatform/src/main/resources/static/12/index.html" class="nL disable" >Урок №13 "Тема уроку"</a>
             </div>
             <div class="panel">
-                <a href="/courseplatform/src/main/resources/static/fourteen/index.html" class="nL disable" >Урок №14 "Тема уроку"</a>
+                <a href="/courseplatform/src/main/resources/static/13/index.html" class="nL disable" >Урок №14 "Тема уроку"</a>
             </div>
             <div class="panel">
-                <a href="/courseplatform/src/main/resources/static/fifteen/index.html" class="nL disable" >Урок №15 "Тема уроку"</a>
+                <a href="/courseplatform/src/main/resources/static/14/index.html" class="nL disable" >Урок №15 "Тема уроку"</a>
             </div>
             </div>
             <div class="botom"></div>
             <div class="info">
                 <div>
-                    <img src="/img/inf.png" alt="" height="20px" width="20px">
+                    <img src="img/inf.png" alt="" height="20px" width="20px">
                 </div>
                 <a href="https://docs.oracle.com/en/java/"> Документація Java</a>
             </div>
