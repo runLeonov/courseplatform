@@ -1,5 +1,6 @@
 const grade = document.querySelector('.grade')
 const nextLesson = document.querySelector('#next')
+const nextPanel = document.querySelectorAll('.nL')
 
 
 calc.onclick = function() {
@@ -12,7 +13,8 @@ calc.onclick = function() {
     grade.innerHTML = val
     if (val == 7 || val > 7) {
         nextLesson.classList.add('checked')
-        nextLesson.href = '/courseplatform/src/main/resources/static/1.html'
+        nextLesson.href = '/courseplatform/src/main/resources/static/second/2.html'
+        nextPanel[1].href = '/courseplatform/src/main/resources/static/second/2.html'
     }
 }
 
@@ -62,3 +64,31 @@ res.onclick = () => {
       }, false);
     }
 })()
+
+const solution = document.querySelectorAll('.solution')
+const sol1 = solution[0]
+const sol2 = solution[1]
+const p1 = document.querySelector('.p1')
+const p2 = document.querySelector('.p2')
+
+solution[0].onclick = function() {
+  p1.classList.add('activepr')
+  p1.classList.remove('hidepr')
+}
+solution[1].onclick = function() {
+  p2.classList.add('activepr')
+  p2.classList.remove('hidepr')
+}
+
+const collapse = document.querySelectorAll('.collapse')
+const col1 = collapse[0]
+const col2 = collapse[1]
+
+collapse[0].onclick = function() {
+  p1.classList.remove('activepr')
+  p1.classList.add('hidepr')
+}
+collapse[1].onclick = function() {
+  p2.classList.remove('activepr')
+  p2.classList.add('hidepr')
+}
