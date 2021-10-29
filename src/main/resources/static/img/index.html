@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java Course</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>Онлайн-курc: JavaCourse</h1>
+            <img src="https://dev.java/assets/images/java-logo-vert-blk.png" alt="LOGOTYPE" width="70px" height="60px">
+        </div>
+        <div class="logo_list">
+            <div><p>15 уроків</p></div>
+            <div><p>Швидке начання</p></div>
+            <div><p>Онлайн практика</p></div>
+            <div><p>Тестові завдання</p></div>
+        </div>
+    </header>
+
+    <div class="main_content">
+        <div class="content">
+            <section class="name">
+                <img src="" alt="" width="300px" height="170px">
+                <div>
+                    <h2>Команди й перша програма</h2>
+                    <a href="#practice">Перейти к практике</a>
+                </div>
+            </section>
+            <div class="op">
+                <p>Представляємо вам уроки програмування мовою Java для починаючих. <br> Великий відео курс по вивченню мови Java.</p>
+            </div>
+            <h2>Відеоурок</h2>
+            <section class="video">
+                <iframe src="https://www.youtube.com/embed/C5q0ULg0nmY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </section>
+            <section class="text">
+                <div class="block_1">
+                    <h3>Команди</h3> <br>
+                    <p>Програма — це набір (список) команд. Спочатку виконується перша команда, потім друга, третя й так далі. Після виконання всіх команд програма завершується.</p><br>
+                    <p>Програми, написані мовою Java, виконує спеціальна програма JVM (Java Virtual Machine — віртуальна машина Java), яка вміє їх виконувати.</p><br>
+                    <p>Але ми почнемо не з команд, а з декількох простих принципів.</p><br>
+                    <p><strong>Принцип перший: </strong>у мові програмування Java кожна команда має починатися з нового рядка і закінчуватися крапкою з комою.</p><br>
+                    <p>Приміром, ми хочемо двічі вивести на екран напис Я люблю JAVA!. Ось як виглядатиме код цієї програми:</p><br>
+                    <pre><code>
+                        System.out.println("Я люблю JAVA!");
+                        System.out.println("Я люблю JAVA!");
+                    </code></pre><br>
+                    <p><strong>Принцип другий: </strong>програма не може містити просто список команд. У мові Java команди мають міститися у функціях, а функції — у класах.</p> <br>
+                    <p>Java-програми складаються з класів, класи містять методи, а методи — команди.</p><br> <br>
+                    <h3>Структура типової програми</h3> <br>
+                    <p>Програми мовою Java складаються з класів. Класів може бути десятки тисяч. Мінімальна програма — це один клас. Для кожного класу створюється окремий файл, ім'я якого збігається з ім'ям класу.</p> <br>
+                    <p>Наприклад ви вирішили створити клас, який описує будинок. Тоді вам потрібно створити клас House, який зберігатиметься у файлі House.java.</p> <br>
+                    <p>Ці файли містять текст — код мовою програмування Java. Зазвичай код класу складається з імені класу й тіла класу. Тіло класу беруть у фігурні дужки. Наприклад:</p> <br>
+                    <pre><code>
+                        public class java_course {
+                            //Тут знаходиться тіло класу
+                        }  
+                    </code></pre> <br>
+                    <p>Тіло класу може містити змінні (інакше — дані класу) і методи (функції класу).</p> <br>
+                    <pre><code>
+                        public class java_course {
+                            int a; //змінна
+                            void funk() {} //метод
+                        }                        
+                    </code></pre> <br>
+                    <p>У наведеному вище прикладі a — це змінна, а funk — метод.</p> <br> <br>
+                    <h3>Метод main()</h3> <br>
+                    <p>Класи можуть містити змінні й методи, але це не обов'язково. Трапляються класи без змінних чи без методів. </p> <br>
+                    <p>До складу мінімальної програми має входити принаймні один клас, що має містити принаймні один метод (функцію), з якого починається виконання програми. Такий метод повинен мати ім'я main.
+                        Мінімальна програма має такий вигляд:
+                    </p> <br>
+                    <pre><code>
+                        public class java_course {
+                            public static void main(String[] args) {}
+                        }                        
+                    </code></pre> <br>
+                    <p>Зауважте, що в наведеному вище прикладі метод main не містить команд. Саме так: у мінімальній програмі немає жодної команди. На те вона й мінімальна.</p> <br>
+                    <p>Клас, з якого починається програма, може мати будь-яке ім'я, однак вигляд методу main, з якого розпочинається виконання програми, завжди буде однаковим:</p> <br>
+                    <pre><code>
+                        public class java_course {
+                            public static void main(String[] args) {
+                                // Код методу
+                            }
+                        }
+                    </code></pre> <br> <br>
+                    <h3>Виведення на екран</h3> <br>
+                    <h4>Параметри методу println()</h4> <br>
+                    <p>Тіло методу складається з команд. Можна навіть сказати, що метод — це група команд, якій присвоєно ім'я (ім'я методу). І так, і так буде правильно.</p> <br>
+                    <p>Команди можуть бути різними. У мові Java є команди на всяку потребу. Кожна команда описує певну дію. Кожна команда має закінчуватися крапкою з комою.</p> <br>
+                    <pre><code>
+                        public static void main(String[] args) {
+                            // Виводить на екран число 336
+                            System.out.println(336); 
+                            // Виводить на екран напис: Java course
+                            System.out.println("Java course"); 
+                        }
+                    </code></pre> <br>
+                    <p>Насправді це одна команда — System.out.println. А в круглих дужках вказано параметри, які їй передаються. Одна команда може виконувати різні дії залежно від значень параметрів. Це дуже зручно.</p> <br>
+                    <p><strong>Важливо!</strong> <br> У мові Java має значення, якими літерами написано команди — великими чи малими. Команда System.out.println() буде виконуватись, а команда system.out.println() — ні.</p> <br>
+                    <p>Якщо ви хочете вивести на екран текст, його потрібно з обох сторін позначити подвійними лапками.</p> <br>
+                    <p>Одинарна лапка (апостроф) має такий вигляд: ', а подвійна лапка — такий: ". Не слід плутати подвійні лапки з парою одинарних — це зовсім різні знаки.</p> <br>
+                    <h4>Різниця між командами println() і print()</h4> <br>
+                    <p>Команда виведення на екран має два варіанти: System.out.println() і System.out.print()</p> <br>
+                    <p>Якщо написати команду System.out.println() декілька разів, то переданий в неї текст буде щоразу виводитися з нового рядка. А якщо написати команду System.out.print(), текст виводитиметься в тому самому рядку.</p> <br>
+                    <pre><code>
+                        System.out.println("Java");
+                        System.out.println("course");
+                    </code></pre> <br>
+                    <p>Результат:</p> <br>
+                    <p>Java <br>course</p> <br>
+                    <pre><code>
+                        System.out.print("Java");
+                        System.out.print("course");
+                    </code></pre> <br>
+                    <p>Результат:</p> <br>
+                    <p>Java course</p> <br> <br>
+                    <h3>Змінні</h3> <br>
+                    <h4>Визначення</h4> <br>
+                    <p>Змінні — це такі штуковини, де зберігаються дані. Будь-які дані. У Java всі дані зберігаються у змінних. За своїм призначенням змінна дуже схожа на коробку.</p> <br>
+                    <p>Кожна змінна в Java має три важливі властивості: тип, ім'я та значення</p> <br>
+                    <p>Ім'я потрібно для того, щоб відрізнити одну змінну від іншої. Так само, як і напис на коробці.</p> <br>
+                    <p>Тип змінної вказує на тип значень чи даних, які можна в ній зберігати. У коробці для цукерок ми зберігаємо цукерки, в коробці для взуття — черевики і т. ін.</p> <br>
+                    <p>Значення — це певний об'єкт, дані чи інформація, що зберігаються у змінній.</p> <br>
+                    <p>У мові Java кожен об'єкт має свій тип. Наприклад, є такі типи даних: ціле число, дробове число, текст тощо.</p> <br>
+                    <p>Кожна змінна (коробка) також має свій тип. У змінній можна зберігати тільки такі значення, тип яких відповідає типу змінної. Різні коробки використовують для зберігання різних речей: коробка для цукерок, коробка для яєць тощо. Усе як в житті.</p> <br>
+                    <h4>Створення змінної</h4> <br>
+                    <p>У мові Java для створення змінної використовується така команда: тип ім'я; де тип — це тип змінної (збігається з типом значень, які можуть зберігатися у змінній), а ім'я — це ім'я змінної. </p> <br>
+                    <pre><code>
+                        int a; // Створюємо змінну з іменем a типу int.
+                        String s; // Створюємо змінну з іменем s типу String.
+                    </code></pre> <br>
+                    <p>Найчастіше використовують два типи — int (цілі числа) і String (текст). Крім того, часто використовують тип double — це дробові (дійсні) числа.</p> <br>
+                    <h4>Присвоювання</h4> <br>
+                    <p>Для запису значень у змінну є спеціальна операція — операція присвоювання. Вона копіює значення з однієї змінної в іншу. Не переносить, а саме копіює. Так само, як копіюють файл з диску на диск. Присвоювання має такий вигляд: ім'я = значення; де ім'я — це ім'я змінної, а значення — це значення, яке записується в змінну. Змінній можна присвоїти конкретне значення, ім'я іншої змінної або навіть вираз, в якому використовуються змінні.</p> <br>
+                    <pre><code>
+                        int a;// Створюємо змінну а типу int
+                        a = 1;// Записуємо їй значення 1
+                        int b; // Створюємо змінну b типу int 
+                        b = 2; // Записуємо їй значення 2
+                    </code></pre> <br>
+                    <p><strong>Важливо!</strong>В одному методі не можна створити дві змінні з однаковими іменами. А в різних методах — можна.</p> <br>
+                    <p>Є й інші обмеження щодо імен змінних. Хоча змінним можна надавати будь-які імена, однак в цих іменах не можна використовувати пробіли, символи +, - тощо. Найкраще використовувати в іменах змінних лише латинські літери й цифри.</p> <br>
+                    <p>Зауважте, що в мові Java розрізнюються великі й малі літери. тому int a — це не те саме, що Int a</p> <br> <br>
+                    <h3>Компілятор і байт-код</h3> <br>
+                    <p>Для комп'ютера в ролі команд виступають числа: кожна команда закодована певним числом (його ще називають машинним кодом).</p> <br>
+                    <p>Писати програму у вигляді чисел дуже складно, тому люди вигадали мови програмування та компілятори. Така мова, з одного боку, зрозуміла людині, з іншого — компілятору. Компілятор — це спеціальна програма, яка перетворює текст програми, написаний мовою програмування, на набір машинних кодів.</p> <br>
+                    <p>Зазвичай програміст пише програму мовою програмування, а потім запускає компілятор, який на основі написаних програмістом файлів із кодом програми робить один файл із машинним кодом — кінцеву (скомпільовану) програму.</p> <br>
+                    <img src="" alt="">
+                </div>
+            </section>
+            <section class="practice" id="practice"></section>
+            <section class="test">
+                <form action="#" onsubmit="return false;">
+                    <div id="q1">
+                        <h3>Вопрос №1</h3>
+                        <label>
+                            <input type="radio" value="0" name="var1" class="var">Вариант №1
+                        </label>
+                        <label>
+                            <input type="radio" value="0" name="var1" class="var">Вариант №2
+                        </label>
+                        <label>
+                            <input type="radio" value="1" name="var1" class="var">Вариант №3
+                        </label>
+                    </div>
+                    <div id="q2">
+                        <h3>Вопрос №2</h3>
+                        <label>
+                            <input type="radio" value="0" name="var2" class="var">Вариант №1
+                        </label>
+                        <label>
+                            <input type="radio" value="0" name="var2" class="var">Вариант №2
+                        </label>
+                        <label>
+                            <input type="radio" value="1" name="var2" class="var">Вариант №3
+                        </label>
+                    </div>
+                    <div id="q3">
+                        <h3>Вопрос №3</h3>
+                        <label>
+                            <input type="radio" value="0" name="var3" class="var">Вариант №1
+                        </label>
+                        <label>
+                            <input type="radio" value="0" name="var3" class="var">Вариант №2
+                        </label>
+                        <label>
+                            <input type="radio" value="1" name="var3" class="var">Вариант №3
+                        </label>
+                    </div>
+                    <div id="q4">
+                        <h3>Вопрос №4</h3>
+                        <label>
+                            <input type="radio" value="0" name="var4" class="var">Вариант №1
+                        </label>
+                        <label>
+                            <input type="radio" value="0" name="var4" class="var">Вариант №2
+                        </label>
+                        <label>
+                            <input type="radio" value="1" name="var4" class="var">Вариант №3
+                        </label>
+                    </div>
+                    <div id="q5">
+                        <h3>Вопрос №5</h3>
+                        <label>
+                            <input type="radio" value="0" name="var5" class="var">Вариант №1
+                        </label>
+                        <label>
+                            <input type="radio" value="0" name="var5" class="var">Вариант №2
+                        </label>
+                        <label>
+                            <input type="radio" value="1" name="var5" class="var">Вариант №3
+                        </label>
+                    </div>
+                    <div id="q6">
+                        <h3>Вопрос №6</h3>
+                        <label>
+                            <input type="radio" value="0" name="var6" class="var">Вариант №1
+                        </label>
+                        <label>
+                            <input type="radio" value="0" name="var6" class="var">Вариант №2
+                        </label>
+                        <label>
+                            <input type="radio" value="1" name="var6" class="var">Вариант №3
+                        </label>
+                    </div>
+                    <div id="q7">
+                        <h3>Вопрос №7</h3>
+                        <label>
+                            <input type="radio" value="0" name="var7" class="var">Вариант №1
+                        </label>
+                        <label>
+                            <input type="radio" value="0" name="var7" class="var">Вариант №2
+                        </label>
+                        <label>
+                            <input type="radio" value="1" name="var7" class="var">Вариант №3
+                        </label>
+                    </div>
+                    <div id="q8">
+                        <h3>Вопрос №8</h3>
+                        <label>
+                            <input type="radio" value="0" name="var8" class="var">Вариант №1
+                        </label>
+                        <label>
+                            <input type="radio" value="0" name="var8" class="var">Вариант №2
+                        </label>
+                        <label>
+                            <input type="radio" value="1" name="var8" class="var">Вариант №3
+                        </label>
+                    </div>
+                    <div id="q9">
+                        <h3>Вопрос №9</h3>
+                        <label>
+                            <input type="radio" value="0" name="var9" class="var">Вариант №1
+                        </label>
+                        <label>
+                            <input type="radio" value="0" name="var9" class="var">Вариант №2
+                        </label>
+                        <label>
+                            <input type="radio" value="1" name="var9" class="var">Вариант №3
+                        </label>
+                    </div>
+                    <div id="q10">
+                        <h3>Вопрос №10</h3>
+                        <label>
+                            <input type="radio" value="0" name="var10" class="var">Вариант №1
+                        </label>
+                        <label>
+                            <input type="radio" value="0" name="var10" class="var">Вариант №2
+                        </label>
+                        <label>
+                            <input type="radio" value="1" name="var10" class="var">Вариант №3
+                        </label>
+                    </div>
+                    <br>
+                    <input type="submit" value="Проверить" id="calc" class="btn">
+                    <input type="reset" value="Сбросить" id="res" class="btn"><br>
+                    <div  class="ans"><p class="q">Правильних відповідей: <p class="grade">0</p></p></div>
+                </form>
+            </section>
+            <section class="btn_sec">
+                <a href="" class="btn_go btn" id="next">Наступний урок</a>
+            </section>
+            <footer>
+                <p>© All right reserved</p>
+                <p>Kyiv 2021</p>
+            </footer>
+        </div>
+        <aside class="right_panel">
+            <div class="top"></div>
+            <div class="lessons">
+            <div class="panel activeP">
+                <a href="/courseplatform/src/main/resources/static/1.html">Урок №1 "Команди й перша програма"</a>
+            </div>
+            <div class="panel">
+                <a href="/courseplatform/src/main/resources/static/2.html">Урок №2 "Тема уроку"</a>
+            </div>
+            <div class="panel">
+                <a href="/courseplatform/src/main/resources/static/3.html">Урок №3 "Тема уроку"</a>
+            </div>
+            <div class="panel">
+                <a href="/courseplatform/src/main/resources/static/4.html">Урок №4 "Тема уроку"</a>
+            </div>
+            <div class="panel">
+                <a href="/courseplatform/src/main/resources/static/5.html">Урок №5 "Тема уроку"</a>
+            </div>
+            <div class="panel">
+                <a href="/courseplatform/src/main/resources/static/6.html">Урок №6 "Тема уроку"</a>
+            </div>
+            <div class="panel">
+                <a href="/courseplatform/src/main/resources/static/7.html">Урок №7 "Тема уроку"</a>
+            </div>
+            <div class="panel">
+                <a href="/courseplatform/src/main/resources/static/8.html">Урок №8 "Тема уроку"</a>
+            </div>
+            <div class="panel">
+                <a href="/courseplatform/src/main/resources/static/9.html">Урок №9 "Тема уроку"</a>
+            </div>
+            <div class="panel">
+                <a href="/courseplatform/src/main/resources/static/10.html">Урок №10 "Тема уроку"</a>
+            </div>
+            <div class="panel">
+                <a href="/courseplatform/src/main/resources/static/11.html">Урок №11 "Тема уроку"</a>
+            </div>
+            <div class="panel">
+                <a href="/courseplatform/src/main/resources/static/12.html">Урок №12 "Тема уроку"</a>
+            </div>
+            <div class="panel">
+                <a href="/courseplatform/src/main/resources/static/13.html">Урок №13 "Тема уроку"</a>
+            </div>
+            <div class="panel">
+                <a href="/courseplatform/src/main/resources/static/14.html">Урок №14 "Тема уроку"</a>
+            </div>
+            <div class="panel">
+                <a href="/courseplatform/src/main/resources/static/15.html">Урок №15 "Тема уроку"</a>
+            </div>
+            </div>
+            <div class="botom"></div>
+            <div class="info">
+                <div>
+                    <img src="inf.png" alt="" height="20px" width="20px">
+                </div>
+                <a href="https://docs.oracle.com/en/java/"> Документація Java</a>
+            </div>
+        </aside>
+        
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

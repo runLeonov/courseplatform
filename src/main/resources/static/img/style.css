@@ -5,9 +5,13 @@ aside, p, a, footer {
     text-decoration: none;
 }
 
-.video, .text, .practice, .test {
+.video, .practice, .test {
     border: gray 1px solid;
     height: 100px;
+}
+
+pre, code {
+    margin: 0;
 }
 
 html {
@@ -289,4 +293,8 @@ footer {
     display: flex;
     justify-content: space-between;
     width: 30%;
+}
+
+.text {
+    height: auto;
 }
