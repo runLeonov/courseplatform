@@ -1,6 +1,7 @@
 const grade = document.querySelector('.grade')
 const nextLesson = document.querySelector('#next')
 const nextPanel = document.querySelectorAll('.nL')
+const numOfDoc = 1;
 
 
 calc.onclick = function() {
@@ -13,8 +14,8 @@ calc.onclick = function() {
     grade.innerHTML = val
     if (val == 7 || val > 7) {
         nextLesson.classList.add('checked')
-        nextLesson.href = '/courseplatform/src/main/resources/static/second/2.html'
-        nextPanel[1].href = '/courseplatform/src/main/resources/static/second/2.html'
+        nextLesson.href = '/courseplatform/src/main/resources/static/'+numOfDoc+'/index.html'
+        nextPanel[numOfDoc+1].classList.remove('disable')
     }
 }
 

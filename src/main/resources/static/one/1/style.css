@@ -272,7 +272,7 @@ h3 {
 .info {
     display: flex;
     justify-content: space-between;
-    width: 47%;
+    width: 55%;
     margin-top: 20px;
 }
 .info > a {
@@ -335,4 +335,8 @@ pre {
 .collapse:hover {
     cursor: pointer;
     color: white;
+}
+
+.disable {
+    pointer-events: none;
 }
