@@ -420,7 +420,6 @@
                     </label>
                 </div>
                 <br>
-                <input id="totalGrad" type="hidden" value="0">
                 <input type="submit" value="Проверить" id="calc" class="btn">
                 <input type="reset" value="Сбросить" id="res" class="btn"><br>
                 <div class="ans"><p class="q">Правильних відповідей:
@@ -428,7 +427,11 @@
             </form>
         </section>
         <section class="btn_sec">
-            <a href="" class="btn_go btn" id="next">Наступний урок</a>
+            <form action="/validateasd">
+                <input id="totalGrad" name="testsSummary" type="hidden" value="0">
+                <input type="submit" value="Наступний урок"/>
+            </form>
+            <a href="/validateasd" class="btn_go btn" id="next">Наступний урок</a>
         </section>
         <footer>
             <p>© All right reserved</p>
