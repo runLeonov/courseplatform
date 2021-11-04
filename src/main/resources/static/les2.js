@@ -1,3 +1,4 @@
+
 const grade = document.querySelector('.grade')
 const nextLesson = document.querySelector('#next')
 const nextPanel = document.querySelectorAll('.nL')
@@ -12,6 +13,7 @@ calc.onclick = function() {
     +myform.var6.value + +myform.var7.value + +myform.var8.value + 
     +myform.var9.value + +myform.var10.value
     grade.innerHTML = val
+    $("#totalGrad").val(val);
     if (val == 7 || val > 7) {
         nextLesson.classList.add('checked')
         nextLesson.href = '/courseplatform/src/main/resources/templates/les'+(numOfDoc+2)
