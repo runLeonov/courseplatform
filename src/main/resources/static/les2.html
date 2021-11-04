@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" id="2">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Java Course</title>
+    <script src="jquery.js"></script>
     <link rel="stylesheet" href="/src/main/resources/static/style.css">
 </head>
 <body>
@@ -187,160 +188,201 @@
             <section class="practice" id="practice">
                 <h2>Практичні завдання</h2>
                 <h4>Завдання №1</h4>
-                <p></p> <br>
+                <p>У змінну hugeAmount потрібно записати число 100500.
+                <br>Використовуй змінні bigAmount, greatAmount і перетворення рядка на число.
+                <br>Для оголошення та ініціалізації змінної hugeAmount використовуй одну команду.</p> <br>
+                <pre><code>public class Solution {
+
+                    public static void main(String[] args) {
+                        String bigAmount = "500";
+                        String greatAmount = "100000";
+                        //напишіть тут ваш код
+                    }
+                }</code></pre> <br>
                 <p>Натисність на кнопку нижче, щоб відкрити рішення.</p> <br>
                 <p class="solution">Показати рішення</p>
                 <div class="p1 hidepr">
-                    <pre><code>
+                    <pre><code>public class Solution {
+
+                        public static void main(String[] args) {
+                            String bigAmount = "500";
+                            String greatAmount = "100000";
+                    
+                            int hugeAmount = Integer.parseInt(bigAmount) + Integer.parseInt(greatAmount); 
+                    
+                            System.out.println(hugeAmount);
+                        }
+                    }
                     </code></pre> <br>
                     <p class="collapse">Згорнути</p> <br>
                 </div>
                 <h4>Завдання №2</h4>
-                <p></p> <br>
+                <p>У змінній number записане число.
+                <br>У змінну lastDigit потрібно записати останню цифру цього числа.
+                <br>Для обчислення використовуй змінну number і оператор «остача від ділення».
+                <br>Для оголошення та ініціалізації змінної lastDigit використовуй одну команду.</p> <br>
+                <pre><code>public class Solution {
+
+                    public static void main(String[] args) {
+                        int number = 546;
+                        //напишіть тут ваш код
+                    }
+                }</code></pre> <br>
                 <p>Натисність на кнопку нижче, щоб відкрити рішення.</p> <br>
                 <p class="solution">Показати рішення</p>
                 <div class="p2 hidepr">
-                    <pre><code>
+                    <pre><code>public class Solution {
+
+                        public static void main(String[] args) {
+                            int number = 546;
+                    
+                            int lastDigit  = number % 10;
+                    
+                            System.out.println(lastDigit);
+                        }
+                    }
                     </code></pre> <br>
                     <p class="collapse">Згорнути</p> <br>
                 </div>
             </section>
             <section class="test">
                 <form action="#" onsubmit="return false;">
+                    <!--                <form action="/validate">-->
+                    <!--                    <form>-->
                     <h2>Тестові завдання</h2>
                     <div id="q1">
                         <h4>Питання №1</h4>
-                        <p>У мові програмування Java виконання програми починається з методу:</p>
+                        <p>У змінних типу int у мові Java можна зберігати:</p>
                         <label>
-                            <input type="radio" value="0" name="var1" class="var">begin()
+                            <input type="radio" value="0" name="var1" class="var">рядки
                         </label>
                         <label>
-                            <input type="radio" value="0" name="var1" class="var">start()
+                            <input type="radio" value="0" name="var1" class="var">дробові числа
                         </label>
                         <label>
-                            <input type="radio" value="1" name="var1" class="var">main()
+                            <input type="radio" value="1" name="var1" class="var">цілі числа
                         </label>
                     </div>
                     <div id="q2">
                         <h4>Питання №2</h4>
-                        <p>За допомогою якої функції можна вивести текст на екран?</p>
+                        <p>Максимальне значення, яке можна зберігати у змінній типу int:</p>
                         <label>
-                            <input type="radio" value="1" name="var2" class="var">print()
+                            <input type="radio" value="0" name="var2" class="var">256
                         </label>
                         <label>
-                            <input type="radio" value="0" name="var2" class="var">echo()
+                            <input type="radio" value="0" name="var2" class="var">65,535
                         </label>
                         <label>
-                            <input type="radio" value="0" name="var2" class="var">wtite()
+                            <input type="radio" value="1" name="var2" class="var">2,147,483,647
                         </label>
                     </div>
                     <div id="q3">
                         <h4>Питання №3</h4>
-                        <p>За допомогою якої функції можна вивести текст на екран з різних рядків?</p>
+                        <p>Змінна типу int займає в пам'яті N байтЄ</p>
                         <label>
-                            <input type="radio" value="0" name="var3" class="var">print()
+                            <input type="radio" value="0" name="var3" class="var">1 байт
                         </label>
                         <label>
-                            <input type="radio" value="1" name="var3" class="var">println()
+                            <input type="radio" value="0" name="var3" class="var">2 байти
                         </label>
                         <label>
-                            <input type="radio" value="0" name="var3" class="var">printLines()
+                            <input type="radio" value="1" name="var3" class="var">4 байти
                         </label>
                     </div>
                     <div id="q4">
                         <h4>Питання №4</h4>
-                        <p>У мові Java кожна зміна має:</p>
+                        <p>Чому дорівнює значення виразу 5/2?</p>
                         <label>
-                            <input type="radio" value="0" name="var4" class="var">ім'я
+                            <input type="radio" value="0" name="var4" class="var">1
                         </label>
                         <label>
-                            <input type="radio" value="0" name="var4" class="var">ім'я і тип
+                            <input type="radio" value="1" name="var4" class="var">2
                         </label>
                         <label>
-                            <input type="radio" value="1" name="var4" class="var">ім'я, тип і значення
+                            <input type="radio" value="0" name="var4" class="var">2.5
                         </label>
                     </div>
                     <div id="q5">
                         <h4>Питання №5</h4>
-                        <p>Оголосити змінну name можна за допомогою: </p>
+                        <p>Чому дорівнює значення виразу 5%2?</p>
                         <label>
-                            <input type="radio" value="0" name="var5" class="var">var name
+                            <input type="radio" value="1" name="var5" class="var">1
                         </label>
                         <label>
-                            <input type="radio" value="1" name="var5" class="var">String name
+                            <input type="radio" value="0" name="var5" class="var">2
                         </label>
                         <label>
-                            <input type="radio" value="0" name="var5" class="var">name: string
+                            <input type="radio" value="0" name="var5" class="var">2.5
                         </label>
                     </div>
                     <div id="q6">
                         <h4>Питання №6</h4>
-                        <p>В яку змінну зберігають цілі числа?</p>
+                        <p>За допомогою якої команди можна пертворити рядок на число?</p>
                         <label>
-                            <input type="radio" value="1" name="var6" class="var">int
+                            <input type="radio" value="0" name="var6" class="var">int("123")
                         </label>
                         <label>
-                            <input type="radio" value="0" name="var6" class="var">integer
+                            <input type="radio" value="1" name="var6" class="var">Integer.parseInt("123")
                         </label>
                         <label>
-                            <input type="radio" value="0" name="var6" class="var">Number
+                            <input type="radio" value="0" name="var6" class="var">"123"*1
                         </label>
                     </div>
                     <div id="q7">
                         <h4>Питання №7</h4>
-                        <p>Багаторядковий коментар починається з...</p>
+                        <p>Як можна отримати довжину рядка "hello"?</p>
                         <label>
-                            <input type="radio" value="0" name="var7" class="var">--
+                            <input type="radio" value="1" name="var7" class="var">"hello".length()
                         </label>
                         <label>
-                            <input type="radio" value="0" name="var7" class="var">//
+                            <input type="radio" value="0" name="var7" class="var">"hello".size()
                         </label>
                         <label>
-                            <input type="radio" value="1" name="var7" class="var">/*
+                            <input type="radio" value="0" name="var7" class="var">size("hello")
                         </label>
                     </div>
                     <div id="q8">
                         <h4>Питання №8</h4>
-                        <p>У мові Java найчастіше вживають типи даних...</p>
+                        <p>У мові Java для зчитування даних з клавіатури використовують стандартний клас:</p>
                         <label>
-                            <input type="radio" value="0" name="var8" class="var">int & str
+                            <input type="radio" value="0" name="var8" class="var">Writer
                         </label>
                         <label>
-                            <input type="radio" value="1" name="var8" class="var">int & String
+                            <input type="radio" value="0" name="var8" class="var">Keyboard
                         </label>
                         <label>
-                            <input type="radio" value="0" name="var8" class="var">integer & String
+                            <input type="radio" value="1" name="var8" class="var">Scanner
                         </label>
                     </div>
                     <div id="q9">
                         <h4>Питання №9</h4>
-                        <p>Java-компілятор після компіляції видає...</p>
+                        <p>Для введення числа з клавіатури можна скористатися командою:</p>
                         <label>
-                            <input type="radio" value="0" name="var9" class="var">програму з машинних кодів
+                            <input type="radio" value="0" name="var9" class="var">scanner.read()
                         </label>
                         <label>
-                            <input type="radio" value="1" name="var9" class="var">програму з байт-кодів
+                            <input type="radio" value="0" name="var9" class="var">scanner.readInt()
                         </label>
                         <label>
-                            <input type="radio" value="0" name="var9" class="var">архів з файлами
+                            <input type="radio" value="1" name="var9" class="var">scanner.nextInt()
                         </label>
                     </div>
                     <div id="q10">
                         <h4>Питання №10</h4>
-                        <p>JVM - це?</p>
+                        <p>За допомогою якої команди можна ввести рядок із клавіатури та з об'єкта Scanner?</p>
                         <label>
-                            <input type="radio" value="0" name="var10" class="var">Java Visual Module
+                            <input type="radio" value="0" name="var10" class="var">scanner.read()
                         </label>
                         <label>
-                            <input type="radio" value="0" name="var10" class="var">Java Virtual Module
+                            <input type="radio" value="0" name="var10" class="var">scanner.readLn()
                         </label>
                         <label>
-                            <input type="radio" value="1" name="var10" class="var">Java Virtual Machine
+                            <input type="radio" value="1" name="var10" class="var">scanner.nextLine()
                         </label>
                     </div>
                     <br>
-                    <input type="submit" value="Проверить" id="calc" class="btn">
-                    <input type="reset" value="Сбросить" id="res" class="btn"><br>
+                    <input type="submit" value="Перевірити" id="calc" class="btn">
+                    <input type="reset" value="Скинути" id="res" class="btn"><br>
                     <div  class="ans"><p class="q">Правильних відповідей: <p class="grade">0</p></p></div>
                 </form>
             </section>
@@ -412,6 +454,6 @@
         
     </div>
 
-    <script src="/src/main/resources/static/les2.js"></script>
+    <script src="/src/main/resources/static/script.js"></script>
 </body>
 </html>
