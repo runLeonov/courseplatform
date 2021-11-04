@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java Course</title>
+    <link rel="stylesheet" href="/src/main/resources/static/style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>Онлайн-курc: JavaCourse</h1>
+            <img src="https://dev.java/assets/images/java-logo-vert-blk.png" alt="LOGOTYPE" width="70px" height="60px">
+        </div>
+        <div class="logo_list">
+            <div><p>15 уроків</p></div>
+            <div><p>Швидке начання</p></div>
+            <div><p>Онлайн практика</p></div>
+            <div><p>Тестові завдання</p></div>
+        </div>
+    </header>
+
+    <div class="main_content">
+        <div class="content">
+            <section class="name">
+                <img src="" alt="" width="300px" height="170px">
+                <div>
+                    <h2>Знайомство з типами й уведення з клавіатури</h2>
+                    <a href="#practice">Перейти к практике</a>
+                </div>
+            </section>
+            <div class="op">
+                <p>Представляємо вам уроки програмування мовою Java для починаючих. <br> Великий відео курс по вивченню мови Java.</p>
+            </div>
+            <h2>Відеоурок</h2>
+            <section class="video">
+                <iframe src="https://www.youtube.com/embed/C5q0ULg0nmY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </section>
+            <section class="text">
+                <h2>Текстовий матеріал</h2>
+                <h3>Тип int — цілі числа</h3> <br>
+                <h4>Тип int</h4> <br>
+                <p>Для того щоб зберігати в змінних цілі числа, слід використовувати тип int. int — це скорочення від англійського Integer (цілий), тому відразу видно, що цей тип призначений для зберігання цілих чисел.</p> <br>
+                <p>У змінних типу int можна зберігати цілі числа в діапазоні від -2 мільярди до +2 мільярди. А точніше, від -2 147 483 648 до 2 147 483 648.</p> <br>
+                <p>Цікавий факт</p> <br>
+                <p>Такі некруглі значення пов'язані з особливостями будови пам'яті комп'ютера. У Java змінні типу int займають 4 байти пам'яті. Кожен байт пам'яті містить 8 бітів. Кожен біт може приймати лише одне з двох значень: 0 або 1. Змінна типу int містить 32 біти і може приймати 4 294 967 296 значень. Одну половину цього діапазону виділено від'ємним числам, а другу — додатним. От якраз і вийшло від -2 147 483 648 до 2 147 483 648.</p> <br>
+                <h4>Створення змінної типу int</h4> <br>
+                <p>Тип int призначений для зберігання цілих чисел. Для того щоб створити в програмі змінну, здатну зберігати цілі числа, слід скористатися командою такого формату: int ім'я; де ім'я — це ім'я змінної.</p> <br>
+                <p>Наприклад:</p> <br>
+                <pre><code>int x;
+                    int result;
+                    int sum;
+                </code></pre> <br>
+                <p>Регістр літер має значення: команди int color і int Color оголошують дві різні змінні. А такі команди, як Int Color і INT COLOR, компілятор взагалі не розпізнає та повідомить про помилку. int — це спеціальне слово, яке визначає цілочисловий тип даних, і його слід писати тільки малими літерами.</p> <br>
+                <h4>Короткий формат команди створення змінни</h4> <br>
+                <p>Коли в якомусь місці програми потрібно створити багато змінних одного типу, варто скористатися скороченим форматом запису: int ім'я1, ім'я2, ім'я3;</p> <br>
+                <h4>Присвоювання значень</h4> <br>
+                <p>Для запису значення в змінну типу int використовується така команда: ім'я = значення;</p> <br>
+                <p>Наприклад:</p> <br>
+                <pre><code>even = 2;
+                    odd = 1;                    
+                </code></pre> <br>
+                <h4>Скорочений формат команди для створення та ініціалізації змінної</h4> <br>
+                <p>Операції створення (оголошення) змінної та присвоєння їй значення можна об'єднати в одну команду. Зазвичай використовують саме такий спосіб, оскільки змінну оголошують тоді, коли виникає потреба зберегти певне значення.</p> <br>
+                <p>Ця команда має такий вигляд: int ім'я = значення;</p> <br>
+                <p>Наприклад:</p> <br>
+                <pre><code>int even = 2;
+                    int odd = 1;
+                </code></pre> <br>
+                <p>Також можна оголосити кілька змінних в одному рядку. Тоді команда матиме такий вигляд: int ім'я1 = значення1, ім'я2 = значення2, ім'я3 = значення3;</p> <br>
+                <p>Наприклад:</p> <br>
+                <pre><code>int even = 2, odd = 1;</code></pre> <br>
+                <h3>Операції над змінними типу int</h3> <br>
+                <h4>Обчислення цілочислових виразів</h4>
+                <p>Праворуч від оператора присвоювання (знаку рівності) може бути будь-який вираз — комбінація чисел, змінних і знаків +, -, *, /.</p> <br>
+                <p>Крім того, можна використовувати дужки ( ). У мові Java, так само як і в математиці, спочатку обчислюються вирази всередині дужок, а потім — поза ними.</p> <br>
+                <p>Множення й ділення мають однаковий пріоритет, і він вищий за пріоритет додавання й віднімання.</p> <br>
+                <p>Наприклад:</p> <br>
+                <pre><code>int a = (2+2)/2;
+                    int b = 10/5;
+                </code></pre> <br>
+                <h4>Ділення цілих чисел</h4> <br>
+                <p>У Java в результаті ділення цілого числа на ціле число завжди отримуємо ціле число, а остача від ділення відкидається. Можна сказати, що результат ділення завжди округлюється до меншого цілого числа</p> <br>
+                <p>Наприклад:</p> <br>
+                <pre><code>int a = 8/3;
+                    int b = 10/3;
+                </code></pre> <br>
+                <p>Результатами обчислень буде: a = 2, b = 3.</p> <br>
+                <h4>Остача від ділення цілих чисел</h4> <br>
+                <p>Крім операторів множення й ділення, для цілих чисел у Java є ще й оператор «остача від ділення». Цей оператор має вигляд % — знак відсотка. Це саме остача від ділення цілого числа на ціле, а не дробова частина.</p> <br>
+                <p>Наприклад:</p> <br>
+                <pre><code>int a = 5%3;
+                    int b = 7%4;
+                </code></pre> <br>
+                <p>Результатами обчислень буде: a = 2, b = 3.</p> <br>
+                <p>Це дуже корисний оператор, який використовується досить часто. Наприклад, щоб дізнатися, чи є число парним, достатньо поділити його на 2 та порівняти остачу від ділення з нулем. Якщо остача від ділення дорівнює нулю, то число є парним, якщо остача дорівнює одиниці — непарним.</p> <br>
+                <p>Ця перевірка має такий вигляд:</p> <br>
+                <pre><code>(a%2) == 0;</code></pre> <br>
+                <p>де, як ви вже здогадалися, a % 2 — це команда отримання остачі від ділення на 2 (тобто 0 чи 1), а знак == використовується для порівняння з нулем.</p> <br>
+                <h4>Інкремент і декремент</h4>
+                <p>У програмуванні доволі часто потрібно збільшувати або зменшувати змінну на одиницю. Для цих дій в Java є спеціальні команди.</p> <br>
+                <p>Оператор інкремент (збільшення на 1) має такий вигляд:</p> <br>
+                <pre><code>int a = 1;
+                    a++;  //Після виконання цієї команди значення змінної 'a' буде дорівнювати 2
+                </code></pre> <br>
+                <p>Ця команда виконує таку саму дію, що й команда a = a + 1; — збільшує змінну a на число 1</p> <br>
+                <p>Оператор декремент (зменшення на 1) має такий вигляд:</p> <br>
+                <pre><code>int a = 1;
+                    a--;  //Після виконання цієї команди значення змінної 'a' буде дорівнювати 0
+                </code></pre> <br>
+                <p>Ця команда виконує таку саму дію, що й команда a = a - 1; — зменшує змінну a на число 1.</p> <br>
+                <h3>Тип String — рядки і текст</h3> <br>
+                <h4>Тип String</h4> <br>
+                <p>Тип String — один із найчастіше використовуваних типів у Java. </p> <br>
+                <p>Це просто чудовий тип, адже у змінних цього типу можна зберігати текст. А до того ж, на відміну від типів int і double, для об'єктів типу String можна викликати методи і за допомогою цих методів робити корисні й цікаві речі.</p> <br>
+                <p>Крім того, у мові Java всі (справді всі) об'єкти можна перетворити на тип String. Ну а точніше, усі об'єкти в Java повертають своє текстове (рядкове) подання. А назву типу String пишуть з великої літери, тому що цей тип є повноцінним класом.</p> <br>
+                <p>Ми будемо ще неодноразово повертатися до цього типу, адже він дуже корисний і цікавий, але зараз ознайомимося з ним лише побіжно.</p> <br>
+                <h4>Створення змінних типу String</h4> <br>
+                <p>Тип String призначений для зберігання рядків (тексту). Для створення в коді змінної, здатної зберігати текст, використовується така команда: String ім'я; де ім'я — це ім'я змінної.</p> <br>
+                <p>Наприклад:</p> <br>
+                <pre><code>String name;
+                    String text;
+                </code></pre> <br>
+                <p>Для створення кількох змінних типу String, так само, як і для типів int і double, можна використовувати скорочений формат: String ім'я1, ім'я2, ім'я3;</p> <br>
+                <h4>Присвоєння значень змінним типу String</h4> <br>
+                <p>Для запису значення в змінну типу String використовується така команда: ім'я = "значення";</p> <br>
+                <p>Зауважте, що тип String відрізняється від уже розглянутих типів: усі значення цього типу є текстовими рядками, які слід брати в подвійні лапки.</p> <br>
+                <pre><code>String hello = "Hello!";
+                    String name = "Maksym";
+                </code></pre> <br>
+                <h3>Приклади роботи з рядками</h3> <br>
+                <h4>Конкатенація — склеювання рядків</h4> <br>
+                <p>У Java з рядками можна робити дуже просту, але дуже цікаву річ — їх можна склеювати. Така операція має назву «конкатенація». Цю операцію також часто називають «склеювання рядків» або навіть просто «додавання рядків».</p> <br>
+                <p>Для склеювання двох рядків використовують знак +. Це дуже просто: "значення1" + "значення2"</p> <br>
+                <p>Наприклад:</p> <br>
+                <pre><code>String hello = "Hello";
+                    String massage = hello + " world!";
+                </code></pre> <br>
+                <p>Тепер змінна massage має значення “Hello world!”</p> <br>
+                
+
+            </section>
+            <section class="practice" id="practice">
+                <h2>Практичні завдання</h2>
+                <h4>Завдання №1</h4>
+                <p></p> <br>
+                <p>Натисність на кнопку нижче, щоб відкрити рішення.</p> <br>
+                <p class="solution">Показати рішення</p>
+                <div class="p1 hidepr">
+                    <pre><code>
+                    </code></pre> <br>
+                    <p class="collapse">Згорнути</p> <br>
+                </div>
+                <h4>Завдання №2</h4>
+                <p></p> <br>
+                <p>Натисність на кнопку нижче, щоб відкрити рішення.</p> <br>
+                <p class="solution">Показати рішення</p>
+                <div class="p2 hidepr">
+                    <pre><code>
+                    </code></pre> <br>
+                    <p class="collapse">Згорнути</p> <br>
+                </div>
+            </section>
+            <section class="test">
+                <form action="#" onsubmit="return false;">
+                    <h2>Тестові завдання</h2>
+                    <div id="q1">
+                        <h4>Питання №1</h4>
+                        <p>У мові програмування Java виконання програми починається з методу:</p>
+                        <label>
+                            <input type="radio" value="0" name="var1" class="var">begin()
+                        </label>
+                        <label>
+                            <input type="radio" value="0" name="var1" class="var">start()
+                        </label>
+                        <label>
+                            <input type="radio" value="1" name="var1" class="var">main()
+                        </label>
+                    </div>
+                    <div id="q2">
+                        <h4>Питання №2</h4>
+                        <p>За допомогою якої функції можна вивести текст на екран?</p>
+                        <label>
+                            <input type="radio" value="1" name="var2" class="var">print()
+                        </label>
+                        <label>
+                            <input type="radio" value="0" name="var2" class="var">echo()
+                        </label>
+                        <label>
+                            <input type="radio" value="0" name="var2" class="var">wtite()
+                        </label>
+                    </div>
+                    <div id="q3">
+                        <h4>Питання №3</h4>
+                        <p>За допомогою якої функції можна вивести текст на екран з різних рядків?</p>
+                        <label>
+                            <input type="radio" value="0" name="var3" class="var">print()
+                        </label>
+                        <label>
+                            <input type="radio" value="1" name="var3" class="var">println()
+                        </label>
+                        <label>
+                            <input type="radio" value="0" name="var3" class="var">printLines()
+                        </label>
+                    </div>
+                    <div id="q4">
+                        <h4>Питання №4</h4>
+                        <p>У мові Java кожна зміна має:</p>
+                        <label>
+                            <input type="radio" value="0" name="var4" class="var">ім'я
+                        </label>
+                        <label>
+                            <input type="radio" value="0" name="var4" class="var">ім'я і тип
+                        </label>
+                        <label>
+                            <input type="radio" value="1" name="var4" class="var">ім'я, тип і значення
+                        </label>
+                    </div>
+                    <div id="q5">
+                        <h4>Питання №5</h4>
+                        <p>Оголосити змінну name можна за допомогою: </p>
+                        <label>
+                            <input type="radio" value="0" name="var5" class="var">var name
+                        </label>
+                        <label>
+                            <input type="radio" value="1" name="var5" class="var">String name
+                        </label>
+                        <label>
+                            <input type="radio" value="0" name="var5" class="var">name: string
+                        </label>
+                    </div>
+                    <div id="q6">
+                        <h4>Питання №6</h4>
+                        <p>В яку змінну зберігають цілі числа?</p>
+                        <label>
+                            <input type="radio" value="1" name="var6" class="var">int
+                        </label>
+                        <label>
+                            <input type="radio" value="0" name="var6" class="var">integer
+                        </label>
+                        <label>
+                            <input type="radio" value="0" name="var6" class="var">Number
+                        </label>
+                    </div>
+                    <div id="q7">
+                        <h4>Питання №7</h4>
+                        <p>Багаторядковий коментар починається з...</p>
+                        <label>
+                            <input type="radio" value="0" name="var7" class="var">--
+                        </label>
+                        <label>
+                            <input type="radio" value="0" name="var7" class="var">//
+                        </label>
+                        <label>
+                            <input type="radio" value="1" name="var7" class="var">/*
+                        </label>
+                    </div>
+                    <div id="q8">
+                        <h4>Питання №8</h4>
+                        <p>У мові Java найчастіше вживають типи даних...</p>
+                        <label>
+                            <input type="radio" value="0" name="var8" class="var">int & str
+                        </label>
+                        <label>
+                            <input type="radio" value="1" name="var8" class="var">int & String
+                        </label>
+                        <label>
+                            <input type="radio" value="0" name="var8" class="var">integer & String
+                        </label>
+                    </div>
+                    <div id="q9">
+                        <h4>Питання №9</h4>
+                        <p>Java-компілятор після компіляції видає...</p>
+                        <label>
+                            <input type="radio" value="0" name="var9" class="var">програму з машинних кодів
+                        </label>
+                        <label>
+                            <input type="radio" value="1" name="var9" class="var">програму з байт-кодів
+                        </label>
+                        <label>
+                            <input type="radio" value="0" name="var9" class="var">архів з файлами
+                        </label>
+                    </div>
+                    <div id="q10">
+                        <h4>Питання №10</h4>
+                        <p>JVM - це?</p>
+                        <label>
+                            <input type="radio" value="0" name="var10" class="var">Java Visual Module
+                        </label>
+                        <label>
+                            <input type="radio" value="0" name="var10" class="var">Java Virtual Module
+                        </label>
+                        <label>
+                            <input type="radio" value="1" name="var10" class="var">Java Virtual Machine
+                        </label>
+                    </div>
+                    <br>
+                    <input type="submit" value="Проверить" id="calc" class="btn">
+                    <input type="reset" value="Сбросить" id="res" class="btn"><br>
+                    <div  class="ans"><p class="q">Правильних відповідей: <p class="grade">0</p></p></div>
+                </form>
+            </section>
+            <section class="btn_sec">
+                <a href="" class="btn_go btn" id="next">Наступний урок</a>
+            </section>
+            <footer>
+                <p>© All right reserved</p>
+                <p>Kyiv 2021</p>
+            </footer>
+        </div>
+        <aside class="right_panel">
+            <div class="top"></div>
+            <div class="lessons">
+                <div class="panel activeP">
+                    <a href="/courseplatform/src/main/resources/templates/index.html" class="nL">Урок №1 "Команди й перша програма"</a>
+                </div>
+                <div class="panel">
+                    <a href="/courseplatform/src/main/resources/templates/les2.html" class="nL disable" >Урок №2 "Знайомство з типами й уведення з клавіатури"</a>
+                </div>
+                <div class="panel">
+                    <a href="/courseplatform/src/main/resources/templates/les3.html" class="nL disable" >Урок №3 "Тема уроку"</a>
+                </div>
+                <div class="panel">
+                    <a href="/courseplatform/src/main/resources/templates/les4.html" class="nL disable" >Урок №4 "Тема уроку"</a>
+                </div>
+                <div class="panel">
+                    <a href="/courseplatform/src/main/resources/templates/les5.html" class="nL disable" >Урок №5 "Тема уроку"</a>
+                </div>
+                <div class="panel">
+                    <a href="/courseplatform/src/main/resources/templates/les6.html" class="nL disable" >Урок №6 "Тема уроку"</a>
+                </div>
+                <div class="panel">
+                    <a href="/courseplatform/src/main/resources/templates/les7.html" class="nL disable" >Урок №7 "Тема уроку"</a>
+                </div>
+                <div class="panel">
+                    <a href="/courseplatform/src/main/resources/templates/les8.html" class="nL disable" >Урок №8 "Тема уроку"</a>
+                </div>
+                <div class="panel">
+                    <a href="/courseplatform/src/main/resources/templates/les9.html" class="nL disable" >Урок №9 "Тема уроку"</a>
+                </div>
+                <div class="panel">
+                    <a href="/courseplatform/src/main/resources/templates/les10.html" class="nL disable" >Урок №10 "Тема уроку"</a>
+                </div>
+                <div class="panel">
+                    <a href="/courseplatform/src/main/resources/templates/les11.html" class="nL disable" >Урок №11 "Тема уроку"</a>
+                </div>
+                <div class="panel">
+                    <a href="/courseplatform/src/main/resources/templates/les12.html" class="nL disable" >Урок №12 "Тема уроку"</a>
+                </div>
+                <div class="panel">
+                    <a href="/courseplatform/src/main/resources/templates/les13.html" class="nL disable" >Урок №13 "Тема уроку"</a>
+                </div>
+                <div class="panel">
+                    <a href="/courseplatform/src/main/resources/templates/les14.html" class="nL disable" >Урок №14 "Тема уроку"</a>
+                </div>
+                <div class="panel">
+                    <a href="/courseplatform/src/main/resources/templates/les15.html" class="nL disable" >Урок №15 "Тема уроку"</a>
+                </div>
+                </div>
+            <div class="botom"></div>
+            <div class="info">
+                <div>
+                    <img src="/src/main/resources/static/img/inf.png" alt="" height="20px" width="20px">
+                </div>
+                <a  target="_blank" href="https://docs.oracle.com/en/java/"> Документація Java</a>
+            </div>
+        </aside>
+        
+    </div>
+
+    <script src="/src/main/resources/static/les2.js"></script>
+</body>
+</html>

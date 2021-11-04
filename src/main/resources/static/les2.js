@@ -1,7 +1,7 @@
 const grade = document.querySelector('.grade')
 const nextLesson = document.querySelector('#next')
 const nextPanel = document.querySelectorAll('.nL')
-const numOfDoc = 0;
+const numOfDoc = 1;
 
 
 calc.onclick = function() {
