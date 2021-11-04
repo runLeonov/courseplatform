@@ -139,7 +139,49 @@
                 </code></pre> <br>
                 <p>Тепер змінна massage має значення “Hello world!”</p> <br>
                 <h4>Перетворення рядка на число</h4> <br>
-                
+                <p>У Java для перетворення числа на рядок досить просто додати його до пустого рядка: String str = "" + число;</p> <br>
+                <p>А що ж робити, коли потрібно перетворити рядок на число? Насправді, не кожен рядок можна перетворити на число. Проте коли рядок складається лише з цифр, то таки можна. Для цього клас Integer має спеціальний метод.</p> <br>
+                <p>Ця команда має такий вигляд: int x = Integer.parseInt(рядок); де int x — це оголошення цілочислової змінної x, а рядок — число, задане у вигляді рядка (рядок із цифр).</p> <br>
+                <p>Наприклад:</p> <br>
+                <pre><code>String x = "5";
+                    int X = Integer.parseInt(x);
+                </code></pre> <br>
+                <h4>Метод length()</h4> <br>
+                <p>За допомогою методу length() можна дізнатися довжину рядка — скільки в ньому символів.</p> <br>
+                <p>Наприклад:</p> <br>
+                <pre><code>String massage = "Hello World!";
+                    int count = massage.length();
+                </code></pre> <br>
+                <h3>Введення з клавіатури</h3> <br>
+                <h4>Клас Scanner</h4> <br>
+                <p>Клас Scanner (повне ім'я java.util.Scanner) вміє зчитувати дані з різних джерел: консолі, файлів, інтернету. Якщо ми хочемо, щоб він зчитував дані з клавіатури, ми маємо передати йому об'єкт System.in як параметр — джерело даних. А об'єкт типу Scanner вже сам розбереться, що з ним робити.</p> <br>
+                <p>Зчитування з клавіатури за допомогою об'єкта типу Scanner матиме приблизно такий вигляд:</p> <br>
+                <pre><code>Scanner console = new Scanner(System.in);
+                    int age = console.nextInt(); //Зчитує з клавіатури ціле число
+                </code></pre> <br>
+                <p>Приклад повної програми, в якій використовується клас Scanner:</p> <br>
+                <pre><code>import java.util.Scanner;
+
+                    public class java_course {
+                        public static void main(String[] args) {
+                            Scanner console = new Scanner(System.in);
+                            String str = "Age: ";
+                            int age = console.nextInt();
+                            System.out.println(str + age);
+                        }
+                    }
+                </code></pre> <br>
+                <h4>Створення об'єкта Scanner</h4> <br>
+                <p>Перше запитання — що це за рядок Scanner console = new Scanner(System.in);?</p> <br>
+                <p>Такий рядок може збивати з пантелику, проте вам будуть постійно траплятися подібні речі. Отже, здається, настав час пояснити, що тут написано.</p> <br>
+                <pre><code>Scanner console = new Scanner(System.in);</code></pre> <br>
+                <p>Усе, що записано ліворуч від знака рівності, — це оголошення змінної типу Scanner з іменем console. </p> <br>
+                <p>А от код, записаний праворуч від знака рівності, трохи складніший. Ідеться про new Scanner(System.in); Однак тут теж нічого надприродного немає.</p> <br>
+                <p>У цьому коді ми кажемо Java-машині: створи новий об'єкт (слово new) типу Scanner і передай у нього як параметр те, звідки новостворений об'єкт Scanner братиме дані, — об'єкт System.in.</p> <br>
+                <p>Після виконання всього цього рядка в нас з'явиться змінна з іменем console типу Scanner, за допомогою якої наша програма зможе зчитувати дані з клавіатури.</p> <br>
+                <h4>Інші методи класу Scanner</h4> <br>
+                <p>Повний список методів класу Scanner матиме приблизно такий вигляд:</p> <br>
+                <img src="/src/main/resources/static/img/table_les2.png" alt="table"> <br>
 
             </section>
             <section class="practice" id="practice">
@@ -313,50 +355,50 @@
         <aside class="right_panel">
             <div class="top"></div>
             <div class="lessons">
+                <div class="panel">
+                    <a href="/courseplatform/src/main/resources/static/index.html" class="nL">Урок №1 "Команди й перша програма"</a>
+                </div>
                 <div class="panel activeP">
-                    <a href="/courseplatform/src/main/resources/templates/index.html" class="nL">Урок №1 "Команди й перша програма"</a>
+                    <a href="/courseplatform/src/main/resources/static/les2.html" class="nL" >Урок №2 "Знайомство з типами й уведення з клавіатури"</a>
                 </div>
                 <div class="panel">
-                    <a href="/courseplatform/src/main/resources/templates/les2.html" class="nL disable" >Урок №2 "Знайомство з типами й уведення з клавіатури"</a>
+                    <a href="/courseplatform/src/main/resources/static/les3.html" class="nL disable" >Урок №3 "Тема уроку"</a>
                 </div>
                 <div class="panel">
-                    <a href="/courseplatform/src/main/resources/templates/les3.html" class="nL disable" >Урок №3 "Тема уроку"</a>
+                    <a href="/courseplatform/src/main/resources/static/les4.html" class="nL disable" >Урок №4 "Тема уроку"</a>
                 </div>
                 <div class="panel">
-                    <a href="/courseplatform/src/main/resources/templates/les4.html" class="nL disable" >Урок №4 "Тема уроку"</a>
+                    <a href="/courseplatform/src/main/resources/static/les5.html" class="nL disable" >Урок №5 "Тема уроку"</a>
                 </div>
                 <div class="panel">
-                    <a href="/courseplatform/src/main/resources/templates/les5.html" class="nL disable" >Урок №5 "Тема уроку"</a>
+                    <a href="/courseplatform/src/main/resources/static/les6.html" class="nL disable" >Урок №6 "Тема уроку"</a>
                 </div>
                 <div class="panel">
-                    <a href="/courseplatform/src/main/resources/templates/les6.html" class="nL disable" >Урок №6 "Тема уроку"</a>
+                    <a href="/courseplatform/src/main/resources/static/les7.html" class="nL disable" >Урок №7 "Тема уроку"</a>
                 </div>
                 <div class="panel">
-                    <a href="/courseplatform/src/main/resources/templates/les7.html" class="nL disable" >Урок №7 "Тема уроку"</a>
+                    <a href="/courseplatform/src/main/resources/static/les8.html" class="nL disable" >Урок №8 "Тема уроку"</a>
                 </div>
                 <div class="panel">
-                    <a href="/courseplatform/src/main/resources/templates/les8.html" class="nL disable" >Урок №8 "Тема уроку"</a>
+                    <a href="/courseplatform/src/main/resources/static/les9.html" class="nL disable" >Урок №9 "Тема уроку"</a>
                 </div>
                 <div class="panel">
-                    <a href="/courseplatform/src/main/resources/templates/les9.html" class="nL disable" >Урок №9 "Тема уроку"</a>
+                    <a href="/courseplatform/src/main/resources/static/les10.html" class="nL disable" >Урок №10 "Тема уроку"</a>
                 </div>
                 <div class="panel">
-                    <a href="/courseplatform/src/main/resources/templates/les10.html" class="nL disable" >Урок №10 "Тема уроку"</a>
+                    <a href="/courseplatform/src/main/resources/static/les11.html" class="nL disable" >Урок №11 "Тема уроку"</a>
                 </div>
                 <div class="panel">
-                    <a href="/courseplatform/src/main/resources/templates/les11.html" class="nL disable" >Урок №11 "Тема уроку"</a>
+                    <a href="/courseplatform/src/main/resources/static/les12.html" class="nL disable" >Урок №12 "Тема уроку"</a>
                 </div>
                 <div class="panel">
-                    <a href="/courseplatform/src/main/resources/templates/les12.html" class="nL disable" >Урок №12 "Тема уроку"</a>
+                    <a href="/courseplatform/src/main/resources/static/les13.html" class="nL disable" >Урок №13 "Тема уроку"</a>
                 </div>
                 <div class="panel">
-                    <a href="/courseplatform/src/main/resources/templates/les13.html" class="nL disable" >Урок №13 "Тема уроку"</a>
+                    <a href="/courseplatform/src/main/resources/static/les14.html" class="nL disable" >Урок №14 "Тема уроку"</a>
                 </div>
                 <div class="panel">
-                    <a href="/courseplatform/src/main/resources/templates/les14.html" class="nL disable" >Урок №14 "Тема уроку"</a>
-                </div>
-                <div class="panel">
-                    <a href="/courseplatform/src/main/resources/templates/les15.html" class="nL disable" >Урок №15 "Тема уроку"</a>
+                    <a href="/courseplatform/src/main/resources/static/les15.html" class="nL disable" >Урок №15 "Тема уроку"</a>
                 </div>
                 </div>
             <div class="botom"></div>
