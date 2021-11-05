@@ -1,22 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8"/>
     <title>Реєстрація</title>
+    <link rel="stylesheet" th:href="@{/css/style_auth.css}">
 </head>
 <body>
+
 <div>
     <form method="post">
         <h2>Реєстрація</h2>
         <div>
+            <p>Нікнейм: </p>
             <input type="text" name="username" placeholder="Username">
+            <p>Пароль: </p>
+            <input type="password" name="password" placeholder="Password">
+            <div>
+                <input name="submit" type="submit" value="Зареєструватись" class="btn"/> <br>
+                <a href="/login">Логін</a>
+            </div>
         </div>
-        <div>
-            <input type="password" name="password"  placeholder="Password">
-        </div>
-        <input type="submit" value="Зареєструватись">
     </form>
-    <a href="/">Логін</a>
 </div>
 </body>
 </html>
