@@ -80,21 +80,75 @@ public class User implements UserDetails {
         return true;
     }
 
-    public void setLessonTestByLessonNumber(Integer test, String lesson) {
-        if (lesson.equals("index")) setLesson1(test);
-        if (lesson.equals("les2")) setLesson2(test);
-        if (lesson.equals("les3")) setLesson3(test);
-        if (lesson.equals("les4")) setLesson4(test);
-        if (lesson.equals("les5")) setLesson5(test);
-        if (lesson.equals("les6")) setLesson6(test);
-        if (lesson.equals("les7")) setLesson7(test);
-        if (lesson.equals("les8")) setLesson8(test);
-        if (lesson.equals("les9")) setLesson9(test);
-        if (lesson.equals("les10")) setLesson10(test);
-        if (lesson.equals("les11")) setLesson11(test);
-        if (lesson.equals("les12")) setLesson12(test);
-        if (lesson.equals("les13")) setLesson13(test);
-        if (lesson.equals("les14")) setLesson14(test);
-        if (lesson.equals("les15")) setLesson15(test);
+    public void setLessonTestByLessonNumber(Integer test, Integer lesson) {
+        switch (lesson) {
+            case 1:
+                setLesson1(test);
+            case 2:
+                setLesson2(test);
+            case 3:
+                setLesson3(test);
+            case 4:
+                setLesson4(test);
+            case 5:
+                setLesson5(test);
+            case 6:
+                setLesson6(test);
+            case 7:
+                setLesson7(test);
+            case 8:
+                setLesson8(test);
+            case 9:
+                setLesson9(test);
+            case 10:
+                setLesson10(test);
+            case 11:
+                setLesson11(test);
+            case 12:
+                setLesson12(test);
+            case 13:
+                setLesson13(test);
+            case 14:
+                setLesson14(test);
+            case 15:
+                setLesson15(test);
+        }
+    }
+
+    public Integer getLessonTestByLessonNumber(Integer lesson) {
+        switch (lesson) {
+            case 1:
+                return getLesson1();
+            case 2:
+                return getLesson2();
+            case 3:
+                return getLesson3();
+            case 4:
+                return getLesson4();
+            case 5:
+                return getLesson5();
+            case 6:
+                return getLesson6();
+            case 7:
+                return getLesson7();
+            case 8:
+                return getLesson8();
+            case 9:
+                return getLesson9();
+            case 10:
+                return getLesson10();
+            case 11:
+                return getLesson11();
+            case 12:
+                return getLesson12();
+            case 13:
+                return getLesson13();
+            case 14:
+                return getLesson14();
+            case 15:
+                return getLesson15();
+            default:
+                return 0;
+        }
     }
 }
