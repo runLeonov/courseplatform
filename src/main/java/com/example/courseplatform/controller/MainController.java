@@ -1,5 +1,7 @@
 package com.example.courseplatform.controller;
 
+import com.example.courseplatform.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -8,7 +10,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller("")
 public class MainController {
-
+    @Autowired
+    UserService userService;
     @RequestMapping("/main")
     public String getHomePage() {
         return "index.html";
@@ -17,9 +20,10 @@ public class MainController {
     @GetMapping("/validateasd")
     public String getTestValues(
             @RequestParam("testsSummary") Integer testsSummary,
-            @ModelAttribute Object obj
+            @RequestParam("lessonNumber") String lessonNumber
     ) {
-        return "index.html";
+        userService.setTestGrade(testsSummary, lessonNumber);
+        return lessonNumber + ".html";
     }
 
 }
