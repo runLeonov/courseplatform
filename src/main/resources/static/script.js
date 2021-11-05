@@ -2,7 +2,8 @@
 const grade = document.querySelector('.grade')
 const nextLesson = document.querySelector('#next')
 const nextPanel = document.querySelectorAll('.nL')
-const numOfDoc = 1;
+const html = document.querySelector('html')
+const numOfDoc = html.id
 
 
 calc.onclick = function() {
@@ -14,10 +15,13 @@ calc.onclick = function() {
         +myform.var9.value + +myform.var10.value
     grade.innerHTML = val
     $("#totalGrad").val(val);
+    if($('input[type=radio]:checked').length < 10) {
+      alert("Ви відповили не на всі тести!")
+    }
     if (val == 7 || val > 7) {
         nextLesson.classList.add('checked')
-        nextLesson.href = '/courseplatform/src/main/resources/templates/les'+(numOfDoc+2)
-        nextPanel[numOfDoc+1].classList.remove('disable')
+        nextLesson.href = '/courseplatform/src/main/resources/templates/les'+(parseInt(numOfDoc, 10)+1)
+        nextPanel[numOfDoc].classList.remove('disable')
     }
 }
 
