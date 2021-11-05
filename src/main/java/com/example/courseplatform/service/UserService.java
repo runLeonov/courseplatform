@@ -9,8 +9,6 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 import java.util.List;
 import java.util.Optional;
 
@@ -46,8 +44,8 @@ public class UserService implements UserDetailsService {
         return userFromDb.orElse(new User());
     }
 
-    public User setTestGrade(Integer test, String lesson) {
-        User user = new User("user5", "password");
+    public User setTestGrade(String username, Integer test, String lesson) {
+        User user = (User) loadUserByUsername(username);
         user.setLessonTestByLessonNumber(test, lesson);
         return userRepository.save(user);
     }
