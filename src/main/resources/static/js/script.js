@@ -15,6 +15,7 @@ calc.onclick = function() {
         +myform.var9.value + +myform.var10.value
     grade.innerHTML = val
     $("#totalGrad").val(val);
+    $("#nextLesson").val("les" + (numOfDoc + 1));
     if($('input[type=radio]:checked').length < 10) {
       alert("Ви відповили не на всі тести!")
     }

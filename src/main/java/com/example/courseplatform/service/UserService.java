@@ -9,6 +9,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -44,12 +45,20 @@ public class UserService implements UserDetailsService {
         return userFromDb.orElse(new User());
     }
 
-    public User setTestGrade(String username, Integer test, String lesson) {
+    public User setTestGrade(String username, Integer test, Integer lesson) {
         User user = (User) loadUserByUsername(username);
         user.setLessonTestByLessonNumber(test, lesson);
         return userRepository.save(user);
     }
 
+    public List<Integer> getTestList(String username) {
+        User user = userRepository.findByUsername(username);
+        List<Integer> testsGrads = new ArrayList<>();
+        for (int i = 1; i <= 15; i++) {
+            testsGrads.add(user.getLessonTestByLessonNumber(i));
+        }
+        return testsGrads;
+    }
     public List<User> allUsers() {
         return userRepository.findAll();
     }
