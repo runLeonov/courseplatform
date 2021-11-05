@@ -3,20 +3,90 @@
 <head>
     <meta charset="utf-8">
     <title>Log in with your account</title>
+    <style>
+        a { 
+            text-decoration: none;  
+            color: grey;
+            letter-spacing: normal;
+            transition: 0.8s;
+        }
+        body { 
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 16px;
+            color: #e06149;
+            background-color: black;
+            letter-spacing: 0.1em;
+            margin: 0;
+        }
+        p {
+            margin: 0;
+            margin-bottom: 8px;
+        }
+        div {
+            width: 100%;
+            text-align: center;
+        }
+        input {margin-bottom: 20px;}
+        .text {
+            margin-bottom: 25px; 
+            width: 300px;
+	        font-size: 13px;
+	        padding: 6px 0 4px 10px;
+	        border: 1px solid #cecece;
+	        background: #F6F6f6;
+	        border-radius: 8px;
+        }
+        form > div {
+            border-radius: 10px;
+            border: 2px solid #e06149;
+            padding: 30px;
+            width: 300px;
+            margin: auto;
+            text-align: left;
+            height: auto;
+        }
+        h1 { margin-top: 50px;}
+        .btn {
+           background-color: #e06149;
+           width: 100px;
+           height: 40px;
+           font-size: 16px;
+           border: none;
+           border-radius: 10px;
+           transition: 0.5s;
+        }
+        .btn:hover {
+            color: #fff;
+            background-color: black;
+            border: 2px solid #e06149;
+            cursor: pointer;
+            width: 120px;
+            height: 45px;
+            transition: 0.5s;
+        }
+        a:hover {
+            color: white;
+            transition: 0.5s;
+            letter-spacing: 0.1em;
+        }
+    </style>
 </head>
 
 <body>
-<div>
-    <form action="/login" method="post">
-        <h2>Вхід на сторінку курсу</h2>
-        <div>
-            <input name="user" type="text" placeholder="Username" autofocus="true"/>
-            <input name="pass" type="password" placeholder="Password"/>
-            <input name="submit" type="submit" value="submit" />
-            <h4><a href="/registration">Раєстрація</a></h4>
-        </div>
-    </form>
-</div>
-
+    <div>
+        <form action="/login" method="post">
+            <h1>Вхід на сторінку курсу</h1>
+            <div>
+                <p>Логін: </p>
+                <input name="user" type="text" placeholder="Логін" autofocus="true" class="text"/> <br>
+                <p>Пароль: </p>
+                <input name="pass" type="password" placeholder="Пароль" class="text"/> <br>
+                <div>
+                    <input name="submit" type="submit" value="Ввійти" class="btn"/> <br>
+                    <a href="/registration" class="">Реєстрація</a>
+                </div> 
+            </div>
+        </form>
+    </div>
 </body>
 </html>
