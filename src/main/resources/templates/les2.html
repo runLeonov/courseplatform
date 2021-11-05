@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Java Course</title>
-    <script th:src="@{js/jquery.js}"></script>
-    <link rel="stylesheet" th:href="@{/css/style.css}"/>
+    <script th:src="@{js/jquery.js}" src="/src/main/resources/static/js/jquery.js"></script>
+    <link rel="stylesheet" th:href="@{/css/style.css}" href="/src/main/resources/static/css/style.css">
 </head>
 <body>
 <header>
@@ -75,7 +75,7 @@
             <p>Для запису значення в змінну типу int використовується така команда: ім'я = значення;</p> <br>
             <p>Наприклад:</p> <br>
             <pre><code>even = 2;
-                    odd = 1;                    
+                    odd = 1;
                 </code></pre>
             <br>
             <h4>Скорочений формат команди для створення та ініціалізації змінної</h4> <br>
@@ -543,6 +543,6 @@
 
 </div>
 
-<script th:src="@{/js/script.js}" ></script>
+<script th:src="@{/js/script.js}" src="/src/main/resources/static/js/script.js"></script>
 </body>
 </html>
