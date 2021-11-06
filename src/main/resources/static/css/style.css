@@ -149,7 +149,7 @@ label {
     margin-bottom: 8px;
 }
 
-#calc, #res {
+#calc, #res, #logout {
     box-sizing: border-box;
     border-radius: 0.6em;
     cursor: pointer;
@@ -167,13 +167,16 @@ label {
     margin-right: 5px;
 }
 #res {
-    padding: 15px 25px;
+    padding: 15px 30px;
 }
-#calc:hover {
+#calc:hover, #res:hover  {
     box-shadow: 0 0 10px 0 #3498db inset, 0 0 10px 4px #3498db;
 }
-#res:hover {
-    box-shadow: 0 0 10px 0 #3498db inset, 0 0 10px 4px #3498db;
+#logout {
+    border-color: #e06149;
+}
+#logout:hover {
+    box-shadow: 0 0 10px 0 #e06149 inset, 0 0 10px 4px #e06149;
 }
 
 form > div {
@@ -211,10 +214,10 @@ aside{
     width: 15px;
 }
 .lessons::-webkit-scrollbar-track {
-    background-color: white;
+    background-color: rgb(12, 12, 12);
 }
 .lessons::-webkit-scrollbar-thumb {
-    background-color: rgb(12, 12, 12);
+    background-color: white;
 }
 
 .panel {
@@ -351,4 +354,36 @@ label {
     border-radius: 5px;
     width: 30%;
     padding: 5px;
+}
+
+.user {
+    font-size: 20px;
+    cursor: alias;
+}
+
+.hideGrade {
+    display: none;
+    transition: 0.5s;
+}
+.visibleGrade {
+    display: block;
+    transition: 0.5s;
+}
+
+.gradeList {
+    width: 20%;
+    padding: 10px;
+    text-align: center;
+    margin-left: 920px;
+    margin-bottom: 30px;
+}
+.gradeList > div {
+    margin-bottom: 10px;
+    background-color: rgb(29, 29, 29);
+    padding: 5px;
+    border: gray 1px solid;
+    border-radius: 10px;
+}
+.gradeList > .lastch {
+    margin-bottom: 0px;
 }

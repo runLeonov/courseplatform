@@ -5,6 +5,7 @@ const nextPanel = document.querySelectorAll('.nL')
 const html = document.querySelector('html')
 const numOfDoc = html.id
 const user = document.querySelector('.user')
+const gradeList = document.querySelector('.gradeList')
 
 calc.onclick = function() {
     var myform = this.form
@@ -99,4 +100,14 @@ collapse[0].onclick = function() {
 collapse[1].onclick = function() {
     p2.classList.remove('activepr')
     p2.classList.add('hidepr')
+}
+
+user.onmouseenter = () => { 
+    gradeList.classList.remove("hideGrade")
+    gradeList.classList.add("visibleGrade") 
+}
+
+user.onmouseleave = () => { 
+    gradeList.classList.remove("visibleGrade")
+    gradeList.classList.add("hideGrade") 
 }
