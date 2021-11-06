@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" id="1">
+<html lang="en" id="1"  xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -15,7 +15,9 @@
         <h1>Онлайн-курc: JavaCourse</h1>
         <img src="https://dev.java/assets/images/java-logo-vert-blk.png" alt="LOGOTYPE" width="70px" height="60px">
         <h1 th:text="${session.username}">  </h1>
-
+        <form th:action="@{/logout}" method="post">
+            <input type="submit">POST LOGOUT</input>
+        </form>
     </div>
     <div>
         <div th:text="${session.lesson10.get(0)}"></div>
@@ -33,7 +35,6 @@
         <div th:text="${session.lesson10.get(12)}"></div>
         <div th:text="${session.lesson10.get(13)}"></div>
         <div th:text="${session.lesson10.get(14)}"></div>
-        <div th:text="${session.lesson10.get(15)}"></div>
     </div>
     <div class="logo_list">
         <div><p>15 уроків</p></div>
@@ -450,7 +451,7 @@
             </form>
         </section>
         <section class="btn_sec">
-            <form action="/validateasd">
+            <form action="/validate">
                 <input id="totalGrad" name="testsSummary" type="hidden" value="0">
                 <input name="lessonNumber" type="hidden" value="1">
                 <input  id="nextLesson" name="nextLesson" type="hidden" value="les2">
@@ -470,7 +471,7 @@
                     програма"</a>
             </div>
             <div class="panel">
-                <a href="/validateasd" class="nL disable">Урок №2 "Знайомство з
+                <a href="/validate" class="nL disable">Урок №2 "Знайомство з
                     типами й уведення з клавіатури"</a>
             </div>
             <div class="panel">

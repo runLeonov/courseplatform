@@ -24,7 +24,7 @@ public class MainController {
         return "main.html";
     }
 
-    @GetMapping("/validateasd")
+    @GetMapping("/validate")
     public String getTestValues(
             @RequestParam("testsSummary") Integer testsSummary,
             @RequestParam("lessonNumber") Integer lessonNumber,
