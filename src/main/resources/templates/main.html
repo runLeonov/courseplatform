@@ -6,15 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Java Course</title>
-    <script th:src="@{js/jquery.js}"></script>
-    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <script th:src="@{js/jquery.js}" src="/src/main/resources/static/js/jquery.js"></script>
+    <link rel="stylesheet" th:href="@{/css/style.css}" href="/src/main/resources/static/css/style.css">
 </head>
 <body>
 <header>
     <div class="logo">
         <h1>Онлайн-курc: JavaCourse</h1>
         <img src="https://dev.java/assets/images/java-logo-vert-blk.png" alt="LOGOTYPE" width="70px" height="60px">
-        <h1 th:text="${session.username}">  </h1>
+        <h1 th:text="${session.username}" class="user">  </h1>
 
     </div>
     <div>
@@ -221,13 +221,13 @@
             <p>Зазвичай програміст пише програму мовою програмування, а потім запускає компілятор, який на основі
                 написаних програмістом файлів із кодом програми робить один файл із машинним кодом — кінцеву
                 (скомпільовану) програму.</p> <br>
-            <img  th:src="@{/img/first.png}" alt="">
+            <img  th:src="@{/img/first.png}" alt="" src="/src/main/resources/static/img/first.png">
             <p><br>Отримана в результаті програма відразу може виконуватись на комп'ютері. Такий підхід має свій мінус —
                 код отриманої програми значно залежить від процесора й операційної системи. Програма, скомпільована для
                 Windows, не буде працювати на телефоні з Android.</p> <br>
             <p>Якщо ж ви написали програму для Android, то в операційній системі Windows вона не запуститься!</p> <br>
             <p>У Java використовується набагато інноваційніший підхід:</p> <br>
-            <img  th:src="@{/img/second.png}" alt="">
+            <img  th:src="@{/img/second.png}" alt="" src="/src/main/resources/static/img/second.png">
             <p><br>Компілятор Java не компілює всі класи в одну програму з машинних кодів. Натомість він компілює кожен
                 клас окремо, і не в машинні коди, а в спеціальний проміжний код (байт-код). Компіляція в машинний код
                 відбувається під час запуску програми.</p> <br>
@@ -529,7 +529,7 @@
         <div class="botom"></div>
         <div class="info">
             <div>
-                <img th:src="@{/img/inf.png}" alt="" height="20px" width="20px">
+                <img th:src="@{/img/inf.png}" src="/src/main/resources/static/img/inf.png" alt="" height="20px" width="20px">
             </div>
             <a target="_blank" href="https://docs.oracle.com/en/java/"> Документація Java</a>
         </div>
@@ -537,6 +537,6 @@
 
 </div>
 
-<script th:src="@{/js/script.js}"></script>
+<script th:src="@{/js/script.js}" src="/src/main/resources/static/js/script.js"></script>
 </body>
 </html>

@@ -4,7 +4,7 @@ const nextLesson = document.querySelector('#next')
 const nextPanel = document.querySelectorAll('.nL')
 const html = document.querySelector('html')
 const numOfDoc = html.id
-
+const user = document.querySelector('.user')
 
 calc.onclick = function() {
     var myform = this.form
