@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8"/>
     <title>Реєстрація</title>
-    <link rel="stylesheet" th:href="@{/css/style_auth.css}">
+    <link rel="stylesheet" th:href="@{/css/style_auth.css}" href="/src/main/resources/static/css/style_auth.css">
 </head>
 <body>
 
@@ -12,11 +12,11 @@
         <h2>Реєстрація</h2>
         <div>
             <p>Нікнейм: </p>
-            <input type="text" name="username" placeholder="Username">
+            <input type="text" name="username" placeholder="Username" class="text">
             <p>Пароль: </p>
-            <input type="password" name="password" placeholder="Password">
+            <input type="password" name="password" placeholder="Password" class="text">
             <div>
-                <input name="submit" type="submit" value="Зареєструватись" class="btn"/> <br>
+                <input name="submit" type="submit" value="Зареєструватись" class="btn" id="btn"/> <br>
                 <a href="/loginPage">Логін</a>
             </div>
         </div>
