@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 
 @Service
@@ -55,7 +56,10 @@ public class UserService implements UserDetailsService {
         User user = userRepository.findByUsername(username);
         List<Integer> testsGrads = new ArrayList<>();
         for (int i = 1; i <= 15; i++) {
-            testsGrads.add(user.getLessonTestByLessonNumber(i));
+            if (Objects.isNull(user.getLessonTestByLessonNumber(i)))
+                testsGrads.add(0);
+            else
+                testsGrads.add(user.getLessonTestByLessonNumber(i));
         }
         return testsGrads;
     }
