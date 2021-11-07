@@ -16,7 +16,7 @@ import javax.servlet.http.HttpSession;
 public class MainController {
     @Autowired
     UserService userService;
-    @GetMapping("/main")
+    @GetMapping(value = {"/main", "/"})
     public String getHomePage(HttpSession session) {
         User principal = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         session.setAttribute("username", principal.getUsername());
