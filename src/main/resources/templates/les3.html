@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en" id="3" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java Course</title>
+    <script th:src="@{js/jquery.js}" src="/src/main/resources/static/js/jquery.js"></script>
+    <link rel="stylesheet" th:href="@{/css/style.css}" href="/src/main/resources/static/css/style.css">
+</head>
+<body>
+<header>
+    <div class="logo">
+        <h1>Онлайн-курc: JavaCourse</h1>
+        <img src="https://dev.java/assets/images/java-logo-vert-blk.png" alt="LOGOTYPE" width="70px" height="60px">
+        <h1 th:text="${session.username}" class="user">USER</h1>
+        <form th:action="@{/logout}" method="post">
+            <input type="submit" value="Вихід" class="btn" id="logout"/>
+        </form>
+    </div>
+    <div class="gradeList hideGrade">
+        <div>
+            <div th:text="${session.lesson10.get(0)}">Оцінка за урок №1: 10</div>
+            <div th:text="${session.lesson10.get(1)}">Оцінка за урок №2: 10</div>
+            <div th:text="${session.lesson10.get(2)}">Оцінка за урок №3: 10</div>
+            <div th:text="${session.lesson10.get(3)}">Оцінка за урок №4: 10</div>
+            <div th:text="${session.lesson10.get(4)}">Оцінка за урок №5: 10</div>
+        </div>
+        <div>
+            <div th:text="${session.lesson10.get(5)}">Оцінка за урок №6: 10</div>
+            <div th:text="${session.lesson10.get(6)}">Оцінка за урок №7: 10</div>
+            <div th:text="${session.lesson10.get(7)}">Оцінка за урок №8: 10</div>
+            <div th:text="${session.lesson10.get(8)}">Оцінка за урок №9: 10</div>
+            <div th:text="${session.lesson10.get(9)}">Оцінка за урок №10: 10</div>
+        </div>
+        <div class="lastch">
+            <div th:text="${session.lesson10.get(10)}">Оцінка за урок №11: 10</div>
+            <div th:text="${session.lesson10.get(11)}">Оцінка за урок №12: 10</div>
+            <div th:text="${session.lesson10.get(12)}">Оцінка за урок №13: 10</div>
+            <div th:text="${session.lesson10.get(13)}">Оцінка за урок №14: 10</div>
+            <div th:text="${session.lesson10.get(14)}">Оцінка за урок №15: 10</div>
+        </div>
+    </div>
+    <div class="logo_list">
+        <div><p>15 уроків</p></div>
+        <div><p>Швидке начання</p></div>
+        <div><p>Онлайн практика</p></div>
+        <div><p>Тестові завдання</p></div>
+    </div>
+</header>
+
+<div class="main_content">
+    <div class="content">
+        <section class="name">
+            <img src="" alt="" width="300px" height="170px">
+            <div>
+                <h2>Умовний оператор</h2>
+                <a href="#practice">Перейти до практики</a>
+            </div>
+        </section>
+        <div class="op">
+            <p>Представляємо вам уроки програмування мовою Java для починаючих. <br> Великий відео курс по вивченню мови
+                Java.</p>
+        </div>
+        <h2>Відеоурок</h2>
+        <section class="video">
+            <iframe src="https://www.youtube.com/embed/C5q0ULg0nmY" title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+        </section>
+        <section class="text">
+            <h2>Текстовий матеріал</h2>
+            <h3>Умовний оператор</h3> <br>
+            <h4>Оператор if-else</h4> <br>
+            <p>Від програм було б мало користі, якби вони робили абсолютно одне й те саме незалежно від зміни зовнішніх обставин. Потрібно, щоб програма вміла підлаштовуватися під різні ситуації та виконувати одні дії в одних випадках, а інші — в інших.</p> <br>
+            <p>У Java це реалізовано за допомогою умовного оператора — спеціального ключового слова, яке дає змогу виконувати різні блоки команд залежно від правдивості умови.</p> <br>
+            <p>Умовний оператор складається з трьох частин: умови, команди 1 і команди 2. Якщо умова правдива (істинна), виконується команда 1, інакше — команда 2. Команди ніколи не виконуються одночасно. Загальний вигляд цього оператора такий:</p> <br>
+            <p>if (умова) команда1; <br>
+             else команда2;
+             </p> <br>
+            <p>Наприклад:</p> <br>
+            <pre><code>int age = 17;
+                if (age < 18)
+                    System.out.println("Ви ще дитина");
+                else
+                    System.out.println("Ви вже дорослий");
+            </code></pre> <br>
+            <h4>Блок команд</h4> <br>
+            <p>Якщо ви хочете, щоб у разі виконання (або невиконання) умови ваша програма виконала кілька команд, їх можна об'єднати в блок команд.</p> <br>
+            <p>Щоб об'єднати команди в блок, потрібно «загорнути» їх у фігурні дужки. Отак це виглядає в загальному випадку:</p> <br>
+            <pre><code>{
+                команда1;
+                команда2;
+                команда3;
+             }
+            </code></pre> <br>
+            <p>Команд у блоці може бути скільки завгодно. І навіть нуль.</p> <br>
+            <p>Приклади поєднання оператора if-else і блоку команд:</p> <br>
+            <pre><code>int temperature = 5;
+                if (temperature < 0)
+                {
+                    System.out.println("На вулиці мороз");
+                    System.out.println("Потрібно вдягнутися тепліше!");
+                }
+                else
+                    System.out.println("На вулиці тепло");
+            </code></pre> <br>
+            <h3>Особливості роботи умовного оператора</h3> <br>
+            <h4>Послідовність операторів if</h4> <br>
+            <p>Іноді в програмі потрібно виконати багато різних дій залежно від значення певної змінної або певного виразу.</p> <br>
+            <p>Припустімо, умови задачі такі:</p> <br>
+            <ul>
+                <li>Якщо температура вища за 20 градусів — одягти сорочку.</li>
+                <li>Якщо температура вища за 10 градусів, але не вища за 20 — одягти светр.</li>
+                <li>Якщо температура вища за 0 градусів, але не вища за 10 — одягти плащ.</li>
+                <li>Якщо температура нижча за 0 градусів — одягти пальто.</li>
+            </ul>
+            <p>Для цього краще використовувати else if</p> <br>
+            <pre><code>int temperature = 9;
+                if (temperature > 20)
+                    System.out.println("одягти сорочку");
+                else if (temperature > 10) // тут температура не вища за 20
+                    System.out.println("одягти светр");
+                else if (temperature > 0) // тут температура не вища за 10
+                    System.out.println("одягти плащ");
+                else // тут температура менша за 0
+                    System.out.println("одягти пальто");
+            </code></pre> <br>
+            <h4>Особливості else</h4> <br>
+            <strong>Важливий момент:</strong> <br>
+            <p>Якщо в конструкції if-else не розставлено фігурні дужки, слово else стосується попереднього (найближчого до нього) if.</p> <br>
+            <p>Наприклад:</p> <br>
+            <pre><code>int age = 65;
+                if (age < 60)
+                    if (age > 20)
+                        System.out.println("Треба працювати");
+                else
+                    System.out.println("Можна не працювати");
+            </code></pre> <br>
+            <p>Вище написаний код правильніше написати так:</p> <br>
+            <pre><code>int age = 65;
+                if (age < 60)
+                {
+                    if (age > 20)
+                        System.out.println("Треба працювати");
+                    else
+                        System.out.println("Можна не працювати");
+                }
+            </code></pre> <br>
+            <h3>Логічний тип boolean</h3> <br>
+            <h4>Тип boolean</h4> <br>
+            <p>Щоб було зручніше працювати з такими виразами (які можуть бути істинними або хибними), у мову Java додали спеціальний тип — boolean. Його головна особливість полягає в тому, що змінні цього типу можуть набувати лише двох значень: true (істина) і false (хибність).</p> <br>
+            <p>Жодне інше значення присвоїти змінній типу boolean неможливо. Компілятор не дозволить.</p> <br>
+            <p>Приклад оголошення змінних типу boolean</p><br>
+            <pre><code>boolean isMove = true;
+                boolean hasError = false;
+            </code></pre><br>
+            <h4>Використання булевих змінних</h4> <br>
+            <p>Від булевих змінних було б мало користі, якби в них можна було тільки зберігати результати виразів. Їх можна ще використовувати скрізь, де можна написати логічний вираз.</p> <br>
+            <p>Наприклад, логічну змінну можна підставити в умову if:</p> <br>
+            <pre><code>int speed = 49;
+                boolean speedViolation = (speed > 50);
+                if (speedViolation)
+                    System.out.println("Знизьте швидкість");
+            </code></pre> <br>
+            <h4>Оператори порівняння</h4> <br>
+            <p>У Java, як і в інших мовах програмування, часто доводиться порівнювати змінні між собою. І саме для порівняння в Java є такі оператори:</p> <br>
+            <img src="/src/main/resources/static/img/table_les3.1.png" alt=""> <br>
+            <p>Результатом дії кожного з наведених вище операторів буде логічний вираз. Його можна зберегти в змінній типу boolean або ж використовувати як умову в операторі if.</p> <br>
+            <strong>Важливий момент 1:</strong> <br>
+            <p>Оператори, що складаються з двох символів, розривати не можна.</p> <br>
+            <pre><code>a < = b; //Буде помилка при компіляції
+                age ! = 0; //Буде помилка при компіляції
+            </code></pre> <br>
+            <strong>Важливий момент 2:</strong> <br>
+            <p>Зверніть увагу, що операторів => й =< не існує: є лише <= та >=. Якщо ви напишете a =< 3, ваш код просто не скомпілюється.</p> <br>
+            <strong>Важливий момент 3:</strong> <br>
+            <p>У Java ви не можете записати вираз у вигляді 18 < age < 65. Адже вираз 18 < age матиме значення true або false. А порівнювати true < 65 (різні типи) не можна.</p> <br>
+            <h3>Логічні операції</h3> <br>
+            <h4>Булева логіка</h4> <br>
+            <p>У мові Java не можна записати вираз 18 < age < 65 — він буде синтаксично некоректним, і програма не скомпілюється.</p> <br>
+            <p>Натомість можна записати його так: (18 < age) І (age < 65)</p> <br>
+            <p>Звичайно, замість сполучника І там буде інший логічний оператор, і зараз ми якраз поговоримо про це докладніше.</p> <br>
+            <p>У Java є три логічних оператори: AND (і), OR (або) і NOT (не).</p> <br>
+            <img src="/src/main/resources/static/img/table_les3.2.png" alt=""> <br>
+            <br><h4>Приклади використання операторів порівняння та булевих змінних</h4>
+            <p>Там, де можна написати логічний вираз, можна написати й логічну змінну.</p> <br>
+            <p>Наприклад:</p> <br>
+            <pre><code>int age = 35;
+                boolean isYoung = (age < 18);
+                boolean isOld = (age > 65);
+                if (!isYoung && !isOld)
+                    System.out.println("Ви можете працювати");
+            </code></pre> <br>
+            <h3>Тернарний оператор</h3> <br>
+            <p>У Java є спеціальний тернарний (потрійний) оператор. Він чимось схожий на скорочений запис оператора if–else: Умова ? Вираз1 : Вираз2;</p> <br>
+            <p>Якщо умова істинна, то виконується вираз1, інакше — вираз2. Після умови стоїть знак питання, а два вирази розділені двокрапкою.</p> <br>
+            <p>Основна відмінність тернарного оператора від оператора if-else полягає в тому, що тернарний оператор є виразом, отже, його результат можна чому-небудь присвоїти.</p> <br>
+            <p>Наприклад, ми хочемо обчислити мінімум серед двох чисел. З використанням тернарного оператора цей код матиме такий вигляд:</p> <br>
+            <pre><code>int a = 2;
+                int b = 3;
+                int min = a < b ?  a : b;
+            </code></pre> <br>
+            <h3>Порівняння дійсних чисел</h3> <br>
+            <p>Раніше ми вже говорили, що просто так порівнювати дійсні числа не можна: у процесі роботи з ними завжди можуть виникати несподівані ефекти через те, що частина значущих цифр відкидається.</p> <br>
+            <p>Отож існує перевірений часом підхід. Якщо два дійсних числа відрізняються на дуже мале значення, їх можна вважати рівними. Приклад:</p> <br>
+            <pre><code>double a = 1.000001;
+                double b = 1.000002;
+                if ( (b - a) < 0.0001 )
+                    System.out.println("Числа рівні");
+                else
+                    System.out.println("Числа не рівні");
+            </code></pre> <br>
+            <p>Але це ще не все: різниця чисел цілком може виявитися від'ємним числом. Отже, для того, щоб такий підхід працював, потрібно порівнювати не просто різницю чисел, а модуль різниці чисел: |a-b|</p> <br>
+            <p>У Java є спеціальний метод для обчислення модуля числа — Math.abs():</p> <br>
+            <p>int m = Math.abs(значення);</p> <br>
+            <p>Тому виправлений варіант наведеного вище прикладу матиме ось такий вигляд:</p> <br>
+            <pre><code>double a = 1.000001;
+                double b = 1.000002;
+                
+                if ( Math.abs(b - a) < 0.0001 )
+                    System.out.println("Числа рівні");
+                else
+                    System.out.println("Числа не рівні");
+            </code></pre>
+        </section>
+        <section class="practice" id="practice">
+            <h2>Практичні завдання</h2>
+            <h4>Завдання №1</h4>
+            <p>Ввести з клавіатури ім'я та вік. Якщо вік у межах 18–27 (включно), то вивести напис «Ім'я, з'явіться до військкомату», де Ім'я — це ім'я, введене раніше з клавіатури.</p> <br>
+            <p>Натисність на кнопку нижче, щоб відкрити рішення.</p> <br>
+            <p class="solution">Показати рішення</p>
+            <div class="p1 hidepr">
+                    <pre><code>public static void main(String[] args)
+                        {
+                            String militaryCommissar = ", з'явіться до військкомату";
+                            Scanner scan = new Scanner(System.in);
+                            String name = scan.nextLine();
+                            int age = scan.nextInt();
+                            if((age>=18)&&(age<=27))
+                                System.out.println(name + militaryCommissar);
+                        }
+                    </code></pre>
+                <br>
+                <p class="collapse">Згорнути</p> <br>
+            </div>
+            <h4>Завдання №2</h4>
+            <p>Ввести з клавіатури три цілих числа. Визначити, чи є серед них хоча б одна пара рівних між собою чисел.
+            <br>Якщо така пара існує, вивести на екран числа через пробіл. Якщо всі три числа рівні між собою, то вивести всі три.
+            </p>
+            <p>Натисність на кнопку нижче, щоб відкрити рішення.</p> <br>
+            <p class="solution">Показати рішення</p>
+            <div class="p2 hidepr">
+                    <pre><code>public static void main(String[] args)
+                        {
+                            Scanner scan = new Scanner(System.in);
+                            int a = scan.nextInt();
+                            int b = scan.nextInt();
+                            int c = scan.nextInt();
+                            boolean abc = (a==b && a==c);
+                            boolean ab = (a==b);
+                            boolean ac = (a==c);
+                            boolean bc = (b==c);
+                            if(abc)
+                                System.out.println(a + " " + b + " " + c);
+                            else if(ab)
+                                System.out.println(a + " " +b);
+                            else if(ac)
+                                System.out.println(a + " " + c);
+                            else if(bc)
+                                System.out.println(b + " " + c);
+                        }
+                    </code></pre>
+                <br>
+                <p class="collapse">Згорнути</p> <br>
+            </div>
+        </section>
+        <section class="test">
+            <form action="#" onsubmit="return false;">
+                <!--                <form action="/validate">-->
+                <!--                    <form>-->
+                <h2>Тестові завдання</h2>
+                <div id="q1">
+                    <h4>Питання №1</h4>
+                    <p>У мові Java логічний оператор І(AND) правильно записується так:</p>
+                    <label>
+                        <input type="radio" value="0" name="var1" class="var">and
+                    </label>
+                    <label>
+                        <input type="radio" value="1" name="var1" class="var">&&
+                    </label>
+                    <label>
+                        <input type="radio" value="0" name="var1" class="var">&
+                    </label>
+                </div>
+                <div id="q2">
+                    <h4>Питання №2</h4>
+                    <p>У мові Java логічний оператор АБО(OR) правильно записується так:</p>
+                    <label>
+                        <input type="radio" value="0" name="var2" class="var">or
+                    </label>
+                    <label>
+                        <input type="radio" value="0" name="var2" class="var">&|
+                    </label>
+                    <label>
+                        <input type="radio" value="1" name="var2" class="var">||
+                    </label>
+                </div>
+                <div id="q3">
+                    <h4>Питання №3</h4>
+                    <p>Для заперечення логічного виразу використовують оператор:</p>
+                    <label>
+                        <input type="radio" value="1" name="var3" class="var">!
+                    </label>
+                    <label>
+                        <input type="radio" value="0" name="var3" class="var">!=
+                    </label>
+                    <label>
+                        <input type="radio" value="0" name="var3" class="var">~
+                    </label>
+                </div>
+                <div id="q4">
+                    <h4>Питання №4</h4>
+                    <p>Вираз для обчислення максимуму з двох числе - це...</p>
+                    <label>
+                        <input type="radio" value="0" name="var4" class="var">if (a < b) return a;
+                    </label>
+                    <label>
+                        <input type="radio" value="1" name="var4" class="var">if (a > b) return a;
+                    </label>
+                    <label>
+                        <input type="radio" value="0" name="var4" class="var">if (a == b) return a;
+                    </label>
+                </div>
+                <div id="q5">
+                    <h4>Питання №5</h4>
+                    <p>Змінні a i b дійсного типу double найбільш правильно порівняні у виразу:</p>
+                    <label>
+                        <input type="radio" value="0" name="var5" class="var">a == b
+                    </label>
+                    <label>
+                        <input type="radio" value="0" name="var5" class="var">a.equals(b)
+                    </label>
+                    <label>
+                        <input type="radio" value="1" name="var5" class="var">Math.abs(a-b) < 0.0001
+                    </label>
+                </div>
+                <div id="q6">
+                    <h4>Питання №6</h4>
+                    <p>Виберіть варіант, в якому найбільш правильно записано умовний оператор:</p>
+                    <label>
+                        <input type="radio" value="0" name="var6" class="var">if a < b return a;
+                    </label>
+                    <label>
+                        <input type="radio" value="1" name="var6" class="var">if (a < b) return a;
+                    </label>
+                    <label>
+                        <input type="radio" value="0" name="var6" class="var">if (a < b) then return a;
+                    </label>
+                </div>
+                <div id="q7">
+                    <h4>Питання №7</h4>
+                    <p>В умовному операторі можуть бути відсутніми:</p>
+                    <label>
+                        <input type="radio" value="0" name="var7" class="var">умови
+                    </label>
+                    <label>
+                        <input type="radio" value="0" name="var7" class="var">команда1
+                    </label>
+                    <label>
+                        <input type="radio" value="1" name="var7" class="var">else
+                    </label>
+                </div>
+                <div id="q8">
+                    <h4>Питання №8</h4>
+                    <p>Виберіть правильний логічний вираз:</p>
+                    <label>
+                        <input type="radio" value="0" name="var8" class="var">(a < 3) I (b > 3)
+                    </label>
+                    <label>
+                        <input type="radio" value="0" name="var8" class="var">(a < 3) and (b > 3)
+                    </label>
+                    <label>
+                        <input type="radio" value="1" name="var8" class="var">(a < 3) && (b > 3)
+                    </label>
+                </div>
+                <div id="q9">
+                    <h4>Питання №9</h4>
+                    <p>Змінні типу boolean можуть набувати значень:</p>
+                    <label>
+                        <input type="radio" value="0" name="var9" class="var">хибність, істина
+                    </label>
+                    <label>
+                        <input type="radio" value="0" name="var9" class="var">success, failed
+                    </label>
+                    <label>
+                        <input type="radio" value="1" name="var9" class="var">true, false
+                    </label>
+                </div>
+                <div id="q10">
+                    <h4>Питання №10</h4>
+                    <p>Виберіть правильний логічний вираз:</p>
+                    <label>
+                        <input type="radio" value="0" name="var10" class="var">10 < x < 20
+                    </label>
+                    <label>
+                        <input type="radio" value="0" name="var10" class="var">x > 10 and > 20
+                    </label>
+                    <label>
+                        <input type="radio" value="1" name="var10" class="var">x > 10 && x < 20
+                    </label>
+                </div>
+                <br>
+                <input type="submit" value="Перевірити" id="calc" class="btn">
+                <input type="reset" value="Скинути" id="res" class="btn"><br>
+                <div class="ans"><p class="q">Правильних відповідей:
+                    <p class="grade">0</p></p></div>
+            </form>
+        </section>
+        <section class="btn_sec">
+            <form action="/validate">
+                <input id="totalGrad" name="testsSummary" type="hidden" value="0">
+                <input name="lessonNumber" type="hidden" value="les2">
+                <input type="submit" class="btn_go btn" id="next" value="Наступний урок"/>
+            </form>
+        </section>
+        <footer>
+            <p>© All right reserved</p>
+            <p>Kyiv 2021</p>
+        </footer>
+    </div>
+    <aside class="right_panel">
+        <div class="top"></div>
+        <div class="lessons">
+            <div class="panel">
+                <a href="/courseplatform/src/main/resources/static/index.html" class="nL">Урок №1 "Команди й перша
+                    програма"</a>
+            </div>
+            <div class="panel">
+                <a href="/courseplatform/src/main/resources/static/les2.html" class="nL">Урок №2 "Знайомство з типами й
+                    уведення з клавіатури"</a>
+            </div>
+            <div class="panel activeP">
+                <a href="/courseplatform/src/main/resources/static/les3.html" class="nL">Урок №3 "Умовний оператор"</a>
+            </div>
+            <div class="panel">
+                <a href="/courseplatform/src/main/resources/static/les4.html" class="nL disable">Урок №4 "Тема
+                    уроку"</a>
+            </div>
+            <div class="panel">
+                <a href="/courseplatform/src/main/resources/static/les5.html" class="nL disable">Урок №5 "Тема
+                    уроку"</a>
+            </div>
+            <div class="panel">
+                <a href="/courseplatform/src/main/resources/static/les6.html" class="nL disable">Урок №6 "Тема
+                    уроку"</a>
+            </div>
+            <div class="panel">
+                <a href="/courseplatform/src/main/resources/static/les7.html" class="nL disable">Урок №7 "Тема
+                    уроку"</a>
+            </div>
+            <div class="panel">
+                <a href="/courseplatform/src/main/resources/static/les8.html" class="nL disable">Урок №8 "Тема
+                    уроку"</a>
+            </div>
+            <div class="panel">
+                <a href="/courseplatform/src/main/resources/static/les9.html" class="nL disable">Урок №9 "Тема
+                    уроку"</a>
+            </div>
+            <div class="panel">
+                <a href="/courseplatform/src/main/resources/static/les10.html" class="nL disable">Урок №10 "Тема
+                    уроку"</a>
+            </div>
+            <div class="panel">
+                <a href="/courseplatform/src/main/resources/static/les11.html" class="nL disable">Урок №11 "Тема
+                    уроку"</a>
+            </div>
+            <div class="panel">
+                <a href="/courseplatform/src/main/resources/static/les12.html" class="nL disable">Урок №12 "Тема
+                    уроку"</a>
+            </div>
+            <div class="panel">
+                <a href="/courseplatform/src/main/resources/static/les13.html" class="nL disable">Урок №13 "Тема
+                    уроку"</a>
+            </div>
+            <div class="panel">
+                <a href="/courseplatform/src/main/resources/static/les14.html" class="nL disable">Урок №14 "Тема
+                    уроку"</a>
+            </div>
+            <div class="panel">
+                <a href="/courseplatform/src/main/resources/static/les15.html" class="nL disable">Урок №15 "Тема
+                    уроку"</a>
+            </div>
+        </div>
+        <div class="botom"></div>
+        <div class="info">
+            <div>
+                <img src="/src/main/resources/static/img/inf.png" alt="" height="20px" width="20px">
+            </div>
+            <a target="_blank" href="https://docs.oracle.com/en/java/"> Документація Java</a>
+        </div>
+    </aside>
+
+</div>
+
+<script th:src="@{/js/script.js}" src="/src/main/resources/static/js/script.js" ></script>
+</body>
+</html>

@@ -1,7 +1,6 @@
 h1, h2, h3, h4, h5, h6, hgroup, ol, li, ul, div, header, section,
 aside, p, a, footer {
     margin: 0;
-    list-style-type: none;
     text-decoration: none;
 }
 
@@ -361,23 +360,36 @@ label {
     cursor: alias;
 }
 
-.hideGrade {
-    display: none;
-    transition: 0.5s;
-}
+
 .visibleGrade {
     display: block;
     transition: 0.5s;
 }
 
 .gradeList {
-    width: 20%;
+    width: 35%;
     padding: 10px;
+    padding-bottom: 0;
     text-align: center;
-    margin-left: 920px;
+    margin-left: 810px;
     margin-bottom: 30px;
+    position: absolute;
+    display: flex;
+    background-color: black;
+    border: #e06149 1px solid;
+    border-radius: 10px;
 }
+
+.hideGrade {
+    display: none;
+    transition: 0.5s;
+}
+
 .gradeList > div {
+    margin-right: 5px;
+    margin-bottom: 0;
+}
+.gradeList > div > div {
     margin-bottom: 10px;
     background-color: rgb(29, 29, 29);
     padding: 5px;
@@ -385,5 +397,5 @@ label {
     border-radius: 10px;
 }
 .gradeList > .lastch {
-    margin-bottom: 0px;
+    margin-right: 0px;
 }
