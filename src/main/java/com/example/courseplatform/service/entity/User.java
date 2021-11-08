@@ -84,34 +84,49 @@ public class User implements UserDetails {
         switch (lesson) {
             case 1:
                 setLesson1(test);
+                break;
             case 2:
                 setLesson2(test);
+                break;
             case 3:
                 setLesson3(test);
+                break;
             case 4:
                 setLesson4(test);
+                break;
             case 5:
                 setLesson5(test);
+                break;
             case 6:
                 setLesson6(test);
+                break;
             case 7:
                 setLesson7(test);
+                break;
             case 8:
                 setLesson8(test);
+                break;
             case 9:
                 setLesson9(test);
+                break;
             case 10:
                 setLesson10(test);
+                break;
             case 11:
                 setLesson11(test);
+                break;
             case 12:
                 setLesson12(test);
+                break;
             case 13:
                 setLesson13(test);
+                break;
             case 14:
                 setLesson14(test);
+                break;
             case 15:
                 setLesson15(test);
+                break;
         }
     }
 
