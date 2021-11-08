@@ -17,10 +17,8 @@ public class MainController {
     @Autowired
     UserService userService;
 
-    @GetMapping(value = {"/main", "/*"})
-    public String getHomePage(
-            @RequestParam( value = "lessonNumber", required = false) Integer lessonNumber,
-            HttpSession session, Model model) {
+    @GetMapping(value = {"/main", "/"})
+    public String getHomePage(HttpSession session) {
         User user = getUserFromSession();
         session.setAttribute("userDB", user);
         session.setAttribute("lesson10", userService.getTestList(user.getUsername()));
@@ -48,7 +46,7 @@ public class MainController {
         if (principal instanceof UserDetails) {
             return  (User) principal;
         }
-        return null;
+        return new User();
     }
 
 }
