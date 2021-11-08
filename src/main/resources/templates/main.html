@@ -11,12 +11,13 @@
     <link rel="stylesheet" th:href="@{/css/style.css}">
     <!--    <link rel="stylesheet" th:href="@{/css/style.css}" href="/src/main/resources/static/css/style.css">-->
 </head>
-<body>
+<body onload="setNextLvlButtonColorIfExist()">
+<input th:if="${thisLessonGrade >= 7}" id="thisLessonGrade" type="hidden" value="1"/>
 <header>
     <div class="logo">
         <h1>Онлайн-курc: JavaCourse</h1>
         <img src="https://dev.java/assets/images/java-logo-vert-blk.png" alt="LOGOTYPE" width="70px" height="60px">
-        <h1 th:text="${session.username}" class="user">USER</h1>
+        <h1 th:text="${session.userDB.getUsername()}" class="user">USER</h1>
         <form th:action="@{/logout}" method="post">
             <input type="submit" value="Вихід" class="btn" id="logout"/>
         </form>
