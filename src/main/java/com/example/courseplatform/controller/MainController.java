@@ -24,7 +24,7 @@ public class MainController {
         User user = getUserFromSession();
         session.setAttribute("userDB", user);
         session.setAttribute("lesson10", userService.getTestList(user.getUsername()));
-        model.addAttribute("thisLessonGrade", user.getLessonTestByLessonNumber(lessonNumber));
+        session.setAttribute("thisLessonGrade", userService.getExistLessonsGrads(user.getUsername()));
         return "main.html";
     }
 
@@ -37,7 +37,8 @@ public class MainController {
     ) {
         User user = getUserFromSession();
         session.setAttribute("userDB", user);
-        model.addAttribute("thisLessonGrade", user.getLessonTestByLessonNumber(lessonNumber));
+        session.setAttribute("thisLessonGrade", userService.getExistLessonsGrads(user.getUsername()));
+//        model.addAttribute("thisLessonGrade", user.getLessonTestByLessonNumber(lessonNumber));
         userService.setTestGrade(user.getUsername(), testsSummary, lessonNumber);
         return nextLesson + ".html";
     }
