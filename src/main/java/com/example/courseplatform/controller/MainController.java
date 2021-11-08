@@ -19,7 +19,7 @@ public class MainController {
 
     @GetMapping(value = {"/main", "/*"})
     public String getHomePage(
-            @RequestParam("lessonNumber") Integer lessonNumber,
+            @RequestParam( value = "lessonNumber", required = false) Integer lessonNumber,
             HttpSession session, Model model) {
         User user = getUserFromSession();
         session.setAttribute("userDB", user);
