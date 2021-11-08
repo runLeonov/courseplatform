@@ -67,7 +67,7 @@ public class UserService implements UserDetailsService {
         for (int i = 1; i <= 15; i++) {
             if (Objects.isNull(user.getLessonTestByLessonNumber(i)))
                 integerBooleanMap.put(0, false);
-            else if (user.getLessonTestByLessonNumber(i) >= 7)
+            else if (Objects.nonNull(user.getLessonTestByLessonNumber(i)) && user.getLessonTestByLessonNumber(i) >= 7)
                 integerBooleanMap.put(user.getLessonTestByLessonNumber(i), true);
             else
                 integerBooleanMap.put(user.getLessonTestByLessonNumber(i), false);
