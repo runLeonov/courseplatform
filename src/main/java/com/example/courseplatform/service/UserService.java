@@ -9,10 +9,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
-import java.util.Optional;
+import java.util.*;
 
 @Service
 public class UserService implements UserDetailsService {
@@ -29,6 +26,7 @@ public class UserService implements UserDetailsService {
         }
         return user;
     }
+
     public boolean saveUser(User user) {
         User userFromDB = userRepository.findByUsername(user.getUsername());
 
@@ -63,6 +61,17 @@ public class UserService implements UserDetailsService {
         }
         return testsGrads;
     }
+
+    public Map<Integer, Boolean> getExistLessonsGrads(String username) {
+        Map<Integer, Boolean> integerBooleanMap = new HashMap<>();
+        List<Integer> testList = getTestList(username);
+        for (int i = 0; i < testList.size() - 1; i++) {
+            if (testList.get(i) == 0) integerBooleanMap.put(0, false);
+            else if (testList.get(i) >= 7) integerBooleanMap.put((i + 1), true);
+        }
+        return integerBooleanMap;
+    }
+
     public List<User> allUsers() {
         return userRepository.findAll();
     }

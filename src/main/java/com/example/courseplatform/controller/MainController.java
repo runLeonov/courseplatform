@@ -6,21 +6,27 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpSession;
+import java.util.Collections;
 
 @Controller("")
 public class MainController {
     @Autowired
     UserService userService;
-    @GetMapping("/main")
+
+    @GetMapping(value = {"/main", "/"})
     public String getHomePage(HttpSession session) {
-        User principal = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        session.setAttribute("username", principal.getUsername());
-        session.setAttribute("lesson10", userService.getTestList(principal.getUsername()));
+        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        if (principal instanceof UserDetails) {
+            User user = (User) principal;
+            session.setAttribute("userDB", user.getUsername());
+            session.setAttribute("lesson10", userService.getTestList(user.getUsername()));
+            session.setAttribute("thisLessonGrade", userService.getExistLessonsGrads(user.getUsername()));
+        }
         return "main.html";
     }
 
@@ -28,12 +34,15 @@ public class MainController {
     public String getTestValues(
             @RequestParam("testsSummary") Integer testsSummary,
             @RequestParam("lessonNumber") Integer lessonNumber,
-            @RequestParam("nextLesson") String nextLesson
+            @RequestParam("nextLesson") String nextLesson,
+            HttpSession session
     ) {
         Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         if (principal instanceof UserDetails) {
-            String username = ((UserDetails)principal).getUsername();
-            userService.setTestGrade(username, testsSummary, lessonNumber);
+            User user = (User) principal;
+            session.setAttribute("userDB", user);
+            session.setAttribute("thisLessonGrade", userService.getExistLessonsGrads(user.getUsername()));
+            userService.setTestGrade(user.getUsername(), testsSummary, lessonNumber);
         }
         return nextLesson + ".html";
     }

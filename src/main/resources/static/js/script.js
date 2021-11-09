@@ -1,4 +1,3 @@
-
 const grade = document.querySelector('.grade')
 const nextLesson = document.querySelector('#next')
 const nextPanel = document.querySelectorAll('.nL')
@@ -6,8 +5,9 @@ const html = document.querySelector('html')
 const numOfDoc = html.id
 const user = document.querySelector('.user')
 const gradeList = document.querySelector('.gradeList')
+const thisLessonGrade = $("#thisLessonGrade").val()
 
-calc.onclick = function() {
+calc.onclick = function () {
     var myform = this.form
     let val = 0;
     val = +myform.var1.value + +myform.var2.value +
@@ -16,31 +16,40 @@ calc.onclick = function() {
         +myform.var9.value + +myform.var10.value
     grade.innerHTML = val
     $("#totalGrad").val(val);
-    $("#nextLesson").val("les" + (numOfDoc + 1));
-    if($('input[type=radio]:checked').length < 10) {
-      alert("Ви відповили не на всі тести!")
+    // $("#nextLesson").val("les" + +(numOfDoc + 1));
+    if ($('input[type=radio]:checked').length < 10) {
+        alert("Ви відповили не на всі тести!")
     }
     if (val == 7 || val > 7) {
-        nextLesson.classList.add('checked')
-        nextLesson.href = '/courseplatform/src/main/resources/templates/les'+(parseInt(numOfDoc, 10)+1)
-        nextPanel[numOfDoc].classList.remove('disable')
+        setNextLvlButtonColor();
     }
+}
+
+function setNextLvlButtonColor() {
+    nextLesson.classList.add('checked')
+    nextLesson.href = '/courseplatform/src/main/resources/templates/les' + (parseInt(numOfDoc, 10) + 1)
+    nextPanel[numOfDoc].classList.remove('disable')
+}
+
+function setNextLvlButtonColorIfExist() {
+    if (thisLessonGrade === 1 || thisLessonGrade === "1") setNextLvlButtonColor();
 }
 
 res.onclick = () => {
     grade.innerHTML = 0
 }
 
-(function(){
+(function () {
     let a = document.querySelector('.right_panel'), b = null, P = 0;  // если ноль заменить на число, то блок будет прилипать до того, как верхний край окна браузера дойдёт до верхнего края элемента. Может быть отрицательным числом
     window.addEventListener('scroll', Ascroll, false);
     document.body.addEventListener('scroll', Ascroll, false);
+
     function Ascroll() {
         if (b == null) {
             let Sa = getComputedStyle(a, ''), s = '';
             for (let i = 0; i < Sa.length; i++) {
                 if (Sa[i].indexOf('overflow') == 0 || Sa[i].indexOf('padding') == 0 || Sa[i].indexOf('border') == 0 || Sa[i].indexOf('outline') == 0 || Sa[i].indexOf('box-shadow') == 0 || Sa[i].indexOf('background') == 0) {
-                    s += Sa[i] + ': ' +Sa.getPropertyValue(Sa[i]) + '; '
+                    s += Sa[i] + ': ' + Sa.getPropertyValue(Sa[i]) + '; '
                 }
             }
             b = document.createElement('div');
@@ -59,7 +68,7 @@ res.onclick = () => {
         if ((Ra.top - P) <= 0) {
             if ((Ra.top - P) <= R) {
                 b.className = 'stop';
-                b.style.top = - R +'px';
+                b.style.top = -R + 'px';
             } else {
                 b.className = 'sticky';
                 b.style.top = P + 'px';
@@ -68,7 +77,7 @@ res.onclick = () => {
             b.className = '';
             b.style.top = '';
         }
-        window.addEventListener('resize', function() {
+        window.addEventListener('resize', function () {
             a.children[0].style.width = getComputedStyle(a, '').width
         }, false);
     }
@@ -80,11 +89,11 @@ const sol2 = solution[1]
 const p1 = document.querySelector('.p1')
 const p2 = document.querySelector('.p2')
 
-solution[0].onclick = function() {
+solution[0].onclick = function () {
     p1.classList.add('activepr')
     p1.classList.remove('hidepr')
 }
-solution[1].onclick = function() {
+solution[1].onclick = function () {
     p2.classList.add('activepr')
     p2.classList.remove('hidepr')
 }
@@ -93,21 +102,21 @@ const collapse = document.querySelectorAll('.collapse')
 const col1 = collapse[0]
 const col2 = collapse[1]
 
-collapse[0].onclick = function() {
+collapse[0].onclick = function () {
     p1.classList.remove('activepr')
     p1.classList.add('hidepr')
 }
-collapse[1].onclick = function() {
+collapse[1].onclick = function () {
     p2.classList.remove('activepr')
     p2.classList.add('hidepr')
 }
 
-user.onmouseenter = () => { 
+user.onmouseenter = () => {
     gradeList.classList.remove("hideGrade")
-    gradeList.classList.add("visibleGrade") 
+    gradeList.classList.add("visibleGrade")
 }
 
-user.onmouseleave = () => { 
+user.onmouseleave = () => {
     gradeList.classList.remove("visibleGrade")
-    gradeList.classList.add("hideGrade") 
+    gradeList.classList.add("hideGrade")
 }
