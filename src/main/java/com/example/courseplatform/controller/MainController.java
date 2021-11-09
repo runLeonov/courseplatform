@@ -24,7 +24,7 @@ public class MainController {
         Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         if (principal instanceof UserDetails) {
             User user = (User) principal;
-            session.setAttribute("userDB", user.getUsername());
+            session.setAttribute("userDB", user);
             session.setAttribute("lesson10", userService.getTestList(user.getUsername()));
             session.setAttribute("thisLessonGrade", userService.getExistLessonsGrads(user.getUsername()));
         }
@@ -49,6 +49,16 @@ public class MainController {
             session.setAttribute("thisLessonGrade", userService.getExistLessonsGrads(user.getUsername()));
         }
         return nextLesson + ".html";
+    }
+
+    @GetMapping("/lesson")
+    public String getTestValues(
+            @RequestParam("lessonNumber") Integer lessonNumber,
+            @RequestParam("nextLesson") String nextLesson,
+            HttpSession session
+    ) {
+        session.setAttribute("suk", "HELLO SUKI");
+        return "main.html";
     }
 
 }
