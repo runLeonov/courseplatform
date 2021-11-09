@@ -23,7 +23,7 @@ public class MainController {
         Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         if (principal instanceof UserDetails) {
             User user = (User) principal;
-            session.setAttribute("userDB", user);
+            session.setAttribute("userDB", user.getUsername());
 //            session.setAttribute("thisLessonGrade", userService.getExistLessonsGrads(user.getUsername()));
 //            session.setAttribute("lesson10", Collections.singletonList(userService.getExistLessonsGrads(user.getUsername()).keySet()));
         }
