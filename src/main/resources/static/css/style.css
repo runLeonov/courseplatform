@@ -403,3 +403,13 @@ label {
 .gradeList > .lastch {
     margin-right: 0px;
 }
+
+.alert {
+    color: red;
+    height: auto;
+    width: 29%;
+    border: #e06149 1px solid;
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 20px;
+}

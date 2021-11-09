@@ -6,6 +6,8 @@ const numOfDoc = html.id
 const user = document.querySelector('.user')
 const gradeList = document.querySelector('.gradeList')
 const thisLessonGrade = $("#thisLessonGrade").val()
+const alertp = document.querySelector('.alert')
+const labels = document.querySelectorAll('label')
 
 calc.onclick = function () {
     var myform = this.form
@@ -18,11 +20,21 @@ calc.onclick = function () {
     $("#totalGrad").val(val);
     // $("#nextLesson").val("les" + +(numOfDoc + 1));
     if ($('input[type=radio]:checked').length < 10) {
-        alert("Ви відповили не на всі тести!")
+        alertp.classList.remove('hidepr')
+        alertp.classList.add('activepr')
+    }
+    for (let i = 0; i < $('input[type=radio]:checked').length; i++){
+        if($('input[type=radio]:checked')[i].value == 0) {
+            $('input[type=radio]:checked')[i].parentElement.style.color = "red"
+           
+        }
+        
     }
     if (val == 7 || val > 7) {
         setNextLvlButtonColor();
     }
+
+    
 }
 
 function setNextLvlButtonColor() {
@@ -37,6 +49,9 @@ function setNextLvlButtonColorIfExist() {
 
 res.onclick = () => {
     grade.innerHTML = 0
+    for(let lab of labels) {
+        lab.style.color = "white"
+    }
 }
 
 (function () {
