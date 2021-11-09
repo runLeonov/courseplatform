@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en" id="1"  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Java Course</title>
+    <script th:src="@{js/jquery.js}"></script>
+    <script th:src="@{js/jquery.js}" src="/src/main/resources/static/js/jquery.js"></script>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="stylesheet" th:href="@{/css/style.css}" href="/src/main/resources/static/css/style.css">-
+</head>
+<body onload="setNextLvlButtonColorIfExist()">
+<input th:if="${session.thisLessonGrade.containsKey(1)}" id="thisLessonGrade" type="hidden" value="1"/>
+<header>
+    <div class="logo">
+        <h1>Онлайн-курc: JavaCourse</h1>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4ZAeznQZoSen1S7qvKdoet0ndYpCepZpR-TMTp6pDlMtkg_oYF3BcLjv2ciiSssFqlws&usqp=CAU" alt="LOGOTYPE" width="120px" height="100px">
+        <h1 th:text="${session.userDB}" class="user">USER</h1>
+        <form th:action="@{/logout}" method="post">
+            <input type="submit" value="Вихід" class="btn" id="logout"/>
+        </form>
+    </div>
+    <div class="gradeList hideGrade">
+        <div>
+            <div class="subDiv"><div>Оцінка за урок №1:</div><div th:text="${session.lesson10.get(0)}">10</div></div>
+            <div class="subDiv"><div>Оцінка за урок №2:</div><div th:text="${session.lesson10.get(1)}">10</div></div>
+            <div class="subDiv"><div>Оцінка за урок №3:</div><div th:text="${session.lesson10.get(2)}">10</div></div>
+            <div class="subDiv"><div>Оцінка за урок №4:</div><div th:text="${session.lesson10.get(3)}">10</div></div>
+            <div class="subDiv"><div>Оцінка за урок №5:</div><div th:text="${session.lesson10.get(4)}">10</div></div>
+        </div>
+        <div>
+            <div class="subDiv"><div>Оцінка за урок №6:</div><div th:text="${session.lesson10.get(5)}">10</div></div>
+            <div class="subDiv"><div>Оцінка за урок №7:</div><div th:text="${session.lesson10.get(6)}">10</div>></div>
+            <div class="subDiv"><div>Оцінка за урок №8:</div><div th:text="${session.lesson10.get(7)}">10</div></div>
+            <div class="subDiv"><div>Оцінка за урок №9:</div><div th:text="${session.lesson10.get(8)}">10</div></div>
+            <div class="subDiv"><div>Оцінка за урок №10:</div><div th:text="${session.lesson10.get(9)}">10</div></div>
+            
+        </div>
+        <div class="lastch">
+            <div class="subDiv"><div>Оцінка за урок №11:</div><div th:text="${session.lesson10.get(10)}">10</div></div>
+            <div class="subDiv"><div>Оцінка за урок №12:</div><div th:text="${session.lesson10.get(11)}">10</div></div>
+            <div class="subDiv"><div>Оцінка за урок №13:</div><div th:text="${session.lesson10.get(12)}">10</div></div>
+            <div class="subDiv"><div>Оцінка за урок №14:</div><div th:text="${session.lesson10.get(13)}">10</div></div>
+            <div class="subDiv"><div>Оцінка за урок №15:</div><div th:text="${session.lesson10.get(14)}">10</div></div>
+        </div>
+    </div>
+    <div class="logo_list">
+        <div><p>15 уроків</p></div>
+        <div><p>Швидке начання</p></div>
+        <div><p>Онлайн практика</p></div>
+        <div><p>Тестові завдання</p></div>
+    </div>
+</header>
+
+<div class="main_content">
+    <div class="content">
+        <section class="name">
+            <img src="" alt="" width="300px" height="170px">
+            <div>
+                <h2>Цикл for</h2>
+                <a href="#practice">Перейти до практики</a>
+            </div>
+        </section>
+        <div class="op">
+            <p>Представляємо вам уроки програмування мовою Java для починаючих. <br> Великий відео курс по вивченню мови
+                Java.</p>
+        </div>
+        <h2>Відеоурок</h2>
+        <section class="video">
+            <iframe src="https://www.youtube.com/embed/C5q0ULg0nmY" title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+        </section>
+        <section class="text">
+            <h2>Текстовий матеріал</h2>
+            <h3>Цикл for</h3> <br>
+            <h4>Порівняння циклів for і while</h4>
+            <p>Цикл while можна використовувати у всіх випадках, коли команду або групу команд потрібно виконати кілька разів. Однак серед усіх цих випадків один варто виділити особливо.</p> <br>
+            <p>Це випадок, коли програміст (автор програми) заздалегідь знає, скільки разів має виконуватися його цикл. Зазвичай для цього використовується спеціальна змінна-лічильник, яка під час кожної ітерації циклу збільшується (або зменшується) на 1.</p> <br>
+            <p>Начебто все працює як слід, але це не дуже зручно. Перед циклом ми присвоюємо змінній-лічильнику початкове значення, а потім в умові перевіряємо, чи не досягла вона кінцевого значення. А от змінюємо її зазвичай аж наприкінці тіла циклу.</p> <br>
+            <p>А якщо тіло циклу велике? Або маємо кілька вкладених циклів? Загалом у таких випадках бажано зібрати всю цю інформацію про змінну-лічильник в одному місці. Так у мові Java з'явився цикл for. Він теж має зовсім нескладний вигляд:</p> <br>
+            <pre><code>for (команда1; умова; команда2)
+                {
+                   БЛОК КОМАНД
+                }
+            </code></pre> <br>
+            <p>У циклі while у круглих дужках була тільки умова, а тут додано ще дві команди, розділені крапкою з комою.</p> <br>
+            <p>Насправді все досить просто: компілятор перетворює цикл for на звичайний цикл while таким чином: команда1;</p> <br>
+            <pre><code>while (умова)
+                {
+                   БЛОК КОМАНД
+                   команда2;
+                }
+            </code></pre> <br>
+            <p>Покажемо це на прикладі: два приклади нижче ідентичні.</p> <br>
+            <p>Цикл for:</p> <br>
+            <pre><code>for (int i = 0; i < 20; i++)
+                {
+                   System.out.println(i);
+                }
+            </code></pre> <br>
+            <p>Цикл while:</p> <br>
+            <pre><code>int i = 0;
+                while (i < 20)
+                {
+                   System.out.println(i);
+                   i++;
+                }
+            </code></pre> <br>
+            <p>Ми просто зібрали в одному місці весь код, який стосується змінної-лічильника — i. команда1 у циклі for виконується тільки один раз перед початком циклу (це видно у другому прикладі)</p> <br>
+            <p>команда2 виконується таку саму кількість разів, як і тіло циклу, але вона виконується щоразу вже після повного завершення тіла циклу</p> <br>
+            <h4>Використання циклу for</h4> <br>
+            <p>Цикл for використовується в Java, мабуть, найчастіше з усіх видів циклів. Він застосовується скрізь, тому що для програмістів це просто зрозуміліша й зручніша форма запису циклу while. Практично будь-який цикл while можна перетворити на цикл for.</p> <br>
+            <p>Приклад №1</p> <br>
+            <p>for:</p> <br>
+            <pre><code>for (int i = 3; i >= 0; i--)
+                {
+                   System.out.println(i);
+                }
+            </code></pre> <br>
+            <p>while:</p> <br>
+            <pre><code>int i = 3;
+                while (i >= 0)
+                {
+                   System.out.println(i);
+                   i--;
+                }
+            </code></pre> <br>
+            <p>Приклад №2</p> <br>
+            <p>for:</p> <br>
+            <pre><code>for (boolean isExit = false; !isExit; )
+                {
+                   String s = console.nextLine();
+                   isExit = s.equals("exit");
+                }
+            </code></pre> <br>
+            <p>while:</p> <br>
+            <pre><code>boolean isExit = false;
+                while (!isExit)
+                {
+                   String s = console.nextLine();
+                   isExit = s.equals("exit");
+                }
+            </code></pre> <br>
+            <p>Java дозволяє не писати в циклі for команди для ініціалізації лічильника та змінення лічильника. І навіть вираз-умову циклу можна не писати.</p> <br>
+            <h4>Особливості використання циклу for</h4>
+            <p>Важливий момент щодо використання циклу for і операторів break і continue.</p> <br>
+            <p>Оператор break у циклі for діє так само, як і в циклі while — призводить до негайного завершення циклу. А от коли використовується оператор continue, тіло циклу пропускається, а команда2 (яка змінює лічильник циклу) — ні.</p> <br>
+            <p>Подивімося ще раз, як пов'язані між собою цикли for і while.</p> <br>
+            <pre><code>for (команда1; умова; команда2)
+                {
+                   блок команд
+                }
+                команда1;
+                while (умова)
+                {
+                   блок команд
+                   команда2;
+                }
+            </code></pre> <br>
+            <p>Якщо в блоці команд циклу for викликати оператор continue, наступні команди блоку будуть пропущені, а от команда2 (яка змінює лічильник циклу for) все одно буде виконана.</p> <br>
+            <p>Повернімося до нашого прикладу з пропусканням чисел, що діляться на 7.</p> <br>
+            <p>Цей код зациклиться:</p> <br>
+            <pre><code>int i = 1;
+                while (i <= 20)
+                {
+                   if ( (i % 7) == 0) continue;
+                   System.out.println(i);
+                   i++;
+                }
+            </code></pre> <br>
+            <p>Цей код чудово працюватиме:</p> <br>
+            <pre><code>for (int i = 1; i <= 20; i++)
+                {
+                   if ( (i % 7) == 0) continue;
+                   System.out.println(i);
+                }
+            </code></pre> <br>
+            <p>Код із циклом while не діятиме — значення змінної i ніколи не перевищить 7. А от код із циклом for діятиме чудово.</p> <br>
+            <h3>Приклади використання циклу for</h3> <br>
+            <h4>Підрахунок кількості введених рядків за допомогою циклу for</h4>
+            <p>Спробуймо написати програму, яка вводить з клавіатури 10 рядків і виводить на екран кількість рядків із числами.</p> <br>
+            <p>Приклад:</p> <br>
+            <pre><code>Scanner console = new Scanner(System.in);
+                int count = 0;
+                for (int i = 0; i < 10; i++)
+                {
+                   if (console.hasNextInt())
+                      count++;
+                   console.nextLine();
+                }
+                System.out.println(count);
+            </code></pre> <br>
+            <pre><code>Створюємо об'єкт Scanner для читання даних з консолі.
+                У змінний  будемо зберігати кількість уведених чисел.
+                Цикл від 0 до 10 (не включаючи 10).
+                Якщо з консолі введено число, збільшуємо змінну count на одиницю.
+                Читаємо рядок з консолі, але ніде його не зберігаємо.
+                Виводимо отриману суму (кількість чисел) на екран.count
+            </code></pre> <br>
+            <strong>Примітка</strong> <br>
+            <p>Якщо рядок складається з декількох слів, розділених пробілами, і перше з них — число, метод hasNextInt() поверне значення true, навіть коли інші слова не будуть числами. Тому наша програма правильно працюватиме, тільки якщо кожен рядок містить не більше одного «слова».</p> <br>
+            <h4>Обчислення факторіала за допомогою циклу for</h4>
+            <p>Спробуймо написати програму, яка нічого не вводить, а, скажімо, щось обчислює. Що-небудь складне. Наприклад, факторіал числа 10.</p> <br>
+            <p>Факторіал числа n (позначається n!) — це добуток ряду чисел: 1*2*3*4*5*..*n;</p> <br>
+            <pre><code>int f = 1;
+                for (int i = 1; i <= 10; i++)
+                   f = f * i;
+                System.out.println(f);
+            </code></pre> <br>
+            <pre><code>У змінній f будемо зберігати добуток чисел.
+                Цикл від 1 до 10 (включно).
+                Множимо  на чергове число (результат зберігаємо у f).
+                Виводимо отриманий добуток на екран.
+            </code></pre> <br>
+            <p>Початкове значення f = 1, тому що ми множимо f на числа. Якби змінна f мала початкове значення 0, добуток усіх чисел на 0 дорівнював би 0.</p> <br>
+            <h3>Тип double — дійсні числа</h3> <br>
+            <h4>Тип double</h4>
+            <p>Для роботи з дійсними (дробовими) числами в Java використовується тип double. У пам'яті він займає 8 байтів (удвічі більше, ніж тип int) і може зберігати значення від -1.7*10^308 до +1.7*10^308. Порівняйте: тип int може зберігати значення від -2*10^9 до +2*10^9.</p> <br>
+            <p>У дійсних числах дробова частина записується після крапки. Наприклад, 123.456, або 2.5, або 100.00 або 0.01. Такі числа ще називають числами з рухомою крапкою (floating point number) — це комп'ютерна назва для дійсних чисел.</p> <br>
+            <p>До речі, крім типу double, є ще один тип для дійсних чисел — float (розміром лише 4 байти). Його назва якраз походить від floating point. А назва типу double походить від терміну double float. Тип double удвічі більший, ніж тип float: 8 байтів проти 4. Його також називають дійсним числом подвійної точності.</p> <br>
+            <h4>Створення змінної типу double</h4>
+            <p>Тип double використовують для зберігання дійсних чисел. Для створення в коді змінної, здатної зберігати дійсні числа, використовується така команда: double ім'я; де ім'я — це ім'я змінної. </p> <br>
+            <p>Наприклад:</p> <br>
+            <pre><code>double price;</code></pre> <br>
+            <p>Створюється змінна дійсного типу price.</p> <br>
+            <pre><code>double weight;</code></pre> <br>
+            <p>Створюється змінна дійсного типу weight.</p> <br>
+            <p>Для створення кількох змінних типу double, так само, як і для типу int, можна використовувати скорочений формат: double ім'я1, ім'я2, ім'я3;</p> <br>
+            <p>Крім того, можна відразу присвоювати їм значення: double ім'я1 = значення1, ім'я2 = значення2, ім'я3 = значення3;</p> <br>
+            <p>Наприклад:</p> <br>
+            <pre><code>double x = 1.0, y = 2.0, z = 3.0;
+                double weight = 2;
+            </code></pre> <br>
+            <h4>Присвоювання цілих і дійсних чисел</h4>
+            <p>Якби цілі числа можна було присвоювати тільки змінним типу int, а дійсні — тільки змінним типу double, це було б дуже погано. Для зручності нам потрібна можливість перетворювати тип числа з одного на інший. У мові Java така можливість є.</p> <br>
+            <p>По-перше, змінним типу double можна присвоювати як дійсні, так і цілі числа. Коли присвоюються цілі числа, вони просто перетворюються на дійсні. Проте в цьому разі часом дещо знижується точність.</p> <br>
+            <p>По-друге, якщо певний виразі містить і ціле, і дійсне числа, то спочатку ціле перетворюється на дійсне, після чого з ним виконуються операції вже як із дійсним числом.</p> <br>
+            <p>І нарешті, існує можливість присвоювати змінним типу int дійсні числа. Дробова частина числа в цьому разі відкидається — число округлюється до меншого цілого.</p> <br>
+            <p>Крім того, компілятор вимагає, щоб цю операцію було задокументовано в явному вигляді (для того щоб інші програмісти розуміли, що тут відбувається відкидання дробової частини).</p> <br>
+            <p>Загальний вигляд цього виразу в коді: змінна_цілого_типу = (int)(дійсне_число);</p> <br>
+            <p>Наприклад:</p> <br>
+            <pre><code>int x = (int)(5.5);</code></pre> <br>
+            <p>У змінній x зберігається значення 5.</p> <br>
+            <pre><code>double a = 5.999;
+                int x = (int)(a);
+            </code></pre> <br>
+            <p>У змінній x зберігається значення 5.</p> <br>
+            <h4>Ділення цілих і дійсних чисел у Java</h4>
+            <p>У разі ділення цілого числа на ціле остача завжди відкидається. Як же тоді, приміром, поділити 5 на 2, щоб отримати 2.5?</p> <br>
+            <p>Спочатку здається, що правильній варіант такий: double d = 5 / 2;</p> <br>
+            <p>Однак не все так просто. Справа в тому, що Java-машина спочатку обчислить значення виразу 5 / 2 і лише потім присвоїть результат змінній d. А ділення 5 / 2 буде виконано націло. </p> <br>
+            <p>Тобто змінна d буде містити число 2, а точніше — 2.0.</p> <br>
+            <p>Правильний варіант такий: хоча б одне з чисел, що беруть участь у діленні, слід записати як дійсне (тобто з десятковою точкою):</p> <br>
+            <pre><code>double d = 5.0 / 2;
+                double d = 5 / 2.0;
+                double d = 5.0 / 2.0;
+            </code></pre> <br>
+            <p>У будь-якому з цих виразів d буде містити значення 2.5.</p> <br>
+            <p>А що ж робити зі змінними? Як бути, коли маємо такий код:</p> <br>
+            <pre><code>int a = 5;
+                int b = 2;
+                double d = a / b;
+            </code></pre> <br>
+            <p>Тут є хитромудре (і водночас очевидне) рішення — змусити Java-машину перетворити змінні на дійсний тип, помноживши їх на дійсне число один — 1.0.</p> <br>
+            <pre><code>int a = 5;
+                int b = 2;
+                double d = a * 1.0 / b;
+            </code></pre> <br>
+            <h3>Особливості роботи з дійсними числами</h3> <br>
+            <h4>Округлення дійсних чисел</h4>
+            <p>Ми вже раніше обговорювали, що коли змінній типу int присвоюється дійсне число, воно завжди округлюється до меншого цілого — дробова частина просто відкидається.</p> <br>
+            <p>Однак легко уявити ситуацію, коли дробове число потрібно округлити просто до найближчого або навіть до більшого цілого. Що ж робити в такій ситуації?</p> <br>
+            <p>Для цього та багатьох інших подібних випадків у мові Java є клас Math, який містить методи round(), ceil() і floor().</p> <br>
+            <h5>Метод Math.round()</h5> <br>
+            <p>Метод Math.round() округляє число до найближчого цілого: long x = Math.round(дійсне_число)</p> <br>
+            <p>Але, як то кажуть, є нюанс: результатом використання цього методу буде цілочисловий тип long (а не int). Адже дійсні числа можуть бути дуже великими, тому розробники Java вирішили використовувати найдовший цілочисловий тип, який є в Java — long.</p> <br>
+            <p>Ось чому для присвоєння результату змінній типу int програміст повинен явно вказати компілятору, що він згоден із можливою втратою даних (якщо раптом число не вміститься в тип int).</p> <br>
+            <pre><code>int x = (int) Math.round(дійсне_число)</code></pre> <br>
+            <p>Наприклад:</p> <br>
+            <pre><code>int x = (int) Math.round(4.1);</code></pre> <br>
+            <p>Результат: 4.</p> <br>
+            <pre><code>int x = (int) Math.round(4.5);</code></pre> <br>
+            <p>Результат: 5.</p> <br>
+            <h5>Метод Math.ceil()</h5> <br>
+            <p>Метод Math.ceil() округлює число вгору (до більшого цілого).</p>
+            <p>Наприклад:</p> <br>
+            <pre><code>int x = (int) Math.ceil(4.1);</code></pre> <br>
+            <p>Результат: 5.</p> <br>
+            <pre><code>int x = (int) Math.ceil(4.9);</code></pre> <br>
+            <p>Результат: 5.</p> <br>
+            <h5>Метод Math.floor()</h5> <br>
+            <p>Метод Math.floor() округлює число вниз (до меншого цілого). Приклади:</p> <br>
+            <pre><code>int x = (int) Math.floor(4.1);</code></pre> <br>
+            <p>Результат: 4.</p> <br>
+            <pre><code>int x = (int) Math.floor(4.9);</code></pre> <br>
+            <p>Результат: 4.</p> <br>
+            <p>Натомість для округлення числа до меншого цілого простіше використовувати звичайний оператор приведення типу — (int):</p> <br>
+            <pre><code>int x = (int) 4.9;</code></pre> <br>
+            <p>Результат: 4.</p> <br>
+        </section>
+        <section class="practice" id="practice">
+            <h2>Практичні завдання</h2>
+            <h4>Завдання №1</h4>
+            <p>У методі main() є змінна double glass = 0.5, яка означає наполовину повну склянку. Для песиміста вона наполовину порожня, а для оптиміста — наполовину повна.</p> <br>
+            <p>Потрібно зчитати з клавіатури дані типу boolean, використовуючи метод nextBoolean() об'єкта типу Scanner. Залежно від отриманих даних округлити змінну glass: до меншого цілого числа (0), якщо песиміст (false) і до більшого цілого числа (1), якщо оптиміст (true).</p> <br>
+            <p>Результат вивести на екран.</p> <br>
+            <p>Натисність на кнопку нижче, щоб відкрити рішення.</p> <br>
+            <p class="solution">Показати рішення</p>
+            <div class="p1 hidepr">
+                    <pre><code>public class Solution {
+                        public static void main(String[] args) {
+                            double glass = 0.5;
+                    
+                            Scanner scanner = new Scanner(System.in);
+                            boolean isOptimist = scanner.nextBoolean();
+                            int result;
+                            if (isOptimist) {
+                                result = (int) Math.ceil(glass);
+                            } else {
+                                result = (int) Math.floor(glass);
+                            }
+                            System.out.println(result);
+                        }
+                    }</code></pre>
+                <br>
+                <p class="collapse">Згорнути</p> <br>
+            </div>
+            <h4>Завдання №2</h4>
+            <p>У методі main з клавіатури зчитується 3 цілих числа: start, end, multiple.</p> <br>
+            <p>Допиши програму, щоб на екран виводилася сума чисел від start до end, кратних multiple. Використай для цього цикл for.</p> <br>
+            <p>Натисність на кнопку нижче, щоб відкрити рішення.</p> <br>
+            <p class="solution">Показати рішення</p>
+            <div class="p2 hidepr">
+                    <pre><code>public class Solution {
+                        public static void main(String[] args) {
+                            Scanner scanner = new Scanner(System.in);
+                            int start = scanner.nextInt();
+                            int end = scanner.nextInt();
+                            int multiple = scanner.nextInt();
+                    
+                            int sum = 0;
+                            for (int i = start; i < end; i++) {
+                                if (i % multiple != 0) {
+                                    continue;
+                                }
+                                sum = sum + i;
+                            }
+                            System.out.println(sum);
+                        }
+                    }</code></pre>
+                <br>
+                <p class="collapse">Згорнути</p> <br>
+            </div>
+        </section>
+        <section class="test">
+            <form action="#" onsubmit="return false;">
+                <!--                <form action="/validate">-->
+                <!--                    <form>-->
+                <h2>Тестові завдання</h2>
+                <div id="q1">
+                    <h4>Питання №1</h4>
+                    <p>Виберіть найбільш правильне твердження для наступного коду:<pre style="border: none;"><code>for(int i = 0; i < 10; i++) {
+                        System.out.println(i);
+                        continue;
+                    }                  
+                    </code></pre></p>
+                    <label>
+                        <input type="radio" value="0" name="var1" class="var">Код не скомпілюється
+                    </label>
+                    <label>
+                        <input type="radio" value="1" name="var1" class="var">Виведуться числа від 0 до 9
+                    </label>
+                    <label>
+                        <input type="radio" value="0" name="var1" class="var">Код зациклиться
+                    </label>
+                </div>
+                <div id="q2">
+                    <h4>Питання №2</h4>
+                    <p>Виберіть найбільш правильне твердження для наступного коду:<pre style="border: none;"><code>for(int i = 0; i < 10; i++) {
+                        continue;
+                        System.out.println(i);
+                    }                  
+                    </code></pre></p>
+                    <label>
+                        <input type="radio" value="1" name="var2" class="var">Код не скомпілюється
+                    </label>
+                    <label>
+                        <input type="radio" value="0" name="var2" class="var">Виведуться числа від 0 до 9
+                    </label>
+                    <label>
+                        <input type="radio" value="0" name="var2" class="var">Код зациклиться
+                    </label>
+                </div>
+                <div id="q3">
+                    <h4>Питання №3</h4>
+                    <p>Значення змінної х у наступному прикладі дорівнюватиме:<pre style="border: none;"><code>int x = Math.round(4.9);</code></pre></p>
+                    <label>
+                        <input type="radio" value="0" name="var3" class="var">4
+                    </label>
+                    <label>
+                        <input type="radio" value="0" name="var3" class="var">4.5
+                    </label>
+                    <label>
+                        <input type="radio" value="1" name="var3" class="var">5
+                    </label>
+                </div>
+                <div id="q4">
+                    <h4>Питання №4</h4>
+                    <p>Значення змінної х у наступному прикладі дорівнюватиме:<pre style="border: none;"><code>int x = Math.ceil(4.9);</code></pre></p>
+                    <label>
+                        <input type="radio" value="0" name="var4" class="var">4
+                    </label>
+                    <label>
+                        <input type="radio" value="0" name="var4" class="var">4.5
+                    </label>
+                    <label>
+                        <input type="radio" value="1" name="var4" class="var">5
+                    </label>
+                </div>
+                <div id="q5">
+                    <h4>Питання №5</h4>
+                    <p>У якому з наступних циклів відбудеться виведення на екран чисел від 1 до 10?</p>
+                    <label style="display: flex;">
+                        <input type="radio" value="0" name="var5" class="var"><pre style="width: 80%;"><code>for(int i = 0; i < 10; i++) {
+                            System.out.println(i);
+                        }</code></pre>
+                    </label>
+                    <label style="display: flex;">
+                        <input type="radio" value="1" name="var5" class="var"><pre style="width: 80%;"><code>for(int i = 1; i <= 10; i++) {
+                            System.out.println(i);
+                        }</code></pre>
+                    </label>
+                    <label style="display: flex;">
+                        <input type="radio" value="0" name="var5" class="var"><pre style="width: 80%;"><code>for(int i = 0; i <= 10; i++) {
+                            System.out.println(i);
+                        }</code></pre>
+                    </label>
+                </div>
+                <div id="q6">
+                    <h4>Питання №6</h4>
+                    <p>У якому з наступних циклів відбудеться виведення на екран чисел від 10 до 5?</p>
+                    <label style="display: flex;">
+                        <input type="radio" value="0" name="var6" class="var"><pre style="width: 80%;"><code>for(int i = 10; i > 5; i--) {
+                            System.out.println(i);
+                        }</code></pre>
+                    </label>
+                    <label style="display: flex;">
+                        <input type="radio" value="0" name="var6" class="var"><pre style="width: 80%;"><code>for(int i = 10; i > 6; i--) {
+                            System.out.println(i);
+                        }</code></pre>
+                    </label>
+                    <label style="display: flex;">
+                        <input type="radio" value="1" name="var6" class="var"><pre style="width: 80%;"><code>for(int i = 10; i >= 5; i++) {
+                            System.out.println(i);
+                        }</code></pre>
+                    </label>
+                </div>
+                <div id="q7">
+                    <h4>Питання №7</h4>
+                    <p>Що буде результатом виконання коду:<pre style="border: none;"><code>for(int i = 0;; i++){
+                        System.out.println(i);
+                    }</code></pre></p>
+                    <label style="display: flex;">
+                        <input type="radio" value="1" name="var7" class="var">Відбудеться зациклення
+                    </label>
+                    <label style="display: flex;">
+                        <input type="radio" value="0" name="var7" class="var">Код не скомпілюється
+                    </label style="display: flex;">
+                    <label>
+                        <input type="radio" value="0" name="var7" class="var">Результатом виконання коду буде помилка
+                    </label>
+                </div>
+                <div id="q8">
+                    <h4>Питання №8</h4>
+                    <p>Скільки витків циклу буде виконано?</p> <pre style="border: none;"><code>for(int i = 0; i < 8; i++){
+                        if(i%4==0)
+                            break;
+                        System.out.println(i);
+                    }
+                    </code></pre></p>
+                    <label>
+                        <input type="radio" value="1" name="var8" class="var">1
+                    </label>
+                    <label>
+                        <input type="radio" value="0" name="var8" class="var">7
+                    </label>
+                    <label>
+                        <input type="radio" value="0" name="var8" class="var">8
+                    </label>
+                </div>
+                <div id="q9">
+                    <h4>Питання №9</h4>
+                    <p>Скільки байтів у пам’яті займає тип  double?</p>
+                    <label>
+                        <input type="radio" value="0" name="var9" class="var">4
+                    </label>
+                    <label>
+                        <input type="radio" value="1" name="var9" class="var">8
+                    </label>
+                    <label>
+                        <input type="radio" value="0" name="var9" class="var">12
+                    </label>
+                </div>
+                <div id="q10">
+                    <h4>Питання №10</h4>
+                    <p>Значення змінної х у наступному прикладі дорівнюватиме:</p><code>int x = (int)Math.floor(4.8);</code></pre></p>
+                    <label>
+                        <input type="radio" value="0" name="var10" class="var">5
+                    </label>
+                    <label>
+                        <input type="radio" value="0" name="var10" class="var">8
+                    </label>
+                    <label>
+                        <input type="radio" value="1" name="var10" class="var">4
+                    </label>
+                </div>
+                <br>
+                <!--                <input type="submit" value="Проверить" id="calc" class="btn">-->
+                <!--                <input type="reset" value="Сбросить" id="res" class="btn"><br>-->
+                <!--                <input id="totalGrad" type="hidden" value="0">-->
+                <p class="alert hidepr">Ви відповіли не на всі тести!</p>
+                <input type="submit" value="Перевірити" id="calc" class="btn">
+                <input type="reset" value="Скинути" id="res" class="btn"><br>
+                <div class="ans"><p class="q">Правильних відповідей:
+                    <p class="grade">0</p></p></div>
+            </form>
+        </section>
+        <section class="btn_sec">
+            <form action="/validate">
+                <input id="totalGrad" name="testsSummary" type="hidden" value="0">
+                <input name="lessonNumber" type="hidden" value="1">
+                <input  id="nextLesson" name="nextLesson" type="hidden" value="les2">
+                <input type="submit" class="btn_go btn" id="next" value="Наступний урок"/>
+            </form>
+        </section>
+        <footer>
+            <p>© All right reserved</p>
+            <p>Kyiv 2021</p>
+        </footer>
+    </div>
+    <aside class="right_panel">
+        <div class="top"></div>
+        <div class="lessons">
+            <div class="panel">
+                <a href="/courseplatform/src/main/resources/static/index.html" class="nL">Урок №1 "Команди й перша
+                    програма"</a>
+            </div>
+            <div class="panel">
+                <a href="/validate" class="nL">Урок №2 "Знайомство з
+                    типами й уведення з клавіатури"</a>
+            </div>
+            <div class="panel">
+                <a href="/courseplatform/src/main/resources/static/les3.html" class="nL">Урок №3 "Умовний оператор"</a>
+            </div>
+            <div class="panel">
+                <a href="/courseplatform/src/main/resources/static/les4.html" class="nL">Урок №4 "Тема
+                    уроку"</a>
+            </div>
+            <div class="panel activeP">
+                <a href="/courseplatform/src/main/resources/static/les5.html" class="nL">Урок №5 "Тема
+                    уроку"</a>
+            </div>
+            <div class="panel">
+                <a href="/courseplatform/src/main/resources/static/les6.html" class="nL disable">Урок №6 "Тема
+                    уроку"</a>
+            </div>
+            <div class="panel">
+                <a href="/courseplatform/src/main/resources/static/les7.html" class="nL disable">Урок №7 "Тема
+                    уроку"</a>
+            </div>
+            <div class="panel">
+                <a href="/courseplatform/src/main/resources/static/les8.html" class="nL disable">Урок №8 "Тема
+                    уроку"</a>
+            </div>
+            <div class="panel">
+                <a href="/courseplatform/src/main/resources/static/les9.html" class="nL disable">Урок №9 "Тема
+                    уроку"</a>
+            </div>
+            <div class="panel">
+                <a href="/courseplatform/src/main/resources/static/les10.html" class="nL disable">Урок №10 "Тема
+                    уроку"</a>
+            </div>
+            <div class="panel">
+                <a href="/courseplatform/src/main/resources/static/les11.html" class="nL disable">Урок №11 "Тема
+                    уроку"</a>
+            </div>
+            <div class="panel">
+                <a href="/courseplatform/src/main/resources/static/les12.html" class="nL disable">Урок №12 "Тема
+                    уроку"</a>
+            </div>
+            <div class="panel">
+                <a href="/courseplatform/src/main/resources/static/les13.html" class="nL disable">Урок №13 "Тема
+                    уроку"</a>
+            </div>
+            <div class="panel">
+                <a href="/courseplatform/src/main/resources/static/les14.html" class="nL disable">Урок №14 "Тема
+                    уроку"</a>
+            </div>
+            <div class="panel">
+                <a href="/courseplatform/src/main/resources/static/les15.html" class="nL disable">Урок №15 "Тема
+                    уроку"</a>
+            </div>
+        </div>
+        <div class="botom"></div>
+        <div class="info">
+            <div>
+<!--                <img th:src="@{/img/inf.png}" src="/src/main/resources/static/img/inf.png" alt="" height="20px" width="20px">-->
+                <img th:src="@{/img/inf.png}" alt="" height="20px" width="20px">
+            </div>
+            <a target="_blank" href="https://docs.oracle.com/en/java/"> Документація Java</a>
+        </div>
+    </aside>
+
+</div>
+
+<script th:src="@{/js/script.js}" src="/src/main/resources/static/js/script.js"></script>
+<script th:src="@{/js/script.js}"></script>
+</body>
+</html>
