@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpSession;
 import java.util.Collections;
+import java.util.Objects;
 
 @Controller("")
 public class MainController {
@@ -40,9 +41,11 @@ public class MainController {
         Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         if (principal instanceof UserDetails) {
             User user = (User) principal;
+            if (Objects.nonNull(user.getLessonTestByLessonNumber(lessonNumber))){
+                userService.setTestGrade(user.getUsername(), testsSummary, lessonNumber);
+            }
             session.setAttribute("userDB", user);
             session.setAttribute("thisLessonGrade", userService.getExistLessonsGrads(user.getUsername()));
-            userService.setTestGrade(user.getUsername(), testsSummary, lessonNumber);
         }
         return nextLesson + ".html";
     }
