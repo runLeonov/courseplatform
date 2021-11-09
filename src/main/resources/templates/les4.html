@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en" id="1"  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Java Course</title>
+    <script th:src="@{js/jquery.js}"></script>
+    <script th:src="@{js/jquery.js}" src="/src/main/resources/static/js/jquery.js"></script>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="stylesheet" th:href="@{/css/style.css}" href="/src/main/resources/static/css/style.css">-
+</head>
+<body onload="setNextLvlButtonColorIfExist()">
+<input th:if="${session.thisLessonGrade.containsKey(1)}" id="thisLessonGrade" type="hidden" value="1"/>
+<header>
+    <div class="logo">
+        <h1>Онлайн-курc: JavaCourse</h1>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4ZAeznQZoSen1S7qvKdoet0ndYpCepZpR-TMTp6pDlMtkg_oYF3BcLjv2ciiSssFqlws&usqp=CAU" alt="LOGOTYPE" width="120px" height="100px">
+        <h1 th:text="${session.userDB}" class="user">USER</h1>
+        <form th:action="@{/logout}" method="post">
+            <input type="submit" value="Вихід" class="btn" id="logout"/>
+        </form>
+    </div>
+    <div class="gradeList hideGrade">
+        <div>
+            <div class="subDiv"><div>Оцінка за урок №1:</div><div th:text="${session.lesson10.get(0)}">10</div></div>
+            <div class="subDiv"><div>Оцінка за урок №2:</div><div th:text="${session.lesson10.get(1)}">10</div></div>
+            <div class="subDiv"><div>Оцінка за урок №3:</div><div th:text="${session.lesson10.get(2)}">10</div></div>
+            <div class="subDiv"><div>Оцінка за урок №4:</div><div th:text="${session.lesson10.get(3)}">10</div></div>
+            <div class="subDiv"><div>Оцінка за урок №5:</div><div th:text="${session.lesson10.get(4)}">10</div></div>
+        </div>
+        <div>
+            <div class="subDiv"><div>Оцінка за урок №6:</div><div th:text="${session.lesson10.get(5)}">10</div></div>
+            <div class="subDiv"><div>Оцінка за урок №7:</div><div th:text="${session.lesson10.get(6)}">10</div>></div>
+            <div class="subDiv"><div>Оцінка за урок №8:</div><div th:text="${session.lesson10.get(7)}">10</div></div>
+            <div class="subDiv"><div>Оцінка за урок №9:</div><div th:text="${session.lesson10.get(8)}">10</div></div>
+            <div class="subDiv"><div>Оцінка за урок №10:</div><div th:text="${session.lesson10.get(9)}">10</div></div>
+            
+        </div>
+        <div class="lastch">
+            <div class="subDiv"><div>Оцінка за урок №11:</div><div th:text="${session.lesson10.get(10)}">10</div></div>
+            <div class="subDiv"><div>Оцінка за урок №12:</div><div th:text="${session.lesson10.get(11)}">10</div></div>
+            <div class="subDiv"><div>Оцінка за урок №13:</div><div th:text="${session.lesson10.get(12)}">10</div></div>
+            <div class="subDiv"><div>Оцінка за урок №14:</div><div th:text="${session.lesson10.get(13)}">10</div></div>
+            <div class="subDiv"><div>Оцінка за урок №15:</div><div th:text="${session.lesson10.get(14)}">10</div></div>
+        </div>
+    </div>
+    <div class="logo_list">
+        <div><p>15 уроків</p></div>
+        <div><p>Швидке начання</p></div>
+        <div><p>Онлайн практика</p></div>
+        <div><p>Тестові завдання</p></div>
+    </div>
+</header>
+
+<div class="main_content">
+    <div class="content">
+        <section class="name">
+            <img src="" alt="" width="300px" height="170px">
+            <div>
+                <h2>Цикли while та do-while</h2>
+                <a href="#practice">Перейти до практики</a>
+            </div>
+        </section>
+        <div class="op">
+            <p>Представляємо вам уроки програмування мовою Java для починаючих. <br> Великий відео курс по вивченню мови
+                Java.</p>
+        </div>
+        <h2>Відеоурок</h2>
+        <section class="video">
+            <iframe src="https://www.youtube.com/embed/C5q0ULg0nmY" title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+        </section>
+        <section class="text">
+            <h2>Текстовий матеріал</h2>
+            <h3>Цикли while та do-while</h3> <br>
+            <h4>Цикл while</h4> <br>
+            <p>Оператор if-else суттєво розширив наші можливості програмування: тепер можна писати програми, які виконують різні дії залежно від ситуації. Але є ще одна штука, яка зробить наші програми на порядок потужнішими — це цикли.</p> <br>
+            <p>У Java є 4 види циклів: while, for, for-each і do-while. Зараз ми розглянемо найперший із них.</p> <br>
+            <p>Оператор циклу while дуже простий і складається лише з двох частин: умови та тіла циклу. Тіло циклу виконується знов і знов, доки умова дорівнює true. Цикл while має такий загальний вигляд:</p> <br>
+            <pre><code>while (умова)
+                команда;
+            </code></pre> <br>
+            <p>Або ж:</p> <br>
+            <pre><code>while (умова)
+                {
+                   блок команд
+                }                
+            </code></pre> <br>
+            <p>Ось як це працює. Спочатку перевіряється умова, і якщо вона істинна, виконується тіло циклу (команда чи блок команд), потім знову перевіряється умова і знову виконується тіло циклу. І так доти, доки умова не стане хибною.</p> <br>
+            <p>Якщо умова завжди буде істинною, цикл виконуватиметься нескінченно, і програма ніколи не припинить роботу.</p> <br>
+            <p>А якщо умова з першого разу виявиться хибною, тіло циклу не буде виконано жодного разу.</p> <br>
+            <h4>Приклади циклів</h4> <br>
+            <p>Ось декілька практичних прикладів використання циклів.</p> <br>
+            <p>Приклад №1</p> <br>
+            <pre><code>int  n = 5;
+                while (n > 0) 
+                {
+                    System.out.println(n);
+                    n--;
+                }
+            </code></pre> <br>
+            <p>Пояснення: На екран буде виведено 5 рядків:
+                5
+                4
+                3
+                2
+                1
+            </p> <br>
+            <p>Приклад №2</p> <br>
+            <pre><code>while (true)
+                System.out.println("C");
+            </code></pre> <br>
+            <p>Програма буде безліч разів виводити на екран літеру С.</p> <br>
+            <p>Приклад №3</p> <br>
+            <pre><code>Scanner console = new Scanner(System.in);
+                boolean isExit = false;
+                while (!isExit)
+                {
+                    String s = console.nextLine();
+                    isExit = s.equals("exit");
+                }
+            </code></pre> <br>
+            <p>Програма буде вводити рядки з клавіатури,доки не буде введено рядок exit.</p>
+            <h4>Цикл у циклі</h4> <br>
+            <p>Під час розгляду умовного оператора ви бачили, що, комбінуючи кілька умовних операторів, можна реалізовувати складну логіку. Тобто всередину одного оператора if можна вкласти інший if.</p> <br>
+            <p>З циклами теж так можна. Щоб створити цикл у циклі, потрібно в тіло першого циклу вписати другий цикл. Ця конструкція має такий вигляд:</p> <br>
+            <pre><code>while (умова зовнішнього циклу)
+                {
+                   while (умова внутрішнього циклу)
+                   {
+                     блок команд
+                   }
+                }
+            </code></pre> <br>
+            <p>Розгляньмо задачу.</p> <br>
+            <p>Нам потрібно вивести на екран прямокутник із літер А розміром 4 рядки на 5 стовпців. І ось для цього нам вже знадобляться вкладені цикли. Просто візьмімо перший приклад, де ми виводимо 4 рядки, і замінимо код, який виводить один рядок, на код із другого прикладу.</p> <br>
+            <p>Код:</p> <br>
+            <pre><code>int n = 0;
+                while (n < 4)
+                {
+                    int m = 0;
+                    while (m < 5)
+                    {
+                        System.out.print("А");
+                        m++;
+                    }
+                    System.out.println();
+                    n++;
+                }
+            </code></pre> <br>
+            <p>У зовнішньому циклі використовується змінна n для підрахунку кількості витків циклу</p> <br>
+            <p>Для підрахунку кількості витків внутрішнього циклу використовується змінна m.</p> <br>
+            <p>Після виконання внутрішнього циклу потрібно окремою командою перевести курсор на наступний рядок, інакше програма виведе всі літери в один рядок.</p> <br>
+            <p>На екран буде виведено:</p> <br>
+            <pre><code>ААААА
+                ААААА
+                ААААА
+                ААААА
+            </code></pre> <br>
+            <p>Для підрахунку кількості виконаних витків у зовнішньому та внутрішньому циклах слід використовувати різні змінні</p> <br>
+            <h3>Переривання циклу</h3> <br>
+            <h4>Команда break</h4> <br>
+            <p>Розгляньмо приклад із попереднього уроку:</p> <br>
+            <pre><code>Scanner console = new Scanner(System.in);
+                boolean isExit = false;
+                while (!isExit)
+                {
+                    String s = console.nextLine();
+                    isExit = s.equals("exit");
+                }
+            </code></pre> <br>
+            <p>Програма зчитуватиме рядки з клавіатури, доки не буде введено рядок exit.</p> <br>
+            <p>Програма читає рядки з консолі, доки не буде введено слово exit. Якщо ввести це слово, змінна isExit отримає значення true, а умова циклу !isExit набуде значення false, і цикл завершиться.</p> <br>
+            <p>У мові Java є спеціальний оператор break, який дає змогу спростити такий код. Якщо виконати команду break всередині циклу, він одразу завершується, і програма починає виконувати команди, які йдіть після циклу. Команда дуже коротка: break;</p> <br>
+            <p>Ось як можна переписати розглянутий вище приклад, використовуючи команду break:</p> <br>
+            <pre><code>Scanner console = new Scanner(System.in);
+                while (true)
+                {
+                    String s = console.nextLine();
+                    if (s.equals("exit"))
+                        break;
+                }
+            </code></pre> <br>
+            <h4>Команда continue</h4> <br>
+            <p>Проте break — це не єдиний оператор, за допомогою якого можна керувати виконанням циклів. У мові Java є ще один оператор — continue. Якщо виконати команду continue всередині циклу, поточний виток циклу завершиться достроково.</p> <br>
+            <p>Одноразове виконання тіла циклу називають витком циклу. На відміну від команди break, команда continue перериває поточний виток циклу, але не сам цикл. Ця команда також коротка: continue;</p> <br>
+            <p>Цей оператор continue дуже зручно використовувати в циклах, коли потрібно «пропускати» виконання тіла циклу в деяких ситуаціях.</p> <br>
+            <p>Задача: нам потрібно написати програму, яка виводить на екран 20 чисел від 1 до 20 й водночас пропускає числа, що діляться на 7. Цей код матиме такий вигляд:</p> <br>
+            <pre><code>int i = 1;
+                while (i <= 20)
+                {
+                   if ( (i % 7) == 0 )
+                   {
+                     i++;
+                     continue;
+                   }
+                   System.out.println(i);
+                   i++;
+                }
+            </code></pre> <br>
+            <p>Програма виводить на екран числа від 1 до 20. Якщо число ділиться на 7 (остача від ділення на 7 дорівнює 0), виведення на екран не виконується.</p> <br>
+            <h3>Приклади використання циклу while</h3> <br>
+            <h4>Підрахунок суми чисел із використанням циклу while</h4> <br>
+            <p>Спробуймо написати програму, яка вводить числа з клавіатури (доки користувач уводить щось подібне до чисел) і виводить на екран їх суму. Ось який вигляд матиме код цієї програми (наведено тільки код всередині методу main).</p> <br>
+            <pre><code>Scanner console = new Scanner(System.in);
+                int sum = 0;
+                while (console.hasNextInt())
+                {
+                    int x = console.nextInt();
+                    sum = sum + x;
+                }
+                System.out.println(sum);
+            </code></pre> <br>
+            <pre><code>Створюємо об'єкт Scanner для читання даних з консолі.
+                У змінний sum будемо зберігати суму чисел.
+                Доки з консолі вводять цілі числа, зчитуємо чергове число в змінну x.
+                Додаємо x до суми чисел (змінна sum).
+                Виводимо отриману суму на екран.
+            </code></pre> <br>
+            <h4>Визначення найбільшого із введених чисел із використанням циклу while</h4> <br>
+            <p>Друга програма теж вводить числа з клавіатури (доки користувач уводить щось подібне до чисел), але на екран виводить найбільше із введених чисел. Ось який вигляд матиме код цієї програми (наведено тільки код всередині методу main).</p> <br>
+            <pre><code>Scanner console = new Scanner(System.in);
+                int max = 0;
+                while (console.hasNextInt())
+                {
+                   int x = console.nextInt();
+                   if (x > max)
+                     max = x;
+                }
+                System.out.println(max);
+            </code></pre> <br>
+            <pre><code>Створюємо об'єкт Scanner для читання даних з консолі.
+                У змінній max будемо зберігати максимальне число.
+                Доки з консолі вводять цілі числа, зчитуємо чергове число в змінну x.
+                Порівнюємо x і max. Якщо x більше від max, оновлюємо максимальне число.
+                Виводимо визначене найбільше число на екран.
+            </code></pre> <br>
+            <h3>Цикл do-while</h3> <br>
+            <h4>Зворотний цикл</h4> <br>
+            <p>У Java є ще один різновид циклу while — цикл do-while. Він дуже схожий на while і так само складається з двох частин: «умови» й «тіла циклу». Тіло циклу виконується знов і знов, доки умова дорівнює true. Цикл do-while має такий загальний вигляд:</p> <br>
+            <pre><code>do
+                команда;
+             while (умова)
+            </code></pre> <br>
+            <p>Або</p> <br>
+            <pre><code>do
+                {
+                   блок команд
+                }
+                while (умова)
+            </code></pre> <br>
+            <p>Проте ці цикли відрізняються послідовністю виконання: у циклі while вона така: умова, тіло циклу, умова, тіло циклу, умова, тіло циклу.</p> <br>
+            <p>А в циклі do-while вона дещо інша: тіло циклу, умова, тіло циклу, умова, тіло циклу</p> <br>
+            <p>Фактично, різниця між циклами while і do-while полягає лише в тому, що тіло циклу в циклі do-while виконується принаймні один раз.</p> <br>
+            <h4>Переваги використання циклу do-while</h4> <br>
+            <p>Власне, єдиною відмінністю циклу do-while від циклу while є саме те, що тіло циклу в циклі do-while виконується принаймні один раз.</p> <br>
+            <p>Цикл do-while зазвичай використовують саме тоді, коли немає потреби перевіряти умову, доки тіло циклу не виконано. Приміром, у тілі циклу виконуються певні обчислення, а потім їх результати використовуються в умові.</p> <br>
+            <p>Приклад:</p> <br>
+            <p>Програма вводить рядки з клавіатури, доки не буде введено слово exit</p> <br>
+            <p>while:</p> <br>
+            <pre><code>String s;
+                while (true)
+                {
+                    s = console.nextLine();
+                    if (s.equals("exit"))
+                        break;
+                }
+            </code></pre> <br>
+            <p>do while:</p> <br>
+            <pre><code>String s;
+                do
+                {
+                    s = console.nextLine();
+                }
+                while (!s.equals("exit"))
+            </code></pre> <br>
+            <p>Оператори break и continue в циклі do-while діють так само, як і в циклі while.</p> <br>
+
+        </section>
+        <section class="practice" id="practice">
+            <h2>Практичні завдання</h2>
+            <h4>Завдання №1</h4>
+            <p>Використовуючи вкладені цикли while (цикл у циклі), виведи на екран незаповнений прямокутник (контур) розміром 10 (висота) на 20 (ширина) з літер «Б». Незаповнена частина складається з пробілів.</p> <br>
+            <p>Натисність на кнопку нижче, щоб відкрити рішення.</p> <br>
+            <p class="solution">Показати рішення</p>
+            <div class="p1 hidepr">
+                    <pre><code>ublic class Solution {
+                        public static void main(String[] args) {
+                            int height = 1;
+                            while (height <= 10) {
+                                int width = 1;
+                                while (width <= 20) {
+                                    if (height == 1 || height == 10) {
+                                        System.out.print('Б');
+                                    } else if (width == 1 || width == 20) {
+                                        System.out.print('Б');
+                                    } else {
+                                        System.out.print(' ');
+                                    }
+                                    width++;
+                                }
+                                System.out.println();
+                                height++;
+                            }
+                        }
+                    }</code></pre>
+                <br>
+                <p class="collapse">Згорнути</p> <br>
+            </div>
+            <h4>Завдання №2</h4>
+            <p>Вивести на екран суму чисел від1 до 100 включно, які не кратні 3. Використай для цього цикл while.</p> <br>
+            <p>Натисність на кнопку нижче, щоб відкрити рішення.</p> <br>
+            <p class="solution">Показати рішення</p>
+            <div class="p2 hidepr">
+                    <pre><code>public class Solution {
+                        public static void main(String[] args) {
+                            int sum = 0;
+                            int number = 0;
+                            while (number <= 100) {
+                                if (number % 3 == 0) {
+                                    number++;
+                                    continue;
+                                }
+                                sum = sum + number;
+                                number++;
+                            }
+                            System.out.println(sum);
+                        }
+                    }</code></pre>
+                <br>
+                <p class="collapse">Згорнути</p> <br>
+            </div>
+        </section>
+        <section class="test">
+            <form action="#" onsubmit="return false;">
+                <!--                <form action="/validate">-->
+                <!--                    <form>-->
+                <h2>Тестові завдання</h2>
+                <div id="q1">
+                    <h4>Питання №1</h4>
+                    <p>У якому прикладі цикл виведе на екран числа від 1 до 10?</p>
+                    <label style="display: flex;">
+                        <input type="radio" value="0" name="var1" class="var"><pre style="width: 80%;"><code>int i = 1;
+                            while (i < 10) {
+                                System.out.println(i);
+                                i++;
+                            }
+                        </code></pre>
+                    </label>
+                    <label style="display: flex;">
+                        <input type="radio" value="0" name="var1" class="var"><pre style="width: 80%;"><code>int i = 0;
+                            while (i <= 10) {
+                                System.out.println(i);
+                                i++;
+                            }
+                        </code></pre>
+                    </label>
+                    <label style="display: flex;">
+                        <input type="radio" value="1" name="var1" class="var"><pre style="width: 80%;"><code>int i = 1;
+                            while (i <= 10) {
+                                System.out.println(i);
+                                i++;
+                            }
+                        </code></pre>
+                    </label>
+                </div>
+                <div id="q2">
+                    <h4>Питання №2</h4>
+                    <p>У якому прикладі цикл виведе на екран числа від 10 до 1?</p>
+                    <label style="display: flex;">
+                        <input type="radio" value="1" name="var1" class="var"><pre style="width: 80%;"><code>int i = 10;
+                            while (i > 0) {
+                                System.out.println(i);
+                                i--;
+                            }
+                        </code></pre>
+                    </label>
+                    <label style="display: flex;">
+                        <input type="radio" value="0" name="var1" class="var"><pre style="width: 80%;"><code>int i = 10;
+                            while (i > 1) {
+                                System.out.println(i);
+                                i--;
+                            }
+                        </code></pre>
+                    </label>
+                    <label style="display: flex;">
+                        <input type="radio" value="0" name="var1" class="var"><pre style="width: 80%;"><code>int i = 10;
+                            while (i > 1) {
+                                System.out.println(i);
+                                i--;
+                            }
+                        </code></pre>
+                    </label>
+                </div>
+                <div id="q3">
+                    <h4>Питання №3</h4>
+                    <p>Достроково вийти з циклу можна за допомогою оператора:</p>
+                    <label>
+                        <input type="radio" value="0" name="var3" class="var">exit;
+                    </label>
+                    <label>
+                        <input type="radio" value="0" name="var3" class="var">returned;
+                    </label>
+                    <label>
+                        <input type="radio" value="1" name="var3" class="var">break;
+                    </label>
+                </div>
+                <div id="q4">
+                    <h4>Питання №4</h4>
+                    <p>Достроково завершити поточний виток циклу можна за допомогою оператора:</p>
+                    <label>
+                        <input type="radio" value="0" name="var4" class="var">exit;
+                    </label>
+                    <label>
+                        <input type="radio" value="0" name="var4" class="var">next;
+                    </label>
+                    <label>
+                        <input type="radio" value="1" name="var4" class="var">continue;
+                    </label>
+                </div>
+                <div id="q5">
+                    <h4>Питання №5</h4>
+                    <p>Скільки разів виконається наступний код:<pre style="border: none;"><code>while(1)
+                        System.out.println("C");                    
+                    </code></pre></p>
+                    <label>
+                        <input type="radio" value="0" name="var5" class="var">1
+                    </label>
+                    <label>
+                        <input type="radio" value="0" name="var5" class="var">Безліч
+                    </label>
+                    <label>
+                        <input type="radio" value="1" name="var5" class="var">Код не скомпілюється
+                    </label>
+                </div>
+                <div id="q6">
+                    <h4>Питання №6</h4>
+                    <p>Якого виду циклів у мові Java не існує?</p>
+                    <label>
+                        <input type="radio" value="1" name="var6" class="var">do for
+                    </label>
+                    <label>
+                        <input type="radio" value="0" name="var6" class="var">while
+                    </label>
+                    <label>
+                        <input type="radio" value="0" name="var6" class="var">do while
+                    </label>
+                </div>
+                <div id="q7">
+                    <h4>Питання №7</h4>
+                    <p>Правильно записаний оператор do while:</p>
+                    <label>
+                        <input type="radio" value="1" name="var7" class="var">do команда; while (умова)
+                    </label>
+                    <label>
+                        <input type="radio" value="0" name="var7" class="var">do while (умова) команда;
+                    </label>
+                    <label>
+                        <input type="radio" value="0" name="var7" class="var">while (умова) команда; do
+                    </label>
+                </div>
+                <div id="q8">
+                    <h4>Питання №8</h4>
+                    <p>Скільки разів виконається наступний код? <pre style="border: none;"><code>int i = 13;
+                        while(i > 1){
+                            System.out.println(i);
+                            i++;
+                        }
+                    </code></pre></p>
+                    <label>
+                        <input type="radio" value="0" name="var8" class="var">12
+                    </label>
+                    <label>
+                        <input type="radio" value="0" name="var8" class="var">13
+                    </label>
+                    <label>
+                        <input type="radio" value="1" name="var8" class="var">Безліч
+                    </label>
+                </div>
+                <div id="q9">
+                    <h4>Питання №9</h4>
+                    <p>Скільки разів виконається наступний код:<pre style="border: none;"><code>int i = -19;
+                        while(i < 1){
+                            System.out.println(i);
+                            i++;
+                        }                        
+                    </code></pre></p>
+                    <label>
+                        <input type="radio" value="0" name="var9" class="var">19
+                    </label>
+                    <label>
+                        <input type="radio" value="1" name="var9" class="var">20
+                    </label>
+                    <label>
+                        <input type="radio" value="0" name="var9" class="var">Безліч
+                    </label>
+                </div>
+                <div id="q10">
+                    <h4>Питання №10</h4>
+                    <p>Скільки разів виконається код:<pre style="border: none;"><code>while(true)
+                        System.out.println("C");                    
+                    </code></pre></p>
+                    <label>
+                        <input type="radio" value="0" name="var10" class="var">1
+                    </label>
+                    <label>
+                        <input type="radio" value="1" name="var10" class="var">Безліч
+                    </label>
+                    <label>
+                        <input type="radio" value="0" name="var10" class="var">Код не скомпілюється
+                    </label>
+                </div>
+                <br>
+                <!--                <input type="submit" value="Проверить" id="calc" class="btn">-->
+                <!--                <input type="reset" value="Сбросить" id="res" class="btn"><br>-->
+                <!--                <input id="totalGrad" type="hidden" value="0">-->
+                <p class="alert hidepr">Ви відповили не на всі тести!</p>
+                <input type="submit" value="Перевірити" id="calc" class="btn">
+                <input type="reset" value="Скинути" id="res" class="btn"><br>
+                <div class="ans"><p class="q">Правильних відповідей:
+                    <p class="grade">0</p></p></div>
+            </form>
+        </section>
+        <section class="btn_sec">
+            <form action="/validate">
+                <input id="totalGrad" name="testsSummary" type="hidden" value="0">
+                <input name="lessonNumber" type="hidden" value="1">
+                <input  id="nextLesson" name="nextLesson" type="hidden" value="les2">
+                <input type="submit" class="btn_go btn" id="next" value="Наступний урок"/>
+            </form>
+        </section>
+        <footer>
+            <p>© All right reserved</p>
+            <p>Kyiv 2021</p>
+        </footer>
+    </div>
+    <aside class="right_panel">
+        <div class="top"></div>
+        <div class="lessons">
+            <div class="panel">
+                <a href="/courseplatform/src/main/resources/static/index.html" class="nL">Урок №1 "Команди й перша
+                    програма"</a>
+            </div>
+            <div class="panel">
+                <a href="/validate" class="nL disable">Урок №2 "Знайомство з
+                    типами й уведення з клавіатури"</a>
+            </div>
+            <div class="panel">
+                <a href="/courseplatform/src/main/resources/static/les3.html" class="nL">Урок №3 "Умовний оператор"</a>
+            </div>
+            <div class="panel activeP">
+                <a href="/courseplatform/src/main/resources/static/les4.html" class="nL">Урок №4 "Тема
+                    уроку"</a>
+            </div>
+            <div class="panel">
+                <a href="/courseplatform/src/main/resources/static/les5.html" class="nL disable">Урок №5 "Тема
+                    уроку"</a>
+            </div>
+            <div class="panel">
+                <a href="/courseplatform/src/main/resources/static/les6.html" class="nL disable">Урок №6 "Тема
+                    уроку"</a>
+            </div>
+            <div class="panel">
+                <a href="/courseplatform/src/main/resources/static/les7.html" class="nL disable">Урок №7 "Тема
+                    уроку"</a>
+            </div>
+            <div class="panel">
+                <a href="/courseplatform/src/main/resources/static/les8.html" class="nL disable">Урок №8 "Тема
+                    уроку"</a>
+            </div>
+            <div class="panel">
+                <a href="/courseplatform/src/main/resources/static/les9.html" class="nL disable">Урок №9 "Тема
+                    уроку"</a>
+            </div>
+            <div class="panel">
+                <a href="/courseplatform/src/main/resources/static/les10.html" class="nL disable">Урок №10 "Тема
+                    уроку"</a>
+            </div>
+            <div class="panel">
+                <a href="/courseplatform/src/main/resources/static/les11.html" class="nL disable">Урок №11 "Тема
+                    уроку"</a>
+            </div>
+            <div class="panel">
+                <a href="/courseplatform/src/main/resources/static/les12.html" class="nL disable">Урок №12 "Тема
+                    уроку"</a>
+            </div>
+            <div class="panel">
+                <a href="/courseplatform/src/main/resources/static/les13.html" class="nL disable">Урок №13 "Тема
+                    уроку"</a>
+            </div>
+            <div class="panel">
+                <a href="/courseplatform/src/main/resources/static/les14.html" class="nL disable">Урок №14 "Тема
+                    уроку"</a>
+            </div>
+            <div class="panel">
+                <a href="/courseplatform/src/main/resources/static/les15.html" class="nL disable">Урок №15 "Тема
+                    уроку"</a>
+            </div>
+        </div>
+        <div class="botom"></div>
+        <div class="info">
+            <div>
+<!--                <img th:src="@{/img/inf.png}" src="/src/main/resources/static/img/inf.png" alt="" height="20px" width="20px">-->
+                <img th:src="@{/img/inf.png}" alt="" height="20px" width="20px">
+            </div>
+            <a target="_blank" href="https://docs.oracle.com/en/java/"> Документація Java</a>
+        </div>
+    </aside>
+
+</div>
+
+<script th:src="@{/js/script.js}" src="/src/main/resources/static/js/script.js"></script>
+<script th:src="@{/js/script.js}"></script>
+</body>
+</html>
