@@ -42,9 +42,8 @@ public class MainController {
 
         if (principal instanceof UserDetails) {
             User user = (User) principal;
-            if (!userService.getExistLessonsGrads(user.getUsername()).containsKey(lessonNumber)) {
-                userService.setTestGrade(user.getUsername(), testsSummary, lessonNumber);
-            }
+
+            userService.setTestGrade(user.getUsername(), testsSummary, lessonNumber);
             session.setAttribute("userDB", user);
             session.setAttribute("thisLessonGrade", userService.getExistLessonsGrads(user.getUsername()));
         }
