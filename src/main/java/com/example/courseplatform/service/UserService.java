@@ -63,7 +63,7 @@ public class UserService implements UserDetailsService {
     }
 
     public Map<Integer, Boolean> getExistLessonsGrads(String username) {
-        Map<Integer, Boolean> integerBooleanMap = new HashMap<>();
+        Map<Integer, Boolean> integerBooleanMap = new TreeMap<>();
         List<Integer> testList = getTestList(username);
         for (int i = 0; i < testList.size() - 1; i++) {
             if (testList.get(i) == 0) integerBooleanMap.put(0, false);
