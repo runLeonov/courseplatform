@@ -24,7 +24,7 @@ public class MainController {
         if (principal instanceof UserDetails) {
             User user = (User) principal;
             session.setAttribute("userDB", user);
-            session.setAttribute("thisLessonGrade", userService.getExistLessonsGrads(user.getUsername()));
+//            session.setAttribute("thisLessonGrade", userService.getExistLessonsGrads(user.getUsername()));
             session.setAttribute("lesson10", Collections.singletonList(userService.getExistLessonsGrads(user.getUsername()).keySet()));
         }
         return "main.html";
