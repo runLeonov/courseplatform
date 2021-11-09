@@ -20,10 +20,13 @@ public class MainController {
 
     @GetMapping(value = {"/main", "/"})
     public String getHomePage(HttpSession session) {
-        User user = getUserFromSession();
-        session.setAttribute("userDB", user);
-        session.setAttribute("thisLessonGrade", userService.getExistLessonsGrads(user.getUsername()));
-        session.setAttribute("lesson10", Collections.singletonList(userService.getExistLessonsGrads(user.getUsername()).keySet()));
+        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        if (principal instanceof UserDetails) {
+            User user = (User) principal;
+            session.setAttribute("userDB", user);
+            session.setAttribute("thisLessonGrade", userService.getExistLessonsGrads(user.getUsername()));
+            session.setAttribute("lesson10", Collections.singletonList(userService.getExistLessonsGrads(user.getUsername()).keySet()));
+        }
         return "main.html";
     }
 
@@ -34,19 +37,14 @@ public class MainController {
             @RequestParam("nextLesson") String nextLesson,
             HttpSession session
     ) {
-        User user = getUserFromSession();
-        session.setAttribute("userDB", user);
-        session.setAttribute("thisLessonGrade", userService.getExistLessonsGrads(user.getUsername()));
-        userService.setTestGrade(user.getUsername(), testsSummary, lessonNumber);
-        return nextLesson + ".html";
-    }
-
-    private User getUserFromSession() {
         Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         if (principal instanceof UserDetails) {
-            return  (User) principal;
+            User user = (User) principal;
+            session.setAttribute("userDB", user);
+            session.setAttribute("thisLessonGrade", userService.getExistLessonsGrads(user.getUsername()));
+            userService.setTestGrade(user.getUsername(), testsSummary, lessonNumber);
         }
-        return null;
+        return nextLesson + ".html";
     }
 
 }
