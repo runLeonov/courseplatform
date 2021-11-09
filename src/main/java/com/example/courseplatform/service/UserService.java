@@ -62,15 +62,11 @@ public class UserService implements UserDetailsService {
     }
 
     public  Map<Integer, Boolean> getExistLessonsGrads(String username) {
-        User user = userRepository.findByUsername(username);
         Map<Integer, Boolean> integerBooleanMap = new HashMap<>();
+        List<Integer> testList = getTestList(username);
         for (int i = 1; i <= 15; i++) {
-            if (Objects.isNull(user.getLessonTestByLessonNumber(i)))
-                integerBooleanMap.put(0, false);
-            else if (Objects.nonNull(user.getLessonTestByLessonNumber(i)) && user.getLessonTestByLessonNumber(i) >= 7)
-                integerBooleanMap.put(user.getLessonTestByLessonNumber(i), true);
-            else
-                integerBooleanMap.put(user.getLessonTestByLessonNumber(i), false);
+            if (testList.get(i) == 0) integerBooleanMap.put(0, false);
+            else  integerBooleanMap.put(testList.get(i), true);
         }
         return integerBooleanMap;
     }
