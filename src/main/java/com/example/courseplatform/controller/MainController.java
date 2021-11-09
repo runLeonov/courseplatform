@@ -42,9 +42,10 @@ public class MainController {
 
         if (principal instanceof UserDetails) {
             User user = (User) principal;
-
-            userService.setTestGrade(user.getUsername(), testsSummary, lessonNumber);
+            if (user.getLessonTestByLessonNumber(lessonNumber) == 0)
+                userService.setTestGrade(user, testsSummary, lessonNumber);
             session.setAttribute("userDB", user);
+            session.setAttribute("lesson10", userService.getTestList(user.getUsername()));
             session.setAttribute("thisLessonGrade", userService.getExistLessonsGrads(user.getUsername()));
         }
         return nextLesson + ".html";

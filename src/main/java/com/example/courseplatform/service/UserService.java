@@ -44,8 +44,7 @@ public class UserService implements UserDetailsService {
         return userFromDb.orElse(new User());
     }
 
-    public User setTestGrade(String username, Integer test, Integer lesson) {
-        User user = (User) loadUserByUsername(username);
+    public User setTestGrade(User user, Integer test, Integer lesson) {
         user.setLessonTestByLessonNumber(test, lesson);
         return userRepository.save(user);
     }
