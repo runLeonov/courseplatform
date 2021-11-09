@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpSession;
-import java.util.Arrays;
 import java.util.Collections;
 
 @Controller("")
@@ -22,7 +21,8 @@ public class MainController {
     @GetMapping(value = {"/main", "/"})
     public String getHomePage(HttpSession session) {
         User user = getUserFromSession();
-        setGrades(session, user);
+        session.setAttribute("userDB", user);
+        session.setAttribute("thisLessonGrade", userService.getExistLessonsGrads(user.getUsername()));
         session.setAttribute("lesson10", Collections.singletonList(userService.getExistLessonsGrads(user.getUsername()).keySet()));
         return "main.html";
     }
@@ -32,17 +32,13 @@ public class MainController {
             @RequestParam("testsSummary") Integer testsSummary,
             @RequestParam("lessonNumber") Integer lessonNumber,
             @RequestParam("nextLesson") String nextLesson,
-            Model model, HttpSession session
+            HttpSession session
     ) {
         User user = getUserFromSession();
-        setGrades(session, user);
-        userService.setTestGrade(user.getUsername(), testsSummary, lessonNumber);
-        return nextLesson + ".html";
-    }
-
-    private void setGrades(HttpSession session, User user) {
         session.setAttribute("userDB", user);
         session.setAttribute("thisLessonGrade", userService.getExistLessonsGrads(user.getUsername()));
+        userService.setTestGrade(user.getUsername(), testsSummary, lessonNumber);
+        return nextLesson + ".html";
     }
 
     private User getUserFromSession() {
@@ -50,7 +46,7 @@ public class MainController {
         if (principal instanceof UserDetails) {
             return  (User) principal;
         }
-        return new User();
+        return null;
     }
 
 }
