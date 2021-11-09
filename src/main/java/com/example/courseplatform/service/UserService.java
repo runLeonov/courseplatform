@@ -26,6 +26,7 @@ public class UserService implements UserDetailsService {
         }
         return user;
     }
+
     public boolean saveUser(User user) {
         User userFromDB = userRepository.findByUsername(user.getUsername());
 
@@ -61,12 +62,12 @@ public class UserService implements UserDetailsService {
         return testsGrads;
     }
 
-    public  Map<Integer, Boolean> getExistLessonsGrads(String username) {
+    public Map<Integer, Boolean> getExistLessonsGrads(String username) {
         Map<Integer, Boolean> integerBooleanMap = new HashMap<>();
         List<Integer> testList = getTestList(username);
-        for (int i = 0; i < testList.size()-1; i++) {
+        for (int i = 0; i < testList.size() - 1; i++) {
             if (testList.get(i) == 0) integerBooleanMap.put(0, false);
-            else  integerBooleanMap.put(testList.get(i), true);
+            else if (testList.get(i) >= 7) integerBooleanMap.put((i + 1), true);
         }
         return integerBooleanMap;
     }

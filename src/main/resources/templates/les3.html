@@ -168,7 +168,7 @@
             </code></pre> <br>
             <h4>Оператори порівняння</h4> <br>
             <p>У Java, як і в інших мовах програмування, часто доводиться порівнювати змінні між собою. І саме для порівняння в Java є такі оператори:</p> <br>
-            <img src="/src/main/resources/static/img/table_les3.1.png" alt=""> <br>
+            <img th:src="@{/img/table_les3.1.png}" alt=""> <br>
             <p>Результатом дії кожного з наведених вище операторів буде логічний вираз. Його можна зберегти в змінній типу boolean або ж використовувати як умову в операторі if.</p> <br>
             <strong>Важливий момент 1:</strong> <br>
             <p>Оператори, що складаються з двох символів, розривати не можна.</p> <br>
@@ -185,7 +185,7 @@
             <p>Натомість можна записати його так: (18 < age) І (age < 65)</p> <br>
             <p>Звичайно, замість сполучника І там буде інший логічний оператор, і зараз ми якраз поговоримо про це докладніше.</p> <br>
             <p>У Java є три логічних оператори: AND (і), OR (або) і NOT (не).</p> <br>
-            <img src="/src/main/resources/static/img/table_les3.2.png" alt=""> <br>
+            <img th:src="@{/img/table_les3.2.png}" alt=""> <br>
             <br><h4>Приклади використання операторів порівняння та булевих змінних</h4>
             <p>Там, де можна написати логічний вираз, можна написати й логічну змінну.</p> <br>
             <p>Наприклад:</p> <br>
@@ -499,7 +499,7 @@
         <div class="botom"></div>
         <div class="info">
             <div>
-                <img src="/src/main/resources/static/img/inf.png" alt="" height="20px" width="20px">
+                <img th:src="@{/img/inf.png}" alt="" height="20px" width="20px">
             </div>
             <a target="_blank" href="https://docs.oracle.com/en/java/"> Документація Java</a>
         </div>
@@ -507,6 +507,6 @@
 
 </div>
 
-<script th:src="@{/js/script.js}" src="/src/main/resources/static/js/script.js" ></script>
+<script th:src="@{/js/script.js}"></script>
 </body>
 </html>
