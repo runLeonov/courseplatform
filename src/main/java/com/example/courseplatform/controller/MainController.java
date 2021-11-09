@@ -53,8 +53,6 @@ public class MainController {
 
     @GetMapping("/lesson")
     public String getTestValues(
-            @RequestParam("lessonNumber") Integer lessonNumber,
-            @RequestParam("nextLesson") String nextLesson,
             HttpSession session
     ) {
         session.setAttribute("suk", "HELLO SUKI");
