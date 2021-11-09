@@ -41,7 +41,7 @@ public class MainController {
         Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         if (principal instanceof UserDetails) {
             User user = (User) principal;
-            if (Objects.nonNull(user.getLessonTestByLessonNumber(lessonNumber))){
+            if (!(user.getLessonTestByLessonNumber(lessonNumber) == 0)){
                 userService.setTestGrade(user.getUsername(), testsSummary, lessonNumber);
             }
             session.setAttribute("userDB", user);
