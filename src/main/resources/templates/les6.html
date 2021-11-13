@@ -59,7 +59,7 @@
         <section class="name">
             <img src="" alt="" width="300px" height="170px">
             <div>
-                <h2></h2>
+                <h2>Масиви</h2>
                 <a href="#practice">Перейти до практики</a>
             </div>
         </section>
@@ -75,25 +75,312 @@
         </section>
         <section class="text">
             <h2>Текстовий матеріал</h2>
-            
+            <h3>Масиви</h3> <br>
+            <h4>Масив — це контейнер елементів</h4>
+            <p>Найімовірніше, ви чули, що комп'ютери можуть обробляти величезні обсяги інформації. Умовний оператор (if-else) і цикли (for, while), звичайно, у цьому допомагають. Однак далеко на них не заїдеш,, адже оброблювані дані треба якось зберігати.</p> <br>
+            <p>На цей випадок у Java, так само як майже в усіх мовах програмування, є одна чудова річ, а саме масиви (Array).</p> <br>
+            <p>Масив — це спеціальний об'єкт, в якому можна зберігати не одне значення, а декілька.</p> <br>
+            <p>Якщо раніше ми порівнювали змінну з коробкою (де можна зберігати якесь значення), то масив більше схожий на коробку, всередині розділену на секції. Кожна секція в «коробці-масиві» має свій номер. Нумерація, звичайно ж, з нуля...</p> <br>
+            <p>У масиві можна зберігати не одне значення, а декілька. У такій змінній є кілька комірок, і до кожної комірки можна звернутися за її індексом.</p> <br>
+            <p>Для цього в квадратних дужках після імені змінної потрібно вказати індекс комірки, до якої звертаємося. Це досить просто: array[індекс] = значення; де аrray — це ім'я змінної-масиву, індекс — номер комірки в масиві, а значення — те значення, яке ми хочемо записати в зазначену комірку.</p> <br>
+            <h4>Створення масиву елементів у Java</h4>
+            <p>Припустімо, вашій програмі потрібно десь зберігати 100 цілих чисел. Найімовірніше, для цього підійшов би масив. І як же його створити?</p> <br>
+            <p>Якби ми хотіли зберігати одне ціле число, нам підійшов би тип int, ну а якщо стоїть завдання зберігати 100 цілих чисел, певно, нам потрібен масив типу int. Отакий вигляд матиме код для його створення: int[] array = new int[100];</p> <br>
+            <p>Як ви вже, мабуть, здогадалися, вираз ліворуч від знака рівності — це оголошення змінної з іменем array типу int[]. Після типу int стоять квадратні дужки, які немовби натякають, що в «коробках» цього типу можна буде зберігати не одне значення, а декілька.</p> <br>
+            <p>Праворуч від знака рівності відбувається «створення» (слово new) об'єкта на 100 елементів (комірок) типу int. Теж не надто складно.</p> <br>
+            <p>Якби ми хотіли, приміром, створити масив на 20 комірок для зберігання дійсних чисел, код для його створення мав би приблизно такий вигляд: double[] vals = new double[20];</p> <br>
+            <p>Кількість комірок у масиві називають розміром масиву або довжиною масиву. А завдяки здатності зберігати багато значень масиви інакше називають контейнерами.</p> <br>
+            <p>Важливий факт: розмір контейнера (масиву) не можна змінити після створення.</p> <br>
+            <p>Можна створити новий, але довжину вже створеного контейнера змінити не вдасться.</p> <br>
+            <h4>Робота з комірками масиву</h4>
+            <p>Нумерація комірок масиву завжди починається з нуля. Якщо маємо масив на 10 елементів, то номери (індекси) його комірок — 0..9, якщо масив на 200 елементів, то 0..199. І далі за аналогією.</p> <br>
+            <p>Приклади:</p> <br>
+            <pre><code>int[] a = new int[10]; 
+                a[2] = 4; 
+                a[7] = 9; 
+                a[9] = a[2] + a[5]; 
+            </code></pre> <br>
+            <pre><code>Створюємо масив на 10 елементів типу int.
+                У комірку з індексом 2 записуємо значення 4.
+                У комірку з індексом 7 записуємо значення 9.
+                У комірку з індексом 9 записуємо суму значень, які зберігаються в комірках 2 (зберігається 4) і 5 (зберігається 0).
+            </code></pre> <br>
+            <p>Важливо! Усі комірки масиву мають однаковий тип даних. Якщо ми створили масив рядків String, у його комірках можна зберігати лише рядки. Тип даних масиву задають під час його створення. Ані тип даних, ані довжину масиву пізніше змінити не можна.</p> <br>
+            <h3>Особливості роботи з масивами</h3> <br>
+            <h4>Детальніше про роботу з масивом</h4>
+            <p>Масив можна створити з елементів будь-якого типу. Для цього потрібно лише до назви типу додати квадратні дужки. Загальний вигляд створення масиву такий: </p> <br>
+            <pre><code>тип[] ім'я = new тип[кількість];</code></pre> <br>
+            <p>де тип — це тип елементів (комірок) масиву, які ми в ньому зберігатимемо. Ім'я — це ім'я змінної, за допомогою якого ми звертатимемося до масиву, а кількість — це кількість комірок у масиві.</p> <br>
+            <p>У прикладі вище наведено канонічну форму: створення змінної-масиву та створення об'єкта-масиву. Насправді це дві незалежні конструкції.</p> <br>
+            <p>Можна створити змінну-масив і об'єкт-масив окремо.</p> <br>
+            <pre><code>тип[] ім'я;
+                ім'я = new тип[кількість];
+            </code></pre> <br>
+            <p>І ще один досить важливий момент: у ролі індексу масиву та кількості елементів масиву можуть бути змінні та навіть цілі вирази.</p> <br>
+            <p>Приклади:</p> <br>
+            <pre><code>int n = 100;
+                int[] a = new int[n];
+            </code></pre> <br>
+            <p>Пояснення: створення масиву з n елементів</p> <br>
+            <p>Важливо! Звертаємо вашу увагу, що якщо спробувати звернутися до комірки масиву за індексом, якого в масиві немає (у нашому випадку це всі цілі числа, крім чисел 0..99), програма аварійно завершиться з помилкою ArrayIndexOfBoundException — індекс поза межами масиву.</p> <br>
+            <h4>Довжина масиву</h4> <br>
+            <p>Як ви побачили в попередньому прикладі, можна окремо створити змінну типу масив і потім десь у коді присвоїти їй значення (посилання на об'єкт-масив). Можна зробити навіть так:</p> <br>
+            <pre><code>int[] array;
+                if (a < 10)
+                   array = new int[10];
+                else
+                   array = new int[20];
+            </code></pre> <br>
+            <p>Пояснення:</p> <br>
+            <pre><code>Створюємо змінну-масив типу int[]
+                Якщо змінна a менша за 10, то створити масив із 10 елементів.
+                Інакше створити масив із 20 елементів
+            </code></pre> <br>
+            <p>І як надалі працювати з таким масивом? Як дізнатися, скільки в ньому елементів?</p> <br>
+            <p>Для цього масив має спеціальну властивість (змінну) — length. І визначити довжину масиву можна за допомогою такого виразу:</p> <br>
+            <pre><code>array.length;</code></pre> <br>
+            <p>де array — це ім'я змінної-масиву, а length — це ім'я властивості об'єкта-масиву. Значення у властивості length змінити не можна: саму властивість length можна присвоювати іншим змінним, але їй жодного значення присвоїти не можна (програма просто не скомпілюється).</p> <br>
+            <p>Отак можна продовжити попередній приклад:</p> <br>
+            <pre><code>int[] array;
+                if (a < 10)
+                   array = new int[10];
+                else
+                   array = new int[20];
+                for (int i = 0; i < array.length; i++)
+                {
+                   System.out.println(array[i]);
+                }
+            </code></pre> <br>
+            <p>Пояснення:</p> <br>
+            <pre><code>Створюємо змінну-масив типу int[]
+                Якщо змінна a менша за 10, то створити масив із 10 елементів.
+                Інакше створити масив із 20 елементів
+                Цикл по всіх елементах масиву: від 0 до довжини array.length – 1
+            </code></pre> <br>
+            <h3>Приклади використання масивів</h3> <br>
+            <h4>Корисні приклади роботи з масивами</h4>
+            <p>Думаю, настав час перейти до практичних задач. Почнімо з кількох найпростіших.</p>
+            <p>Заповнення масиву з 10 чисел числами від 0 до 9:</p> <br>
+            <pre><code>int[] array = new int[10];
+                for (int i = 0; i < 10; i++) {
+                   array[i] = i;
+                }
+            </code></pre> <br>
+            <p>Пояснення:</p> <br>
+            <pre><code>Створюємо об'єкт-масив на 10 елементів
+                Цикл від 0 до 9 включно
+                У комірки вносимо значення від 0 до 9
+            </code></pre> <br>
+            <p>Заповнення масиву з 10 чисел числами від 1 до 10:</p> <br>
+            <pre><code>int[] array = new int[10];
+                for (int i = 0; i < 10; i++) {
+                   array[i] = i + 1;
+                }
+            </code></pre> <br>
+            <p>Пояснення:</p> <br>
+            <pre><code>Створюємо об'єкт-масив на 10 елементів
+                Цикл від 0 до 9 включно
+                У комірки вносимо значення від 1 до 10                
+            </code></pre> <br>
+            <h4>Виведення чисел у зворотному порядку</h4>
+            <p>А тепер перейдімо до складніших і цікавіших прикладів. І почнемо ми з такої задачі: потрібно ввести з клавіатури 10 чисел і вивести їх у зворотному порядку.</p> <br>
+            <p>Як уводити числа з клавіатури, ми знаємо. А як увести 10 чисел? Звісно, можна створити 10 змінних: а1, а2 і т. д. Однак, по-перше, це незручно. По-друге, якщо потрібно буде ввести 100 чисел, невже ми будемо створювати 100 змінних? Ну і по-третє, ми щойно вивчили масиви, які просто створені для зберігання великої кількості значень.</p> <br>
+            <p>Код для введення 10 значень матиме приблизно такий вигляд (наведено тільки код всередині методу main):</p> <br>
+            <pre><code>Scanner console = new Scanner(System.in);
+                int[] array = new int[10];
+                for (int i = 0; i < 10; i++) {
+                   array[i] = console.nextInt();
+                }
+            </code></pre> <br>
+            <p>Пояснення:</p> <br>
+            <pre><code>Створюємо об'єкт Scanner
+                Створюємо об'єкт-масив на 10 елементів
+                Цикл від 0 до 9 включно
+                Зчитуємо число з клавіатури та зберігаємо його в черговій комірці масиву
+            </code></pre> <br>
+            <p>А от як вивести значення масиву в зворотному порядку?</p> <br>
+            <p>Для цього нам знадобиться ще один цикл, де i набуватиме значень від 9 до 0 (пам'ятаймо, що індекси масиву нумеруються з 0). Остаточний код програми матиме приблизно такий вигляд:</p> <br>
+            <pre><code>Scanner console = new Scanner(System.in);
+                int[] array = new int[10];
+                for (int i = 0; i < 10; i++) {
+                   array[i] = console.nextInt();
+                }
+                for (int i = 9; i >= 0; i--) {
+                   System.out.println(array[i]);
+                }
+            </code></pre> <br>
+            <p>Пояснення:</p> <br>
+            <pre><code>Створюємо об'єкт Scanner
+                Створюємо об'єкт-масив на 10 елементів
+                Цикл від 0 до 9 включно
+                Зчитуємо число з клавіатури та зберігаємо його в черговій комірці масиву
+                Цикл від 9 до 0 включно
+                Виводимо на екран чергову комірку масиву
+            </code></pre> <br>
+            <h4>Пошук найменшого елемента масиву</h4>
+            <p>Розгляньмо одну дуже цікаву й поширену задачу — як знайти в масиві найменший елемент. Візьмімо код для заповнення масиву з попередньої задачі:</p> <br>
+            <pre><code>Scanner console = new Scanner(System.in);
+                int[] array = new int[10];
+                for (int i = 0; i < 10; i++) {
+                    array[i] = console.nextInt();
+                }
+            </code></pre> <br>
+            <p>Пояснення:</p> <br>
+            <pre><code>Створюємо об'єкт Scanner
+                Створюємо об'єкт-масив на 10 елементів
+                Цикл від 0 до 9 включно
+                Зчитуємо число з клавіатури та зберігаємо його в черговій комірці масиву
+            </code></pre> <br>
+            <p>Нам залишилося написати код, який знайде в масиві найменший елемент і виведе його на екран. Як же це зробити?</p> <br>
+            <p>Щоб знайти найменший елемент, нам потрібно:</p> <br>
+            <ul>
+                <li>узяти перший елемент масиву як «поточний знайдений найменший»</li>
+                <li>порівняти з ним всі елементи масиву по черзі</li>
+                <li>якщо черговий елемент масиву менший за «поточний найменший», то оновити значення «поточного найменшого елемента»</li>
+            </ul> <br>
+            <p>Отакий вигляд матиме відповідний код:</p> <br>
+            <pre><code>Scanner console = new Scanner(System.in);
+                int[] array = new int[10];
+                for (int i = 0; i < 10; i++) {
+                    array[i] = console.nextInt();
+                }
+                int min = array[0];
+                
+                for (int i = 1; i < 10; i++) {
+                    if (array[i] < min)
+                
+                       min = array[i];
+                }
+                System.out.println(min);
+            </code></pre> <br>
+            <h3>Поглиблена робота з масивами</h3> <br>
+            <h4>Масив типу String</h4>
+            <p>Як ми вже зазначали, масив може бути будь-якого типу. А отже, можна створити масив типу String. Отакий вигляд мав би код, якби нам потрібно було написати програму, що «вводить з клавіатури 10 рядків і виводить їх на екран у зворотному порядку».</p> <br>
+            <pre><code>Scanner console = new Scanner(System.in);
+                String[] array = new String[10];
+                for (int i = 0; i < 10; i++)
+                {
+                   array[i] = console.nextLine();
+                }
+                for (int i = 9; i >= 0; i--)
+                {
+                   System.out.println(array[i]);
+                }
+            </code></pre> <br>
+            <p>Код майже не змінився! Довелося тільки під час створення масиву замінити тип int на String, а для зчитування рядка з клавіатури замінити метод nextInt() на nextLine().</p> <br>
+            <h4>Швидка ініціалізація масиву в Java</h4>
+            <p>Масиви — дуже корисна річ, тому розробники Java доклали зусиль, щоби працювати з масивами було якомога зручніше.</p> <br>
+            <p>І найперше, що вони зробили, — це спростили ініціалізацію масиву, внесення в нього початкових значень.</p> <br>
+            <p>Адже дуже часто окрім даних, які програма звідкись зчитує, їй потрібні для роботи ще й свої внутрішні дані. Наприклад, нам потрібно зберігати в масиві кількість днів у кожному місяці. Отакий вигляд може мати цей код:</p> <br>
+            <pre><code>int[] months = new int[12];
+                months[0] = 31; // січень
+                months[1] = 28; // лютий
+                months[2] = 31; // березень
+                months[3] = 30; // квітень
+                months[4] = 31; // травень
+                months[5] = 30; // червень
+                months[6] = 31; // липень
+                months[7] = 31; // серпень
+                months[8] = 30; // вересень
+                months[9] = 31; // жовтень
+                months[10] = 30; // листопад
+                months[11] = 31; // грудень
+            </code></pre> <br>
+            <p>Але є спосіб його скоротити — подякуймо авторам Java:</p> <br>
+            <pre><code>// кількість днів у місяцях року
+                int[] months = new int[12] { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+            </code></pre> <br>
+            <p>Можна просто перелічити через кому всі значення масиву!</p> <br>
+            <p>Зручно, чи не так? Але й це ще не все.</p> <br>
+            <p>Виявляється, компілятор може визначити тип контейнера (об'єкта-масиву) на основі типу змінної-масиву, а для визначення довжини масиву — банально підрахувати кількість елементів, написаних у фігурних дужках.</p> <br>
+            <p>Отож цей код можна скоротити ще сильніше:</p> <br>
+            <pre><code>// кількість днів у місяцях року
+                int[] months = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+            </code></pre> <br>
+            <p>Такий запис називається «швидка ініціалізація масиву». До речі, це працює не тільки для типу int...</p> <br>
+            <pre><code>// назви місяців року
+                String[] months = { "Січень", "Лютий", "Березень", "Квітень", "Травень", "Червень", "Липень", "Серпень", "Вересень", "Жовтень", "Листопад", "Грудень"};
+            </code></pre> <br>
+
         </section>
         <section class="practice" id="practice">
             <h2>Практичні завдання</h2>
             <h4>Завдання №1</h4>
-            <p></p> <br>
+            <p>Реалізувати метод main(String[]), який має скопіювати вміст масивів firstArray і secondArray в один масив resultArray.</p> <br>
+            <p>Масив firstArray має бути розташований на початку нового масиву resultArray, а secondArray — після першого.</p> <br>
+            <p>Початковий код: </p> <br>
+            <pre><code>public class Solution {
+                public static int[] firstArray = new int[]{0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
+                public static int[] secondArray = new int[]{10, 11, 12, 13, 14, 15, 16, 17, 18, 19};
+                public static int[] resultArray;
+            
+                public static void main(String[] args) {
+                    //напишіть тут ваш код
+                    for (int i = 0; i < resultArray.length; i++) {
+                        System.out.print(resultArray[i] + ", ");
+                    }
+                }
+            }
+            </code></pre> <br>
             <p>Натисність на кнопку нижче, щоб відкрити рішення.</p> <br>
             <p class="solution">Показати рішення</p>
             <div class="p1 hidepr">
-                    <pre><code></code></pre>
+                    <pre><code>public class Solution {
+                        public static int[] firstArray = new int[]{0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
+                        public static int[] secondArray = new int[]{10, 11, 12, 13, 14, 15, 16, 17, 18, 19};
+                        public static int[] resultArray;
+                    
+                        public static void main(String[] args) {
+                            resultArray = new int[firstArray.length + secondArray.length];
+                            for (int i = 0; i < firstArray.length; i++) {
+                                resultArray[i] = firstArray[i];
+                            }
+                            for (int i = 0; i < secondArray.length; i++) {
+                                resultArray[i + firstArray.length] = secondArray[i];
+                            }
+                    
+                            for (int i = 0; i < resultArray.length; i++) {
+                                System.out.print(resultArray[i] + ", ");
+                            }
+                        }
+                    } 
+                </code></pre>
                 <br>
                 <p class="collapse">Згорнути</p> <br>
             </div>
             <h4>Завдання №2</h4>
-            <p><br>
+            <p>Реалізуйте наступні завдання: </p><br>
+            <ol>
+                <li>Ввести з клавіатури число N.</li>
+                <li>Зчитати N цілих чисел і заповнити ними масив.</li>
+                <li>Знайти й вивести в консоль мінімальне число серед елементів масиву.</li>
+            </ol> <br>
             <p>Натисність на кнопку нижче, щоб відкрити рішення.</p> <br>
             <p class="solution">Показати рішення</p>
             <div class="p2 hidepr">
-                    <pre><code></code></pre>
+                    <pre><code>public class Solution {
+                        public static int[] array;
+                    
+                        public static void main(String[] args) {
+                            Scanner scanner = new Scanner(System.in);
+                            int n = Integer.parseInt(scanner.nextLine());
+                    
+                            array = new int[n];
+                            for (int i = 0; i < n; i++) {
+                                array[i] = Integer.parseInt(scanner.nextLine());
+                            }
+                    
+                            int min = array[0];
+                            for (int i = 1; i < array.length; i++) {
+                                int number = array[i];
+                                if (number < min) {
+                                    min = number;
+                                }
+                            }
+                            System.out.println(min);
+                        }
+                    } 
+                    </code></pre>
                 <br>
                 <p class="collapse">Згорнути</p> <br>
             </div>
@@ -105,159 +392,178 @@
                 <h2>Тестові завдання</h2>
                 <div id="q1">
                     <h4>Питання №1</h4>
-                    <p>Виберіть найбільш правильне твердження для наступного коду:<pre style="border: none;"><code>for(int i = 0; i < 10; i++) {
-                        System.out.println(i);
-                        continue;
-                    }                  
-                    </code></pre></p>
+                    <p>Масив на 100 цілих чисел можна створити за допомогою команди:</p>
                     <label>
-                        <input type="radio" value="0" name="var1" class="var">Код не скомпілюється
+                        <input type="radio" value="0" name="var1" class="var">int[100] array;
                     </label>
                     <label>
-                        <input type="radio" value="1" name="var1" class="var">Виведуться числа від 0 до 9
+                        <input type="radio" value="0" name="var1" class="var">array[100] int;
                     </label>
                     <label>
-                        <input type="radio" value="0" name="var1" class="var">Код зациклиться
+                        <input type="radio" value="1" name="var1" class="var">int[] = new int[100];
                     </label>
                 </div>
                 <div id="q2">
                     <h4>Питання №2</h4>
-                    <p>Виберіть найбільш правильне твердження для наступного коду:<pre style="border: none;"><code>for(int i = 0; i < 10; i++) {
-                        continue;
-                        System.out.println(i);
-                    }                  
-                    </code></pre></p>
+                    <p>У масиві 100 елементів, які у них індекси?</p>
                     <label>
-                        <input type="radio" value="1" name="var2" class="var">Код не скомпілюється
+                        <input type="radio" value="0" name="var2" class="var">1, 2, ..., 100
                     </label>
                     <label>
-                        <input type="radio" value="0" name="var2" class="var">Виведуться числа від 0 до 9
+                        <input type="radio" value="0" name="var2" class="var">0, 1, ..., 100
                     </label>
                     <label>
-                        <input type="radio" value="0" name="var2" class="var">Код зациклиться
+                        <input type="radio" value="1" name="var2" class="var">0, 1, ..., 99
                     </label>
                 </div>
                 <div id="q3">
                     <h4>Питання №3</h4>
-                    <p>Значення змінної х у наступному прикладі дорівнюватиме:<pre style="border: none;"><code>int x = Math.round(4.9);</code></pre></p>
+                    <p>У масиві А рівно 100 елементів, значення кожного елемента дорівнює його індексу. Команда System.out.println(A[100]); виведе на екран:</p>
                     <label>
-                        <input type="radio" value="0" name="var3" class="var">4
+                        <input type="radio" value="0" name="var3" class="var">0
                     </label>
                     <label>
-                        <input type="radio" value="0" name="var3" class="var">4.5
+                        <input type="radio" value="0" name="var3" class="var">99
                     </label>
                     <label>
-                        <input type="radio" value="1" name="var3" class="var">5
+                        <input type="radio" value="1" name="var3" class="var">Помилку
                     </label>
                 </div>
                 <div id="q4">
                     <h4>Питання №4</h4>
-                    <p>Значення змінної х у наступному прикладі дорівнюватиме:<pre style="border: none;"><code>int x = Math.ceil(4.9);</code></pre></p>
+                    <p>Якою командою можна визначити кількість у масиві а?</p>
                     <label>
-                        <input type="radio" value="0" name="var4" class="var">4
+                        <input type="radio" value="1" name="var4" class="var">a.length
                     </label>
                     <label>
-                        <input type="radio" value="0" name="var4" class="var">4.5
+                        <input type="radio" value="0" name="var4" class="var">a.length()
                     </label>
                     <label>
-                        <input type="radio" value="1" name="var4" class="var">5
+                        <input type="radio" value="0" name="var4" class="var">a.size
                     </label>
                 </div>
                 <div id="q5">
                     <h4>Питання №5</h4>
-                    <p>У якому з наступних циклів відбудеться виведення на екран чисел від 1 до 10?</p>
-                    <label style="display: flex;">
-                        <input type="radio" value="0" name="var5" class="var"><pre style="width: 80%;"><code>for(int i = 0; i < 10; i++) {
-                            System.out.println(i);
-                        }</code></pre>
+                    <p>Як передати значення 5 третьому елементу масиву?</p>
+                    <label>
+                        <input type="radio" value="0" name="var5" class="var">a[3] = 5;
                     </label>
-                    <label style="display: flex;">
-                        <input type="radio" value="1" name="var5" class="var"><pre style="width: 80%;"><code>for(int i = 1; i <= 10; i++) {
-                            System.out.println(i);
-                        }</code></pre>
+                    <label>
+                        <input type="radio" value="1" name="var5" class="var">a[2] = 5;
                     </label>
-                    <label style="display: flex;">
-                        <input type="radio" value="0" name="var5" class="var"><pre style="width: 80%;"><code>for(int i = 0; i <= 10; i++) {
-                            System.out.println(i);
-                        }</code></pre>
+                    <label>
+                        <input type="radio" value="0" name="var5" class="var">a{3} = 5;
                     </label>
                 </div>
                 <div id="q6">
                     <h4>Питання №6</h4>
-                    <p>У якому з наступних циклів відбудеться виведення на екран чисел від 10 до 5?</p>
+                    <p>Оберіть код, що виводить на екран масив з 10 чисел числа від 0 до 9:</p>
                     <label style="display: flex;">
-                        <input type="radio" value="0" name="var6" class="var"><pre style="width: 80%;"><code>for(int i = 10; i > 5; i--) {
-                            System.out.println(i);
-                        }</code></pre>
+                        <input type="radio" value="1" name="var6" class="var"><pre style="width: 80%;"><code>int[] array = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
+                            for (int i = 0; i <= 9; i++) {
+                                System.out.println
+                                (array[i]);
+                            }
+                        </code></pre>
                     </label>
                     <label style="display: flex;">
-                        <input type="radio" value="0" name="var6" class="var"><pre style="width: 80%;"><code>for(int i = 10; i > 6; i--) {
-                            System.out.println(i);
-                        }</code></pre>
+                        <input type="radio" value="0" name="var6" class="var"><pre style="width: 80%;"><code>int[] array = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
+                            for (int i = 0; i <= 10; i++) {
+                                System.out.println
+                                (array[i]);
+                            }
+                        </code></pre>
                     </label>
                     <label style="display: flex;">
-                        <input type="radio" value="1" name="var6" class="var"><pre style="width: 80%;"><code>for(int i = 10; i >= 5; i++) {
-                            System.out.println(i);
-                        }</code></pre>
+                        <input type="radio" value="0" name="var6" class="var"><pre style="width: 80%;"><code>int[] array = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
+                            for (int i = 0; i > 10; i++) {
+                                System.out.println
+                                (array[i]);
+                            }
+                        </code></pre>
                     </label>
                 </div>
                 <div id="q7">
                     <h4>Питання №7</h4>
-                    <p>Що буде результатом виконання коду:<pre style="border: none;"><code>for(int i = 0;; i++){
-                        System.out.println(i);
-                    }</code></pre></p>
+                    <p>Масив на 20 дійсних чисел можна створити за допомогою такої команди:</p>
                     <label style="display: flex;">
-                        <input type="radio" value="1" name="var7" class="var">Відбудеться зациклення
+                        <input type="radio" value="1" name="var7" class="var">double[] vals = new double[20];
                     </label>
                     <label style="display: flex;">
-                        <input type="radio" value="0" name="var7" class="var">Код не скомпілюється
+                        <input type="radio" value="0" name="var7" class="var">double[20] vals = new double[20.0];
                     </label style="display: flex;">
                     <label>
-                        <input type="radio" value="0" name="var7" class="var">Результатом виконання коду буде помилка
+                        <input type="radio" value="0" name="var7" class="var">double[20] vals = new double[];
                     </label>
                 </div>
                 <div id="q8">
                     <h4>Питання №8</h4>
-                    <p>Скільки витків циклу буде виконано?</p> <pre style="border: none;"><code>for(int i = 0; i < 8; i++){
-                        if(i%4==0)
-                            break;
-                        System.out.println(i);
-                    }
+                    <p>Що буде результатом виконання такої команди: </p> <pre style="border: none;"><code>int[] array = new int[-1];
                     </code></pre></p>
                     <label>
-                        <input type="radio" value="1" name="var8" class="var">1
+                        <input type="radio" value="0" name="var8" class="var">Створиться масив чисел зі значеннями -1
                     </label>
                     <label>
-                        <input type="radio" value="0" name="var8" class="var">7
+                        <input type="radio" value="0" name="var8" class="var">Створиться масив чисел який буде приймати лише від’ємні числа
                     </label>
                     <label>
-                        <input type="radio" value="0" name="var8" class="var">8
+                        <input type="radio" value="1" name="var8" class="var">Помилка: NegativeArraySizeException
                     </label>
                 </div>
                 <div id="q9">
                     <h4>Питання №9</h4>
-                    <p>Скільки байтів у пам’яті займає тип  double?</p>
-                    <label>
-                        <input type="radio" value="0" name="var9" class="var">4
+                    <p>Оберіть код, що виводить на екран вміст масиву в зворотному порядку:</p>
+                    <label style="display: flex;">
+                        <input type="radio" value="1" name="var9" class="var"><pre style="width: 80%;"><code>int[] array = {0, 1, 2, 3, 4};
+                            for (int i = 4; i >= 0; i--) {
+                                System.out.println
+                                (array[i]);
+                            }                            
+                        </code></pre>
                     </label>
-                    <label>
-                        <input type="radio" value="1" name="var9" class="var">8
+                    <label style="display: flex;">
+                        <input type="radio" value="0" name="var9" class="var"><pre style="width: 80%;"><code>int[] array = {0, 1, 2, 3, 4};
+                            for (int i = 0; i >= 4; i--) {
+                                System.out.println
+                                (array[i]);
+                            }                                                 
+                        </code></pre>
                     </label>
-                    <label>
-                        <input type="radio" value="0" name="var9" class="var">12
+                    <label style="display: flex;">
+                        <input type="radio" value="0" name="var9" class="var"><pre style="width: 80%;"><code>int[] array = {0, 1, 2, 3, 4};
+                            for (int i = 4; i <= 0; i--) {
+                                System.out.println
+                                (array[i]);
+                            }                            
+                        </code></pre>
                     </label>
                 </div>
                 <div id="q10">
                     <h4>Питання №10</h4>
-                    <p>Значення змінної х у наступному прикладі дорівнюватиме:</p><code>int x = (int)Math.floor(4.8);</code></pre></p>
-                    <label>
-                        <input type="radio" value="0" name="var10" class="var">5
+                    <p>Оберіть код, що заповнює масив 10 рядками введеними з клавіатури:</p>
+                    <label style="display: flex;">
+                        <input type="radio" value="0" name="var10" class="var"><pre style="width: 80%;"><code>Scanner console = new Scanner(System.in);
+                            String[] array = new String[10];
+                            for (int i = 0; i < 10; i++) {
+                                array[i] = console.nextString();
+                            }                                    
+                        </code></pre>
                     </label>
-                    <label>
-                        <input type="radio" value="0" name="var10" class="var">8
+                    <label style="display: flex;">
+                        <input type="radio" value="1" name="var10" class="var"><pre style="width: 80%;"><code>Scanner console = new Scanner(System.in);
+                            String[] array = new String[10];
+                            for (int i = 0; i < 10; i++) {
+                                array[i] = console.nextLine();
+                            }                                          
+                        </code></pre>
                     </label>
-                    <label>
-                        <input type="radio" value="1" name="var10" class="var">4
+                    <label style="display: flex;">
+                        <input type="radio" value="0" name="var10" class="var"><pre style="width: 80%;"><code>Scanner console = new Scanner(System.in);
+                            String[] array = new String[10Lines];
+                            for (int i = 0; i < 10; i++) {
+                                array[i] = console.nextLine();
+                            }                            
+                        </code></pre>
                     </label>
                 </div>
                 <br>
