@@ -44,8 +44,7 @@ public class UserService implements UserDetailsService {
         return userFromDb.orElse(new User());
     }
 
-    public User setTestGrade(String username, Integer test, Integer lesson) {
-        User user = (User) loadUserByUsername(username);
+    public User setTestGrade(User user, Integer test, Integer lesson) {
         user.setLessonTestByLessonNumber(test, lesson);
         return userRepository.save(user);
     }
@@ -63,7 +62,7 @@ public class UserService implements UserDetailsService {
     }
 
     public Map<Integer, Boolean> getExistLessonsGrads(String username) {
-        Map<Integer, Boolean> integerBooleanMap = new HashMap<>();
+        Map<Integer, Boolean> integerBooleanMap = new TreeMap<>();
         List<Integer> testList = getTestList(username);
         for (int i = 0; i < testList.size() - 1; i++) {
             if (testList.get(i) == 0) integerBooleanMap.put(0, false);

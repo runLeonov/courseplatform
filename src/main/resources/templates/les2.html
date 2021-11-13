@@ -67,6 +67,7 @@
                 Java.</p>
         </div>
         <h2>Відеоурок</h2>
+        <h1 th:text="${session.suk}" class="user">USER</h1>
         <section class="video">
             <iframe src="https://www.youtube.com/embed/C5q0ULg0nmY" title="YouTube video player" frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -506,11 +507,11 @@
         <div class="top"></div>
         <div class="lessons">
             <div class="panel">
-                <a href="/courseplatform/src/main/resources/static/index.html" class="nL">Урок №1 "Команди й перша
+                <a href="/lesson" class="nL">Урок №1 "Команди й перша
                     програма"</a>
             </div>
             <div class="panel activeP">
-                <a href="/courseplatform/src/main/resources/static/les2.html" class="nL">Урок №2 "Знайомство з типами й
+                <a href="/lesson" class="nL">Урок №2 "Знайомство з типами й
                     уведення з клавіатури"</a>
             </div>
             <div class="panel">

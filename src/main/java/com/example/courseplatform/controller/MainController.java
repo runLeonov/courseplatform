@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpSession;
 import java.util.Collections;
+import java.util.Objects;
 
 @Controller("")
 public class MainController {
@@ -23,7 +24,7 @@ public class MainController {
         Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         if (principal instanceof UserDetails) {
             User user = (User) principal;
-            session.setAttribute("userDB", user.getUsername());
+            session.setAttribute("userDB", user);
             session.setAttribute("lesson10", userService.getTestList(user.getUsername()));
             session.setAttribute("thisLessonGrade", userService.getExistLessonsGrads(user.getUsername()));
         }
@@ -38,13 +39,24 @@ public class MainController {
             HttpSession session
     ) {
         Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+
         if (principal instanceof UserDetails) {
             User user = (User) principal;
+            if (user.getLessonTestByLessonNumber(lessonNumber) == 0)
+                userService.setTestGrade(user, testsSummary, lessonNumber);
             session.setAttribute("userDB", user);
+            session.setAttribute("lesson10", userService.getTestList(user.getUsername()));
             session.setAttribute("thisLessonGrade", userService.getExistLessonsGrads(user.getUsername()));
-            userService.setTestGrade(user.getUsername(), testsSummary, lessonNumber);
         }
         return nextLesson + ".html";
+    }
+
+    @GetMapping("/lesson")
+    public String getTestValues(
+            HttpSession session
+    ) {
+        session.setAttribute("suk", "HELLO SUKI");
+        return "main.html";
     }
 
 }

@@ -133,35 +133,35 @@ public class User implements UserDetails {
     public Integer getLessonTestByLessonNumber(Integer lesson) {
         switch (lesson) {
             case 1:
-                return getLesson1();
+                return getLesson1() == null ? 0 : getLesson1();
             case 2:
-                return getLesson2();
+                return getLesson2() == null ? 0 : getLesson2();
             case 3:
-                return getLesson3();
+                return getLesson3() == null ? 0 : getLesson3();
             case 4:
-                return getLesson4();
+                return getLesson4() == null ? 0 : getLesson4();
             case 5:
-                return getLesson5();
+                return getLesson5() == null ? 0 : getLesson5();
             case 6:
-                return getLesson6();
+                return getLesson6() == null ? 0 : getLesson6();
             case 7:
-                return getLesson7();
+                return getLesson7() == null ? 0 : getLesson7();
             case 8:
-                return getLesson8();
+                return getLesson8() == null ? 0 : getLesson8();
             case 9:
-                return getLesson9();
+                return getLesson9() == null ? 0 : getLesson9();
             case 10:
-                return getLesson10();
+                return getLesson10() == null ? 0 : getLesson10();
             case 11:
-                return getLesson11();
+                return getLesson11() == null ? 0 : getLesson11();
             case 12:
-                return getLesson12();
+                return getLesson12() == null ? 0 : getLesson12();
             case 13:
-                return getLesson13();
+                return getLesson13() == null ? 0 : getLesson13();
             case 14:
-                return getLesson14();
+                return getLesson14() == null ? 0 : getLesson14();
             case 15:
-                return getLesson15();
+                return getLesson15() == null ? 0 : getLesson15();
             default:
                 return 0;
         }
