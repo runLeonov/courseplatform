@@ -75,25 +75,248 @@
         </section>
         <section class="text">
             <h2>Текстовий матеріал</h2>
-            
+            <h3>Допоміжний клас Arrays</h3> <br>
+            <h4>Клас Arrays</h4>
+            <p>Як ми вже говорили раніше, масиви — дуже корисна й часто використовувана річ у програмуванні.</p> <br>
+            <p>Створивши мову Java, її автори невдовзі помітили, що Java-програмісти часто пишуть один і той самий код, коли працюють з масивами. Наприклад: «скопіювати частину масиву в інший масив», «заповнити всі комірки масиву однаковими значеннями», «вивести на екран вміст масиву так, щоб його було зручно читати» тощо.</p> <br>
+            <p>Тому вони зробили спеціальний клас — Arrays (повне ім'я java.util.Arrays), в який помістили найпопулярніші дії під час роботи з масивами.</p> <br>
+            <p>У ньому дуже багато методів на всі випадки життя, але спершу ми розглянемо тільки 10 із них — найпростіші та часто використовувані.</p> <br>
+            <h4>Метод Arrays.toString()</h4>
+            <p>Перший метод, який ми розглянемо, називається Arrays.toString().</p> <br>
+            <p>У кожного масиву в Java є метод toString(), який повертає «текстове подання масиву».</p> <br>
+            <p>Щоб побачити саме значення масиву, і придумали метод Arrays.toString(). Викликають його в такий спосіб:</p> <br>
+            <pre><code>String str = Arrays.toString(ім'я);</code></pre> <br>
+            <p>Приклади:</p> <br>
+            <pre><code>int[] array = {1, 2, 3};
+                String str = Arrays.toString(array);
+            </code></pre> <br>
+            <p>Змінна str буде містити значення рядкового типу: "[1, 2, 3]"</p> <br>
+            <pre><code>String[] array = {"Привіт", "Як", "Справи"};
+                String str = Arrays.toString(array);
+            </code></pre> <br>
+            <p>Змінна str буде містити значення рядкового типу: "[Привіт, Як, Справи]"</p> <br>
+            <h4>Метод Arrays.deepToString()</h4>
+            <p>Але якщо ви за допомогою методу Arrays.toString() спробуєте перетворити на рядок (вивести на екран) двовимірний масив, побачите ось таке:</p> <br>
+            <pre><code>[I@37afeb11, I@37afeb21, I@37afeb31]</code></pre> <br>
+            <p>Уся річ у тім, що в комірках двовимірного масиву зберігаються посилання на одновимірні масиви. А як одновимірні масиви перетворюються на рядки? Саме так, як ви бачите вище.</p> <br>
+            <p>І що ж робити? Як нам отримати правильне відображення двовимірного масиву?</p> <br>
+            <p>Для цього клас Arrays має ще один спеціальний метод — deepToString(). Викликають його в такий спосіб:</p> <br>
+            <pre><code>String str = Arrays.deepToString(ім'я);</code></pre> <br>
+            <p>У цей метод можна передати двовимірний, одновимірний, тривимірний і взагалі масив будь-якої розмірності, і ми завжди бачитимемо елементи масиву.</p> <br>
+            <p>Зверніть увагу: метод Arrays.deepToString() не працює з одновимірними масивами примітивів (наприклад, int[]).</p> <br>
+            <p>Приклади:</p> <br>
+            <pre><code>Integer[] array = {1, 2, 3};
+                String str = Arrays.deepToString(array);
+            </code></pre> <br>
+            <p>Змінна str буде містити значення рядкового типу: "[1, 2, 3]"</p> <br>
+            <pre><code>int[][][] array = { {{1, 2, 3}, {1}}, {{}} };
+                String str = Arrays.deepToString(array);
+            </code></pre> <br>
+            <p>Змінна str буде містити значення рядкового типу: "[[[1, 2, 3], [1]], [[]]]"</p> <br>
+            <h4>Метод Arrays.equals()</h4>
+            <p>З виведенням масивів на екран ми розібралися, а як бути з порівнянням масивів?</p> <br>
+            <p>Для порівняння рядків у нас були методи equals та equalsIgnoreCase, а які є методи для подібних операцій з масивами?</p> <br>
+            <p>І знову нам на порятунок приходить клас Arrays, а точніше, його метод Arrays.equals(). Викликають його в такий спосіб:</p> <br>
+            <pre><code>Arrays.equals(ім'я1, ім'я2)</code></pre> <br>
+            <p>Метод повертає true (істина), якщо масиви мають однакову довжину, а їхні елементи рівні, інакше повертає false (хибність).</p> <br>
+            <p>Приклади:</p> <br>
+            <pre><code>int[] x1 = {1, 2, 3};
+                int[] x2 = {1, 2, 3};
+                Arrays.equals(x1, x2);
+            </code></pre> <br>
+            <h4>Метод Arrays.deepEquals()</h4> <br>
+            <p>І як ви вже, напевно, здогадуєтеся, метод Arrays.equals для двовимірних масивів працюватиме неправильно: він працює з двовимірним масивом як з одновимірним, елементи якого — адреси одновимірних масивів.</p> <br>
+            <p>Ось чому для правильного порівняння багатовимірних масивів (n=1, 2, 3, …) придумали метод Arrays.deepEquals(). Викликають його в такий спосіб:</p> <br>
+            <pre><code>Arrays.deepEquals(ім'я1, ім'я2);</code></pre> <br>
+            <p>Метод повертає true (істина), якщо масиви мають однакову довжину, а їхні елементи рівні, інакше повертає false (хибність). Якщо елементи всередині масиву — теж масиви, для їх порівняння використовують метод Arrays.deepEquals() і т. д.</p> <br>
+            <pre><code>int[][] x1 = {{1, 2, 3}, {4, 5, 6}};
+                int[][] x2 = {{1, 2, 3}, {4, 5, 6}};
+                Arrays.deepEquals(x1, x2);
+            </code></pre> <br>
+            <h4>Метод Arrays.fill()</h4>
+            <p>Дуже часто у Java-програмістів під час роботи з масивами виникає задача — заповнити масив однаковими значеннями. Можна, звісно, написати цикл і просто в циклі присвоїти кожній комірці масиву певне значення:</p> <br>
+            <pre><code>int[] x = new int[100];
+                for (int i = 0; i < x.length; i++)
+                x[i] = 999;
+            </code></pre> <br>
+            <p>А можна просто викликати метод Arrays.fill(), який робить абсолютно те саме: заповнює переданий масив переданим значенням. Отакий вигляд має це виклик:</p> <br>
+            <pre><code>Arrays.fill(ім'я, значення);</code></pre> <br>
+            <p>І код із прикладу вище можна зробити трохи компактнішим і зрозумілішим:</p> <br>
+            <pre><code>int[] x = new int[100];
+                Arrays.fill(x, 999);
+            </code></pre> <br>
+            <p>А ще за допомогою методу Arrays.fill() можна заповнити певним значенням не весь масив, а його частину:</p> <br>
+            <pre><code>Arrays.fill(ім'я, перший, останній, значення);</code></pre> <br>
+            <p>де перший і останній — це номери першої та останньої комірок, які потрібно заповнити.</p> <br>
+            <p>За старою доброю традицією Java останній елемент не входить в діапазон.</p> <br>
+            <p>Приклад:</p> <br>
+            <pre><code>int[] x = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+                Arrays.fill(x, 3, 7, 999);
+                String str = Arrays.toString(x);
+            </code></pre> <br>
+            <p>Заповнюємо комірки x[3], x[4], x[5], x[6] значеннями 999. Нумерація комірок масиву з нуля!</p> <br>
+            <p>Змінна str містить значення: "[1, 2, 3, 999, 999, 999, 999, 8, 9, 10]"</p> <br>
+            <p>Метод Arrays.fill() працює лише з одновимірними масивами. Якщо в нього передати двовимірний масив, цей масив буде оброблено як одновимірний, з усіма наслідками, що звідси випливають.</p> <br>
+            <h4>Метод Arrays.copyOf()</h4>
+            <p>Як ви вже знаєте, розмір контейнера масиву після його створення змінити не можна.</p> <br>
+            <p>А якщо дуже хочеться?</p> <br>
+            <p>Ну, якщо дуже хочеться, то можна:</p> <br>
+            <ul>
+                <li>Створити новий масив потрібної довжини</li>
+                <li>Скопіювати в нього всі елементи з першого масиву</li>
+            </ul> <br>
+            <p>Саме це, до речі, й робить метод Arrays.copyOf). Викликають його в такий спосіб:</p> <br>
+            <pre><code>тип[] ім'я2 = Arrays.copyOf(ім'я, довжина);</code></pre> <br>
+            <p>Цей метод не змінює наявний масив, натомість він створює новий масив і копіює в нього елементи старого.</p> <br>
+            <p>Якщо елементи не вмістилися (довжина менша за довжину наявного масиву), то зайві значення ігноруються.</p> <br>
+            <p>Якщо довжина нового масиву більша за довжину старого, комірки буде заповнено нулями.</p> <br>
+            <p>Приклад:</p> <br>
+            <pre><code>int[] x = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+
+                int[] x2 = Arrays.copyOf(x, 5);
+                String str2 = Arrays.toString(x2);
+                
+                int[] x3 = Arrays.copyOf(x, 15);
+                String str3 = Arrays.toString(x3);
+            </code></pre> <br>
+            <p>Змінна str2 містить значення: "[1, 2, 3, 4, 5]"</p> <br>
+            <p>Змінна str3 містить значення: "[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 0, 0, 0, 0, 0]"</p> <br>
+            <h4>Метод Arrays.copyOfRange()</h4>
+            <p>А що робити, якщо ви хочете отримати масив довжиною 5 із масиву довжиною 10, але щоб новий масив містив не перші 5 елементів старого, а останні?</p> <br>
+            <p>Саме на цей випадок вам стане в пригоді ще один метод класу Arrays — метод Arrays.copyOfRange(). Викликають його в такий спосіб:</p> <br>
+            <pre><code>тип[] ім'я2 = Arrays.copyOfRange(ім'я, перший, останній);</code></pre> <br>
+            <p>Цей метод теж створює новий масив, але заповнює його даними з довільного місця початкового масиву. Перший і останній тут — це номери першої та останньої комірок, які потрібно скопіювати.</p> <br>
+            <p>За старою доброю традицією Java останній елемент не входить в діапазон.</p> <br>
+            <p>Приклад:</p> <br>
+            <pre><code>int[] x = {11, 12, 13, 14, 15, 16, 17, 18, 19, 20};
+
+                int[] x2 = Arrays.copyOfRange(x, 5, 10);
+                String str2 = Arrays.toString(x2);
+                
+                int[] x3 = Arrays.copyOfRange(x, 5, 15);
+                String str3 = Arrays.toString(x3);
+            </code></pre> <br>
+            <p>Змінна str2 містить значення: "[16, 17, 18, 19, 20]"</p> <br>
+            <p>Змінна str3 містить значення: "[16, 17, 18, 19, 20, 0, 0, 0, 0, 0]"</p> <br>
+            <h4>Метод Arrays.sort()</h4>
+            <p>Ну й найсмачніше — сортування. У програмуванні сортувати масиви доводиться дуже часто. Три найчастіші дії під час роботи з масивами:</p> <br>
+            <ul>
+                <li>Сортування масиву</li>
+                <li>Пошук мінімального (або максимального) елемента масиву</li>
+                <li>Визначення індексу елемента в масиві (пошук елемента в масиві)</li>
+            </ul> <br>
+            <p>І саме тому розробники Java включили в клас Arrays метод sort(). Викликають його в такий спосіб:</p> <br>
+            <pre><code>Arrays.sort(ім'я);</code></pre> <br>
+            <p>Цей метод сортує переданий масив за зростанням.</p> <br>
+            <p>Приклад:</p> <br>
+            <pre><code>int[] x = {11, -2, 3, 0, 999, -20, 8, -20, 99, -20};
+                Arrays.sort(x);
+                String str = Arrays.toString(x);
+            </code></pre> <br>
+            <p>Змінна str містить значення: "[-20, -20, -20, -2, 0, 3, 8, 11, 99, 999]"</p> <br>
+            <p>Чудово, правда? Викликали один метод — і маєте ще й відсортований масив. Краса та й годі.</p> <br>
+            <p>До речі, сортувати можна не тільки весь масив, а також його частину. Викликають його в такий спосіб:</p> <br>
+            <pre><code>Arrays.sort(ім'я, перший, останній);</code></pre> <br>
+            <p>де перший і останній — це номери першої та останньої комірок, до яких треба застосувати сортування.</p> <br>
+            <p>За старою доброю традицією Java останній елемент не входить в діапазон.</p> <br>
+            <p>Приклад:</p> <br>
+            <pre><code>int[] x = {11, -2, 3, 0, 999, -20, 8, -20, 99, -20};
+
+                Arrays.sort(x, 4, 8);
+                String str = Arrays.toString(x);
+            </code></pre> <br>
+            <p>Змінна str містить значення: "[11, -2, 3, 0, -20, -20, 8, 999, 99, -20]"</p> <br>
+            <h4>Метод Arrays.binarySearch()</h4>
+            <p>Ну й останній із найцікавіших методів класу Arrays уміє шукати задане значення в масиві. Це не звичайний пошук, а так званий бінарний пошук. Суть його полягає от у чому:</p> <br>
+            <ul>
+                <li>Спочатку виконується сортування масиву</li>
+                <li>Потім середній елемент масиву порівнюється із шуканим (з тим, який ми шукаємо).</li>
+                <li>Якщо шуканий елемент більший за середній, пошук продовжується в правій половині масиву.</li>
+                <li>Якщо шуканий елемент менший за середній, пошук продовжується в лівій половині масиву.</li>
+            </ul> <br>
+            <p>Оскільки масив відсортований, можна за одне порівняння відкинути половину масиву. Відтак на наступному кроці відкинути ще половину і т. д.</p> <br>
+            <p>Завдяки такому підходу бінарний пошук дуже швидкий. У масиві з мільйона (!) елементів він може знайти індекс потрібного елемента всього за 20 порівнянь. Мінус такого підходу в тому, що спершу масив треба відсортувати, а сортування теж потребує часу.</p> <br>
+            <p>Викликають його в такий спосіб:</p> <br>
+            <pre><code>int index = Arrays.binarySearch(ім'я, значення);</code></pre> <br>
+            <p>де ім'я — це ім'я масиву, який потрібно передати вже відсортованим (наприклад, за допомогою функції Arrays.sort()), значення — це той елемент, який ми шукаємо в масиві. Метод повертає результат — індекс шуканого елемента в масиві (номер комірки масиву).</p> <br>
+            <p>Приклади:</p> <br>
+            <pre><code>int[] x = {11, -2, 3, 0, 999, -20, 8, -20, 99, -20};
+                Arrays.sort(x);
+
+                int index1 = Arrays.binarySearch(x, 0);
+                int index2 = Arrays.binarySearch(x, -20);
+                int index3 = Arrays.binarySearch(x, 99);
+                int index4 = Arrays.binarySearch(x, 5);
+
+            </code></pre> <br>
+            <p>Якщо шуканих елементів у масиві декілька, метод просто поверне номер одного з них (немає гарантій, що це буде найперший або, навпаки, останній з однакових елементів).</p> <br>
+            <p>Якщо елемент у масиві не знайдено, індекс буде від'ємним.</p>
         </section>
         <section class="practice" id="practice">
             <h2>Практичні завдання</h2>
             <h4>Завдання №1</h4>
-            <p></p> <br>
+            <p>Реалізуйте метод main(String[]), який виводить у консоль true, якщо елемент міститься у переданому масиві, інакше — false. Розташування елементів у масиві array не повинно змінюватися.</p> <br>
+            <p>Початковий код: </p> <br>
+            <pre><code>public class Solution {
+
+                public static int[] array = {9, 8, 7, 6, 5, 4, 3, 2, 1};
+                public static int element = 5;
+            
+                public static void main(String[] args) {
+                    
+                }
+            }
+            </code></pre> <br>
             <p>Натисність на кнопку нижче, щоб відкрити рішення.</p> <br>
             <p class="solution">Показати рішення</p>
             <div class="p1 hidepr">
-                    <pre><code></code></pre>
+                    <pre><code>public class Solution {
+
+                        public static int[] array = {9, 8, 7, 6, 5, 4, 3, 2, 1};
+                        public static int element = 5;
+                    
+                        public static void main(String[] args) {
+                            int[] copy = Arrays.copyOf(array, array.length);
+                            Arrays.sort(copy);
+                            int index = Arrays.binarySearch(copy, element);
+                            System.out.println(index >= 0);
+                        }
+                    }
+                </code></pre>
                 <br>
                 <p class="collapse">Згорнути</p> <br>
             </div>
             <h4>Завдання №2</h4>
-            <p><br>
+            <p>Реалізуй метод main(String[]), який ділить масив array на два підмасиви та заповнює ними двовимірний масив result. Якщо довжина масиву парна, то більшу частину потрібно скопіювати в перший підмасив.</p><br>
+            <p>Початковий код:</p> <br>
+            <pre><code>public class Solution {
+
+                public static int[][] result = new int[2][];
+                public static int[] array = new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11};
+            
+                public static void main(String[] args) {
+            
+                    System.out.println(Arrays.deepToString
+                    (result));
+                }
+            }
+            </code></pre> <br>
             <p>Натисність на кнопку нижче, щоб відкрити рішення.</p> <br>
             <p class="solution">Показати рішення</p>
             <div class="p2 hidepr">
-                    <pre><code></code></pre>
+                    <pre><code>public class Solution {
+
+                        public static int[][] result = new int[2][];
+                        public static int[] array = new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11};
+                    
+                        public static void main(String[] args) {
+                            int firstPart = array.length % 2 == 0 ? array.length / 2 : array.length / 2 + 1;
+                            result[0] = Arrays.copyOfRange(array, 0, firstPart);
+                            result[1] = Arrays.copyOfRange(array, firstPart, array.length);
+                            System.out.println(Arrays.deepToString(result));
+                        }
+                    }
+                </code></pre>
                 <br>
                 <p class="collapse">Згорнути</p> <br>
             </div>
@@ -105,159 +328,132 @@
                 <h2>Тестові завдання</h2>
                 <div id="q1">
                     <h4>Питання №1</h4>
-                    <p>Виберіть найбільш правильне твердження для наступного коду:<pre style="border: none;"><code>for(int i = 0; i < 10; i++) {
-                        System.out.println(i);
-                        continue;
-                    }                  
-                    </code></pre></p>
+                    <p>Відсортувати значення масиву а можна за допомогою команди:</p>
                     <label>
-                        <input type="radio" value="0" name="var1" class="var">Код не скомпілюється
+                        <input type="radio" value="0" name="var1" class="var">a.sort();
                     </label>
                     <label>
-                        <input type="radio" value="1" name="var1" class="var">Виведуться числа від 0 до 9
+                        <input type="radio" value="0" name="var1" class="var">a.sortAll();
                     </label>
                     <label>
-                        <input type="radio" value="0" name="var1" class="var">Код зациклиться
+                        <input type="radio" value="1" name="var1" class="var">Arrays.sort(a);
                     </label>
                 </div>
                 <div id="q2">
                     <h4>Питання №2</h4>
-                    <p>Виберіть найбільш правильне твердження для наступного коду:<pre style="border: none;"><code>for(int i = 0; i < 10; i++) {
-                        continue;
-                        System.out.println(i);
-                    }                  
-                    </code></pre></p>
+                    <p>Порівняти вміст двох квадратних масивів можна за допомогою виразу:</p>
                     <label>
-                        <input type="radio" value="1" name="var2" class="var">Код не скомпілюється
+                        <input type="radio" value="0" name="var2" class="var">array1 = array2;
                     </label>
                     <label>
-                        <input type="radio" value="0" name="var2" class="var">Виведуться числа від 0 до 9
+                        <input type="radio" value="0" name="var2" class="var">array1.equals(array2);
                     </label>
                     <label>
-                        <input type="radio" value="0" name="var2" class="var">Код зациклиться
+                        <input type="radio" value="1" name="var2" class="var">Arrays.deepEquals(array1, array2);
                     </label>
                 </div>
                 <div id="q3">
                     <h4>Питання №3</h4>
-                    <p>Значення змінної х у наступному прикладі дорівнюватиме:<pre style="border: none;"><code>int x = Math.round(4.9);</code></pre></p>
+                    <p>Заповнити масив а числом 100 можна за допомогою команди:</p>
                     <label>
-                        <input type="radio" value="0" name="var3" class="var">4
+                        <input type="radio" value="1" name="var3" class="var">Arrays.fill(a, 100);
                     </label>
                     <label>
-                        <input type="radio" value="0" name="var3" class="var">4.5
+                        <input type="radio" value="0" name="var3" class="var">Arrays.set(a, 100);
                     </label>
                     <label>
-                        <input type="radio" value="1" name="var3" class="var">5
+                        <input type="radio" value="0" name="var3" class="var">a.setAll(100);
                     </label>
                 </div>
                 <div id="q4">
                     <h4>Питання №4</h4>
-                    <p>Значення змінної х у наступному прикладі дорівнюватиме:<pre style="border: none;"><code>int x = Math.ceil(4.9);</code></pre></p>
+                    <p>Щоб отримати текстове подання масиву потрібно використати команду:</p>
                     <label>
-                        <input type="radio" value="0" name="var4" class="var">4
+                        <input type="radio" value="1" name="var4" class="var">String str = Arrays.toString(ім'я);
                     </label>
                     <label>
-                        <input type="radio" value="0" name="var4" class="var">4.5
+                        <input type="radio" value="0" name="var4" class="var">String str = ім’я.toString();
                     </label>
                     <label>
-                        <input type="radio" value="1" name="var4" class="var">5
+                        <input type="radio" value="0" name="var4" class="var">String str = ім’я.toString(Arrays);
                     </label>
                 </div>
                 <div id="q5">
                     <h4>Питання №5</h4>
-                    <p>У якому з наступних циклів відбудеться виведення на екран чисел від 1 до 10?</p>
+                    <p>Щоб отримати текстове подання двовимірного масиву потрібно використати команду:</p>
                     <label style="display: flex;">
-                        <input type="radio" value="0" name="var5" class="var"><pre style="width: 80%;"><code>for(int i = 0; i < 10; i++) {
-                            System.out.println(i);
-                        }</code></pre>
+                        <input type="radio" value="0" name="var5" class="var">String str = ім’я.toString();
                     </label>
                     <label style="display: flex;">
-                        <input type="radio" value="1" name="var5" class="var"><pre style="width: 80%;"><code>for(int i = 1; i <= 10; i++) {
-                            System.out.println(i);
-                        }</code></pre>
+                        <input type="radio" value="0" name="var5" class="var">String str = Arrays.toString(ім'я);
                     </label>
                     <label style="display: flex;">
-                        <input type="radio" value="0" name="var5" class="var"><pre style="width: 80%;"><code>for(int i = 0; i <= 10; i++) {
-                            System.out.println(i);
-                        }</code></pre>
+                        <input type="radio" value="1" name="var5" class="var">String str = Arrays.deepToString(ім'я);
                     </label>
                 </div>
                 <div id="q6">
                     <h4>Питання №6</h4>
-                    <p>У якому з наступних циклів відбудеться виведення на екран чисел від 10 до 5?</p>
+                    <p>Щоб відсортувати масив потрібно використати команду:</p>
                     <label style="display: flex;">
-                        <input type="radio" value="0" name="var6" class="var"><pre style="width: 80%;"><code>for(int i = 10; i > 5; i--) {
-                            System.out.println(i);
-                        }</code></pre>
+                        <input type="radio" value="1" name="var6" class="var">Arrays.sort(ім'я);
                     </label>
                     <label style="display: flex;">
-                        <input type="radio" value="0" name="var6" class="var"><pre style="width: 80%;"><code>for(int i = 10; i > 6; i--) {
-                            System.out.println(i);
-                        }</code></pre>
+                        <input type="radio" value="0" name="var6" class="var">x = Arrays.sort();
                     </label>
                     <label style="display: flex;">
-                        <input type="radio" value="1" name="var6" class="var"><pre style="width: 80%;"><code>for(int i = 10; i >= 5; i++) {
-                            System.out.println(i);
-                        }</code></pre>
+                        <input type="radio" value="0" name="var6" class="var">x = sort(Arrays);
                     </label>
                 </div>
                 <div id="q7">
                     <h4>Питання №7</h4>
-                    <p>Що буде результатом виконання коду:<pre style="border: none;"><code>for(int i = 0;; i++){
-                        System.out.println(i);
-                    }</code></pre></p>
+                    <p>Для пошуку заданого елементу потрібно скористатися командою:</p>
                     <label style="display: flex;">
-                        <input type="radio" value="1" name="var7" class="var">Відбудеться зациклення
+                        <input type="radio" value="1" name="var7" class="var">int index = Arrays.binarySearch(ім'я, значення);
                     </label>
                     <label style="display: flex;">
-                        <input type="radio" value="0" name="var7" class="var">Код не скомпілюється
+                        <input type="radio" value="0" name="var7" class="var">int index = Arrays.binarySearch(значення,  ім'я);
                     </label style="display: flex;">
                     <label>
-                        <input type="radio" value="0" name="var7" class="var">Результатом виконання коду буде помилка
+                        <input type="radio" value="0" name="var7" class="var">int index = binarySearch(ім'я, значення);
                     </label>
                 </div>
                 <div id="q8">
                     <h4>Питання №8</h4>
-                    <p>Скільки витків циклу буде виконано?</p> <pre style="border: none;"><code>for(int i = 0; i < 8; i++){
-                        if(i%4==0)
-                            break;
-                        System.out.println(i);
-                    }
-                    </code></pre></p>
+                    <p>Щоб створити новий масив і скопіювати в нього вміст старого потрібно скористатися командою:</p>
                     <label>
-                        <input type="radio" value="1" name="var8" class="var">1
+                        <input type="radio" value="0" name="var8" class="var">тип[] ім'я2 = Arrays.copy(ім'я, довжина);
                     </label>
                     <label>
-                        <input type="radio" value="0" name="var8" class="var">7
+                        <input type="radio" value="0" name="var8" class="var">тип[] ім'я2 = copyOf(ім'я, довжина);
                     </label>
                     <label>
-                        <input type="radio" value="0" name="var8" class="var">8
+                        <input type="radio" value="1" name="var8" class="var">тип[] ім'я2 = Arrays.copyOf(ім'я, довжина);
                     </label>
                 </div>
                 <div id="q9">
                     <h4>Питання №9</h4>
-                    <p>Скільки байтів у пам’яті займає тип  double?</p>
+                    <p>Для порівняння одновимірних масивів потрібно використати команду:</p>
                     <label>
-                        <input type="radio" value="0" name="var9" class="var">4
+                        <input type="radio" value="1" name="var9" class="var">Arrays.equals(ім'я1, ім'я2);
                     </label>
                     <label>
-                        <input type="radio" value="1" name="var9" class="var">8
+                        <input type="radio" value="0" name="var9" class="var">ім'я1 == ім'я2
                     </label>
                     <label>
-                        <input type="radio" value="0" name="var9" class="var">12
+                        <input type="radio" value="0" name="var9" class="var">Arrays.deepEquals(ім'я1, ім'я2);
                     </label>
                 </div>
                 <div id="q10">
                     <h4>Питання №10</h4>
-                    <p>Значення змінної х у наступному прикладі дорівнюватиме:</p><code>int x = (int)Math.floor(4.8);</code></pre></p>
+                    <p>Для того щоб створити новий масив і заповнює його даними з довільного місця початкового масиву потрібно скористатися командою:</p>
                     <label>
-                        <input type="radio" value="0" name="var10" class="var">5
+                        <input type="radio" value="0" name="var10" class="var">тип[] ім'я2 = Arrays.copyRange(ім'я, перший, останній);
                     </label>
                     <label>
-                        <input type="radio" value="0" name="var10" class="var">8
+                        <input type="radio" value="1" name="var10" class="var">тип[] ім'я2 = Arrays.copyOfRange(ім'я, перший, останній);
                     </label>
                     <label>
-                        <input type="radio" value="1" name="var10" class="var">4
+                        <input type="radio" value="0" name="var10" class="var">тип[] ім'я2 = copyOfRange(ім'я, перший, останній);
                     </label>
                 </div>
                 <br>
