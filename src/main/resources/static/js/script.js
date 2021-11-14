@@ -8,6 +8,8 @@ const gradeList = document.querySelector('.gradeList')
 const thisLessonGrade = $("#thisLessonGrade").val()
 const alertp = document.querySelector('.alert')
 const labels = document.querySelectorAll('label')
+let a = document.querySelector('.right_panel')
+
 
 calc.onclick = function () {
     var myform = this.form
@@ -55,7 +57,7 @@ res.onclick = () => {
 }
 
 (function () {
-    let a = document.querySelector('.right_panel'), b = null, P = 0;  // если ноль заменить на число, то блок будет прилипать до того, как верхний край окна браузера дойдёт до верхнего края элемента. Может быть отрицательным числом
+    a, b = null, P = 0;  // если ноль заменить на число, то блок будет прилипать до того, как верхний край окна браузера дойдёт до верхнего края элемента. Может быть отрицательным числом
     window.addEventListener('scroll', Ascroll, false);
     document.body.addEventListener('scroll', Ascroll, false);
 
