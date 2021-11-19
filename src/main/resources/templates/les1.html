@@ -481,12 +481,14 @@
         <div class="top"></div>
         <div class="lessons">
             <div class="panel activeP">
-                <a href="/lesson" class="nL">Урок №1 "Команди й перша
+                <a href="/lesson?goToLesson=1" class="nL">Урок №1 "Команди й перша
                     програма"</a>
+                <div th:text="${cannotAccessLesson}"></div>
             </div>
             <div class="panel">
-                <a href="/lesson" class="nL disable">Урок №2 "Знайомство з
+                <a href="/lesson?goToLesson=2" class="nL disable">Урок №2 "Знайомство з
                     типами й уведення з клавіатури"</a>
+                <div th:text="${cannotAccessLesson}"></div>
             </div>
             <div class="panel">
                 <a href="/courseplatform/src/main/resources/static/les3.html" class="nL disable">Урок №3 "Умовний оператор"</a>
