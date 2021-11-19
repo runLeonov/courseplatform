@@ -75,32 +75,318 @@
         </section>
         <section class="text">
             <h2>Текстовий матеріал</h2>
-            
+            <h3>Створення власних функцій, передавання параметрів</h3> <br>
+            <h4>Функції і методи в Java</h4>
+            <p>Ви вже вивчили багато команд у Java, і це означає, що ви можете писати досить складні програми. 10, 20, 30 рядків коду в програмі — не така вона й велика, еге ж?</p> <br>
+            <p>А от програма на 100+ рядків — уже велика, і розбиратися в її коді досить складно. Чи можна якось спростити написання й читання програм з великим обсягом коду?</p> <br>
+            <p>Так, і допоможуть нам у цьому методи (функції).</p> <br>
+            <p>Що ж таке метод? Ну, якщо дуже спростити визначення, то метод — це група команд, яка має унікальне ім'я. Інакше кажучи, ми просто компонуємо декілька команд в одну групу і даємо їй унікальне ім'я. І все — метод готовий.</p> <br>
+            <p>Наприклад: Без методу</p> <br>
+            <pre><code>class Solution
+                {
+                   public static void main(String[] args)
+                   {
+                     System.out.print("Wi-");
+                     System.out.println("Fi");
+                     System.out.print("Wi-");
+                     System.out.println("Fi");
+                
+                     System.out.print("Wi-");
+                     System.out.println("Fi");
+                   }
+                }
+            </code></pre> <br>
+            <p>З методом</p> <br>
+            <pre><code>class Solution
+                {
+                   public static void main(String[] args)
+                   {
+                     printWiFi();
+                     printWiFi();
+                     printWiFi();
+                   }
+                   public static void printWiFi()
+                   {
+                     System.out.print("Wi-");
+                     System.out.println("Fi");
+                   }
+                }
+            </code></pre> <br>
+            <p>У  першій програмі тричі повторюється один і той самий код — ми зробили так спеціально, для прикладу. А в другій програмі ми винесли повторюваний код в окремий метод і дали йому унікальне ім'я — printWiFi.</p> <br>
+            <p>І замість винесеного коду тричі написали виклик методу printWiFi().</p> <br>
+            <p>Будь-який код можна розбити на окремі методи. Це роблять з метою спрощення: вважається, що краще мати багато маленьких методів, ніж один великий.  Невдовзі ви будете дивуватися з того, що раніше писали власні програми, але не створювали власних методів.</p> <br>
+            <h4>Оголошення методу в Java</h4>
+            <p>Як же все-таки правильно написати свій метод?</p> <br>
+            <p>Під час оголошення (створення) методу слід враховувати багато нюансів, але почнімо з головного. Як же нам оголосити найпростіший метод? Оголошення простого методу має такий вигляд:</p> <br>
+            <pre><code>public static void ім'я()
+                {
+                   код методу
+                }
+            </code></pre> <br>
+            <p>де ім'я — це унікальне ім'я методу, а код методу — це команди, з яких він складається. Значення слів public, static і void ми розглянемо дещо пізніше.</p> <br>
+            <p>Після створення методу ми можемо викликати його в інших наших методах. Виклик має такий вигляд: ім'я(); де ім'я — це унікальне ім'я методу, який ми хочемо викликати й команди якого хочемо виконати в місці виклику.</p> <br>
+            <p>Дійшовши до команди, що містить виклик нашого методу, програма просто перейде в цей метод, виконає всі його команди, повернеться до початкового методу і продовжить виконання.</p> <br>
+            <p>Як ви вже, напевно, здогадалися, більша частина вивчених нами команд — це просто методи, написані іншими програмістами, щоб полегшити нам життя.</p> <br>
+            <p>Код методу може містити виклики інших методів:</p> <br>
+            <pre><code>class Solution
+                {
+                   public static void main(String[] args)
+                   {
+                     print10TimesWiFi();
+                   }
+                
+                   public static void print10TimesWiFi()
+                   {
+                     for (int i = 0; i < 10; i++)
+                       printWiFi();
+                   }
+                
+                   public static void printWiFi()
+                   {
+                     System.out.print("Wi-");
+                     System.out.println("Fi");
+                   }
+                }
+            </code></pre> <br>
+            <h4>Факти про методи</h4>
+            <p>А от іще кілька фактів про методи:</p> <br>
+            <p>Факт 1. Метод — це завжди частина класу.</p> <br>
+            <p>Метод можна оголосити тільки в класі.  Метод не можна оголосити всередині іншого методу. Метод не можна оголосити за межами класу.</p> <br>
+            <p>Факт 2. Ім'я методу не несе сакрального змісту.</p> <br>
+            <p>Неважливо, як називати методи — це ні на що не впливає. Метод main — це такий же метод, як і всі інші. Просто таке ім'я вибрали для методу, з якого Java-машина починає виконання програми. Нічого магічного в ньому немає.</p> <br>
+            <p>Факт 3. Порядок розташування методів у класі не має значення.</p> <br>
+            <p>Ви можете написати свої методи в класі в будь-якому порядку — це жодним чином не вплине на виконання програми. </p> <br>
+            <p>Факт 4. Змінні всередині одного методу ніяк не пов'язані зі змінними інших методів.</p> <br>
+            <p>У двох сусідніх методах можна оголосити однакові змінні, і ці змінні жодним чином не будуть пов'язані одна з одною.</p> <br>
+            <h4>Імена методів</h4>
+            <p>У Java зазвичай керуються такими принципами для назви методів:</p> <br>
+            <p>Принцип 1. Ім'я методу має коротко описувати те, що цей метод робить.</p> <br>
+            <p>Тоді програміст, який читає ваш код, з імені методу зможе здогадатися, що саме цей код робить, і не буде змушений щоразу дивитися на код всередині методів. Та й призначення методів запам'ятати легше.</p> <br>
+            <p>Згадайте той-таки Thread.sleep() — «приспати програму» або Scanner.nextInt() — «зчитати наступне ціле число». Зручно ж, правда?</p> <br>
+            <p>Принцип 2. Ім'я методу може складатися з кількох слів.</p> <br>
+            <p>Однак на цей випадок є кілька обмежень:</p> <br>
+            <ul>
+                <li>Пробіли в імені методу використовувати не можна: все слова пишуться разом.</li>
+                <li>Кожне слово пишеться з великої літери, окрім першого.</li>
+                <li>Ім'я методу завжди пишеться з маленької літери.</li>
+            </ul> <br>
+            <p>Згадайте той-таки метод print10TimesWiFi. Що означає його ім'я? «написати 10 разів слово WiFi». Багато слів в імені методу писати не треба: ім'я має відбивати саму суть.</p> <br>
+            <p>Такий стандарт написання імен називається CamelCase (Camel — верблюд. Великі літери схожі на верблюжі горби).</p> <br>
+            <p>Принцип 3. Ім'я методу починається з дієслова.</p> <br>
+            <p>Метод завжди щось робить, тому перше слово в назві методу — це завжди дія.</p> <br>
+            <p>Невдалі імена для методу: home, cat, car, train, …;</p> <br>
+            <p>Хороші імена: run, execute, print, read, write, …;</p> <br>
+            <p>Принцип 4.  Використовуйте тільки латинські літери й цифри.</p> <br>
+            <p>Java дуже добре підтримує різні мови. Ви можете написати імена змінних, методів і класів хоч російською, хоч китайською — все працюватиме!</p> <br>
+            <p>Але! Як довго ви вчили б Java, якби назва методу System.out.println() була китайською? Значно довше, ніж зараз, чи не так? Це по-перше.</p> <br>
+            <p>А по-друге, над багатьма проектами працюють інтернаціональні команди. Дуже великою кількістю Java-бібліотек користуються програмісти з усього світу.</p> <br>
+            <p>Тому рекомендовано в іменах методів використовувати тільки латинські літери й цифри.</p> <br>
+            <strong>Важливо!</strong> <br>
+            <p>Ім'я методу обов'язково має починатися з літери (з цифри — не можна).</p> <br>
+            <h3>Параметри функцій в Java</h3> <br>
+            <h4>Передавання параметрів</h4>
+            <p>А тепер починається найцікавіше. Як ви вже, напевно, знаєте завдяки знайомству з методами типу System.out.println(), у методи можна передавати параметри. І це значно збільшує користь від створення й використання методів.</p> <br>
+            <p>Як же оголосити метод з параметрами? Насправді це досить просто:</p> <br>
+            <pre><code>public static void ім'я(параметри)
+                {
+                   код методу
+                }
+            </code></pre> <br>
+            <p>де ім'я — це унікальне ім'я методу, код методу — це команди, з яких він складається, а параметри — це параметри методу, перелічені через кому. Подивіться на цей шаблон в деталях:</p> <br>
+            <pre><code>public static void ім'я(тип1 ім'я1, тип2 ім'я2, тип3 ім'я3)
+                {
+                   код методу
+                }
+            </code></pre> <br>
+            <p>Приклад:</p> <br>
+            <pre><code>public static void print(String str, int count) { }</code></pre> <br>
+            <p>Оголошено метод print із двома параметрами: String str, int count</p> <br>
+            <p>Якщо нашому метод параметри не потрібні, просто залишаємо круглі дужки порожніми.</p> <br>
+            <p>Параметри — це спеціальні змінні методу. З їх допомогою в метод можна передавати різні значення під час його виклику.</p> <br>
+            <p>Для прикладу спробуймо написати метод, який виводить на екран рядок тексту задану кількість разів.</p> <br>
+            <p>Код цієї задачі матиме такий вигляд:</p> <br>
+            <pre><code>class Solution
+                {
+                   public static void printLines(String text, int count)
+                   {
+                     for (int i = 0; i < count; i++)
+                       System.out.println(text);
+                   }
+                
+                   public static void main(String[] args)
+                   {
+                     printLines("Привіт", 10);
+                   }
+                }
+            </code></pre> <br>
+            <p>Кожного разу, коли викликається метод, його змінним-параметрам присвоюються передані значення, і лише потім починається виконання команд усередині методу.</p> <br>
+            <h4>Методи з однаковими іменами</h4>
+            <p>А зараз знову повернемося до імен методів.</p> <br>
+            <p>Стандарти Java вимагають, щоб усі методи всередині одного класу мали унікальні імена. Тобто неможливо оголосити в одному класі два однакові методи.</p> <br>
+            <p>Тільки от у процесі перевірки методів на однаковість враховуються не лише імена, але й типи параметрів! Причому імена змінних-параметрів не враховуються. Приклади:</p> <br>
+            <pre><code>void print(String str) {
+            }
+            void print(String str, String str2) {
+            }
+            void print(int val) {
+            }
+            void print(double val) {
+            }
+            void print() {
+            }
+            </code></pre> <br>
+            <p>Усі ці п'ять методів вважаються різними. Їх можна оголосити в одному класі.</p> <br>
+            <p>Чому ж одні методи вважаються однаковими, а інші — різними? І чому не враховуються імена змінних-параметрів під час визначення унікальності методу?</p> <br>
+            <p>Навіщо взагалі потрібна унікальність? Річ у тім, що коли компілятор компілює вашу програму, він має точно знати, яку саме функцію/метод ви викликаєте в певному місці.</p> <br>
+            <p>Наприклад, ви пишете System.out.println("Привіт"). Компілятор розумний, і він легко зробить висновок, що тут викликається метод println() з параметром типу String.</p> <br>
+            <p>А якщо ви напишете System.out.println(1.0), компілятор побачить тут виклик методу println() з параметром типу double.</p> <br>
+            <p>Компілятор стежить, щоб під час виклику методу типи аргументів і параметрів збігалися, а на ім'я аргументу не звертає уваги. У Java імена змінних-параметрів жодним чином не допомагають компілятору визначити метод, який викликається. Тому вони й не враховуються під час визначення унікальності методу.</p> <br>
+            <p>Ім'я методу й типи його параметрів називають сигнатурою методу. Приклад: sum(int, int);</p> <br>
+            <p>Кожен клас має містити не методи з унікальними іменами, а методи з унікальними сигнатурами.</p> <br>
+            <h3>Результат функції</h3> <br>
+            <h4>Оператор return</h4>
+            <p>Думаєте, ви вже вивчили все про методи в Java? Де ж пак, ви ще й половини не знаєте.</p> <br>
+            <p>Почнімо з чогось простого. Наприклад, у Java є команда (оператор) return, який дає змогу миттєво завершити виконання методу, в якому його викликано. Зовнішній вигляд команди: return;</p> <br>
+            <p>І все: лише одне слово return і крапка з комою. Щойно програма виконає цю команду, робота поточного методу відразу завершиться, і продовжиться робота методу, звідки його було викликано.</p> <br>
+            <p>Якщо return викликати в методі main, метод main на цьому завершиться, а разом із ним — вся програма.</p> <br>
+            <p>Приклад:</p> <br>
+            <pre><code>class Solution
+                {
+                   public static void fill(int[] data, int from, int to, int value)
+                   {
+                
+                
+                     if (from < 0 || to > data.length)
+                       return;
+                
+                     for (int i = from; i < to; i++)
+                     {
+                       data[i] = value;
+                     }
+                   }
+                
+                   public static void main(String[] args)
+                   {
+                     int[] months = {1, 2, 3, 4, 5, 6, 7, 8 ,9, 10, 11, 12};
+                     fill(months, 2, 10, 8);
+                   }
+                }
+            </code></pre> <br>
+            <p>У наведеній вище програмі є метод fill, який заповнює переданий у нього масив значенням value, причому заповнює не весь масив, а його частину, задану індексами from і to.</p> <br>
+            <p>На початку методу fill виконується перевірка, чи коректні значення в нього передано. Якщо індекс from менший за 0 або індекс to більший за довжину масиву, то метод fill на цьому завершується (викликає команду return).</p> <br>
+            <h4>Функції з результатом void</h4>
+            <p>Пам'ятаєте, ми колись з'ясували, що є команди, а є вирази? І вираз, на відміну від команди, має значення, яке можна десь використовувати.</p> <br>
+            <p>Отож у Java методи можуть мати значення. І це дуже добра новина: методи можуть не просто щось робити залежно від параметрів, але й, приміром, обчислити що-небудь і повернути результат обчислення.</p> <br>
+            <p>Ви, до речі, з такими методами вже стикалися:</p> <br>
+            <pre><code>double delta = Math.abs(d1 - d2);
+                Метод abs() повертає значення типу double
+                Scanner console = new Scanner(System.in);
+                int x = console.nextInt();
+                Метод nextInt() повертає значення типу int
+            </code></pre> <br>
+            <p>Кожен метод може повернути лише одне значення одного наперед заданого типу. Тип повернення значення визначається під час оголошення методу:</p> <br>
+            <pre><code>public static тип ім'я(параметри)
+                {
+                   код методу
+                }
+            </code></pre> <br>
+            <p>де ім'я — це ім'я методу, параметри — список параметрів методу, а тип — тип результату, що повертається методом.</p> <br>
+            <p>Для методів, які нічого не повертають, є спеціальний тип-заглушка — void.</p> <br>
+            <p>Пишете свій метод і не хочете нічого повертати в метод, звідки здійснюється виклик? Просто оголосіть тип методу void, і проблему вирішено. Таких методів у Java теж багато.</p> <br>
+            <h4>Повернення результату</h4>
+            <p>Як оголошувати метод із результатом обчислення/роботи ми щойно розібралися, а як же цей результат повернути з методу?</p> <br>
+            <p>Для цього нам знову стане в пригоді оператор return. Передавання результату з методу матиме такий вигляд: return значення;</p> <br>
+            <p>де return — це оператор, який негайно завершить роботу методу. А значення — це значення, що метод має повернути як результат у той метод, звідки відбувся виклик. Тип значення має збігатися з типом, зазначеним під час оголошення методу.</p> <br>
+            <p>Приклад 1. Метод знаходить менше з двох чисел:</p> <br>
+            <pre><code>int min(int a, int b)
+                {
+                   if (a < b)
+                     return a;
+                   else
+                     return b;
+                }
+            </code></pre> <br>
+            <p>Приклад 2: Метод знаходить більше з двох чисел за допомогою тернарного оператора:</p> <br>
+            <pre><code>int max(int a, int b)
+                {
+                   return (a > b ? a : b);
+                }
+            </code></pre>
         </section>
         <section class="practice" id="practice">
             <h2>Практичні завдання</h2>
             <h4>Завдання №1</h4>
-            <p></p> <br>
-            <p>Початковий код: </p> <br>
-            <pre><code>
-            </code></pre> <br>
+            <p>Спробуйте написати реалізацію калькулятора, який обчислюватиме степені чисел. <br>
+                Для цього створи метод cube(). Як аргумент він має отримувати цілочислове значення типу long.
+            </p> <br>
+            <p>Метод має підносити отримане значення до третього степеня й повертати його як результат роботи методу.</p> <br>
             <p>Натисність на кнопку нижче, щоб відкрити рішення.</p> <br>
             <p class="solution">Показати рішення</p>
             <div class="p1 hidepr">
-                    <pre><code>
+                    <pre><code>public class Solution {
+                        public static void main(String[] args) {}
+                        public static long cube(long a){
+                            return a*a*a;
+                        }
+                    }                    
                 </code></pre>
                 <br>
                 <p class="collapse">Згорнути</p> <br>
             </div>
             <h4>Завдання №2</h4>
-            <p></p><br>
-            <p>Початковий код:</p> <br>
-            <pre><code>
-            </code></pre> <br>
+            <p>Непогано було б мати один метод для розв'язування різних задач. Ти маєш змогу написати такий.</p>
+            <p>Створи ще 9 методів universalMethod(). Загалом їх має вийти 10.</p>
+            <p>Параметри, які вони мають отримувати, придумай самостійно.</p> <br>
             <p>Натисність на кнопку нижче, щоб відкрити рішення.</p> <br>
             <p class="solution">Показати рішення</p>
             <div class="p2 hidepr">
-                    <pre><code>
+                    <pre><code>public class Solution {
+
+                        public static void main(String[] args) {
+                    
+                        }
+                    
+                        public static void universalMethod(){
+                    
+                        }
+                    
+                        public static void universalMethod(int a){
+                    
+                        }
+                    
+                        public static void universalMethod(int a, int b){
+                    
+                        }
+                    
+                        public static void universalMethod(double a){
+                    
+                        }
+                    
+                        public static void universalMethod(double a, double b){
+                    
+                        }
+                    
+                        public static void universalMethod(char a, char b){
+                    
+                        }
+                    
+                        public static void universalMethod(String a, String b){
+                    
+                        }
+                    
+                        public static void universalMethod(boolean a){
+                    
+                        }
+                    
+                        public static void universalMethod(boolean a, boolean b){
+                    
+                        }
+                    
+                        public static void universalMethod(long a){
+                    
+                        }
+                    }
+                    
                 </code></pre>
                 <br>
                 <p class="collapse">Згорнути</p> <br>
@@ -113,132 +399,149 @@
                 <h2>Тестові завдання</h2>
                 <div id="q1">
                     <h4>Питання №1</h4>
-                    <p></p>
+                    <p>Функцію/метод правильно оголошено в команді:</p>
                     <label>
-                        <input type="radio" value="0" name="var1" class="var">
+                        <input type="radio" value="0" name="var1" class="var">function doWork();
                     </label>
                     <label>
-                        <input type="radio" value="0" name="var1" class="var">
+                        <input type="radio" value="0" name="var1" class="var">Function doWork();
                     </label>
                     <label>
-                        <input type="radio" value="1" name="var1" class="var">
+                        <input type="radio" value="1" name="var1" class="var">int doWork();
                     </label>
                 </div>
                 <div id="q2">
                     <h4>Питання №2</h4>
-                    <p></p>
+                    <p>Метод можна оголошувати:</p>
                     <label>
-                        <input type="radio" value="0" name="var2" class="var">
+                        <input type="radio" value="1" name="var2" class="var">в класі
                     </label>
                     <label>
-                        <input type="radio" value="0" name="var2" class="var">
+                        <input type="radio" value="0" name="var2" class="var">в класі, в методі
                     </label>
                     <label>
-                        <input type="radio" value="1" name="var2" class="var">
+                        <input type="radio" value="0" name="var2" class="var">в класі, в конструкторі
                     </label>
                 </div>
                 <div id="q3">
                     <h4>Питання №3</h4>
-                    <p></p>
+                    <p>Що буде якщо в методі типу void написати return 0;?</p>
                     <label>
-                        <input type="radio" value="1" name="var3" class="var">
+                        <input type="radio" value="1" name="var3" class="var">Код не скомпілюється з помилкою unexpected return value
                     </label>
                     <label>
-                        <input type="radio" value="0" name="var3" class="var">
+                        <input type="radio" value="0" name="var3" class="var">Код спокійно скомпілюється і метод поверне значення 0 
                     </label>
                     <label>
-                        <input type="radio" value="0" name="var3" class="var">
+                        <input type="radio" value="0" name="var3" class="var">Код скомпілюється, але виникне помилка
                     </label>
                 </div>
                 <div id="q4">
                     <h4>Питання №4</h4>
-                    <p></p>
+                    <p>Якщо метод не планує повертати результат, то тип результату під час оголошення методу:</p>
                     <label>
-                        <input type="radio" value="1" name="var4" class="var">
+                        <input type="radio" value="1" name="var4" class="var">void
                     </label>
                     <label>
-                        <input type="radio" value="0" name="var4" class="var">
+                        <input type="radio" value="0" name="var4" class="var">none
                     </label>
                     <label>
-                        <input type="radio" value="0" name="var4" class="var">
+                        <input type="radio" value="0" name="var4" class="var">int
                     </label>
                 </div>
                 <div id="q5">
                     <h4>Питання №5</h4>
-                    <p></p>
+                    <p>В якому варіанті оголошення методу правильно вказані параметри?</p>
                     <label style="display: flex;">
-                        <input type="radio" value="0" name="var5" class="var">
+                        <input type="radio" value="0" name="var5" class="var">print(a, b, c: int);
                     </label>
                     <label style="display: flex;">
-                        <input type="radio" value="0" name="var5" class="var">
+                        <input type="radio" value="0" name="var5" class="var">print(a: int, b: int);
                     </label>
                     <label style="display: flex;">
-                        <input type="radio" value="1" name="var5" class="var">
+                        <input type="radio" value="1" name="var5" class="var">print(int a, int b);
                     </label>
                 </div>
                 <div id="q6">
                     <h4>Питання №6</h4>
-                    <p></p>
+                    <p>Функція/метод знаходить менше 3 2 цілих чисел; її оголошення має вигляд:</p>
                     <label style="display: flex;">
-                        <input type="radio" value="1" name="var6" class="var">
+                        <input type="radio" value="0" name="var6" class="var">min(a:b);
                     </label>
                     <label style="display: flex;">
-                        <input type="radio" value="0" name="var6" class="var">
+                        <input type="radio" value="0" name="var6" class="var">function min(a, b);
                     </label>
                     <label style="display: flex;">
-                        <input type="radio" value="0" name="var6" class="var">
+                        <input type="radio" value="1" name="var6" class="var">int min(int a, int b);
                     </label>
                 </div>
                 <div id="q7">
                     <h4>Питання №7</h4>
-                    <p></p>
+                    <p>Функція/метод повертає результат за допомогою такої команди:</p>
                     <label style="display: flex;">
-                        <input type="radio" value="1" name="var7" class="var">
+                        <input type="radio" value="0" name="var7" class="var">result x;
                     </label>
                     <label style="display: flex;">
-                        <input type="radio" value="0" name="var7" class="var">
+                        <input type="radio" value="0" name="var7" class="var">result = x;
                     </label style="display: flex;">
                     <label>
-                        <input type="radio" value="0" name="var7" class="var">
+                        <input type="radio" value="1" name="var7" class="var">return x;
                     </label>
                 </div>
                 <div id="q8">
                     <h4>Питання №8</h4>
-                    <p></p>
+                    <p>Одне з імен змінних некоректне. Яке саме?</p>
                     <label>
-                        <input type="radio" value="0" name="var8" class="var">
+                        <input type="radio" value="0" name="var8" class="var">int a1;
                     </label>
                     <label>
-                        <input type="radio" value="0" name="var8" class="var">
+                        <input type="radio" value="0" name="var8" class="var">int $a;
                     </label>
                     <label>
-                        <input type="radio" value="1" name="var8" class="var">
+                        <input type="radio" value="1" name="var8" class="var">int 1a;
                     </label>
                 </div>
                 <div id="q9">
                     <h4>Питання №9</h4>
-                    <p></p>
+                    <p>Що буде результатом виконання цього методу:</p>
+                    <pre style="border: none;"><code>int max(int a, int b)
+                        {
+                           return (a > b ? a : b);
+                        }
+                    </code></pre>
                     <label>
-                        <input type="radio" value="1" name="var9" class="var">
+                        <input type="radio" value="1" name="var9" class="var">Метод поверне найбільше з двох значень
                     </label>
                     <label>
-                        <input type="radio" value="0" name="var9" class="var">
+                        <input type="radio" value="0" name="var9" class="var">Метод поверне найменше з вдох значень
                     </label>
                     <label>
-                        <input type="radio" value="0" name="var9" class="var">
+                        <input type="radio" value="0" name="var9" class="var">Метод нічого не поверне
                     </label>
                 </div>
                 <div id="q10">
                     <h4>Питання №10</h4>
-                    <p></p>
-                    <label>
-                        <input type="radio" value="0" name="var10" class="var">
+                    <p>Як можна оголосити методи з однаковими назвами в одному класі:</p>
+                    <label style="display: flex;">
+                        <input type="radio" value="0" name="var10" class="var"><pre style="width: 80%;"><code>void fill[1](int[] data, int value) {
+                        }
+                        void fill[2](int value) {
+                        }
+                        </code></pre>
                     </label>
-                    <label>
-                        <input type="radio" value="1" name="var10" class="var">
+                    <label style="display: flex;">
+                        <input type="radio" value="1" name="var10" class="var"><pre style="width: 80%;"><code>void fill(int[] data, int value) {
+                        }
+                        void fill(int value) {
+                        }                        
+                        </code></pre>
                     </label>
-                    <label>
-                        <input type="radio" value="0" name="var10" class="var">
+                    <label style="display: flex;">
+                        <input type="radio" value="0" name="var10" class="var"><pre style="width: 80%;"><code>void fill(1)(int[] data, int value) {
+                        }
+                        void fill(2)(int value) {
+                        }                        
+                        </code></pre>
                     </label>
                 </div>
                 <br>
@@ -301,8 +604,7 @@
                 <a href="/courseplatform/src/main/resources/static/les10.html" class="nL disable">Урок №10 "Модифікатори методів"</a>
             </div>
             <div class="panel">
-                <a href="/courseplatform/src/main/resources/static/les11.html" class="nL disable">Урок №11 "Тема
-                    уроку"</a>
+                <a href="/courseplatform/src/main/resources/static/les11.html" class="nL disable">Урок №11 "Примітивні типи в Java"</a>
             </div>
             <div class="panel">
                 <a href="/courseplatform/src/main/resources/static/les12.html" class="nL disable">Урок №12 "Тема
