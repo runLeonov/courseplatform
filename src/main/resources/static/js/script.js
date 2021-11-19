@@ -39,11 +39,11 @@ calc.onclick = function () {
     
 }
 
-function setNextLvlButtonColor() {
-    nextLesson.classList.add('checked')
-    nextLesson.href = '/courseplatform/src/main/resources/templates/les' + (parseInt(numOfDoc, 10) + 1)
-    nextPanel[numOfDoc].classList.remove('disable')
-}
+// function setNextLvlButtonColor() {
+//     nextLesson.classList.add('checked')
+//     nextLesson.href = '/courseplatform/src/main/resources/templates/les' + (parseInt(numOfDoc, 10) + 1)
+//     nextPanel[numOfDoc].classList.remove('disable')
+// }
 
 function setNextLvlButtonColorIfExist() {
     if (thisLessonGrade === 1 || thisLessonGrade === "1") setNextLvlButtonColor();
