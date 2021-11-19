@@ -506,14 +506,20 @@
         <div class="top"></div>
         <div class="lessons">
             <div class="panel">
-                <a href="/lesson?goToLesson=1" class="nL">Урок №1 "Команди й перша
-                    програма"</a>
-                <div th:text="${cannotAccessLesson}"></div>
+                <div th:with="condition=${session.lesson10.get(0) > 7}" th:remove="tag">
+                    <a th:if="${condition}" href="/lesson?goToLesson=1" class="nL">Урок №1 "Команди й перша
+                        програма"</a>
+                    <span th:unless="${condition}" class="nL">Урок №1 "Команди й перша
+                        програма"</span>
+                </div>
             </div>
             <div class="panel activeP">
-                <a href="/lesson?goToLesson=2" class="nL disable">Урок №2 "Знайомство з
-                    типами й уведення з клавіатури"</a>
-                <div th:text="${cannotAccessLesson}"></div>
+                <div th:with="condition=${session.lesson10.get(1) > 7}" th:remove="tag">
+                    <a th:if="${condition}" href="/lesson?goToLesson=2" class="nL">Урок №2 "Знайомство з
+                        типами й уведення з клавіатури"</a>
+                    <span th:unless="${condition}" class="nL">Урок №2 "Знайомство з
+                        типами й уведення з клавіатури"</span>
+                </div>
             </div>
             <div class="panel">
                 <a href="/courseplatform/src/main/resources/static/les3.html" class="nL disable">Урок №3 "Умовний оператор"</a>
