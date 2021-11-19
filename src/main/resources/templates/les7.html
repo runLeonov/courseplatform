@@ -7,9 +7,9 @@
 
     <title>Java Course</title>
     <script th:src="@{js/jquery.js}"></script>
-    <script th:src="@{js/jquery.js}" src="/src/main/resources/static/js/jquery.js"></script>
+<!--    <script th:src="@{js/jquery.js}" src="/src/main/resources/static/js/jquery.js"></script>-->
     <link rel="stylesheet" th:href="@{/css/style.css}">
-    <link rel="stylesheet" th:href="@{/css/style.css}" href="/src/main/resources/static/css/style.css">-
+<!--    <link rel="stylesheet" th:href="@{/css/style.css}" href="/src/main/resources/static/css/style.css">- -->
 </head>
 <body onload="setNextLvlButtonColorIfExist()">
 <input th:if="${session.thisLessonGrade.containsKey(1)}" id="thisLessonGrade" type="hidden" value="1"/>
@@ -373,7 +373,7 @@
                     </label>
                     <label style="display: flex;">
                         <input type="radio" value="0" name="var7" class="var"><pre style="width: 80%;"><code>1 2 3 4 5 6 1 2 3 1</code></pre>
-                    </label style="display: flex;">
+                    </label>
                     <label>
                         <input type="radio" value="0" name="var7" class="var"><pre style="width: 80%;"><code>1
                             1 2 3
@@ -522,7 +522,7 @@
 
 </div>
 
-<script th:src="@{/js/script.js}" src="/src/main/resources/static/js/script.js"></script>
+<!--<script th:src="@{/js/script.js}" src="/src/main/resources/static/js/script.js"></script>-->
 <script th:src="@{/js/script.js}"></script>
 </body>
 </html>
