@@ -49,17 +49,7 @@ public class MainController {
     }
 
     @GetMapping("/lesson")
-    public String getTestValues(
-            @RequestParam("goToLesson") Integer goToLesson,
-            ModelMap modelMap,
-            HttpSession session
-    ) {
-        User user = getUserFromSession();
-
-        if ((goToLesson - 1) != 0 && user.getLessonTestByLessonNumber(goToLesson - 1) < 7) {
-            modelMap.addAttribute("cannotAccessLesson", "Ви не можете переглянути цей урок, так як не завершили попередній");
-            return null;
-        }
+    public String getTestValues(@RequestParam("goToLesson") Integer goToLesson) {
         return "les" + goToLesson + ".html";
     }
 
