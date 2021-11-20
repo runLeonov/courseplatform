@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en" id="12"  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Java Course</title>
+    <script th:src="@{js/jquery.js}"></script>
+    <script th:src="@{js/jquery.js}" src="/src/main/resources/static/js/jquery.js"></script>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="stylesheet" th:href="@{/css/style.css}" href="/src/main/resources/static/css/style.css">
+</head>
+<body onload="setNextLvlButtonColorIfExist()">
+<input th:if="${session.thisLessonGrade.containsKey(1)}" id="thisLessonGrade" type="hidden" value="1"/>
+<header>
+    <div class="logo">
+        <h1>Онлайн-курc: JavaCourse</h1>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4ZAeznQZoSen1S7qvKdoet0ndYpCepZpR-TMTp6pDlMtkg_oYF3BcLjv2ciiSssFqlws&usqp=CAU" alt="LOGOTYPE" width="120px" height="100px">
+        <h1 th:text="${session.userDB}" class="user">USER</h1>
+        <form th:action="@{/logout}" method="post">
+            <input type="submit" value="Вихід" class="btn" id="logout"/>
+        </form>
+    </div>
+    <div class="gradeList hideGrade">
+        <div>
+            <div class="subDiv"><div>Оцінка за урок №1:</div><div th:text="${session.lesson10.get(0)}">10</div></div>
+            <div class="subDiv"><div>Оцінка за урок №2:</div><div th:text="${session.lesson10.get(1)}">10</div></div>
+            <div class="subDiv"><div>Оцінка за урок №3:</div><div th:text="${session.lesson10.get(2)}">10</div></div>
+            <div class="subDiv"><div>Оцінка за урок №4:</div><div th:text="${session.lesson10.get(3)}">10</div></div>
+            <div class="subDiv"><div>Оцінка за урок №5:</div><div th:text="${session.lesson10.get(4)}">10</div></div>
+        </div>
+        <div>
+            <div class="subDiv"><div>Оцінка за урок №6:</div><div th:text="${session.lesson10.get(5)}">10</div></div>
+            <div class="subDiv"><div>Оцінка за урок №7:</div><div th:text="${session.lesson10.get(6)}">10</div></div>
+            <div class="subDiv"><div>Оцінка за урок №8:</div><div th:text="${session.lesson10.get(7)}">10</div></div>
+            <div class="subDiv"><div>Оцінка за урок №9:</div><div th:text="${session.lesson10.get(8)}">10</div></div>
+            <div class="subDiv"><div>Оцінка за урок №10:</div><div th:text="${session.lesson10.get(9)}">10</div></div>
+            
+        </div>
+        <div class="lastch">
+            <div class="subDiv"><div>Оцінка за урок №11:</div><div th:text="${session.lesson10.get(10)}">10</div></div>
+            <div class="subDiv"><div>Оцінка за урок №12:</div><div th:text="${session.lesson10.get(11)}">10</div></div>
+            <div class="subDiv"><div>Оцінка за урок №13:</div><div th:text="${session.lesson10.get(12)}">10</div></div>
+            <div class="subDiv"><div>Оцінка за урок №14:</div><div th:text="${session.lesson10.get(13)}">10</div></div>
+            <div class="subDiv"><div>Оцінка за урок №15:</div><div th:text="${session.lesson10.get(14)}">10</div></div>
+        </div>
+    </div>
+    <div class="logo_list">
+        <div><p>15 уроків</p></div>
+        <div><p>Швидке начання</p></div>
+        <div><p>Онлайн практика</p></div>
+        <div><p>Тестові завдання</p></div>
+    </div>
+</header>
+
+<div class="main_content">
+    <div class="content">
+        <section class="name">
+            <img src="" alt="" width="300px" height="170px">
+            <div>
+                <h2>Об'єкти в Java</h2>
+                <a href="#practice">Перейти до практики</a>
+            </div>
+        </section>
+        <div class="op">
+            <p>Представляємо вам уроки програмування мовою Java для починаючих. <br> Великий відео курс по вивченню мови
+                Java.</p>
+        </div>
+        <h2>Відеоурок</h2>
+        <section class="video">
+            <iframe src="https://www.youtube.com/embed/C5q0ULg0nmY" title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+        </section>
+        <section class="text">
+            <h2>Текстовий матеріал</h2>
+            <h3>Об'єкти в Java</h3> <br>
+            <h4>Об'єкти</h4>
+            <p>У мові Java все є об'єктами. Точніше, мало що в Java не є об'єктом. Наприклад, примітивні типи. Проте це скоріше виняток, аніж правило. Що ж таке об'єкт?</p> <br>
+            <p>Об'єкт — це дані й методи, згруповані разом для обробки цих даних. Коли ми говоримо про дані, звичайно, маємо на увазі змінні. Про змінні об'єкта кажуть, що це «дані об'єкта» або «стан об'єкта».</p> <br>
+            <p>Про методи об'єкта кажуть, що це «поведінка об'єкта». Стан об'єкта (змінні об'єкта), зазвичай змінюють лише за допомогою методів того самого об'єкта. Змінювати змінні об'єкта безпосередньо (не через методи об'єкта) вважається поганим тоном. Кожен об'єкт, так само як і кожна змінна, має тип. Цей тип визначається один раз під час створення об'єкта, і потім його змінити не можна. Типом об'єкта вважається його клас.</p> <br>
+            <p>Кожен об'єкт має власну копію змінних класу (полів класу). Якщо в класі було оголошено нестатичну змінну int a й ваша програма під час роботи створить 10 об'єктів цього класу, то кожен об'єкт матиме власну змінну int a.</p> <br>
+            <p>Взаємодія з об'єктом</p> <br>
+            <p>Найзручніший спосіб роботи з об'єктом — зберегти посилання на об'єкт у змінній, а потім викликати методи для цієї змінної. Це має вже знайомий вам вигляд: змінна.метод(), де змінна — це змінна, в якій зберігається посилання на об'єкт, а метод — це метод класу об'єкта.</p> <br>
+            <p>Для того щоб звернутися до поля (змінної) об'єкта, також потрібно використовувати оператор «крапка»: змінна.поле, де змінна — це змінна, в якій зберігається посилання на об'єкт, а поле — це змінна класу (поле об'єкта).</p> <br>
+            <h4>Оператор new</h4>
+            <p>Щоб створити об'єкт певного класу, потрібно скористатися оператором new. Отакий вигляд має створення об'єкта в загальному випадку: Клас змінна = new Клас(параметри); де Клас — це ім'я класу для оголошення змінної, а також ім'я класу створюваного об'єкта; змінна — це змінна, в якій зберігається посилання на створений об'єкт; а параметри — це параметри методу створення об'єкта.</p> <br>
+            <p>Які саме параметри матиме об'єкт, вирішують програмісти, які створюють клас об'єкта.</p> <br>
+            <p>Вам уже доводилося створювали об'єкти й навіть користуватися саме такою конструкцією.</p> <br>
+            <pre><code>Scanner console = new Scanner(System.in);
+                int x = console.nextInt();
+            </code></pre> <br>
+            <p>Scanner console — це створення змінної console типу Scanner. new Scanner(System.in) — це створення об'єкта типу Scanner. А оператор присвоювання записує в змінну console посилання на новостворений об'єкт.</p> <br>
+            <p>У другому рядку ми викликаємо метод nextInt() для об'єкта Scanner за допомогою змінної console, яка зберігає посилання на об'єкт типу Scanner.</p> <br>
+            <p>Приклади створення об'єктів:</p> <br>
+            <pre><code>String s = new String("Привіт"); //Створює об'єкт типу String
+                Scanner console = new Scanner(""); //Створює об'єкт типу Scanner
+            </code></pre> <br>
+            <p>Створений об'єкт називають об'єктом класу або екземпляром класу, а клас — класом об'єкта. Наприклад: змінна s зберігає посилання на екземпляр класу String.</p> <br>
+            <h4>Знайомство з класами</h4>
+            <p>Ви вже, напевно, переконалися, що використовувати класи, створені іншими програмістами, дуже зручно. А як щодо створення власних класів? Як зрозуміти, коли і де потрібен власний клас? І як його створити?</p> <br>
+            <p>Програмісти зазвичай створюють свої класи, коли хочуть увести в програму нову сутність. Незрозуміло? Тоді спробую пояснити, але почнемо здалеку.</p> <br>
+            <p>Групування даних</p> <br>
+            <p>Якщо трохи спростити, можна сказати, що об'єкт у Java — це область пам'яті, яка містить оголошені в класі змінні (поля класу). Або інакше — змінні, об'єднані в групи.</p> <br>
+            <p>Припустімо, ваша програма має зберігати координати 100 точок і метод для їх виведення на екран. Це можна зробити за допомогою масивів. Наприклад, отак:</p> <br>
+            <pre><code>class Solution
+                {
+                   public static void printPoints(int[] x, int[] y, int[] color)
+                   {
+                     for (int i = 0; i < x.length; i++)
+                       System.out.println("Колір точки x=" + x[i] + ", y=" + y[i] + " " + color[i]);
+                   }
+                   public static void main(String[] args)
+                   {
+                     int[] x = new int[100];
+                     int[] y = new int[100];
+                     int[] color = new int[100];
+                     printPoints(x, y, color);
+                   }
+                }                
+            </code></pre> <br>
+            <p>Було б набагато зручніше, якби ми відразу мали тип для зберігання всієї інформації про кожну точку: x, y, колір. А якщо в Java такого типу немає, можна його створити власноруч.</p> <br>
+            <p>Для цього напишемо код створення класу Point:</p> <br>
+            <pre><code>public class Point
+                {
+                   public int x;
+                   public int y;
+                   public int color;
+                }
+            </code></pre> <br>
+            <p>Тоді попередній код можна переписати отак:</p> <br>
+            <pre><code>class Solution
+                {
+                   public static void printPoints(Point[] points)
+                   {
+                     for (int i = 0; i < points.length; i++)
+                       System.out.println("Колір точки x=" + points[i].x + ", y=" + points[i].y + " " + points[i].color);
+                   }
+                
+                   public static void main(String[] args)
+                   {
+                     Point[] data = new Point[100];
+                     for (int i = 0; i < data.length; i++)
+                       data[i] = new Point();
+                     printPoints(data);
+                   }
+                }
+            </code></pre> <br>
+            <p>А тепер додамо в клас Point метод, який виводитиме інформацію про об'єкт:</p> <br>
+            <pre><code>public class Point
+                {
+                   public int x;
+                   public int y;
+                   public int color;
+                   public void print()
+                   {
+                     System.out.println("Колір точки x=" + x + ", y=" + y + " " + color);
+                   }
+                }
+            </code></pre> <br>
+            <p>Тоді клас Solution матиме такий вигляд:</p> <br>
+            <pre><code>class Solution
+                {
+                   public static void printPoints(Point[] points)
+                   {
+                     for (int i = 0; i < points.length; i++)
+                       points[i].print();
+                   }
+                
+                   public static void main(String[] args)
+                   {
+                     Point[] data = new Point[100];
+                     for (int i = 0; i < data.length; i++)
+                       data[i] = new Point();
+                     printPoints(data);
+                   }
+                }
+            </code></pre> <br>
+            <p>Ми красиво сховали всередину точки (клас Point) інформацію про її координати й метод, який виводить дані про стан об'єкта-точки на екран.</p> <br>
+            <p>Класи — це відповідь на зростання складності програм. Велика програма стає простішою, якщо її розділити на багато маленьких класів.</p> <br>
+            <h3>Об'єктно-орієнтоване програмування</h3> <br>
+            <h4>Знайомство з принципами ООП</h4>
+            <p>Сьогодні ви відкриєте для себе новий і цікавий світ. Цей світ називається ООП — об'єктно-орієнтоване програмування. Ви вже знайомі з класами та об'єктами. Сьогодні ви дізнаєтеся про них ще більше, значно більше.</p> <br>
+            <p>ООП виникло як відповідь на зростаючу складність програм. Коли кількість змінних і функцій у програмах почала нараховувати десятки тисяч, стало зрозуміло, що треба щось із цим робити. Одним із рішень було об'єднати дані та функції, які працювали з ними, в окремі об'єкти.</p> <br>
+            <p>Тепер програмістам доводилося окремо описувати взаємодію об'єктів і дії, що відбувалися всередині об'єкта. Це значно спрощувало створення програм та їх розуміння. Однак відкритим залишалося питання, які саме функції мають бути всередині об'єкта, а які слугуватимуть для взаємодії між об'єктами.</p> <br>
+            <p>Випробували багато підходів і на основі отриманого досвіду сформулювали 4 принципи ООП. Ці принципи: абстракція, інкапсуляція, успадкування та поліморфізм. Спочатку їх було тільки три, але потім вирішили додати ще й абстракцію.</p> <br>
+            <h4>Абстракція</h4>
+            <p>Абстракція — це використання тільки тих характеристик об'єкта, які з достатньою точністю представляють його в програмі. Основна ідея полягає в тому, щоб представити об'єкт мінімальним набором полів і методів і водночас з достатньою для розв'язуваної задачі точністю.</p> <br>
+            <p>У мові програмування Java абстракція здійснюється за допомогою абстрактних класів та інтерфейсів.</p> <br>
+            <p>З точки зору програмування можна сказати, що абстракція — це правильний розподіл програми на об'єкти. Зазвичай будь-яку велику програму можна десятками способів представити у вигляді взаємодіючих об'єктів. Абстракція дає змогу вибрати головні характеристики й проминути другорядні.</p> <br>
+            <h4>Інкапсуляція</h4>
+            <p>Мета інкапсуляції — поліпшити якість взаємодії об'єктів завдяки їх спрощенню. А найкращий спосіб щось спростити — приховати все складне від сторонніх очей. </p> <br>
+            <p>З погляду програмування, інкапсуляція — це «приховування реалізації». Наш клас може містити сотні методів і реалізовувати дуже складну поведінку в різних ситуаціях. Однак ми можемо приховати від сторонніх очей всі його методи (позначити їх модифікатором private), а для взаємодії з іншими класами залишити всього два-три методи (позначити їх модифікатором public). Тоді всі інші класи нашої програми бачитимуть у цьому класі лише три методи і викликатимуть саме їх. А всі складні моменти буде приховано всередині класу.</p> <br>
+            <h4>Успадкування</h4>
+            <p>Успадкування має дві сторони: сторону програмування і сторону реального життя. Успадкування в програмуванні — це спеціальне відношення між двома класами. Але значно цікавіше зрозуміти, що ж таке успадкування в реальному житті.</p> <br>
+            <p>Для того щоб щось створити в реальному житті, є два способи:</p> <br>
+            <ol>
+                <li>Створити потрібну нам річ із нуля, витративши купу часу та сил.</li>
+                <li>Створити потрібну нам річ на основі вже наявної.</li>
+            </ol> <br>
+            <p>Оптимальний спосіб — узяти хороше готове рішення, трохи його доопрацювати, налаштувати відповідно до своїх потреб і використовувати.</p> <br>
+            <p>У програмуванні теж є можливість створювати нові класи на основі інших класів. Новий клас стає нащадком (спадкоємцем) вже наявного. Це дуже вигідно, коли є клас, який містить 80–90 % потрібних нам даних і методів. Ми просто оголошуємо відповідний клас базовим для нашого нового класу, і в новому класі автоматично з'являються всі дані й методи базового класу. </p> <br>
+            <h4>Поліморфізм</h4>
+            <p>Поліморфізм — це поняття зі сфери програмування. Воно описує ситуацію, коли за одним інтерфейсом приховано різні реалізації.</p> <br>
+            <p>Поліморфізм дозволяє уніфікувати звертання до об'єктів різних класів (які зазвичай мають спільного предка) — це перевага, яку важко переоцінити. Що програма більша за розміром, то більша цінність цього принципу.</p> <br>
+            <p>ООП — це принципи. Внутрішні закони. Кожен із них в чомусь нас обмежує, але натомість надає значні переваги, коли програма виростає до великих розмірів. Чотири принципи ООП — це як чотири ніжки стільця. Прибери хоча б одну, і вся система втратить стійкість.</p> <br>
+            <p>Зв'язність об'єктів</p> <br>
+            <p>Проте зробити це складніше, ніж сказати. Ми вже говорили, що програма складається з об'єктів, які взаємодіють між собою. Нанесімо на дошку всі об'єкти нашої програми, позначивши їх жирними точками. А потім кожний об'єкт (точку) з'єднаємо стрілками з усіма об'єктами (точками), з якими він взаємодіє.</p> <br>
+            <p>Тепер спробуймо об'єднати об'єкти (точки) у групи. Точки слід об'єднати в групу, якщо зв'язки між ними значно інтенсивніші, ніж з іншими точками. Якщо більшість стрілок від точки з'єднує її з точками цієї ж групи, значить, розподіл на групи виконано правильно. Точки всередині однієї групи будемо називати сильно пов'язаними, а точки з різних груп — слабко пов'язаними.</p> <br>
+            <p>Принцип слабкої зв'язності</p> <br>
+            <p>Це називається «принцип слабкої зв'язності». Програму розділяють на кілька частин, чи то шарів, які мають сильно пов'язану внутрішню логіку й дуже слабкі зв'язки з іншими шарами (частинами). Зазвичай взаємодію між шарами суворо регламентовано. Один шар може звертатися до іншого, але використовувати тільки невелику частину його класів. Це той самий принцип «розділення на відділи», тільки в більшому масштабі.</p> <br>
+            <p>Як наслідок, ми можемо реорганізувати відділ, підвищити його ефективність, найняти ще більше людей, але якщо ми не змінимо протокол взаємодії інших відділів із нашим, усі втілені зміни залишаться локальними. Нікому не доведеться перенавчатися. Не доведеться переробляти всю систему. Кожен відділ може займатися такою внутрішньою оптимізацією, якщо механізми взаємодії з іншими відділами вибрано вдало.</p> <br>
+            <p>Вибрано вдало. А що станеться, якщо їх вибрано невдало? Тоді «запас змін» швидко вичерпається, і доведеться переробляти всю систему. Таке доводиться робити час від часу. Не можна передбачити, що станеться в майбутньому, але можна звести кількість переробок до мінімуму.</p> <br>
+            <h3>Успадкування</h3> <br>
+            <h4>Пегас</h4>
+            <p>Розгляньмо детальніше третій принцип ООП — успадкування. Це дуже цікаве питання, з яким ви часто стикатиметеся. На думку необізнаних, програмування — це якась магія. Тому почнімо з отакої цікавої аналогії…</p> <br>
+            <p>Припустімо, що ви — чарівник і хочете створити крилатого коня. Можна спробувати просто начаклувати такого пегаса. Але оскільки пегасів в природі не існує, це буде досить складно. Доведеться дуже багато робити з нуля. Куди простіше взяти коня й дочаклувати йому крила.</p> <br>
+            <p>У програмуванні такий процес називається «успадкуванням». Припустімо, вам потрібно написати дуже складний клас. Писати з нуля довго, потім доведеться все тестувати й шукати помилки. То навіщо йти найскладнішим шляхом? Краще пошукати, а чи немає десь такого класу?</p> <br>
+            <p>Припустімо, ви знайшли клас, який своїми методами реалізує 80 % потрібної вам функціональності. Що робити з ним далі? Ви можете просто скопіювати його код у свій клас. Однак такий спосіб має кілька мінусів:</p> <br>
+            <ol>
+                <li>Знайдений клас уже може бути скомпільовано в байт-код, а доступу до його вихідного коду у вас немає.</li>
+                <li>Непотрібне дублювання великого обсягу коду. Крім того, автор чужого класу може знайти в ньому помилку й виправити її. А у вас ця помилка залишиться.</li>
+            </ol> <br>
+            <p>Є кращий спосіб, який не потребує легального доступу до коду вихідного класу. У мові Java можна просто оголосити потрібний клас батьківським для вашого класу. Ви отримаєте такий самий результат, наче ви додали код цього класу в код свого. У вашому класі з'являться всі дані та всі методи батьківського класу. Наприклад, можна зробити так: успадковуємо клас від «коня», додаємо «крила» й отримуємо «пегаса».</p> <br>
+            <h4>Спільний базовий клас</h4>
+            <p>Успадкування можна також використовувати для інших цілей. Припустімо, у вас є десять класів, які дуже схожі між собою, мають багато однакових даних і методів. Ви можете створити спеціальний базовий клас, винести однакові дані (і методи, які з ними працюють) в цей базовий клас і оголосити ті десять класів його спадкоємцями. Тобто вказати в кожному класі, що у нього є батьківський клас — цей базовий клас.</p> <br>
+            <p>Так само, як переваги абстракції розкриваються лише в поєднанні з інкапсуляцією, так і переваги успадкування значно збільшуються в разі використання поліморфізму. Однак про це ви дізнаєтеся трохи згодом. </p> <br>
+            <h4>Успадкування класу — extends</h4>
+            <p>То що ж потрібно, щоб успадкувати якийсь клас? Щоб успадкувати один клас від іншого, потрібно після оголошення нашого класу вказати ключове слово extends та ім'я батьківського класу. Зазвичай це має приблизно такий вигляд: class Нащадок extends Батько</p> <br>
+            <p>Саме таку конструкцію слід написати під час оголошення класу «Нащадок». До речі, успадкування можливе тільки від одного класу.</p> <br>
+            <p>У мові Java відсутнє множинне успадкування: не можна успадкувати клас від двох класів. У кожного класу може бути лише один батьківський клас. Якщо батьківський клас не вказано, ним вважається клас Object.</p> <br>
+            <p>Натомість у Java є множинне успадкування інтерфейсів. Це трохи знижує гостроту проблеми. Про інтерфейси ми поговоримо трохи згодом.</p>
+        </section>
+        <section class="practice" id="practice">
+            <h2>Практичні завдання</h2>
+            <h4>Завдання №1</h4>
+            <p>За допомогою оператора new в методі main() створи:</p> <br>
+            <ul>
+                <li>10 об'єктів типу String;</li>
+                <li>5 об'єктів типу int[] (масивів значень типу int);</li>
+                <li>2 об'єкти типу Scanner.</li>
+            </ul> <br>
+            <p>Натисність на кнопку нижче, щоб відкрити рішення.</p> <br>
+            <p class="solution">Показати рішення</p>
+            <div class="p1 hidepr">
+                    <pre><code>public class Solution {
+                        public static void main(String[] args) {
+                            String s1 = new String();
+                            String s2 = new String();
+                            String s3 = new String();
+                            String s4 = new String();
+                            String s5 = new String();
+                            String s6 = new String();
+                            String s7 = new String();
+                            String s8 = new String();
+                            String s9 = new String();
+                            String s10 = new String();
+                            int [] a1 = new int[0];
+                            int [] a2 = new int[0];
+                            int [] a3 = new int[0];
+                            int [] a4 = new int[0];
+                            int [] a5 = new int[0];
+                            Scanner scanner1 = new Scanner("");
+                            Scanner scanner2 = new Scanner("");
+                        }
+                    }                     
+                </code></pre>
+                <br>
+                <p class="collapse">Згорнути</p> <br>
+            </div>
+            <p class="solution"></p>
+            <div class="p2 hidepr">
+                <p class="collapse"></p> <br>
+            </div>
+        </section>
+        <section class="test">
+            <form action="#" onsubmit="return false;">
+                <!--                <form action="/validate">-->
+                <!--                    <form>-->
+                <h2>Тестові завдання</h2>
+                <div id="q1">
+                    <h4>Питання №1</h4>
+                    <p>В якому з варіантів правильно описано успадкування класу Собака і класу Вовк?</p>
+                    <label>
+                        <input type="radio" value="0" name="var1" class="var">class Вовк extends Собака
+                    </label>
+                    <label>
+                        <input type="radio" value="1" name="var1" class="var">class Собака extends Вовк
+                    </label>
+                    <label>
+                        <input type="radio" value="0" name="var1" class="var">class Собака extends Собака
+                    </label>
+                </div>
+                <div id="q2">
+                    <h4>Питання №2</h4>
+                    <p>Новий об'єкт у Java створюється за допомогою ключового слова:</p>
+                    <label>
+                        <input type="radio" value="0" name="var2" class="var">create
+                    </label>
+                    <label>
+                        <input type="radio" value="0" name="var2" class="var">alloc
+                    </label>
+                    <label>
+                        <input type="radio" value="1" name="var2" class="var">new
+                    </label>
+                </div>
+                <div id="q3">
+                    <h4>Питання №3</h4>
+                    <p>Якщо клас ні від чого не успадковано, то він:</p>
+                    <label>
+                        <input type="radio" value="0" name="var3" class="var">Сирота
+                    </label>
+                    <label>
+                        <input type="radio" value="0" name="var3" class="var">Рутовий
+                    </label>
+                    <label>
+                        <input type="radio" value="1" name="var3" class="var">Неявно успадкований від класу Object
+                    </label>
+                </div>
+                <div id="q4">
+                    <h4>Питання №4</h4>
+                    <p>Який із цих принципів є в ООП?</p>
+                    <label>
+                        <input type="radio" value="0" name="var4" class="var">Інкорпорація
+                    </label>
+                    <label>
+                        <input type="radio" value="0" name="var4" class="var">Перфекціонізм
+                    </label>
+                    <label>
+                        <input type="radio" value="1" name="var4" class="var">Успадкування
+                    </label>
+                </div>
+                <div id="q5">
+                    <h4>Питання №5</h4>
+                    <p>Який вигляд має створення об'єкта:</p>
+                    <label style="display: flex;">
+                        <input type="radio" value="1" name="var5" class="var">Клас змінна = new Клас(параметри);
+                    </label>
+                    <label style="display: flex;">
+                        <input type="radio" value="0" name="var5" class="var">Клас змінна = Клас(параметри);
+                    </label>
+                    <label style="display: flex;">
+                        <input type="radio" value="0" name="var5" class="var">Клас змінна = new Клас;
+                    </label>
+                </div>
+                <div id="q6">
+                    <h4>Питання №6</h4>
+                    <p>Якого з принципів немає в ООП:</p>
+                    <label style="display: flex;">
+                        <input type="radio" value="0" name="var6" class="var">Інкапсуляція
+                    </label>
+                    <label style="display: flex;">
+                        <input type="radio" value="0" name="var6" class="var">Поліморфізм
+                    </label>
+                    <label style="display: flex;">
+                        <input type="radio" value="1" name="var6" class="var">Абстраціонізм
+                    </label>
+                </div>
+                <div id="q7">
+                    <h4>Питання №7</h4>
+                    <p>Що означає інкапсуляція:</p>
+                    <label style="display: flex;">
+                        <input type="radio" value="1" name="var7" class="var">Поєднання даних та методів роботи з цими даними в одній упаковці («капсулі»).
+                    </label>
+                    <label style="display: flex;">
+                        <input type="radio" value="0" name="var7" class="var">За одним інтерфейсом приховано різні реалізації.
+                    </label style="display: flex;">
+                    <label>
+                        <input type="radio" value="0" name="var7" class="var">Дозволяє повторно використовувати код одного класу в іншому класі, тобто можливо успадкувати новий клас від існуючого класу.
+                    </label>
+                </div>
+                <div id="q8">
+                    <h4>Питання №8</h4>
+                    <p>Що означає успадкування:</p>
+                    <label>
+                        <input type="radio" value="0" name="var8" class="var">Поєднання даних та методів роботи з цими даними в одній упаковці («капсулі»).
+                    </label>
+                    <label>
+                        <input type="radio" value="0" name="var8" class="var">За одним інтерфейсом приховано різні реалізації.
+                    </label>
+                    <label>
+                        <input type="radio" value="1" name="var8" class="var">Дозволяє повторно використовувати код одного класу в іншому класі, тобто можливо успадкувати новий клас від існуючого класу.
+                    </label>
+                </div>
+                <div id="q9">
+                    <h4>Питання №9</h4>
+                    <p>Що означає поліморфізм:</p>
+                    <label>
+                        <input type="radio" value="0" name="var9" class="var">Поєднання даних та методів роботи з цими даними в одній упаковці («капсулі»).
+                    </label>
+                    <label>
+                        <input type="radio" value="1" name="var9" class="var">За одним інтерфейсом приховано різні реалізації.
+                    </label>
+                    <label>
+                        <input type="radio" value="0" name="var9" class="var">Дозволяє повторно використовувати код одного класу в іншому класі, тобто можливо успадкувати новий клас від існуючого класу.
+                    </label>
+                </div>
+                <div id="q10">
+                    <h4>Питання №10</h4>
+                    <p>Який вигляд має успадкування класу:</p>
+                    <label>
+                        <input type="radio" value="0" name="var10" class="var">class Батько extends Нащадок
+                    </label>
+                    <label>
+                        <input type="radio" value="0" name="var10" class="var">class Нащадок : Батько
+                    </label>
+                    <label>
+                        <input type="radio" value="1" name="var10" class="var">class Нащадок extends Батько
+                    </label>
+                </div>
+                <br>
+                <!--                <input type="submit" value="Проверить" id="calc" class="btn">-->
+                <!--                <input type="reset" value="Сбросить" id="res" class="btn"><br>-->
+                <!--                <input id="totalGrad" type="hidden" value="0">-->
+                <p class="alert hidepr">Ви відповіли не на всі тести!</p>
+                <input type="submit" value="Перевірити" id="calc" class="btn">
+                <input type="reset" value="Скинути" id="res" class="btn"><br>
+                <div class="ans"><p class="q">Правильних відповідей:
+                    <p class="grade">0</p></p></div>
+            </form>
+        </section>
+        <section class="btn_sec">
+            <form action="/validate">
+                <input id="totalGrad" name="testsSummary" type="hidden" value="0">
+                <input name="lessonNumber" type="hidden" value="1">
+                <input  id="nextLesson" name="nextLesson" type="hidden" value="les2">
+                <input type="submit" class="btn_go btn" id="next" value="Наступний урок"/>
+            </form>
+        </section>
+        <footer>
+            <p>© All right reserved</p>
+            <p>Kyiv 2021</p>
+        </footer>
+    </div>
+    <aside class="right_panel">
+        <div class="top"></div>
+        <div class="lessons">
+            <div class="panel">
+                <a href="/courseplatform/src/main/resources/static/index.html" class="nL">Урок №1 "Команди й перша
+                    програма"</a>
+            </div>
+            <div class="panel">
+                <a href="/validate" class="nL">Урок №2 "Знайомство з
+                    типами й уведення з клавіатури"</a>
+            </div>
+            <div class="panel">
+                <a href="/courseplatform/src/main/resources/static/les3.html" class="nL">Урок №3 "Умовний оператор"</a>
+            </div>
+            <div class="panel">
+                <a href="/courseplatform/src/main/resources/static/les4.html" class="nL">Урок №4 "Цикли while та do-while"</a>
+            </div>
+            <div class="panel">
+                <a href="/courseplatform/src/main/resources/static/les5.html" class="nL">Урок №5 "Цикл for"</a>
+            </div>
+            <div class="panel">
+                <a href="/courseplatform/src/main/resources/static/les6.html" class="nL">Урок №6 "Масиви"</a>
+            </div>
+            <div class="panel">
+                <a href="/courseplatform/src/main/resources/static/les7.html" class="nL">Урок №7 "Двовимірні масиви"</a>
+            </div>
+            <div class="panel" >
+                <a href="/courseplatform/src/main/resources/static/les8.html" class="nL">Урок №8 "Допоміжний клас Arrays"</a>
+            </div>
+            <div class="panel">
+                <a href="/courseplatform/src/main/resources/static/les9.html" class="nL">Урок №9 "Створення власних функцій, передавання параметрів"</a>
+            </div>
+            <div class="panel">
+                <a href="/courseplatform/src/main/resources/static/les10.html" class="nL">Урок №10 "Модифікатори методів"</a>
+            </div>
+            <div class="panel">
+                <a href="/courseplatform/src/main/resources/static/les11.html" class="nL">Урок №11 "Примітивні типи в Java"</a>
+            </div>
+            <div class="panel activeP">
+                <a href="/courseplatform/src/main/resources/static/les12.html" class="nL">Урок №12 "Об'єкти в Java"</a>
+            </div>
+            <div class="panel">
+                <a href="/courseplatform/src/main/resources/static/les13.html" class="nL disable">Урок №13 "Тема
+                    уроку"</a>
+            </div>
+            <div class="panel">
+                <a href="/courseplatform/src/main/resources/static/les14.html" class="nL disable">Урок №14 "Тема
+                    уроку"</a>
+            </div>
+            <div class="panel">
+                <a href="/courseplatform/src/main/resources/static/les15.html" class="nL disable">Урок №15 "Тема
+                    уроку"</a>
+            </div>
+        </div>
+        <div class="botom"></div>
+        <div class="info">
+            <div>
+<!--                <img th:src="@{/img/inf.png}" src="/src/main/resources/static/img/inf.png" alt="" height="20px" width="20px">-->
+                <img th:src="@{/img/inf.png}" alt="" height="20px" width="20px">
+            </div>
+            <a target="_blank" href="https://docs.oracle.com/en/java/"> Документація Java</a>
+        </div>
+    </aside>
+
+</div>
+
+<script th:src="@{/js/script.js}" src="/src/main/resources/static/js/script.js"></script>
+<script th:src="@{/js/script.js}"></script>
+</body>
+</html>
