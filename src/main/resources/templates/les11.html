@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en" id="11"  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Java Course</title>
+    <script th:src="@{js/jquery.js}"></script>
+    <script th:src="@{js/jquery.js}" src="/src/main/resources/static/js/jquery.js"></script>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="stylesheet" th:href="@{/css/style.css}" href="/src/main/resources/static/css/style.css">
+</head>
+<body onload="setNextLvlButtonColorIfExist()">
+<input th:if="${session.thisLessonGrade.containsKey(1)}" id="thisLessonGrade" type="hidden" value="1"/>
+<header>
+    <div class="logo">
+        <h1>Онлайн-курc: JavaCourse</h1>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4ZAeznQZoSen1S7qvKdoet0ndYpCepZpR-TMTp6pDlMtkg_oYF3BcLjv2ciiSssFqlws&usqp=CAU" alt="LOGOTYPE" width="120px" height="100px">
+        <h1 th:text="${session.userDB}" class="user">USER</h1>
+        <form th:action="@{/logout}" method="post">
+            <input type="submit" value="Вихід" class="btn" id="logout"/>
+        </form>
+    </div>
+    <div class="gradeList hideGrade">
+        <div>
+            <div class="subDiv"><div>Оцінка за урок №1:</div><div th:text="${session.lesson10.get(0)}">10</div></div>
+            <div class="subDiv"><div>Оцінка за урок №2:</div><div th:text="${session.lesson10.get(1)}">10</div></div>
+            <div class="subDiv"><div>Оцінка за урок №3:</div><div th:text="${session.lesson10.get(2)}">10</div></div>
+            <div class="subDiv"><div>Оцінка за урок №4:</div><div th:text="${session.lesson10.get(3)}">10</div></div>
+            <div class="subDiv"><div>Оцінка за урок №5:</div><div th:text="${session.lesson10.get(4)}">10</div></div>
+        </div>
+        <div>
+            <div class="subDiv"><div>Оцінка за урок №6:</div><div th:text="${session.lesson10.get(5)}">10</div></div>
+            <div class="subDiv"><div>Оцінка за урок №7:</div><div th:text="${session.lesson10.get(6)}">10</div></div>
+            <div class="subDiv"><div>Оцінка за урок №8:</div><div th:text="${session.lesson10.get(7)}">10</div></div>
+            <div class="subDiv"><div>Оцінка за урок №9:</div><div th:text="${session.lesson10.get(8)}">10</div></div>
+            <div class="subDiv"><div>Оцінка за урок №10:</div><div th:text="${session.lesson10.get(9)}">10</div></div>
+            
+        </div>
+        <div class="lastch">
+            <div class="subDiv"><div>Оцінка за урок №11:</div><div th:text="${session.lesson10.get(10)}">10</div></div>
+            <div class="subDiv"><div>Оцінка за урок №12:</div><div th:text="${session.lesson10.get(11)}">10</div></div>
+            <div class="subDiv"><div>Оцінка за урок №13:</div><div th:text="${session.lesson10.get(12)}">10</div></div>
+            <div class="subDiv"><div>Оцінка за урок №14:</div><div th:text="${session.lesson10.get(13)}">10</div></div>
+            <div class="subDiv"><div>Оцінка за урок №15:</div><div th:text="${session.lesson10.get(14)}">10</div></div>
+        </div>
+    </div>
+    <div class="logo_list">
+        <div><p>15 уроків</p></div>
+        <div><p>Швидке начання</p></div>
+        <div><p>Онлайн практика</p></div>
+        <div><p>Тестові завдання</p></div>
+    </div>
+</header>
+
+<div class="main_content">
+    <div class="content">
+        <section class="name">
+            <img src="" alt="" width="300px" height="170px">
+            <div>
+                <h2>Примітивні типи в Java</h2>
+                <a href="#practice">Перейти до практики</a>
+            </div>
+        </section>
+        <div class="op">
+            <p>Представляємо вам уроки програмування мовою Java для починаючих. <br> Великий відео курс по вивченню мови
+                Java.</p>
+        </div>
+        <h2>Відеоурок</h2>
+        <section class="video">
+            <iframe src="https://www.youtube.com/embed/C5q0ULg0nmY" title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+        </section>
+        <section class="text">
+            <h2>Текстовий матеріал</h2>
+            <h3>Примітивні типи в Java</h3> <br>
+            <h4>Список примітивних типів</h4>
+            <p>У Java є 8 базових примітивних типів. Примітивними їх називають тому, що значення цих типів не є об'єктами та зберігаються безпосередньо всередині змінних.</p> <br>
+            <p>У цій таблиці наведено коротку інформацію про ці типи:</p> <br>
+            <img src="/src/main/resources/static/img/table_les11.png" alt="table_les11"> <br>
+            <p>Значення за замовчуванням</p> <br>
+            <p>До речі, є важливий нюанс. Якщо оголосити змінну класу (поле класу) або статичну змінну класу, але не присвоїти їй жодного значення, вона ініціалізується значенням за замовчуванням. Перелік таких значень наведено в таблиці.</p> <br>
+            <p>Локальні змінні методів не мають значень за замовчуванням, і якщо ви не присвоїли такій змінній жодного значення, вона вважається неініціалізованою, і використовувати її значення не можна.</p> <br>
+            <p>Але повернімося до примітивних типів і розгляньмо їх докладніше.</p> <br>
+            <h4>Цілі типи</h4>
+            <p>У мові Java є аж 4 цілих типи: byte, short, int і long. Вони відрізняються між собою за розміром і діапазоном значень, які можуть зберігати.</p> <br>
+            <p>Тип int</p> <br>
+            <p>Найчастіше використовується тип int. Його назва походить від Integer (цілий). Всі цілочислові літерали в коді мають тип int (якщо до числа не додано літеру L, F або D).</p> <br>
+            <p>Змінні цього типу можуть мати значення від -2 147 483,648 до +2 147 483,647.</p> <br>
+            <p>Приклад:</p> <br>
+            <pre><code>int n = "Рядок".length(); // Метод length() повертає довжину рядка.
+                String[] array = {"I", "love", "Java"};
+                int n = array.length; // Поле length містить довжину масиву.
+            </code></pre> <br>
+            <p>Тип short</p> <br>
+            <p>Тип short отримав свою назву від short int. На відміну від типу int, його довжина всього два байти, а можливий діапазон значень — від -32768 до +32767.</p> <br>
+            <p>Цей цілочисловий тип використовується в Java рідше за всіх. Його використовують, головним чином, тоді, коли хочуть заощадити пам'ять.</p> <br>
+            <p>Тип long</p> <br>
+            <p>Цей тип отримав свою назву від long int — його ще називають довге ціле. На відміну від типу int, у нього просто гігантський діапазон значень: від -9*10^18 до +9*10^18.</p> <br>
+            <p>Тип byte</p> <br>
+            <p>Це найменший цілочисловий тип у Java, але його досить часто використовують. Його назва збігається зі словом byte — мінімальною адресованою коміркою пам'яті в Java.</p> <br>
+            <p>Діапазон допустимих значень типу byte не дуже великий: від -128 до +127. Проте його сила не в цьому. Тип byte найчастіше використовується тоді, коли потрібно зберігати в пам'яті великий блок знеособлених даних. Масив типу byte просто ідеально підходить для таких цілей.</p> <br>
+            <h4>Дійсні типи</h4>
+            <p>Серед примітивних типів також є два дійсних. Проте це не зовсім точна назва. Офіційно вони називаються числами з рухомою крапкою — floating point numbers. Назва походить зі стандарту, де роздільником цілої та дробової частин визначено крапку (не кому).</p> <br>
+            <p>У мові Java є два примітивних типи з рухомою крапкою: double і float.</p> <br>
+            <p>Як ми вже казали, ці типи всередині влаштовані особливим чином: фактично кожна змінна цих типів — це не одне число, а два.</p> <br>
+            <p>Наприклад, дробове число 987654.321 можна представити як 0.987654321*106. Тому в пам'яті воно буде представлене як два числа 987654321 (мантиса — значуща частина числа) і 6 (експонента — степінь десяти).</p> <br>
+            <p>Тип float</p> <br>
+            <p>Назва типу float походить від терміна floating point number. Розмір цього типу зовсім невеликий — всього 4 байти (32 біти), але він може зберігати значення від -3.4*1038 до 3.4*1038. Мантиса займає 24 біти, а експонента — 8 бітів. Цей тип здатний зберігати всього 8 значущих цифр.</p> <br>
+            <p>Такий підхід дає змогу зберігати набагато більші числа, ніж int, використовуючи ті самі 4 байти. Натомість ми жертвуємо точністю. Частина пам'яті витрачається на зберігання мантиси, тому такі числа зберігають лише 6-7 знаків після десяткової коми, інші знаки відкидаються.</p> <br>
+            <p>Приклад:</p> <br>
+            <pre><code>float a = (float) 123.456789; // a = 123.45679
+                float a = (float) 12345.9999; // a = 12346.0
+            </code></pre> <br>
+            <p>Як бачите, основний недолік цього типу — дуже мала кількість значущих цифр і втрата точності вже у восьмій цифрі. Тому тип float не користується особливою популярністю серед Java-програмістів.</p> <br>
+            <p>Тип double</p> <br>
+            <p>Тип double — це стандартний тип чисел із рухомою крапкою. Його назва походить від double floating point. Його також називають числом із рухомою крапкою подвійної точності. Усі дійсні літерали за замовчуванням мають тип double.</p> <br>
+            <p>Цей тип займає 8 байтів пам'яті (64 біти) і може зберігати значення від -1.7*10308 до 1.7*10308. Важливий момент: його мантиса займає 53 біти, а решту 11 біт — експонента.</p> <br>
+            <p>Це дає змогу зберігати 15–17 значущих цифр.</p> <br>
+            <p>Приклад:</p> <br>
+            <pre><code>double a = 1234567890.1234567890; //a =1234567890.1234567
+                double a = 1234567890.1234512345; //a = 1234567890.1234512
+            </code></pre> <br>
+            <p>Така точність, особливо як порівняти з типом float, є визначальною: 99 % усіх операцій із дійсними числами виконуються з типом double.</p> <br>
+            <p>Для експоненти виділяється 11 бітів, що дає змогу зберігати степінь десяти від -323 до +308 (степінь числа два — від -1024 до +1023). Тип double може легко зберігати числа із сотнею нулів після десяткової коми.</p> <br>
+            <pre><code>double a = 2E-300 * 3E+302//a =600.0</code></pre> <br>
+            <h4>Нескінченність</h4>
+            <p>Числа з рухомою крапкою мають ще одну цікаву особливість: вони дозволяють зберігати спеціальне значення, яке позначає нескінченність. Причому існують як додатна нескінченність, так і від'ємна нескінченність.</p> <br>
+            <p>Приклад:</p> <br>
+            <pre><code>double a = 1d / 0d; // a == Infinity	
+                double b = a * 10; // b == Infinity
+                double c = b - 100; // c == Infinity
+            </code></pre> <br>
+            <p>Якщо нескінченність помножити на число, отримаємо нескінченність. Якщо до нескінченності додати число, отримаємо нескінченність. Дуже зручно.</p> <br>
+            <p>Не число (NaN)</p> <br>
+            <p>Результатом будь-яких операцій із нескінченністю буде нескінченність. Здебільшого — так. Але не завжди.</p> <br>
+            <p>Числа з рухомою крапкою можуть зберігати ще одне спеціальне значення — NaN. Це є скороченням від Not a Number (не число).</p> <br>
+            <p>У математиці, якщо поділити нескінченність на нескінченність, виникає невизначеність.</p> <br>
+            <p>Проте в мові Java результатом ділення нескінченності на нескінченність буде NaN.</p> <br>
+            <p>Приклад:</p> <br>
+            <pre><code>double a = 0.0 / 0.0; // a == NaN
+                double b = a * 10; // b == NaN
+                double c = b - 100; // c == NaN
+                double d = a + infinity; // d == NaN
+            </code></pre> <br>
+            <p>Результатом будь-якої операції з NaN буде NaN.</p> <br>
+            <h3>Перетворення типів у Java</h3> <br>
+            <h4>Перетворення типів</h4>
+            <p>Змінні примітивних типів (за винятком типу boolean) використовуються для зберігання чисел різних типів. І хоча типи змінних є незмінними, є спосіб, який дозволяє перетворювати типи. Цей спосіб — присвоювання.</p> <br>
+            <p>Змінні різних типів можна присвоювати одна одній. У цьому разі значення, взяте зі змінної одного типу, буде перетворено на значення іншого типу й присвоєно другій змінній. Можна виділити два види перетворення типів: розширення і звуження.</p> <br>
+            <p>Розширення типу схоже на перекладання з маленького кошика у великий — операція проходить непомітно і безболісно. Звуження типу — це перекладання з великого кошика в маленький: місця може не вистачити, і щось доведеться викинути.</p> <br>
+            <p>Тут показано типи, відсортовані за розміром:</p> <br>
+            <img src="/src/main/resources/static/img/table_les11.2.png" alt="table_les11.2"> <br>
+            <h4>Розширення типів</h4>
+            <p>Часто може з'явитися потреба присвоїти змінній одного числового типу значення змінної іншого числового типу. Як же це зробити?</p> <br>
+            <p>У мові Java є 4 цілочислових типи:</p> <br>
+            <img src="/src/main/resources/static/img/table_les11.3.png" alt="table_les11.3"> <br>
+            <p>Змінній більшого розміру завжди можна присвоювати змінні меншого розміру.</p> <br>
+            <p>Змінній типу long можна без обмежень присвоювати змінні типу int, short і byte. Змінній типу int можна присвоювати змінні типу short і byte. А змінній типу short можна присвоювати змінні типу byte.</p> <br>
+            <p>Приклад:</p> <br>
+            <pre><code>byte a = 5;
+                short b = a;
+                int c = a + b;
+                long d = c * c;
+            </code></pre> <br>
+            <p>Такий код чудово скомпілюється.</p> <br>
+            <p>Таке перетворення — від типу меншого розміру до більшого, називається розширенням типу.</p> <br>
+            <p>А як це діє для дійсних чисел?</p> <br>
+            <p>З ними все так само.</p> <br>
+            <img src="/src/main/resources/static/img/table_les11.4.png" alt="table_les11.4"> <br>
+            <p>Змінній типу double можна без проблем присвоїти змінну типу float. А от з цілочисловими типами цікавіше.</p> <br>
+            <p>Змінній типу float можна присвоїти змінну будь-якого цілочислового типу. Навіть типу long, довжина якого 8 байтів. А змінній типу double можна взагалі присвоювати все що завгодно: змінну будь-якого цілочислового типу й змінну типу float:</p> <br>
+            <pre><code>long a = 1234567890;
+                float b = a; // b == 1.23456794E9
+                double c = a; // c == 1.23456789E9
+            </code></pre> <br>
+            <p>Зверніть увагу, що перетворення на дійсний тип може призвести до втрати точності внаслідок браку значущих цифр.</p> <br>
+            <p>Під час перетворення цілих чисел на дробові можуть відкидатися наймолодші розряди числа. Але оскільки суть дробового числа в тому, щоб зберігати приблизне значення, таке присвоєння дозволено.</p> <br>
+            <h4>Звуження типів</h4>
+            <p>А що там з іншими варіантами? Що робити, коли змінній типу int потрібно присвоїти значення змінної типу long?</p> <br>
+            <p>Уявіть, що змінна — це кошик. Маємо кошики різного розміру: 1, 2, 4 і 8 байтів. Якщо перекладати пиріжки з меншого кошика в більший, проблем не виникає. А от якщо перекладати пиріжки з більшого кошика в менший, частина пиріжків може не вміститися.</p> <br>
+            <p>Таке перетворення — від типу більшого розміру до меншого — називають звуженням типу. У разі такого присвоювання частина числа може просто не вміститися в нову змінну і «залишитися за бортом».</p> <br>
+            <p>Під час звуження типу потрібно явно показати компілятору, що ми не помилилися, і відкидаємо частину числа свідомо. Для цього використовується оператор перетворення типу: це ім'я типу в круглих дужках.</p> <br>
+            <p>У таких ситуаціях Java-компілятор вимагає від програміста вказувати оператор перетворення типу. Загальний вигляд цього оператора такий: (тип) вираз</p> <br>
+            <p>Приклад:</p> <br>
+            <pre><code>long a = 1000000; // a == 1000000
+                int b = (int) a; // b == 1000000
+                short c = (short) b; // c == 16960
+                byte d = (byte) c; // d == 64
+            </code></pre> <br>
+            <p>Мільйон чудово вміщується і в тип long, і в тип int. А от під час присвоювання мільйона змінній типу short два перших байти було відкинуто, і залишилося тільки два останніх. А коли спробували записати мільйон у змінну типу byte, взагалі залишився тільки один останній байт. </p> <br>
+            <p>Тип char</p> <br>
+            <p>Тип char, як і тип short, займає в пам'яті два байти, але для перетворення одного з цих типів на інший завжди потрібно використовувати оператор перетворення типу. Річ у тім, що тип short — знаковий і може містити значення від -32768 до +32767, а тип char — беззнаковий і може містити значення від 0 до 65535.</p> <br>
+            <p>У змінних типу char не можна зберігати від'ємні числа, які можуть зберігатися в змінних типу short. А в змінних типу short не можна зберігати числа, більші за 32767, які можуть зберігатися у змінних типу char.</p> <br>
+            <h3>Змінні-посилання у Java</h3> <br>
+            <h4>Змінні-посилання</h4>
+            <p>У мові Java є змінні двох видів: є змінні примітивного типу (primitive type variables), і є вказівні змінні (reference variables). То ж це таке — вказівні змінні?</p> <br>
+            <p>На відміну від примітивних типів, які дозволяють зберігати значення безпосередньо всередині змінних, змінні вказівних типів зберігають посилання на об'єкти. Тобто десь у пам'яті є певний об'єкт, а у вказівній змінній (синонім: змінна-посилання) просто зберігається адреса цього об'єкта в пам'яті (посилання).</p> <br>
+            <p>Значення всередині змінних зберігають тільки примітивні типи, усі інші типи зберігають лише посилання на об'єкт. До речі, ви вже знайомі з двома такими типами змінних — це зміні типу String і змінні типу масив.</p> <br>
+            <p>І масив, і рядок є об'єктами, які зберігаються десь у пам'яті. Змінні типу String і змінні типу масив зберігають тільки посилання на об'єкти.</p> <br>
+            <p>Змінні int a, int b і double d є примітивними і зберігають у собі значення.</p> <br>
+            <p>Змінна String str — вказівна і зберігає адресу (посилання) об'єкта типу String у пам'яті.</p> <br>
+            <p>Під час присвоювання значення змінній примітивного типу це значення копіюється (дублюється). А коли відбувається присвоювання значення вказівній змінній, копіюється тільки адреса об'єкта, а власне об'єкт не копіюється.</p> <br>
+            <h4>Сутність посилань</h4>
+            <p>У чому принципова відмінність вказівних змінних від примітивних?</p> <br>
+            <p>Примітивна змінна схожа на коробку, де можна зберігати якесь значення. Вказівна змінна більше схожа на аркуш паперу із записаним на ньому номером телефону.</p> <br>
+            <p>Посилання використовуються для взаємодії з об'єктом. Усі об'єкти взаємодіють один з одним за допомогою посилань. </p> <br>
+            <p>Коли присвоюється значення змінній примітивного типу, це значення копіюється (дублюється). А коли присвоюється значення вказівній змінній, копіюється тільки адреса об'єкта, а власне об'єкт не копіюється.</p> <br>
+            <p>Посилання мають ще одну перевагу: можна передати посилання на об'єкт у якийсь метод, і тоді метод зможе змінювати цей об'єкт, використовуючи посилання на нього, викликаючи його методи і звертаючись до даних всередині об'єкта.</p> <br>
+            <h4>Присвоювання посилань</h4>
+            <p>Для вказівних змінних операція присвоювання полягає в тому, що змінній просто присвоюється адреса об'єкта в пам'яті. А самі об'єкти в результаті присвоєння не з'являються й не зникають.</p> <br>
+            <p>Такий підхід дає змогу уникнути копіювання великих обсягів пам'яті. Якщо потрібно кудись передати дуже великий об'єкт, ми просто передамо в цей метод посилання на об'єкт, і все. Посилання займає значно менше місця.</p> <br>
+            <p>Розмір усіх вказівних змінних (незалежно від типу) однаковий і становить 4 байти (як тип int). Але! Якщо ваша програма працює в 64-розрядній Java-машині, розмір усіх посилань буде 8 байтів (64 біти).</p> <br>
+            <p>Посилання можна присвоїти лише посиланню. Не можна змінювати посилання чи присвоювати їм довільні значення.</p> <br>
+            <h4>Порожнє посилання — null</h4>
+            <p>А що зберігає вказівна змінна, коли їй ще нічого не присвоєно?</p> <br>
+            <p>Вона зберігає порожнє посилання — null. null — це спеціальне ключове слово в Java, яке позначає відсутність посилання (порожнє посилання). Значення null можна присвоїти будь-якій вказівній змінній.</p> <br>
+            <p>Усі вказівні змінні, доки їм не присвоєно певне посилання, мають значення null.</p> <br>
+            <p>Приклад:</p> <br>
+            <pre><code>class Person
+                {
+                   public static String name; //Змінна String name має значення за замовчуванням: null.
+                   public static int age; //Змінна int age має значення за замовчуванням: 0.
+                }
+            </code></pre> <br>
+            <p>І для примітивних, і для вказівних типів локальні змінні без значення вважаються неініціалізованими.</p> <br>
+            <p>Якщо змінна зберігає посилання на певний об'єкт, а ви хочете видалити значення цієї змінної, просто присвойте їй посилання null.</p> <br>
+            <pre><code>String s = null; // s зберігає посилання null.
+                s = "Привіт"; //s зберігає посилання на об'єкт-рядок
+                s = null; // s зберігає посилання null
+            </code></pre> <br>
+        </section>
+        <section class="practice" id="practice">
+            <h2>Практичні завдання</h2>
+            <h4>Завдання №1</h4>
+            <p>Як тобі вже відомо, загалом у мові Java є 8 примітивних типів. Створи по одній змінній кожного примітивного типу.</p> <br>
+            <p>Натисність на кнопку нижче, щоб відкрити рішення.</p> <br>
+            <p class="solution">Показати рішення</p>
+            <div class="p1 hidepr">
+                    <pre><code>public class Solution {
+                        byte a;
+                        short b;
+                        int c;
+                        long d;
+                        float e;
+                        double f;
+                        boolean g;
+                        char i;
+                    }                    
+                </code></pre>
+                <br>
+                <p class="collapse">Згорнути</p> <br>
+            </div>
+            <h4>Завдання №2</h4>
+            <p>Створи по одній змінній кожного примітивного цілочислового типу. Присвой цим змінним максимально можливе для них значення. </p> <br>
+            <p>Натисність на кнопку нижче, щоб відкрити рішення.</p> <br>
+            <p class="solution">Показати рішення</p>
+            <div class="p2 hidepr">
+                    <pre><code>public class Solution {
+                        byte a = Byte.MAX_VALUE;
+                        short b = Short.MAX_VALUE;
+                        int c = Integer.MAX_VALUE;
+                        long d = Long.MAX_VALUE;
+                    }                    
+                </code></pre>
+                <br>
+                <p class="collapse">Згорнути</p> <br>
+            </div>
+        </section>
+        <section class="test">
+            <form action="#" onsubmit="return false;">
+                <!--                <form action="/validate">-->
+                <!--                    <form>-->
+                <h2>Тестові завдання</h2>
+                <div id="q1">
+                    <h4>Питання №1</h4>
+                    <p>Який з варіантів містить примітивні типи мови Java?</p>
+                    <label>
+                        <input type="radio" value="0" name="var1" class="var">int, real, string
+                    </label>
+                    <label>
+                        <input type="radio" value="0" name="var1" class="var">int, real, string, double
+                    </label>
+                    <label>
+                        <input type="radio" value="1" name="var1" class="var">int, float, double
+                    </label>
+                </div>
+                <div id="q2">
+                    <h4>Питання №2</h4>
+                    <p>Яке значення має вираз 0.0 / 0.0?</p>
+                    <label>
+                        <input type="radio" value="0" name="var2" class="var">1 
+                    </label>
+                    <label>
+                        <input type="radio" value="0" name="var2" class="var">null
+                    </label>
+                    <label>
+                        <input type="radio" value="1" name="var2" class="var">NaN
+                    </label>
+                </div>
+                <div id="q3">
+                    <h4>Питання №3</h4>
+                    <p>Правильно буде скомпільовано варіант:</p>
+                    <label>
+                        <input type="radio" value="0" name="var3" class="var">int x = 3.14;
+                    </label>
+                    <label>
+                        <input type="radio" value="1" name="var3" class="var">int x = (int) 3.14;
+                    </label>
+                    <label>
+                        <input type="radio" value="0" name="var3" class="var">int x = (double) 3.14;
+                    </label>
+                </div>
+                <div id="q4">
+                    <h4>Питання №4</h4>
+                    <p>У класі оголошено змінну String s, але значення їй ще не присвоєно. Що саме вона містить?</p>
+                    <label>
+                        <input type="radio" value="0" name="var4" class="var">""
+                    </label>
+                    <label>
+                        <input type="radio" value="0" name="var4" class="var">0
+                    </label>
+                    <label>
+                        <input type="radio" value="1" name="var4" class="var">null
+                    </label>
+                </div>
+                <div id="q5">
+                    <h4>Питання №5</h4>
+                    <p>У класі оголошено змінну int s, але значення їй ще не присвоєно. Що саме вона містить?</p>
+                    <label style="display: flex;">
+                        <input type="radio" value="0" name="var5" class="var">""
+                    </label>
+                    <label style="display: flex;">
+                        <input type="radio" value="1" name="var5" class="var">0
+                    </label>
+                    <label style="display: flex;">
+                        <input type="radio" value="0" name="var5" class="var">null
+                    </label>
+                </div>
+                <div id="q6">
+                    <h4>Питання №6</h4>
+                    <p>Яке значення має вираз 1d/0d:</p>
+                    <label style="display: flex;">
+                        <input type="radio" value="0" name="var6" class="var">NaN
+                    </label>
+                    <label style="display: flex;">
+                        <input type="radio" value="1" name="var6" class="var">Infinity
+                    </label>
+                    <label style="display: flex;">
+                        <input type="radio" value="0" name="var6" class="var">null
+                    </label>
+                </div>
+                <div id="q7">
+                    <h4>Питання №7</h4>
+                    <p>Що з цього не є змінною-посиланням:</p>
+                    <label style="display: flex;">
+                        <input type="radio" value="0" name="var7" class="var">int[] array;
+                    </label>
+                    <label style="display: flex;">
+                        <input type="radio" value="0" name="var7" class="var">String s;
+                    </label style="display: flex;">
+                    <label>
+                        <input type="radio" value="0" name="var7" class="var">int x;
+                    </label>
+                </div>
+                <div id="q8">
+                    <h4>Питання №8</h4>
+                    <p>Яке значення матиме змінна d</p> <pre style="border: none;"><code>long a = 1000000;
+                        byte d = (byte) a;
+                    </code></pre>
+                    <label>
+                        <input type="radio" value="0" name="var8" class="var">127
+                    </label>
+                    <label>
+                        <input type="radio" value="1" name="var8" class="var">64
+                    </label>
+                    <label>
+                        <input type="radio" value="0" name="var8" class="var">10000
+                    </label>
+                </div>
+                <div id="q9">
+                    <h4>Питання №9</h4>
+                    <p>Який діапазон значень мають змінні типу byte:</p>
+                    <label>
+                        <input type="radio" value="0" name="var9" class="var">0-128
+                    </label>
+                    <label>
+                        <input type="radio" value="0" name="var9" class="var">-128-128
+                    </label>
+                    <label>
+                        <input type="radio" value="1" name="var9" class="var">-128-127
+                    </label>
+                </div>
+                <div id="q10">
+                    <h4>Питання №10</h4>
+                    <p>Який діапазон значень мають змінні типу char:</p>
+                    <label>
+                        <input type="radio" value="1" name="var10" class="var">0-65535
+                    </label>
+                    <label>
+                        <input type="radio" value="0" name="var10" class="var">-65535-65535
+                    </label>
+                    <label>
+                        <input type="radio" value="0" name="var10" class="var">-32767-32766
+                    </label>
+                </div>
+                <br>
+                <!--                <input type="submit" value="Проверить" id="calc" class="btn">-->
+                <!--                <input type="reset" value="Сбросить" id="res" class="btn"><br>-->
+                <!--                <input id="totalGrad" type="hidden" value="0">-->
+                <p class="alert hidepr">Ви відповіли не на всі тести!</p>
+                <input type="submit" value="Перевірити" id="calc" class="btn">
+                <input type="reset" value="Скинути" id="res" class="btn"><br>
+                <div class="ans"><p class="q">Правильних відповідей:
+                    <p class="grade">0</p></p></div>
+            </form>
+        </section>
+        <section class="btn_sec">
+            <form action="/validate">
+                <input id="totalGrad" name="testsSummary" type="hidden" value="0">
+                <input name="lessonNumber" type="hidden" value="1">
+                <input  id="nextLesson" name="nextLesson" type="hidden" value="les2">
+                <input type="submit" class="btn_go btn" id="next" value="Наступний урок"/>
+            </form>
+        </section>
+        <footer>
+            <p>© All right reserved</p>
+            <p>Kyiv 2021</p>
+        </footer>
+    </div>
+    <aside class="right_panel">
+        <div class="top"></div>
+        <div class="lessons">
+            <div class="panel">
+                <a href="/courseplatform/src/main/resources/static/index.html" class="nL">Урок №1 "Команди й перша
+                    програма"</a>
+            </div>
+            <div class="panel">
+                <a href="/validate" class="nL">Урок №2 "Знайомство з
+                    типами й уведення з клавіатури"</a>
+            </div>
+            <div class="panel">
+                <a href="/courseplatform/src/main/resources/static/les3.html" class="nL">Урок №3 "Умовний оператор"</a>
+            </div>
+            <div class="panel">
+                <a href="/courseplatform/src/main/resources/static/les4.html" class="nL">Урок №4 "Цикли while та do-while"</a>
+            </div>
+            <div class="panel">
+                <a href="/courseplatform/src/main/resources/static/les5.html" class="nL">Урок №5 "Цикл for"</a>
+            </div>
+            <div class="panel">
+                <a href="/courseplatform/src/main/resources/static/les6.html" class="nL">Урок №6 "Масиви"</a>
+            </div>
+            <div class="panel">
+                <a href="/courseplatform/src/main/resources/static/les7.html" class="nL">Урок №7 "Двовимірні масиви"</a>
+            </div>
+            <div class="panel" >
+                <a href="/courseplatform/src/main/resources/static/les8.html" class="nL">Урок №8 "Допоміжний клас Arrays"</a>
+            </div>
+            <div class="panel">
+                <a href="/courseplatform/src/main/resources/static/les9.html" class="nL">Урок №9 "Створення власних функцій, передавання параметрів"</a>
+            </div>
+            <div class="panel activeP">
+                <a href="/courseplatform/src/main/resources/static/les10.html" class="nL">Урок №10 "Модифікатори методів"</a>
+            </div>
+            <div class="panel">
+                <a href="/courseplatform/src/main/resources/static/les11.html" class="nL disable">Урок №11 "Примітивні типи в Java"</a>
+            </div>
+            <div class="panel">
+                <a href="/courseplatform/src/main/resources/static/les12.html" class="nL disable">Урок №12 "Об'єкти в Java"</a>
+            </div>
+            <div class="panel">
+                <a href="/courseplatform/src/main/resources/static/les13.html" class="nL disable">Урок №13 "Тема
+                    уроку"</a>
+            </div>
+            <div class="panel">
+                <a href="/courseplatform/src/main/resources/static/les14.html" class="nL disable">Урок №14 "Тема
+                    уроку"</a>
+            </div>
+            <div class="panel">
+                <a href="/courseplatform/src/main/resources/static/les15.html" class="nL disable">Урок №15 "Тема
+                    уроку"</a>
+            </div>
+        </div>
+        <div class="botom"></div>
+        <div class="info">
+            <div>
+<!--                <img th:src="@{/img/inf.png}" src="/src/main/resources/static/img/inf.png" alt="" height="20px" width="20px">-->
+                <img th:src="@{/img/inf.png}" alt="" height="20px" width="20px">
+            </div>
+            <a target="_blank" href="https://docs.oracle.com/en/java/"> Документація Java</a>
+        </div>
+    </aside>
+
+</div>
+
+<script th:src="@{/js/script.js}" src="/src/main/resources/static/js/script.js"></script>
+<script th:src="@{/js/script.js}"></script>
+</body>
+</html>
