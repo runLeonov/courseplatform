@@ -418,3 +418,7 @@ label {
     padding: 10px;
     margin-bottom: 20px;
 }
+
+.practice > p {
+    width: 60%;
+}

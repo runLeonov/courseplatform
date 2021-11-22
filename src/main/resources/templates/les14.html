@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en" id="14"  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Java Course</title>
+    <script th:src="@{js/jquery.js}"></script>
+    <script th:src="@{js/jquery.js}" src="/src/main/resources/static/js/jquery.js"></script>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="stylesheet" th:href="@{/css/style.css}" href="/src/main/resources/static/css/style.css">
+</head>
+<body onload="setNextLvlButtonColorIfExist()">
+<input th:if="${session.thisLessonGrade.containsKey(1)}" id="thisLessonGrade" type="hidden" value="1"/>
+<header>
+    <div class="logo">
+        <h1>Онлайн-курc: JavaCourse</h1>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4ZAeznQZoSen1S7qvKdoet0ndYpCepZpR-TMTp6pDlMtkg_oYF3BcLjv2ciiSssFqlws&usqp=CAU" alt="LOGOTYPE" width="120px" height="100px">
+        <h1 th:text="${session.userDB}" class="user">USER</h1>
+        <form th:action="@{/logout}" method="post">
+            <input type="submit" value="Вихід" class="btn" id="logout"/>
+        </form>
+    </div>
+    <div class="gradeList hideGrade">
+        <div>
+            <div class="subDiv"><div>Оцінка за урок №1:</div><div th:text="${session.lesson10.get(0)}">10</div></div>
+            <div class="subDiv"><div>Оцінка за урок №2:</div><div th:text="${session.lesson10.get(1)}">10</div></div>
+            <div class="subDiv"><div>Оцінка за урок №3:</div><div th:text="${session.lesson10.get(2)}">10</div></div>
+            <div class="subDiv"><div>Оцінка за урок №4:</div><div th:text="${session.lesson10.get(3)}">10</div></div>
+            <div class="subDiv"><div>Оцінка за урок №5:</div><div th:text="${session.lesson10.get(4)}">10</div></div>
+        </div>
+        <div>
+            <div class="subDiv"><div>Оцінка за урок №6:</div><div th:text="${session.lesson10.get(5)}">10</div></div>
+            <div class="subDiv"><div>Оцінка за урок №7:</div><div th:text="${session.lesson10.get(6)}">10</div></div>
+            <div class="subDiv"><div>Оцінка за урок №8:</div><div th:text="${session.lesson10.get(7)}">10</div></div>
+            <div class="subDiv"><div>Оцінка за урок №9:</div><div th:text="${session.lesson10.get(8)}">10</div></div>
+            <div class="subDiv"><div>Оцінка за урок №10:</div><div th:text="${session.lesson10.get(9)}">10</div></div>
+            
+        </div>
+        <div class="lastch">
+            <div class="subDiv"><div>Оцінка за урок №11:</div><div th:text="${session.lesson10.get(10)}">10</div></div>
+            <div class="subDiv"><div>Оцінка за урок №12:</div><div th:text="${session.lesson10.get(11)}">10</div></div>
+            <div class="subDiv"><div>Оцінка за урок №13:</div><div th:text="${session.lesson10.get(12)}">10</div></div>
+            <div class="subDiv"><div>Оцінка за урок №14:</div><div th:text="${session.lesson10.get(13)}">10</div></div>
+            <div class="subDiv"><div>Оцінка за урок №15:</div><div th:text="${session.lesson10.get(14)}">10</div></div>
+        </div>
+    </div>
+    <div class="logo_list">
+        <div><p>15 уроків</p></div>
+        <div><p>Швидке начання</p></div>
+        <div><p>Онлайн практика</p></div>
+        <div><p>Тестові завдання</p></div>
+    </div>
+</header>
+
+<div class="main_content">
+    <div class="content">
+        <section class="name">
+            <img src="" alt="" width="300px" height="170px">
+            <div>
+                <h2>Побітові операції в Java</h2>
+                <a href="#practice">Перейти до практики</a>
+            </div>
+        </section>
+        <div class="op">
+            <p>Представляємо вам уроки програмування мовою Java для починаючих. <br> Великий відео курс по вивченню мови
+                Java.</p>
+        </div>
+        <h2>Відеоурок</h2>
+        <section class="video">
+            <iframe src="https://www.youtube.com/embed/C5q0ULg0nmY" title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+        </section>
+        <section class="text">
+            <h2>Текстовий матеріал</h2>
+            <h3>Побітові операції в Java</h3> <br>
+            <h4>Побітовий оператор AND</h4>
+            <p>Колись ми говорили, що всі дані зберігаються в пам'яті у двійковій системі. Тому досить давно програмісти придумали багато чого цікавого для роботи з двійковим поданням чисел. Наприклад, у Java є логічні оператори, які працюють з бітами чисел: AND (І), OR (АБО), NOT (НЕ) и XOR (виключне АБО).</p> <br>
+            <p>a & b</p> <br>
+            <p>Цей оператор дуже схожий на логічний оператор AND (І), тільки позначається не двома амперсандами, а одним:</p> <br>
+            <p>І застосовується він не до числа в цілому, а до його бітів: число розглядається як масив бітів, й i-й біт числа-результату обчислюється на основі i-х бітів кожного з двох чисел.</p> <br>
+            <p>Перший біт результату буде обчислюватися на основі першого біта числа a і першого біта числа b, другий біт — на основі другого біта числа a і другого біта числа b і т. д.</p> <br>
+            <p>Ну а оператор AND (І) означає, що «біт результату дорівнює одиниці, тільки якщо біт числа a дорівнює одиниці І біт числа b дорівнює одиниці»:</p> <br>
+            <p>1 & 1 = 1</p>
+            <p>1 & 0 = 0</p>
+            <p>0 & 1 = 0</p>
+            <p>0 & 0 = 0</p> <br>
+            <p>Наприклад:</p> <br>
+            <pre><code>0b0011 & 0b1010 // Результат: 0b0010
+                0b1111 & 0b0000 // Результат: 0b0000
+            </code></pre> <br>
+            <h4>Побітовий оператор OR</h4>
+            <p>Цей оператор дуже схожий на логічний оператор OR (АБО), тільки позначається вже не двома вертикальними лініями, а однією:</p> <br>
+            <p>a | b</p> <br>
+            <p>Він також застосовується не до числа в цілому, а до його бітів: i-й біт числа-результату обчислюється на основі i-х бітів кожного з двох чисел.</p> <br>
+            <p>Побітовий оператор OR (АБО) означає, що «біт результату дорівнює одиниці, якщо біт числа a дорівнює одиниці АБО біт числа b дорівнює одиниці»:</p> <br>
+            <p>1 | 1 = 1</p>
+            <p>1 | 0 = 1</p>
+            <p>0 | 1 = 1</p>
+            <p>0 | 0 = 0</p> <br>
+            <p>Наприклад:</p> <br>
+            <pre><code>0b0011 | 0b1010 //Результат 0b1011
+                0b1110 | 0b0000 //Результат 0b1110
+            </code></pre> <br>
+            <p>Тільки коли біти, що стоять на однакових позиціях обох чисел, дорівнюють нулю, відповідний біт результату дорівнює нулю.</p> <br>
+            <h4>Побітовий оператор XOR (ВИКЛЮЧНЕ АБО)</h4>
+            <p>Оператор XOR, який інакше називають виключне або, позначається символом ^.</p> <br>
+            <p>a ^ b</p> <br>
+            <p>Цей оператор чимось схожий на оператор OR (він навіть має схожу назву — XOR).</p> <br>
+            <p>Побітовий оператор XOR (ВИКЛЮЧНЕ АБО) означає, що «біт результату дорівнює одиниці, якщо біт числа a дорівнює одиниці АБО біт числа b дорівнює одиниці, але не обидва одночасно»:</p> <br>
+            <p>1 ^ 1 = 0</p>
+            <p>1 ^ 0 = 1</p>
+            <p>0 ^ 1 = 1</p>
+            <p>0 ^ 0 = 0</p> <br>
+            <p>Наприклад:</p> <br>
+            <pre><code>0b0011 ^ 0b1010 //Результат 0b1001
+                0b1110 ^ 0b0000 //Результат 0b0101
+            </code></pre> <br>
+            <p>Тільки коли біти, що стоять на однакових позиціях обох чисел, різні, відповідний біт результату дорівнює одиниці. Якщо біти однакові, біт результату дорівнює нулю.</p> <br>
+            <h4>Побітовий оператор NOT (НЕ, ЗАПЕРЕЧЕННЯ)</h4>
+            <p>Думаю, ви вже здогадуєтеся, що він означає. Цей оператор дуже схожий на логічний оператор NOT (НЕ), тільки позначається вже не знаком оклику, а тильдою:</p> <br>
+            <p>~a</p> <br>
+            <p>Цей оператор унарний: застосовується не до двох чисел, а до одного, перед яким і ставиться.</p> <br>
+            <p>Побітовий оператор NOT означає, що «біт результату дорівнює одиниці, якщо біт числа a дорівнює нулю, і дорівнює нулю, якщо біт числа a дорівнює одиниці»:</p> <br>
+            <p>~1 = 0</p>
+            <p>~0 = 1</p> <br>
+            <p>Наприклад:</p> <br>
+            <pre><code>~0b0011 //Резуьтат 0b1100
+                ~0b0000 //Результат 0b1111
+            </code></pre> <br>
+            <h3>Побітові операції, частина 2</h3> <br>
+            <h4>Побітовий зсув ліворуч</h4>
+            <p>Також у Java є оператори побітового зсуву числа. Ви можете дуже просто зсунути всі біти числа на кілька позицій ліворуч або праворуч, якщо вам це, звичайно, потрібно.</p> <br>
+            <p>Щоби зсунути біти числа ліворуч, слід використовувати оператор побітового зсуву ліворуч. Записують це так:</p> <br>
+            <p>a << b</p> <br>
+            <p>де а — число, біти якого зсуваємо, а b — число, що означає на скільки бітів ліворуч потрібно зсунути біти числа a. Водночас з правого краю до числа додаються нульові біти.</p> <br>
+            <p>Наприклад:</p> <br>
+            <pre><code>0b00000011 << 1 //Результат 0b00000110
+                0b00000011 << 2 //Результат 0b00001100
+            </code></pre> <br>
+            <p>Зсув на один розряд ліворуч дає той самий ефект, що і множення числа на 2.</p> <br>
+            <p>Хочете помножити число на 16? 16 = 24. Отже, потрібно зсунути число на 4 розряди ліворуч.</p> <br>
+            <h4>Побітовий зсув праворуч</h4>
+            <p>В аналогічний спосіб біти можна зсувати праворуч. Для цього використовують оператор побітового зсуву праворуч. Записують його так:</p> <br>
+            <p>a >> b</p> <br>
+            <p>де а — число, біти якого зсуваємо, а b — число, що означає на скільки бітів праворуч потрібно зсунути біти числа a.</p> <br>
+            <p>Наприклад:</p> <br>
+            <pre><code>0b11000011 >> 1 //Результат 0b01100001
+                0b11000011 >> 2 //Результат 0b00110000
+            </code></pre> <br>
+            <p>Зсув на один розряд праворуч дає той самий ефект, що й ділення числа на 2 без остачі.</p> <br>
+            <p>Водночас з лівого краю до числа додаються нульові біти, але не завжди!</p> <br>
+            <strong>Важливо!</strong> <br>
+            <p>Крайній лівий біт числа називається знаковим бітом: він зберігає 0, якщо число додатне, і 1, якщо від'ємне.</p> <br>
+            <p>У разі зсуву бітів числа праворуч знаковий біт теж зміститься, і знак числа буде втрачено. Тому для від'ємних чисел (у яких крайній лівий біт дорівнює 1) цей біт спеціально зберігається. Під час зсуву бітів числа праворуч число доповнюється зліва бітом 0, якщо крайній лівий біт мав значення 0, і бітом 1, якщо крайній лівий біт мав значення 1.</p> <br>
+            <p>Однак у прикладі вище цього не відбувається. Чому? Річ у тім, що цілочислові літерали мають тип int, і насправді 0b11111111 означає 0b00000000000000000000000011111111. Тобто крайній лівий біт дорівнює нулю.</p> <br>
+            <p>Багатьох програмістів засмучує така «поведінка» зсуву праворуч, і вони хотіли б, щоб число завжди доповнювалося нульовими бітами. Тому в Java додали ще один оператор зсуву праворуч.</p> <br>
+            <p>Записують його так:</p> <br>
+            <p>a >>> b</p> <br>
+            <p>де а — число, біти якого зсуваємо, а b — число, що означає на скільки бітів праворуч потрібно зсунути біти числа a. Цей оператор завжди додає зліва нульові біти, незалежно від того, який знаковий біт мало число a.</p> <br>
+            <h3>Особливості роботи різних операторів</h3> <br>
+            <h4>Булеві операції</h4>
+            <p>Оператори | і & можна застосовувати не тільки до чисел, а й до виразів зі значенням типу boolean.</p> <br>
+            <p>Однак, як ви вже знаєте, для логічних виразів є оператори && і ||. Що ж нам дасть використання | замість || і використання & замість &&? Чи є взагалі в цьому сенс? Виявляється, є. Іноді.</p> <br>
+            <p>Логічні оператори || і && виконуються зліва направо за принципом так званих лінивих обчислень.</p> <br>
+            <p>(вираз1) || (вираз2) || (вираз3)</p> <br>
+            <p>Якщо вираз1 дорівнює true, немає сенсу обчислювати вираз2 й вираз3: результат все одно буде true.</p> <br>
+            <p>Тому під час обчислення виразів (а вони обчислюються один за одним зліва направо), щойно ми отримали true, обчислення решти виразів не виконується. І якщо вирази вираз2 й вираз3 містили виклики якихось функцій, то ці функції не викликаються!</p> <br>
+            <p>Те саме відбувається й у випадку з логічним оператором &&:</p> <br>
+            <p>(вираз1) && (вираз2) && (вираз3)</p> <br>
+            <p>Якщо вираз1 дорівнює false, немає сенсу обчислювати вираз2 й вираз3: результат все одно буде false.</p> <br>
+            <p>Це важливий момент, який дозволяє писати ось такі речі:</p> <br>
+            <pre><code>String s = null;
+                if (s != null && s.length() > 0) {
+            </code></pre> <br>
+            <p>У прикладі вище ми ніколи не отримаємо NullPointerException, оскільки вираз s.length() виконуватиметься, тільки якщо перша частина, s != null, дорівнює true.</p> <br>
+            <p>Якщо s виявиться рівним null, ліворуч від оператора && буде значення false, і результат усього логічного виразу буде false, тому обчислення другої частини (s.length() > 0) не виконується.</p> <br>
+            <p>От до чого це все:</p> <br>
+            <p>якщо в логічному виразі використати оператор | або оператор &, то лінивого обчислення не вийде — у всіх випадках буде обчислено всі вирази.</p> <br>
+            <h4>Пріоритет операцій у Java</h4>
+            <p>Як ви, певно, пам'ятаєте зі шкільного курсу математики, операція множення має вищий пріоритет, ніж операція додавання. А дужки мають іще вищий пріоритет: спочатку обчислюються вирази в дужках, а потім уже виконуються множення/ділення й додавання/віднімання.</p> <br>
+            <p>Оператори в Java теж мають пріоритет, тільки: а) їх дещо більше, б) деякі оператори виконуються зліва направо, а інші — справа наліво.</p> <br>
+            <p>Отакий вигляд має таблиця з усіма операторами Java:</p> <br>
+            <img src="/src/main/resources/static/img/table_les14.png" alt="table_les14"> <br> <br>
+            <p>У верхньому рядку розташовані найпріоритетніші оператори. Круглі дужки () використовуються для явного встановлення пріоритету. Квадратні дужки [] використовуються для індексування змінної-масиву. Оператор . використовується для отримання полів і методів від посилання на об'єкт або клас.</p> <br>
+            <p>Що нижче оператори розташовані в таблиці, то нижче їхній пріоритет.</p> <br>
+            <p>Якщо ви використовуєте у виразі кілька операторів, не лінуйтеся — ставте дужки.</p> <br>
+            <p>Так, у Java можна написати щось на кшталт if (a & 1<<b > ~c), але так робити не варто. Ви пишете код не лише для компілятора, але й для інших програмістів. Що читабельнішим буде код, то краще.</p> <br>
+            <h4>Префіксний і постфіксний інкременти</h4>
+            <p>Як ви вже знаєте, у Java є оператор інкременту (++) і оператор декременту (--), які збільшують і зменшують значення змінної на 1.</p> <br>
+            <p>Однак ви, напевно, не знаєте, що є два види цих операцій: префіксні (оператор ставиться перед змінною) і постфіксні (оператор ставиться після змінної). І працюють ці оператори трохи по-різному.</p> <br>
+            <p>У Java можна написати такий вираз:</p> <br>
+            <pre><code>int a = 5;
+                int b = a++;
+            </code></pre>    <br>
+            <p>Якщо оператор ++ стоїть після змінної та водночас ця змінна входить в якийсь вираз (як у прикладі вище), то у виразі буде використано поточне значення змінної, а тільки потім його буде збільшено на 1.</p> <br>
+            <p>Інакше кажучи, відбудеться приблизно от що:</p> <br>
+            <pre><code>int a = 5;
+                int b = a;
+                a = a + 1;
+            </code></pre> <br>
+            <p>Тобто b матиме значення 5, а не 6, як це могло здатися спочатку.</p> <br>
+            <p>Якщо ж оператор ++ стоїть перед змінною і змінна входить в якийсь вираз, її значення спочатку буде збільшено на 1, а тільки потім використано у виразі.</p> <br>
+            <pre><code>int a = 5;
+                int b = ++a;
+            </code></pre> <br>
+            <p>Приклад вище еквівалентний такому прикладу:</p> <br>
+            <pre><code>int a = 5;
+                a = a + 1;
+                int b = a;
+            </code></pre> <br>
+            <p>Отут вже значення b дорівнюватиме 6.</p> <br>
+            <p>Є навіть один приклад, який використовують Java-програмісти, щоб визначити, чи їхній співрозмовник — теж Java-програміст:</p> <br>
+            <pre><code>int a = 5;
+                int b = ++a + ++a;
+            </code></pre> <br>
+            <p>Так, це теж правильний запис.</p> <br>
+            <p>Цей приклад відмінно скомпілюється й перетвориться приблизно на таке:</p> <br>
+            <pre><code>int a = 5;
+
+                a = a + 1;
+                int v1 = a;
+                
+                a = a + 1;
+                int v2 = a;
+                
+                int b = v1 + v2;
+            </code></pre> <br>
+            <p>Для оператора -- все відбувається аналогічно.</p>
+        </section>
+        <section class="practice" id="practice">
+            <h2>Практичні завдання</h2>
+            <h4>Завдання №1</h4>
+            <p>Реалізуй метод getPowerOfTwo(int power), який повертає число 2 в степені power.</p> <br>
+            <p>Натисність на кнопку нижче, щоб відкрити рішення.</p> <br>
+            <p class="solution">Показати рішення</p>
+            <div class="p1 hidepr">
+                    <pre><code>public class Solution {
+
+                        public static void main(String[] args) {
+                            System.out.println(getPowerOfTwo(6));
+                        }
+                    
+                        public static int getPowerOfTwo(int power) {
+                            if (power > 0) {
+                                return 2 << (power - 1);
+                            } else {
+                                return 2 >> -(power - 1);
+                            }
+                        }
+                    }                    
+                </code></pre>
+                <br>
+                <p class="collapse">Згорнути</p> <br>
+            </div>
+            <h4>Завдання №2</h4>
+            <p>У класі Pair реалізуй метод swap() так, щоб він міняв місцями значення змінних x і y.
+                Можна використовувати тільки такі операції:
+            </p><br>
+            <ol>
+                <li>Виключне або</li>
+                <li>Присвоювання.</li>
+                <li>Виключне або з присвоюванням.</li>
+            </ol> <br>
+            <p>Натисність на кнопку нижче, щоб відкрити рішення.</p> <br>
+            <p class="solution">Показати рішення</p>
+            <div class="p2 hidepr">
+                    <pre><code>public class Solution {
+                            public static void main(String[] args) {
+                                Pair pair = new Pair(4, 5);
+                                System.out.println(pair);
+                                pair.swap();
+                                System.out.println(pair);
+                            }
+                        }
+                </code></pre>
+                <br>
+                <p class="collapse">Згорнути</p> <br>
+            </div>
+        </section>
+        <section class="test">
+            <form action="#" onsubmit="return false;">
+                <!--                <form action="/validate">-->
+                <!--                    <form>-->
+                <h2>Тестові завдання</h2>
+                <div id="q1">
+                    <h4>Питання №1</h4>
+                    <p>Побітове «І» двох цілих чисел позначається символом</p>
+                    <label>
+                        <input type="radio" value="1" name="var1" class="var">&
+                    </label>
+                    <label>
+                        <input type="radio" value="0" name="var1" class="var">|
+                    </label>
+                    <label>
+                        <input type="radio" value="0" name="var1" class="var">^
+                    </label>
+                </div>
+                <div id="q2">
+                    <h4>Питання №2</h4>
+                    <p>Побітове «АБО» двох цілих чисел позначається символом</p>
+                    <label>
+                        <input type="radio" value="0" name="var2" class="var">&
+                    </label>
+                    <label>
+                        <input type="radio" value="1" name="var2" class="var">|
+                    </label>
+                    <label>
+                        <input type="radio" value="0" name="var2" class="var">^
+                    </label>
+                </div>
+                <div id="q3">
+                    <h4>Питання №3</h4>
+                    <p>Побітове «НЕ» для цілого числа позначається символом</p>
+                    <label>
+                        <input type="radio" value="0" name="var3" class="var">^
+                    </label>
+                    <label>
+                        <input type="radio" value="0" name="var3" class="var">*
+                    </label>
+                    <label>
+                        <input type="radio" value="1" name="var3" class="var">~
+                    </label>
+                </div>
+                <div id="q4">
+                    <h4>Питання №4</h4>
+                    <p>Чому дорівнюватиме вираз 1 << 4 ?</p>
+                    <label>
+                        <input type="radio" value="0" name="var4" class="var">4
+                    </label>
+                    <label>
+                        <input type="radio" value="0" name="var4" class="var">8
+                    </label>
+                    <label>
+                        <input type="radio" value="1" name="var4" class="var">16
+                    </label>
+                </div>
+                <div id="q5">
+                    <h4>Питання №5</h4>
+                    <p>Чому дорівнюватиме вираз 16 >> 2 ?</p>
+                    <label style="display: flex;">
+                        <input type="radio" value="0" name="var5" class="var">2
+                    </label>
+                    <label style="display: flex;">
+                        <input type="radio" value="1" name="var5" class="var">4
+                    </label>
+                    <label style="display: flex;">
+                        <input type="radio" value="0" name="var5" class="var">8
+                    </label>
+                </div>
+                <div id="q6">
+                    <h4>Питання №6</h4>
+                    <p>Яка команда скомпілюється?</p>
+                    <label style="display: flex;">
+                        <input type="radio" value="1" name="var6" class="var">int x = (3 & 4)
+                    </label>
+                    <label style="display: flex;">
+                        <input type="radio" value="0" name="var6" class="var">int x = (3 && 4)
+                    </label>
+                    <label style="display: flex;">
+                        <input type="radio" value="0" name="var6" class="var">int x = (3 ~ 4)
+                    </label>
+                </div>
+                <div id="q7">
+                    <h4>Питання №7</h4>
+                    <p>Чому дорівнює вираз 0b0011 & 0b1010:</p>
+                    <label style="display: flex;">
+                        <input type="radio" value="0" name="var7" class="var">0b1101
+                    </label>
+                    <label style="display: flex;">
+                        <input type="radio" value="0" name="var7" class="var">0b1011
+                    </label style="display: flex;">
+                    <label>
+                        <input type="radio" value="1" name="var7" class="var">0b0010
+                    </label>
+                </div>
+                <div id="q8">
+                    <h4>Питання №8</h4>
+                    <p>Чому дорівнює вираз 0b1110 | 0b0000:</p>
+                    <label>
+                        <input type="radio" value="0" name="var8" class="var">0b0000
+                    </label>
+                    <label>
+                        <input type="radio" value="0" name="var8" class="var">0b0001
+                    </label>
+                    <label>
+                        <input type="radio" value="1" name="var8" class="var">0b1110
+                    </label>
+                </div>
+                <div id="q9">
+                    <h4>Питання №9</h4>
+                    <p>Який з операторів виконується справа на лівно:</p>
+                    <label>
+                        <input type="radio" value="1" name="var9" class="var">=
+                    </label>
+                    <label>
+                        <input type="radio" value="0" name="var9" class="var">*
+                    </label>
+                    <label>
+                        <input type="radio" value="0" name="var9" class="var">>>
+                    </label>
+                </div>
+                <div id="q10">
+                    <h4>Питання №10</h4>
+                    <p>Чому дорівнює вираз 0b0011 ^ 0b1010:</p>
+                    <label>
+                        <input type="radio" value="0" name="var10" class="var">0b0110
+                    </label>
+                    <label>
+                        <input type="radio" value="1" name="var10" class="var">0b1001
+                    </label>
+                    <label>
+                        <input type="radio" value="0" name="var10" class="var">0b1011
+                    </label>
+                </div>
+                <br>
+                <!--                <input type="submit" value="Проверить" id="calc" class="btn">-->
+                <!--                <input type="reset" value="Сбросить" id="res" class="btn"><br>-->
+                <!--                <input id="totalGrad" type="hidden" value="0">-->
+                <p class="alert hidepr">Ви відповіли не на всі тести!</p>
+                <input type="submit" value="Перевірити" id="calc" class="btn">
+                <input type="reset" value="Скинути" id="res" class="btn"><br>
+                <div class="ans"><p class="q">Правильних відповідей:
+                    <p class="grade">0</p></p></div>
+            </form>
+        </section>
+        <section class="btn_sec">
+            <form action="/validate">
+                <input id="totalGrad" name="testsSummary" type="hidden" value="0">
+                <input name="lessonNumber" type="hidden" value="1">
+                <input  id="nextLesson" name="nextLesson" type="hidden" value="les2">
+                <input type="submit" class="btn_go btn" id="next" value="Наступний урок"/>
+            </form>
+        </section>
+        <footer>
+            <p>© All right reserved</p>
+            <p>Kyiv 2021</p>
+        </footer>
+    </div>
+    <aside class="right_panel">
+        <div class="top"></div>
+        <div class="lessons">
+            <div class="panel">
+                <a href="/courseplatform/src/main/resources/static/index.html" class="nL">Урок №1 "Команди й перша
+                    програма"</a>
+            </div>
+            <div class="panel">
+                <a href="/validate" class="nL">Урок №2 "Знайомство з
+                    типами й уведення з клавіатури"</a>
+            </div>
+            <div class="panel">
+                <a href="/courseplatform/src/main/resources/static/les3.html" class="nL">Урок №3 "Умовний оператор"</a>
+            </div>
+            <div class="panel">
+                <a href="/courseplatform/src/main/resources/static/les4.html" class="nL">Урок №4 "Цикли while та do-while"</a>
+            </div>
+            <div class="panel">
+                <a href="/courseplatform/src/main/resources/static/les5.html" class="nL">Урок №5 "Цикл for"</a>
+            </div>
+            <div class="panel">
+                <a href="/courseplatform/src/main/resources/static/les6.html" class="nL">Урок №6 "Масиви"</a>
+            </div>
+            <div class="panel">
+                <a href="/courseplatform/src/main/resources/static/les7.html" class="nL">Урок №7 "Двовимірні масиви"</a>
+            </div>
+            <div class="panel" >
+                <a href="/courseplatform/src/main/resources/static/les8.html" class="nL">Урок №8 "Допоміжний клас Arrays"</a>
+            </div>
+            <div class="panel">
+                <a href="/courseplatform/src/main/resources/static/les9.html" class="nL">Урок №9 "Створення власних функцій, передавання параметрів"</a>
+            </div>
+            <div class="panel">
+                <a href="/courseplatform/src/main/resources/static/les10.html" class="nL">Урок №10 "Модифікатори методів"</a>
+            </div>
+            <div class="panel">
+                <a href="/courseplatform/src/main/resources/static/les11.html" class="nL">Урок №11 "Примітивні типи в Java"</a>
+            </div>
+            <div class="panel">
+                <a href="/courseplatform/src/main/resources/static/les12.html" class="nL">Урок №12 "Об'єкти в Java"</a>
+            </div>
+            <div class="panel">
+                <a href="/courseplatform/src/main/resources/static/les13.html" class="nL">Урок №13 "Клас Math"</a>
+            </div>
+            <div class="panel activeP">
+                <a href="/courseplatform/src/main/resources/static/les14.html" class="nL">Урок №14 "Побітові операції в Java"</a>
+            </div>
+            <div class="panel">
+                <a href="/courseplatform/src/main/resources/static/les15.html" class="nL disable">Урок №15 "Літерали в Java"</a>
+            </div>
+        </div>
+        <div class="botom"></div>
+        <div class="info">
+            <div>
+<!--                <img th:src="@{/img/inf.png}" src="/src/main/resources/static/img/inf.png" alt="" height="20px" width="20px">-->
+                <img th:src="@{/img/inf.png}" alt="" height="20px" width="20px">
+            </div>
+            <a target="_blank" href="https://docs.oracle.com/en/java/"> Документація Java</a>
+        </div>
+    </aside>
+
+</div>
+
+<script th:src="@{/js/script.js}" src="/src/main/resources/static/js/script.js"></script>
+<script th:src="@{/js/script.js}"></script>
+</body>
+</html>

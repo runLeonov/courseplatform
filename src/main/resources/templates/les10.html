@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en" id="10"  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Java Course</title>
+    <script th:src="@{js/jquery.js}"></script>
+    <script th:src="@{js/jquery.js}" src="/src/main/resources/static/js/jquery.js"></script>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="stylesheet" th:href="@{/css/style.css}" href="/src/main/resources/static/css/style.css">
+</head>
+<body onload="setNextLvlButtonColorIfExist()">
+<input th:if="${session.thisLessonGrade.containsKey(1)}" id="thisLessonGrade" type="hidden" value="1"/>
+<header>
+    <div class="logo">
+        <h1>Онлайн-курc: JavaCourse</h1>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4ZAeznQZoSen1S7qvKdoet0ndYpCepZpR-TMTp6pDlMtkg_oYF3BcLjv2ciiSssFqlws&usqp=CAU" alt="LOGOTYPE" width="120px" height="100px">
+        <h1 th:text="${session.userDB}" class="user">USER</h1>
+        <form th:action="@{/logout}" method="post">
+            <input type="submit" value="Вихід" class="btn" id="logout"/>
+        </form>
+    </div>
+    <div class="gradeList hideGrade">
+        <div>
+            <div class="subDiv"><div>Оцінка за урок №1:</div><div th:text="${session.lesson10.get(0)}">10</div></div>
+            <div class="subDiv"><div>Оцінка за урок №2:</div><div th:text="${session.lesson10.get(1)}">10</div></div>
+            <div class="subDiv"><div>Оцінка за урок №3:</div><div th:text="${session.lesson10.get(2)}">10</div></div>
+            <div class="subDiv"><div>Оцінка за урок №4:</div><div th:text="${session.lesson10.get(3)}">10</div></div>
+            <div class="subDiv"><div>Оцінка за урок №5:</div><div th:text="${session.lesson10.get(4)}">10</div></div>
+        </div>
+        <div>
+            <div class="subDiv"><div>Оцінка за урок №6:</div><div th:text="${session.lesson10.get(5)}">10</div></div>
+            <div class="subDiv"><div>Оцінка за урок №7:</div><div th:text="${session.lesson10.get(6)}">10</div></div>
+            <div class="subDiv"><div>Оцінка за урок №8:</div><div th:text="${session.lesson10.get(7)}">10</div></div>
+            <div class="subDiv"><div>Оцінка за урок №9:</div><div th:text="${session.lesson10.get(8)}">10</div></div>
+            <div class="subDiv"><div>Оцінка за урок №10:</div><div th:text="${session.lesson10.get(9)}">10</div></div>
+            
+        </div>
+        <div class="lastch">
+            <div class="subDiv"><div>Оцінка за урок №11:</div><div th:text="${session.lesson10.get(10)}">10</div></div>
+            <div class="subDiv"><div>Оцінка за урок №12:</div><div th:text="${session.lesson10.get(11)}">10</div></div>
+            <div class="subDiv"><div>Оцінка за урок №13:</div><div th:text="${session.lesson10.get(12)}">10</div></div>
+            <div class="subDiv"><div>Оцінка за урок №14:</div><div th:text="${session.lesson10.get(13)}">10</div></div>
+            <div class="subDiv"><div>Оцінка за урок №15:</div><div th:text="${session.lesson10.get(14)}">10</div></div>
+        </div>
+    </div>
+    <div class="logo_list">
+        <div><p>15 уроків</p></div>
+        <div><p>Швидке начання</p></div>
+        <div><p>Онлайн практика</p></div>
+        <div><p>Тестові завдання</p></div>
+    </div>
+</header>
+
+<div class="main_content">
+    <div class="content">
+        <section class="name">
+            <img src="" alt="" width="300px" height="170px">
+            <div>
+                <h2>Модифікатори методів</h2>
+                <a href="#practice">Перейти до практики</a>
+            </div>
+        </section>
+        <div class="op">
+            <p>Представляємо вам уроки програмування мовою Java для починаючих. <br> Великий відео курс по вивченню мови
+                Java.</p>
+        </div>
+        <h2>Відеоурок</h2>
+        <section class="video">
+            <iframe src="https://www.youtube.com/embed/C5q0ULg0nmY" title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+        </section>
+        <section class="text">
+            <h2>Текстовий матеріал</h2>
+            <h3>Модифікатори методів</h3> <br>
+            <h4>Модифікатори доступу</h4>
+            <p>Перед кожним методом програміст може вказати так звані модифікатори доступу. До них належать ключові слова: public, protected, private.</p> <br>
+            <p>Ці «модифікатори доступу» дають змогу обмежувати доступ до методу з інших класів.</p> <br>
+            <p>Приміром, якщо перед оголошенням методу написати ключове слово private, цей метод можна буде викликати тільки з того самого класу, в якому його оголошено. Ключове слово public дозволяє звертатися до позначеного методу з будь-якого методу будь-якого класу.</p> <br>
+            <p>Всього таких модифікаторів 3, а типів доступу до методу — 4, адже відсутність модифікатора доступу теж щось означає.</p> <br>
+            <img src="/src/main/resources/static/img/table_les10.png" alt="table_les10"> <br>
+            <p>1. Модифікатор public.</p> <br>
+            <p>До методу (змінної або класу), позначеного модифікатором public, можна звертатися з будь-якого місця програми. Це найвищий ступінь відкритості — жодного обмеження немає.</p> <br>
+            <p>2. Модифікатор private.</p> <br>
+            <p>До методу (змінної або класу), позначеного модифікатором private, можна звертатися тільки з того самого класу, в якому його оголошено. Для решти класів позначені метод або змінна — невидимі й «наче не існують». Це найвищий ступінь замкнутості — тільки свій клас.</p> <br>
+            <p>3. Без модифікатора (модифікатор за замовчуванням).</p> <br>
+            <p>Якщо метод або змінну не позначено жодним модифікатором, вважається, що їх позначено «модифікатором за замовчуванням». Змінні або методи з таким модифікатором (тобто взагалі без жодного) видно всім класам пакету, в якому їх оголошено. І тільки їм. Цей модифікатор також іноді називають package — з натяком на те, що доступ до змінних і методів відкрито для всього пакету, в якому міститься їхній клас.</p> <br>
+            <p>4. Модифікатор protected.</p> <br>
+            <p>Якщо метод позначено модифікатором protected, до нього можна звертатися з того самого класу, того самого пакету й класів-спадкоємців (класів, успадкованих від класу, в якому оголошено метод). </p> <br>
+            <p>Навіщо потрібні модифікатори доступу?</p> <br>
+            <p>Вся річ у великих проєктах, які пишуть десятки й сотні програмістів одночасно. Трапляються ситуації, коли програміст хоче поділити занадто великий метод свого класу на частини й винести частину коду в допоміжні методи. Разом з тим він не хоче, щоб інші програмісти викликали ці допоміжні методи, оскільки в такому разі код його класу може працювати неправильно.</p> <br>
+            <p>Отож і придумали відповідні модифікатори доступу. Позначте допоміжний метод словом private, і жоден код, окрім вашого класу, не зможе побачити ваш допоміжний метод.</p> <br>
+            <h4>Ключове слово static</h4>
+            <p>Ключове слово static перетворює метод на статичний. Що це таке, ми розглянемо згодом, а зараз просто запам'ятаймо пару фактів про статичні методи.</p> <br>
+            <p>Факт 1. Статичний метод не прив'язано до жодного об'єкта, проте він належить до класу, в якому його оголошено. Щоб викликати статичний метод, слід написати: Ім'яКласу.ім'яМетоду()</p> <br>
+            <p>Приклади статичних методів:</p> <br>
+            <pre><code>Thread.sleep()
+                Math.abs()
+                Arrays.sort()
+            </code></pre> <br>
+            <p>Ім'я класу перед іменем статичного методу можна не писати, якщо ви викликаєте статичний метод з того самого класу. Саме тому немає потреби щоразу писати Solution перед іменами статичних методів, які ви викликаєте.</p> <br>
+            <p>Факт 2. Статичний метод не може звертатися до нестатичних методів свого класу. Статичний метод може звертатися лише до статичних методів. Отож усі методи, які ми хочемо викликати з методу main, ми оголошуємо статичними.</p> <br>
+            <p>Чому? Ви самі зможете відповісти на це запитання, коли почнете вивчати ООП і зрозумієте, як влаштовано статичні методи.</p> <br>
+            <h4>Метод main</h4>
+            <p>Рядок, в якому оголошується метод з усіма модифікаторами, впливатиме на те, як цей метод буде викликатися з інших класів і методів, а також на те, результат якого типу він повертатиме та які помилки можуть виникати під час його роботи.</p> <br>
+            <p>Такий рядок називається оголошенням методу. Ось його загальний вигляд:</p> <br>
+            <p>модифікатори доступу static тип ім'я(параметри)</p> <br>
+            <p>де модифікатори доступу — це public, protected, private або нічого;</p> <br>
+            <p>static пишемо, якщо метод статичний (не пишемо для нестатичних методів);</p> <br>
+            <p>тип — тип результату функції (void, якщо результату немає).</p> <br>
+            <p>Тепер ви вже, напевно, розумієте, що означають усі ключові слова під час оголошення методу main: public static void main(String[] args);</p> <br>
+            <p>Доступ до методу main() можливий із будь-якого класу, про це говорить слово public.</p> <br>
+            <p>Метод статичний (його можна явно викликати у вигляді Solution.main()).</p> <br>
+            <p>Метод main не повертає жодного результату. Тип результату — void (порожній тип/заглушка)</p> <br>
+            <p>Метод main отримує параметри масив рядків. І назва args натякає на «аргументи програми». Під час запуску програми в неї можна передати параметри — масив рядків. Вони й будуть міститися в масиві args методу main().</p> <br>
+            <h3>Видимість змінних</h3> <br>
+            <h4>Локальні змінні</h4>
+            <p>Поговорімо трохи серйозніше про змінні. Натомість цього разу розгляньмо не їхню внутрішню будову, а взаємодію змінних із кодом, в якому вони знаходяться.</p> <br>
+            <p>Усі змінні, оголошені всередині методів, називають локальними змінними. Локальна змінна існує тільки в тому блоці коду, в якому її оголошено. Точніше, вона існує з моменту оголошення й до кінця блока коду, в якому її оголошено.</p> <br>
+            <p>Для простоти розгляньмо приклад:</p> <br>
+            <pre><code>public static void main(String[] args)
+                {
+                    int a = 5; //a
+                    if (a < 10) //a
+                    { //a
+                        int b = 10; //a b
+                        while (true)//a b
+                        {//a b
+                            int x = a + b;//a b x
+                            System.out.println(x);// a b x
+                        }// a b 
+                    }//a
+                }
+            </code></pre> <br>
+            <p>Обговорімо доступність локальних змінних іще раз. Є блок коду, обмежений фігурними дужками: це може бути тіло методу, тіло циклу або просто блок коду умовного оператора. Змінна, оголошена у блоці коду, існує до кінця цього блока коду.</p> <br>
+            <p>Якщо змінну оголосити в тілі циклу, вона існуватиме лише в тілі циклу, створюючись і знищуючись на кожному витку циклу.</p> <br>
+            <p>Неможливо оголосити дві локальні змінні з однаковими іменами в одному методі — програма не скомпілюється. Але можна це зробити, якщо блоки коду, в яких оголошено змінні, не перетинаються.</p> <br>
+            <p>Приклад:</p> <br>
+            <pre><code>public static void main(String[] args)
+                {
+                    int a = 5; //a
+                    if (a < 10) //a
+                    { //a
+                        int b = 10;//a b
+                        System.out.println(b);//a b
+                    }//a
+                
+                    if (a < 20)//a
+                    { //a
+                        int b = 20;//a b
+                        System.out.println(b);//a b
+                    }//a
+                }
+            </code></pre> <br>
+            <p>Другу локальну змінну з іменем b ми змогли оголосити лише тому, що першу змінну b не видно в блоці коду, де оголошено другу змінну b.</p> <br>
+            <h4>Змінні-параметри</h4>
+            <p>Як ми вже казали раніше, у кожного методу можуть бути змінні-параметри. А що можна сказати про їх видимість і час життя?</p> <br>
+            <p>Тут усе досить просто. Змінні-параметри створюються, коли керування передається в код методу (код методу починає виконуватися), і видаляються, коли робота методу завершується. Їх видно в усьому тілі методу.</p> <br>
+            <p>Приклад:</p> <br>
+            <pre><code>public static void main(String[] args)
+                {//args
+                    int a = 5; //args a
+                    if (a < 10)//args a
+                    {//args a
+                        int b = 10;//args a b
+                        while (true)//args a b
+                        {//args a b
+                            int x = a + b;//args a b x
+                            System.out.println(x);//args a b x
+                        }//args a b
+                    }//args a
+                }
+            </code></pre> <br>
+            <p>Як ми вже зазначали, args — це просто змінна типу масив рядків. І подібно до всіх змінних-параметрів вона доступна всюди всередині тіла методу. Хоча в наших прикладах ми її зазвичай ігноруємо.</p> <br>
+            <h4>Змінні класу</h4>
+            <p>Що ж таке змінні (або поля) класу?</p> <br>
+            <p>Змінні класу — це змінні, оголошені не в методі, а в класі.</p> <br>
+            <p>До них можна звертатися з будь-якого методу класу. У загальних рисах, змінні класу — це спільні змінні для всіх методів класу.</p> <br>
+            <p>Приклад:</p> <br>
+            <pre><code>public int count = 0;//count
+                public int sum = 0;//count sum
+                //count sum
+                public void add(int data)// count sum
+                {//count sum data
+                    sum = sum + data;//count sum data
+                    count++;//count sum data
+                }//count sum
+                //count sum
+                public void remove(int data)//count sum
+                {//count sum data
+                    sum = sum - data;//count sum data
+                    count--;//count sum data
+                }//count sum
+            </code></pre> <br>
+            <p>У цьому прикладі маємо два методи — add() і remove(). Метод add() збільшує змінні класу sum і count, а метод remove() зменшує змінні sum і count. Обидва методи працюють зі спільними змінними класу.</p> <br>
+            <p>Локальні змінні існують, поки виконується метод. А змінні класу існують стільки часу, скільки існує об'єкт класу, до якого вони належать. Детальніше про об'єкти класу ви дізнаєтеся на наступних лекціях.</p> <br>
+            <h4>Статичні змінні</h4>
+            <p>Змінні класу, як і методи класу, бувають статичними й нестатичними (звичайними). Статичні методи можуть звертатися лише до статичних змінних.</p> <br>
+            <p>Щоб зробити змінну класу статичною, потрібно перед її оголошенням написати ключове слово static.</p> <br>
+            <p>Статичні змінні прив'язані не до об'єкта класу, в якому їх оголошено, а власне до класу. Тому вони існують, навіть якщо не створено жодного об'єкта типу класу. Звертатися до них із інших класів можна за допомогою такої конструкції:</p> <br>
+            <p>ClassName.variableName</p> <br>
+            <p>Приклад:</p> <br>
+            <pre><code>public class Solution
+                {//Storage.count, Storage.sum
+                    public void add(int data)//Storage.count, Storage.sum
+                    {//Storage.count, Storage.sum, data
+                        Storage.sum = Storage.sum + data;//Storage.count, Storage.sum, data
+                        Storage.count++;//Storage.count, Storage.sum,data
+                    }//Storage.count, Storage.sum
+                    //Storage.count, Storage.sum
+                    public void remove(int data)//Storage.count, Storage.sum
+                    {//Storage.count, Storage.sum, data
+                        Storage.sum = Storage.sum - data;//Storage.count, Storage.sum, data
+                        Storage.count--;//Storage.count, Storage.sum, data
+                    }//Storage.count, Storage.sum
+                }
+                
+                public class Storage
+                {//Storage.count, Storage.sum
+                    public static int count = 0;//Storage.count, Storage.sum
+                    public static int sum = 0;//Storage.count, Storage.sum
+                }
+            </code></pre> <br>
+            <p>У наведеному вище прикладі ми створили окремий клас Storage, винесли в нього змінні count і sum і оголосили їх статичними. До публічних статичних змінних можна звертатися з будь-якого методу програми (та й не тільки з методу).</p> <br>
+            <h3>Особливості роботи зі змінними</h3> <br>
+            <h4>Константи</h4>
+            <p>У багатьох мовах програмування є константи — змінні, значення яких змінювати не можна. Зазвичай це якісь фундаментальні речі на кшталт числа Pi або кількості днів у місяцях. Хоча в принципі програміст може зробити будь-яку змінну константою, якщо вважатиме це за потрібне.</p> <br>
+            <p>Отже, як оголосити незмінювану змінну (константу) в Java? Для цього є спеціальне ключове слово — final. Створення незмінюваної змінної має такий самий вигляд, як і створення звичайної, тільки перед типом змінної слід написати слово final: final тип ім'я = значення;</p> <br>
+            <p>Якщо ви спробуєте присвоїти final-змінній інше значення, ваша програма просто не скомпілюється.</p> <br>
+            <p>final-змінну обов'язково треба ініціалізувати (присвоїти їй значення) під час оголошення. Це правило має один виняток: можна перенести ініціалізацію змінної класу в конструктор. Однак про це ви дізнаєтесь пізніше.</p> <br>
+            <p>Щоб зменшити кількість ключових слів, розробники Java використовують слово final не тільки для оголошення констант. Метод і навіть клас теж можуть бути final. Методи, оголошені як final, не можна перевизначати (override), а клас, оголошений як final, не може бути базовим класом для успадкування.</p> <br>
+            <p>Модифікатор final можна вказувати перед будь-якими змінними: локальними, параметрами, полями класу і статичними змінними.</p> <br>
+            <p>Зверніть увагу, що final — це лише захист від змінення змінної. Якщо змінна зберігає посилання на об'єкт, то об'єкт все ж таки міняти можна.</p> <br>
+            <p>Приклад:</p> <br>
+            <pre><code>final int[] data = {1, 2, 3, 4, 5, 6};
+
+                data = {6, 7, 8, 9};//Так не можна
+                
+                data[0] = 0;//а так можна
+                data[1] = 0;
+                data[2] = 0;
+            </code></pre> <br>
+            <p>Глобальні константи</p> <br>
+            <p>Якщо ви захочете оголосити у своїй програмі глобальні константи, вам потрібно створити статичні змінні класу, а також визначити їх як public і final. Для імен таких змінних існує спеціальний стиль написання: їх пишуть великими літерами, а як роздільник слів використовують знак підкреслення.</p> <br>
+            <p>Приклади:</p> <br>
+            <pre><code>class Solution
+                {
+                   public static final String SOURCE_ROOT = "c:\\projects\\my\\";
+                   public static final int DISPLAY_WIDTH = 1024;
+                   public static final int DISPLAY_HEIGHT = 768;
+                }
+            </code></pre> <br>
+            <h4>Затінення змінних</h4>
+            <p>Як ми вже казали, не можна в одному методі створити кілька локальних змінних з однаковими іменами. У різних методах — можна.</p> <br>
+            <p>А цього ви, напевно, не знаєте: змінним класу і локальним змінним методу дозволено мати однакові імена.</p> <br>
+            <p>Приклад:</p> <br>
+            <pre><code>public int count = 0; //count
+                public int sum = 0; //count, sum
+                //count, sum
+                public void add(int data)//count, sum
+                {//count, sum, data
+                    sum = sum + data;//count, sum, data
+                    int sum = data * 2;//count, sum, data
+                    count++;//count,sum, data
+                }//count, sum
+            </code></pre> <br>
+            <p>У методі add ми оголосили локальну змінну sum, і вона до кінця дії методу перекриває (або ще кажуть затіняє) собою змінну класу sum.</p> <br>
+            <p>Ну гаразд, скажете ви, навіть в якомусь сенсі очікувана поведінка. Але це ще не все. Виявляється, якщо змінну класу затіняє локальна змінна, у методі все-таки є спосіб звернутися до змінної класу. Для цього потрібно перед її іменем написати ключове слово this: this.ім'я</p> <br>
+            <p>Ось приклад, в якому конфлікт імен успішно вирішується:</p> <br>
+            <pre><code>public int count = 0;//this.count
+                public int sum = 0;//this.count, this.sum
+                //this.count, this.sum
+                public void add(int data)//this.count, this.sum
+                {//this.count, this.sum, data
+                    int sum = data * 2;//this.count, this.sum, data, sum
+                    this.sum = this.sum + data;//this.count, this.sum, data, sum
+                    count++;//this.count, this.sum, data, sum
+                }//this.count, this.sum
+            </code></pre> <br>
+            <p>Змінні count і sum доступні всюди як із ключовим словом this, так і без нього. У тих рядках, де локальна змінна sum затіняє змінну класу sum, доступ до змінної класу sum можливий тільки за умови застосування this.</p> <br>
+            <p>Якщо затіняється не просто змінна класу, а статична змінна класу, звертатися до неї потрібно не через this, а через ім'я класу: ClassName.ім'я;</p> <br>
+            <p>Приклад:</p> <br>
+            <pre><code>public class Solution
+                {//Solution.count, Solution.sum
+                    public static int count = 0;//Solution.count, Solution.sum
+                    public static int sum = 0;//Solution.count, Solution.sum
+                    //Solution.count, Solution.sum
+                    public void add(int data)//Solution.count, Solution.sum
+                    {//Solution.count, Solution.sum, data
+                        int sum = data * 2;//Solution.count, Solution.sum, data, sum
+                        Solution.sum = Solution.sum + data;//Solution.count, Solution.sum, data, sum
+                        count++;//Solution.count, Solution.sum, data, sum
+                    }//Solution.count, Solution.sum
+                }
+            </code></pre> <br>
+            <p>Статичні змінні count і sum доступні всюди як із префіксом у вигляді імені класу Solution, так и без нього. У тих рядках, де локальна змінна sum затіняє змінну класу sum, доступ до змінної класу sum можливий тільки за умови застосування префікса Solution.</p>
+        </section>
+        <section class="practice" id="practice">
+            <h2>Практичні завдання</h2>
+            <h4>Завдання №1</h4>
+            <p>Програма має виводити кількість населення найбільших міст світу й порівнювати його з найбільшим за чисельністю населення містом — Токіо. Але алгоритм програми трохи некоректний. Для виправлення помилки тобі потрібно зробити так, щоб у рядку з виведенням інформації про найбільше місто у світі використовувалися статичні змінні класу замість локальних аргументів методу.</p> <br>
+            <p>Початковий код: </p> <br>
+            <pre><code>public class Solution {
+                public static String city = "Токіо";
+                public static double population = 34.5;
+            
+                public static void main(String[] args) {
+                    printCityPopulation("Джакарта", 25.3);
+                    printCityPopulation("Сеул", 25.2);
+                    printCityPopulation("Делі", 23.1);
+                    printCityPopulation("Нью-Йорк", 21.6);
+                }
+            
+                public static void printCityPopulation(String city, double population){
+                    System.out.println("Населення міста " + city + " становить " + population + " млн осіб.");
+                    System.out.println("А тимчасом у найбільш населеному місті " + city + " мешкає " + population + " млн осіб.");
+                }
+            }            
+            </code></pre> <br>
+            <p>Натисність на кнопку нижче, щоб відкрити рішення.</p> <br>
+            <p class="solution">Показати рішення</p>
+            <div class="p1 hidepr">
+                    <pre><code>public class Solution {
+                        public static String city = "Токіо";
+                        public static double population = 34.5;
+                    
+                        public static void main(String[] args) {
+                            printCityPopulation("Джакарта", 25.3);
+                            printCityPopulation("Сеул", 25.2);
+                            printCityPopulation("Делі", 23.1);
+                            printCityPopulation("Нью-Йорк", 21.6);
+                        }
+                    
+                        public static void printCityPopulation(String city, double population){
+                            System.out.println("Населення міста " + city + " становить " + population + " млн осіб.");
+                            System.out.println("А тимчасом у найбільш населеному місті " + Solution.city + " мешкає " + Solution.population + " млн осіб.");
+                        }
+                    }                    
+                </code></pre>
+                <br>
+                <p class="collapse">Згорнути</p> <br>
+            </div>
+            <h4>Завдання №2</h4>
+            <p>Поглянь, що робить програма. Розстав модифікатор final біля загальноприйнятих констант (змінних з незмінними значеннями)</p><br>
+            <p>Початковий код:</p> <br>
+            <pre><code>public class Solution {
+                public static double pi = 3.14;
+                public static double radius = 2.5;
+                public static double diameter = 5;
+            
+                public static void main(String[] args) {
+                    System.out.println("Площа круга дорівнює : " + pi * radius * radius);
+                    System.out.println("Периметр круга дорівнює : " + pi * diameter);
+                }
+            }            
+            </code></pre> <br>
+            <p>Натисність на кнопку нижче, щоб відкрити рішення.</p> <br>
+            <p class="solution">Показати рішення</p>
+            <div class="p2 hidepr">
+                    <pre><code>public class Solution {
+                        public static final double pi = 3.14;
+                        public static double radius = 2.5;
+                        public static double diameter = 5;
+                    
+                        public static void main(String[] args) {
+                            System.out.println("Площа круга дорівнює: " + pi * radius * radius);
+                            System.out.println("Периметр круга дорівнює: " + pi * diameter);
+                        }
+                    }                    
+                </code></pre>
+                <br>
+                <p class="collapse">Згорнути</p> <br>
+            </div>
+        </section>
+        <section class="test">
+            <form action="#" onsubmit="return false;">
+                <!--                <form action="/validate">-->
+                <!--                    <form>-->
+                <h2>Тестові завдання</h2>
+                <div id="q1">
+                    <h4>Питання №1</h4>
+                    <p>Виберіть правильний варіант методу main(), з якого починається виконання програми:</p>
+                    <label>
+                        <input type="radio" value="1" name="var1" class="var">public static void main(String[] args)
+                    </label>
+                    <label>
+                        <input type="radio" value="0" name="var1" class="var">public static void main(String args[])
+                    </label>
+                    <label>
+                        <input type="radio" value="0" name="var1" class="var">static void main(String[] args)
+                    </label>
+                </div>
+                <div id="q2">
+                    <h4>Питання №2</h4>
+                    <p>Зробити змінну незмінною можна за допомогою ключового слова:</p>
+                    <label>
+                        <input type="radio" value="0" name="var2" class="var">const
+                    </label>
+                    <label>
+                        <input type="radio" value="0" name="var2" class="var">let
+                    </label>
+                    <label>
+                        <input type="radio" value="1" name="var2" class="var">final
+                    </label>
+                </div>
+                <div id="q3">
+                    <h4>Питання №3</h4>
+                    <p>Якого модифікатору доступу не існує?</p>
+                    <label>
+                        <input type="radio" value="0" name="var3" class="var">public
+                    </label>
+                    <label>
+                        <input type="radio" value="0" name="var3" class="var">protected
+                    </label>
+                    <label>
+                        <input type="radio" value="1" name="var3" class="var">internal
+                    </label>
+                </div>
+                <div id="q4">
+                    <h4>Питання №4</h4>
+                    <p>Змінні або методи без модифікатору видно:</p>
+                    <label>
+                        <input type="radio" value="1" name="var4" class="var">Класу в якому вони оголошені 
+                    </label>
+                    <label>
+                        <input type="radio" value="0" name="var4" class="var">Будь-якому класу
+                    </label>
+                    <label>
+                        <input type="radio" value="0" name="var4" class="var">Класу-спадкоємцю
+                    </label>
+                </div>
+                <div id="q5">
+                    <h4>Питання №5</h4>
+                    <p>Щоб викликати статичний метод, слід написати:</p>
+                    <label style="display: flex;">
+                        <input type="radio" value="1" name="var5" class="var">Ім'яКласу.ім'яМетоду()
+                    </label>
+                    <label style="display: flex;">
+                        <input type="radio" value="0" name="var5" class="var">*ім'яМетоду()
+                    </label>
+                    <label style="display: flex;">
+                        <input type="radio" value="0" name="var5" class="var">Ім'яКласу->ім'яМетоду()
+                    </label>
+                </div>
+                <div id="q6">
+                    <h4>Питання №6</h4>
+                    <p>Які змінні доступні в даному циклі while:</p>
+                    <pre style="border: none;"><code>int a = 5;
+                        int b = 10;
+                        while (true)
+                        {
+                            int x = a + b;
+                        }
+                    </code></pre>
+                    <label style="display: flex;">
+                        <input type="radio" value="0" name="var6" class="var">x
+                    </label>
+                    <label style="display: flex;">
+                        <input type="radio" value="0" name="var6" class="var">a, b
+                    </label>
+                    <label style="display: flex;">
+                        <input type="radio" value="1" name="var6" class="var">a, b, x
+                    </label>
+                </div>
+                <div id="q7">
+                    <h4>Питання №7</h4>
+                    <p>Звертатися до статичних змінних із інших класів можна за допомогою такої конструкції:</p>
+                    <label style="display: flex;">
+                        <input type="radio" value="0" name="var7" class="var">ClassName->variableName
+                    </label>
+                    <label style="display: flex;">
+                        <input type="radio" value="0" name="var7" class="var">ClassName(variableName)
+                    </label style="display: flex;">
+                    <label>
+                        <input type="radio" value="1" name="var7" class="var">ClassName.variableName
+                    </label>
+                </div>
+                <div id="q8">
+                    <h4>Питання №8</h4>
+                    <p>Які змінні доступні в методі remove:</p>
+                    <pre style="border: none;"><code>public class Storage
+                        {
+                            public static int count = 0;
+                            public static int sum = 0;
+                        }
+                        public class Solution
+                        {
+                            public void remove(int data)
+                            {
+                                Storage.sum = Storage.sum - data;
+                            }
+                        }
+                    </code></pre>
+                    <label>
+                        <input type="radio" value="1" name="var8" class="var">Storage.count, Storage.sum, data
+                    </label>
+                    <label>
+                        <input type="radio" value="0" name="var8" class="var">Storage.count, Storage.sum
+                    </label>
+                    <label>
+                        <input type="radio" value="0" name="var8" class="var">data
+                    </label>
+                </div>
+                <div id="q9">
+                    <h4>Питання №9</h4>
+                    <p>Як оголосити незмінювану змінну в Java:</p>
+                    <label>
+                        <input type="radio" value="0" name="var9" class="var">final ім'я = значення;
+                    </label>
+                    <label>
+                        <input type="radio" value="1" name="var9" class="var">final тип ім'я = значення;
+                    </label>
+                    <label>
+                        <input type="radio" value="0" name="var9" class="var">final тип ім'я;
+                    </label>
+                </div>
+                <div id="q10">
+                    <h4>Питання №10</h4>
+                    <p>Як звернутися до змінної класу, якщо її затіняє локальна змінна:</p>
+                    <label>
+                        <input type="radio" value="0" name="var10" class="var">this->ім'я
+                    </label>
+                    <label>
+                        <input type="radio" value="1" name="var10" class="var">this.ім'я
+                    </label>
+                    <label>
+                        <input type="radio" value="0" name="var10" class="var">&ім'я
+                    </label>
+                </div>
+                <br>
+                <!--                <input type="submit" value="Проверить" id="calc" class="btn">-->
+                <!--                <input type="reset" value="Сбросить" id="res" class="btn"><br>-->
+                <!--                <input id="totalGrad" type="hidden" value="0">-->
+                <p class="alert hidepr">Ви відповіли не на всі тести!</p>
+                <input type="submit" value="Перевірити" id="calc" class="btn">
+                <input type="reset" value="Скинути" id="res" class="btn"><br>
+                <div class="ans"><p class="q">Правильних відповідей:
+                    <p class="grade">0</p></p></div>
+            </form>
+        </section>
+        <section class="btn_sec">
+            <form action="/validate">
+                <input id="totalGrad" name="testsSummary" type="hidden" value="0">
+                <input name="lessonNumber" type="hidden" value="1">
+                <input  id="nextLesson" name="nextLesson" type="hidden" value="les2">
+                <input type="submit" class="btn_go btn" id="next" value="Наступний урок"/>
+            </form>
+        </section>
+        <footer>
+            <p>© All right reserved</p>
+            <p>Kyiv 2021</p>
+        </footer>
+    </div>
+    <aside class="right_panel">
+        <div class="top"></div>
+        <div class="lessons">
+            <div class="panel">
+                <a href="/courseplatform/src/main/resources/static/index.html" class="nL">Урок №1 "Команди й перша
+                    програма"</a>
+            </div>
+            <div class="panel">
+                <a href="/validate" class="nL">Урок №2 "Знайомство з
+                    типами й уведення з клавіатури"</a>
+            </div>
+            <div class="panel">
+                <a href="/courseplatform/src/main/resources/static/les3.html" class="nL">Урок №3 "Умовний оператор"</a>
+            </div>
+            <div class="panel">
+                <a href="/courseplatform/src/main/resources/static/les4.html" class="nL">Урок №4 "Цикли while та do-while"</a>
+            </div>
+            <div class="panel">
+                <a href="/courseplatform/src/main/resources/static/les5.html" class="nL">Урок №5 "Цикл for"</a>
+            </div>
+            <div class="panel">
+                <a href="/courseplatform/src/main/resources/static/les6.html" class="nL">Урок №6 "Масиви"</a>
+            </div>
+            <div class="panel">
+                <a href="/courseplatform/src/main/resources/static/les7.html" class="nL">Урок №7 "Двовимірні масиви"</a>
+            </div>
+            <div class="panel" >
+                <a href="/courseplatform/src/main/resources/static/les8.html" class="nL">Урок №8 "Допоміжний клас Arrays"</a>
+            </div>
+            <div class="panel">
+                <a href="/courseplatform/src/main/resources/static/les9.html" class="nL">Урок №9 "Створення власних функцій, передавання параметрів"</a>
+            </div>
+            <div class="panel activeP">
+                <a href="/courseplatform/src/main/resources/static/les10.html" class="nL">Урок №10 "Модифікатори методів"</a>
+            </div>
+            <div class="panel">
+                <a href="/courseplatform/src/main/resources/static/les11.html" class="nL disable">Урок №11 "Примітивні типи в Java"</a>
+            </div>
+            <div class="panel">
+                <a href="/courseplatform/src/main/resources/static/les12.html" class="nL disable">Урок №12 "Об'єкти в Java"</a>
+            </div>
+            <div class="panel">
+                <a href="/courseplatform/src/main/resources/static/les13.html" class="nL disable">Урок №13 "Клас Math"</a>
+            </div>
+            <div class="panel">
+                <a href="/courseplatform/src/main/resources/static/les14.html" class="nL disable">Урок №14 "Побітові операції в Java"</a>
+            </div>
+            <div class="panel">
+                <a href="/courseplatform/src/main/resources/static/les15.html" class="nL disable">Урок №15 "Літерали в Java"</a>
+            </div>
+        </div>
+        <div class="botom"></div>
+        <div class="info">
+            <div>
+<!--                <img th:src="@{/img/inf.png}" src="/src/main/resources/static/img/inf.png" alt="" height="20px" width="20px">-->
+                <img th:src="@{/img/inf.png}" alt="" height="20px" width="20px">
+            </div>
+            <a target="_blank" href="https://docs.oracle.com/en/java/"> Документація Java</a>
+        </div>
+    </aside>
+
+</div>
+
+<script th:src="@{/js/script.js}" src="/src/main/resources/static/js/script.js"></script>
+<script th:src="@{/js/script.js}"></script>
+</body>
+</html>
