@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en" id="9"  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Java Course</title>
+    <script th:src="@{js/jquery.js}"></script>
+    <script th:src="@{js/jquery.js}" src="/src/main/resources/static/js/jquery.js"></script>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="stylesheet" th:href="@{/css/style.css}" href="/src/main/resources/static/css/style.css">
+</head>
+<body onload="setNextLvlButtonColorIfExist()">
+<input th:if="${session.thisLessonGrade.containsKey(1)}" id="thisLessonGrade" type="hidden" value="1"/>
+<header>
+    <div class="logo">
+        <h1>Онлайн-курc: JavaCourse</h1>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4ZAeznQZoSen1S7qvKdoet0ndYpCepZpR-TMTp6pDlMtkg_oYF3BcLjv2ciiSssFqlws&usqp=CAU" alt="LOGOTYPE" width="120px" height="100px">
+        <h1 th:text="${session.userDB}" class="user">USER</h1>
+        <form th:action="@{/logout}" method="post">
+            <input type="submit" value="Вихід" class="btn" id="logout"/>
+        </form>
+    </div>
+    <div class="gradeList hideGrade">
+        <div>
+            <div class="subDiv"><div>Оцінка за урок №1:</div><div th:text="${session.lesson10.get(0)}">10</div></div>
+            <div class="subDiv"><div>Оцінка за урок №2:</div><div th:text="${session.lesson10.get(1)}">10</div></div>
+            <div class="subDiv"><div>Оцінка за урок №3:</div><div th:text="${session.lesson10.get(2)}">10</div></div>
+            <div class="subDiv"><div>Оцінка за урок №4:</div><div th:text="${session.lesson10.get(3)}">10</div></div>
+            <div class="subDiv"><div>Оцінка за урок №5:</div><div th:text="${session.lesson10.get(4)}">10</div></div>
+        </div>
+        <div>
+            <div class="subDiv"><div>Оцінка за урок №6:</div><div th:text="${session.lesson10.get(5)}">10</div></div>
+            <div class="subDiv"><div>Оцінка за урок №7:</div><div th:text="${session.lesson10.get(6)}">10</div></div>
+            <div class="subDiv"><div>Оцінка за урок №8:</div><div th:text="${session.lesson10.get(7)}">10</div></div>
+            <div class="subDiv"><div>Оцінка за урок №9:</div><div th:text="${session.lesson10.get(8)}">10</div></div>
+            <div class="subDiv"><div>Оцінка за урок №10:</div><div th:text="${session.lesson10.get(9)}">10</div></div>
+            
+        </div>
+        <div class="lastch">
+            <div class="subDiv"><div>Оцінка за урок №11:</div><div th:text="${session.lesson10.get(10)}">10</div></div>
+            <div class="subDiv"><div>Оцінка за урок №12:</div><div th:text="${session.lesson10.get(11)}">10</div></div>
+            <div class="subDiv"><div>Оцінка за урок №13:</div><div th:text="${session.lesson10.get(12)}">10</div></div>
+            <div class="subDiv"><div>Оцінка за урок №14:</div><div th:text="${session.lesson10.get(13)}">10</div></div>
+            <div class="subDiv"><div>Оцінка за урок №15:</div><div th:text="${session.lesson10.get(14)}">10</div></div>
+        </div>
+    </div>
+    <div class="logo_list">
+        <div><p>15 уроків</p></div>
+        <div><p>Швидке начання</p></div>
+        <div><p>Онлайн практика</p></div>
+        <div><p>Тестові завдання</p></div>
+    </div>
+</header>
+
+<div class="main_content">
+    <div class="content">
+        <section class="name">
+            <img src="" alt="" width="300px" height="170px">
+            <div>
+                <h2>Клас Math</h2>
+                <a href="#practice">Перейти до практики</a>
+            </div>
+        </section>
+        <div class="op">
+            <p>Представляємо вам уроки програмування мовою Java для починаючих. <br> Великий відео курс по вивченню мови
+                Java.</p>
+        </div>
+        <h2>Відеоурок</h2>
+        <section class="video">
+            <iframe src="https://www.youtube.com/embed/C5q0ULg0nmY" title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+        </section>
+        <section class="text">
+            <h2>Текстовий матеріал</h2>
+            <h3>Клас Math</h3> <br>
+            <h4>Тригонометричні функції в Java</h4>
+            <p>Раніше, вивчаючи округлення чисел, ми ознайомилися з класом Math і деякими його методами. Зараз ми розглянемо цей клас докладніше.</p> <br>
+            <p>У класі Math, на що нібито натякає ця назва, зібрано найбільш вживані програмістами математичні функції. Ось найцікавіші з них:</p> <br>
+            <img src="/src/main/resources/static/img/table_les13.png" alt="table_les13"> <br> <br>
+            <p>Функції Math.sin(), Math.cos() і Math.tan() отримують кут, заданий в радіанах. Щоб перетворити кути з градусів у радіани й навпаки, у класі Math є дві спеціальні функції:</p> <br>
+            <img src="/src/main/resources/static/img/table_les13.2.png" alt="table_les13.2"> <br> <br>
+            <p>До речі, у класі Math є не тільки функції, а ще й дві змінні-константи (статичні поля класу):</p> <br>
+            <img src="/src/main/resources/static/img/table_les13.3.png" alt="table_les13.3"> <br> <br>
+            <p>Всі ці функції можуть стати вам у великій пригоді, якщо ви захочете писати власні ігри, працювати з графікою або просто обчислити відстань на карті.</p> <br>
+            <p>Приміром, якщо вам потрібно обчислити sin(45°), це можна зробити отак:</p> <br>
+            <pre><code>Math.sin( Math.toRadians(45) )</code></pre> <br>
+            <p>Приклад використання:</p> <br>
+            <pre><code>public class Main
+                {
+                   public static int N = 10;
+                
+                   public static void drawValue(double y)
+                   {
+                     int value = (int) (y * N) + N;
+                     for (int i = 0; i < 2 * N; i++)
+                     {
+                       char c = i == N ? '|': '.';
+                       if (i == value)
+                         c = '*';
+                       System.out.print(c);
+                     }
+                     System.out.println();
+                   }
+                
+                   public static void main(String[] args)
+                   {
+                     for (int i = 0; i < 10 * N; i++)
+                     {
+                       double x = i * 1.0 / N;
+                       double y = Math.sin(x);
+                       drawValue(y);
+                     }
+                   }
+                }
+            </code></pre> <br>
+            <h4>Алгебраїчні функції в Java</h4>
+            <p>Здебільшого програмісту з головою вистачає шкільної математики: навіть синуси й косинуси в коді трапляються дуже рідко. Найчастіше вони потрібні під час роботи з іграми, картами або ігровими движками. 90 % програмістів із цим ніколи не стикаються.</p> <br>
+            <p>Але, крім геометрії, програмістам іноді доводиться використовувати й алгебраїчні функції. І, звичайно ж, клас Math містить найпоширеніші з них:</p> <br>
+            <img src="/src/main/resources/static/img/table_les13.4.png" alt="table_les13.4"> <br> <br>
+            <p>Якщо вам потрібен квадратний або кубічний корінь із числа, для цього є функції sqrt(a) і cbrt(a).</p> <br>
+            <p>Корінь із числа 2 можна обчислити так:</p> <br>
+            <pre><code>Math.sqrt(2)</code></pre> <br>
+            <p>Якщо ви хочете отримати корінь більш високого степеня, скористайтеся функцією піднесення до степеня: a в степені ¼ — це й буде корінь четвертого степеня і т.д.</p> <br>
+            <pre><code>Math.pow(2, 0.25)</code></pre> <br>
+            <p>Для роботи з логарифмами й експонентою є функції log(a) — натуральний логарифм і exp(x) — експонента. Для обчислення десяткового логарифма є функція log10(a).</p> <br>
+            <p>Якщо вам потрібен логарифм числа b за основою a, скористайтеся простою формулою: logab = ln(b) / ln(a)</p> <br>
+            <h4>Мінімум і максимум</h4>
+            <p>І ще дві корисні функції — це min(a, b) і max(a, b). Перша, як ви вже, напевно, здогадуєтеся, повертає менше з двох чисел:</p> <br>
+            <pre><code>Math.min(a, b)</code></pre> <br>
+            <p>А друга — більше з двох чисел:</p> <br>
+            <pre><code>Math.max(a, b)</code></pre> <br>
+            <p>Навіщо ж потрібні ці функції, якщо завжди можна написати if або навіть використати тернарний оператор a < b ? a : b?</p> <br>
+            <p>Вся річ у читабельності коду. Іноді код і без того перевантажений if-ами, і хочеться використати компактніший запис. Порівняйте:</p> <br>
+            <p>Найдовший запис формули за допомогою if-else:</p> <br>
+            <pre><code>int x = 0;
+                if (x-5+y*20 < x*x+y*y)
+                   x = x-5+y*20;
+                else
+                   x = x*x+y*y;
+            </code></pre> <br>
+            <p>Запис за допомогою тернарного оператора:</p> <br>
+            <pre><code>int a = x-5+y*20;
+                int b = x*x+y*y;
+                int x = a < b ? a : b;
+            </code></pre> <br>
+            <p>Запис за допомогою функції Math.min</p> <br>
+            <pre><code>int x = Math.min(x-5+y*20, x*x+y*y);</code></pre> <br>
+            <h3>Випадкові числа в Java</h3> <br>
+            <h4>Псевдовипадкові числа</h4>
+            <p>Взагалі, якщо вам потрібно отримати «справжнє випадкове число», зробити це досить-таки важко. Справа доходить до того, що в комп'ютер вбудовують спеціальні математичні співпроцесори, які вміють генерувати такі числа з дотриманням усіх вимог до «справжньої випадковості».</p> <br>
+            <p>Тому програмісти придумали власне рішення — псевдовипадкові числа. Псевдовипадкові числа — це деяка послідовність, в якій числа на перший погляд здаються випадковими, але фахівець, виконавши докладний аналіз, зможе знайти в них певні закономірності. Для шифрування секретних документів такі числа не підійдуть, а от для імітації кидання кубика в грі — цілковито.</p> <br>
+            <p>Є багато алгоритмів генерування послідовності псевдовипадкових чисел, і майже всі вони генерують наступне випадкове число на основі попереднього та ще деяких допоміжних чисел.</p> <br>
+            <p>Наприклад, ця програма виведе на екран 1000 неповторюваних чисел:</p> <br>
+            <pre><code>public class Main
+                {
+                   public static int a = 41;
+                   public static int c = 11119;
+                   public static int m = 11113;
+                   public static int seed = 1;
+                
+                   public static int getNextRandom()
+                   {
+                     seed = (a * seed + c) % m;
+                     return seed;
+                   }
+                
+                   public static void main(String[] args)
+                   {
+                     for (int i = 0; i < 1000; i++)
+                     {
+                       System.out.println(getNextRandom());
+                     }
+                   }
+                }
+            </code></pre> <br>
+            <p>До речі, ми говоримо не про окремі псевдовипадкові числа, а саме про послідовність таких чисел, оскільки дивлячись на одне число, неможливо зрозуміти, випадкове воно чи ні.</p> <br>
+            <p>Адже випадкове число можна отримати різними способами:</p> <br>
+            <pre><code>public static int getRandomNumber()
+                {
+                   return 4; // це точно випадкове число (викинули його на кубиках)
+                }
+            </code></pre> <br>
+            <h4>Метод Math.random()</h4>
+            <p>Клас Math у Java має спеціальний метод, який повертає випадкове число. І як ви вже, можливо, здогадуєтеся, цей метод має назву random. Його виклик має такий загальний вигляд:</p> <br>
+            <pre><code>Math.random()</code></pre> <br>
+            <p>Метод не отримує жодного параметра, але повертає результат — псевдовипадкове дійсне число в діапазоні від 0 до 1. Одиниця до діапазону не входить.</p> <br>
+            <p>Наприклад:</p> <br>
+            <pre><code>public class Main
+                {
+                   public static void main(String[] args)
+                   {
+                     for (int i = 0; i < 10; i++)
+                     {
+                       System.out.println(Math.random());
+                     }
+                   }
+                }
+            </code></pre> <br>
+            <p>А що робити, якщо вам цей метод не дуже підходить, а ви хочете, припустімо, написати програму, яка імітує кидання кубика з шістьма гранями? Як отримати випадкові цілі числа в діапазоні 1…6, а не дійсні в діапазоні 0…1?</p> <br>
+            <p>Насправді це досить просто.</p> <br>
+            <p>Спочатку треба перетворити діапазон [0,1) на [0, 6). Для цього просто слід помножити результат функції random() на 6. Ну а щоб отримати цілі числа, потрібно це все округлити:</p> <br>
+            <pre><code>public class Main
+                {
+                   public static int getRandomDiceNumber()
+                   {
+                      return (int) (Math.random() * 6);
+                   }
+                
+                   public static void main(String[] args)
+                   {
+                      for (int i = 0; i < 10; i++)
+                      {
+                         int x = getRandomDiceNumber();
+                         System.out.println(x);
+                      }
+                   }
+                }
+            </code></pre> <br>
+            <p>Функція getRandomDiceNumber() повертає випадкове ціле число з діапазону 0…5 включно. Тільки це будуть числа не з набору 1,2,3,4,5,6, а з набору 0,1,2,3,4,5.</p> <br>
+            <p>Якщо потрібні числа саме з набору 1,2,3,4,5,6, слід просто до всіх випадкових чисел додавати одиницю:</p> <br>
+            <pre><code>public class Main
+                {
+                   public static int getRandomDiceNumber()
+                   {
+                      return (int) (Math.random() * 6) + 1;
+                   }
+                
+                   public static void main(String[] args)
+                   {
+                     for (int i = 0; i < 10; i++)
+                     {
+                       int x = getRandomDiceNumber();
+                       System.out.println(x);
+                     }
+                   }
+                }
+            </code></pre> <br>
+            <h4>Клас Random</h4>
+            <p>У Java є спеціальний клас Random, який інкапсулює послідовність псевдовипадкових чисел. Можна створити кілька об'єктів класу Random, і кожен із цих об'єктів генеруватиме свою послідовність псевдовипадкових чисел.</p> <br>
+            <p>Це дуже цікавий клас, і він має багато цікавих методів. Почнімо з найпростіших:</p> <br>
+            <p>Метод double nextDouble()</p> <br>
+            <p>Цей метод повертає випадкове дійсне число в діапазоні 0.0–1.0. Дуже схоже на метод Math.random(). І нічого дивного, адже метод Math.random() просто викликає метод nextDouble() для об'єкта типу Random.</p> <br>
+            <p>Метод float nextFloat()</p> <br>
+            <p>Метод дуже схожий на метод nextDouble(), тільки повертає він випадкове число типу float. Воно також лежить в діапазоні 0.0–1.0. І, як завжди, у Java діапазон не включає число 1.0.</p> <br>
+            <pre><code>Random r = new Random();
+                float f = r.nextFloat();
+            </code></pre> <br>
+            <p>Метод int nextInt(int max)</p> <br>
+            <p>Цей метод повертає випадкове ціле число в діапазоні [0, max). 0 входить до діапазону, max — не входить.</p> <br>
+            <p>Тобто якщо ви хочете отримати випадкове число з набору 1, 2, 3, 4, 5, 6, вам доведеться додати до отриманого випадкового числа одиницю:</p> <br>
+            <pre><code>Random r = new Random();
+                int x = r.nextInt(6) + 1;
+            </code></pre> <br>
+            <p>Метод int nextInt()</p> <br>
+            <p>Цей метод подібний до попереднього, але не отримує жодного параметра. Тоді в якому ж діапазоні він генерує числа? Від -2 мільярдів до +2 мільярдів.</p> <br>
+            <p>Точніше від -2147483648 до +2147483647.</p> <br>
+            <p>Метод long nextLong()</p> <br>
+            <p>Цей метод подібний до методу nextInt(), тільки повертатиме він значення з усього можливого діапазону значень типу long.</p> <br>
+            <p>Метод boolean nextBoolean()</p> <br>
+            <p>Цей метод повертає випадкове значення типу boolean: false або true. Дуже зручно, якщо потрібно отримати довгу послідовність випадкових логічних значень.</p> <br>
+            <p>Метод void nextBytes(byte[] data)</p> <br>
+            <p>Цей метод не повертає нічого (тип void). Натомість він заповнює переданий у нього масив випадковими значеннями. Дуже зручно, якщо потрібен великий буфер, заповнений випадковими даними.</p> <br>
+            <p>Метод double nextGaussian()</p> <br>
+            <p>Цей метод повертає випадкове дійсне число в діапазоні 0.0–1.0. От тільки числа в цьому діапазоні розподілені не рівномірно, а підпорядковані нормальному розподілу.</p> <br>
+            <p>Числа, ближчі до середини діапазону (0.5), випадатимуть частіше, ніж значення по краях діапазону.</p> <br>
+            <h3>Паузи в програмі</h3> <br>
+            <h4>Метод Thread.sleep()</h4>
+            <p>У роботу Java-програми можна вставляти паузи. Зазвичай це не потрібно, адже користувачі хочуть, щоб їхні програми працювали якомога швидше. І навряд чи хтось із них зрадіє, якщо ви будете навмисно сповільнювати свій код.</p> <br>
+            <p>Але у вас, як у програміста, може трапитися безліч ситуацій, коли пауза в коді буде корисною. Наприклад, ви програмуєте гру й хочете, щоб вона виконувала якісь дії один раз на дві секунди або кілька разів за секунду.</p> <br>
+            <p>Загалом пауза — річ корисна, тому погляньмо, як же додати її в код. Це насправді дуже просто.</p> <br>
+            <pre><code>Thread.sleep(час);</code></pre> <br>
+            <p>де час — це тривалість паузи в мілісекундах (1/1000 частка секунди).</p> <br>
+            <p>Виконання такої команди призупинить вашу програму на час милісекунд. </p> <br>
+            <p>Наприклад:</p> <br>
+            <pre><code>Thread.sleep(2000);
+                Thread.sleep(500);
+                Thread.sleep(60 * 60 * 1000);
+            </code></pre> <br>
+            <p>Отак це можна застосовувати на практиці. Припустімо, ми пишемо програму, яка запускатиме космічний корабель. Отакий вигляд міг би мати її код:</p> <br>
+            <pre><code>for (int i = 10; i > 0; i--)
+                {
+                   System.out.println(i);
+                   Thread.sleep(1000);
+                }
+                System.out.println("Поїхали!");
+            </code></pre> <br>
+            <h4>Наносекунди</h4>
+            <p>Сучасні комп'ютери працюють набагато швидше, ніж це було за часів створення Java. Тому паузи в 1 мілісекунду може виявитися замало.</p> <br>
+            <p>Припустімо, ми виконуємо якусь дуже швидку дію й хочемо, щоб це відбувалося 2000 разів за секунду. Як нам зробити паузу в пів мілісекунди?</p> <br>
+            <p>А от для цього є ще одна модифікація методу Thread.sleep():</p> <br>
+            <pre><code>Thread.sleep(мілісекунди, наносекунди);</code></pre> <br>
+            <p>Цей метод присипляє програму на зазначену кількість мілісекунд і наносекунд.</p> <br>
+            <p>Наносекунда — це 1 мільйонна частка мілісекунди. Отже, пауза в півтори мілісекунди матиме такий вигляд:</p> <br>
+            <pre><code>Thread.sleep(1, 500_000);</code></pre> <br>
+            <p>Ну а якщо вам потрібна пауза в 1/10 милісекунди, слід написати так:</p> <br>
+            <pre><code>Thread.sleep(0, 100_000);</code></pre> <br>
+            <p>Можливо, наразі ви цей метод використовувати у своїх програмах не будете. Проте краще знати, що він є, і не використовувати, ніж не знати про нього, коли він вам знадобиться.</p> <br>
+            <h4>Клас TimeUnit</h4>
+            <p>До речі, в Java є інший клас, який полегшить вам життя, якщо ви таки вирішите ще більше уповільнити свою програму — це клас TimeUnit із пакету java.util.concurrent.</p> <br>
+            <p>Цей клас робить те саме, що й Thread.sleep(), тільки зручніше:</p> <br>
+            <pre><code>TimeUnit.HOURS.sleep(15)</code></pre> <br>
+            <p>Цей код приспить вашу програму на 15 годин. Доступні також хвилини, секунди, дні.  А ще — мікросекунди (1/1000 000) і наносекунди (1/1000 000 000).</p> <br>
+            <p>Клас TimeUnit має такі властивості:</p> <br>
+            <ul>
+                <li>наносекунди: NANOSECONDS</li>
+                <li>мікросекунди: MICROSECONDS</li>
+                <li>мілісекунди: MILLISECONDS</li>
+                <li>секунди: SECONDS</li>
+                <li>хвилини: MINUTES</li>
+                <li>години: HOURS</li>
+                <li>дні: DAYS</li>
+            </ul> <br>
+            <p>Дуже зручно працювати з такими властивостями: не потрібно замислюватися про перетворення, скажімо, годин на мілісекунди. Такий код і писати, і читати набагато приємніше.</p>
+        </section> 
+        <section class="practice" id="practice">
+            <h2>Практичні завдання</h2>
+            <h4>Завдання №1</h4>
+            <p>У цій задачі тобі потрібно реалізувати метод generateNumber(), який повертатиме випадкове число від 0 до 99.</p> <br>
+            <p>У методі generateNumber() використай метод Math.random().</p> <br>
+            <p>Натисність на кнопку нижче, щоб відкрити рішення.</p> <br>
+            <p class="solution">Показати рішення</p>
+            <div class="p1 hidepr">
+                    <pre><code>public class Solution {
+
+                        public static void main(String[] args) {
+                            System.out.println(generateNumber());
+                        }
+                    
+                        public static int generateNumber() {
+                            return  (int) (Math.random() * 100);
+                        }
+                    }                    
+                </code></pre>
+                <br>
+                <p class="collapse">Згорнути</p> <br>
+            </div>
+            <h4>Завдання №2</h4>
+            <p>У класі Solution реалізуй метод printNumbers(), який виводить числа від 1 до 10 включно з інтервалом 1,3 мілісекунди між виведенням кожного числа.</p><br>
+            <p>Натисність на кнопку нижче, щоб відкрити рішення.</p> <br>
+            <p class="solution">Показати рішення</p>
+            <div class="p2 hidepr">
+                    <pre><code>public class Solution {
+
+                        public static void main(String[] args) {
+                            printNumbers();
+                        }
+                    
+                        public static void printNumbers(){
+                            for (int i = 1; i <= 10; i++) {
+                                System.out.println(i);
+                                if (i < 10) {
+                                    Thread.sleep(1, 300_000);
+                                }
+                            }
+                        }
+                    }                    
+                </code></pre>
+                <br>
+                <p class="collapse">Згорнути</p> <br>
+            </div>
+        </section>
+        <section class="test">
+            <form action="#" onsubmit="return false;">
+                <!--                <form action="/validate">-->
+                <!--                    <form>-->
+                <h2>Тестові завдання</h2>
+                <div id="q1">
+                    <h4>Питання №1</h4>
+                    <p>Обчислити квадратний корінь із числа х можна за допомогою виразу</p>
+                    <label>
+                        <input type="radio" value="0" name="var1" class="var">(x)^(1/2)
+                    </label>
+                    <label>
+                        <input type="radio" value="0" name="var1" class="var">sqrt(x)
+                    </label>
+                    <label>
+                        <input type="radio" value="1" name="var1" class="var">Math.sqrt(x)
+                    </label>
+                </div>
+                <div id="q2">
+                    <h4>Питання №2</h4>
+                    <p>Обчислити синус кута x можна за допомогою виразу</p>
+                    <label>
+                        <input type="radio" value="0" name="var2" class="var">sin(x)
+                    </label>
+                    <label>
+                        <input type="radio" value="0" name="var2" class="var">sinus(x)
+                    </label>
+                    <label>
+                        <input type="radio" value="1" name="var2" class="var">Math.sin(x)
+                    </label>
+                </div>
+                <div id="q3">
+                    <h4>Питання №3</h4>
+                    <p>Вираз int (Math.random()*6) набуватиме значення в діапазоні</p>
+                    <label>
+                        <input type="radio" value="0" name="var3" class="var">0, 1, 2, 3, 4, 5, 6
+                    </label>
+                    <label>
+                        <input type="radio" value="0" name="var3" class="var">1, 2, 3, 4, 5, 6
+                    </label>
+                    <label>
+                        <input type="radio" value="1" name="var3" class="var">0, 1, 2, 3, 4, 5
+                    </label>
+                </div>
+                <div id="q4">
+                    <h4>Питання №4</h4>
+                    <p>Призупинити програму на пів секунди можна за допомогою команди</p>
+                    <label>
+                        <input type="radio" value="0" name="var4" class="var">Thread.sleep(0,5)
+                    </label>
+                    <label>
+                        <input type="radio" value="1" name="var4" class="var">Thread.sleep(500)
+                    </label>
+                    <label>
+                        <input type="radio" value="0" name="var4" class="var">Thread.sleep(50)
+                    </label>
+                </div>
+                <div id="q5">
+                    <h4>Питання №5</h4>
+                    <p>Пауза в півтори мілісекунди матиме такий вигляд:</p>
+                    <label style="display: flex;">
+                        <input type="radio" value="1" name="var5" class="var">Thread.sleep(1, 500_000);
+                    </label>
+                    <label style="display: flex;">
+                        <input type="radio" value="0" name="var5" class="var">Thread.sleep(1, 500);
+                    </label>
+                    <label style="display: flex;">
+                        <input type="radio" value="0" name="var5" class="var">Thread.sleep(1.5);
+                    </label>
+                </div>
+                <div id="q6">
+                    <h4>Питання №6</h4>
+                    <p>Піднести число x до степеня y можна за допомогою команди:</p>
+                    <label style="display: flex;">
+                        <input type="radio" value="0" name="var6" class="var">Math.pow(x^y);
+                    </label>
+                    <label style="display: flex;">
+                        <input type="radio" value="1" name="var6" class="var">Math.pow(x, y);
+                    </label>
+                    <label style="display: flex;">
+                        <input type="radio" value="0" name="var6" class="var">pow(x, y);
+                    </label>
+                </div>
+                <div id="q7">
+                    <h4>Питання №7</h4>
+                    <p>Призупинити програму на 15 годин можна за допомогою команди:</p>
+                    <label style="display: flex;">
+                        <input type="radio" value="0" name="var7" class="var">Time.HOURS.sleep(15);
+                    </label>
+                    <label style="display: flex;">
+                        <input type="radio" value="1" name="var7" class="var">TimeUnit.HOURS.sleep(15);
+                    </label style="display: flex;">
+                    <label>
+                        <input type="radio" value="0" name="var7" class="var">Thread.HOURS.sleep(15);
+                    </label>
+                </div>
+                <div id="q8">
+                    <h4>Питання №8</h4>
+                    <p>Який діапазон значень буде отриманий після виконання коду:</p> <pre style="border: none;"><code>Random r = new Random();
+                        int x = r.nextInt(6) + 1;
+                    </code></pre> <br>
+                    <label>
+                        <input type="radio" value="1" name="var8" class="var">1, 2, 3, 4, 5, 6
+                    </label>
+                    <label>
+                        <input type="radio" value="0" name="var8" class="var">1, 2, 3, 4, 5, 6, 7
+                    </label>
+                    <label>
+                        <input type="radio" value="0" name="var8" class="var">2, 3, 4, 5, 6, 7
+                    </label>
+                </div>
+                <div id="q9">
+                    <h4>Питання №9</h4>
+                    <p>Яка команда знаходить максимальне з двох значень:</p>
+                    <label>
+                        <input type="radio" value="0" name="var9" class="var">max(a, b)
+                    </label>
+                    <label>
+                        <input type="radio" value="0" name="var9" class="var">Math.max(a?b)
+                    </label>
+                    <label>
+                        <input type="radio" value="1" name="var9" class="var">Math.max(a, b)
+                    </label>
+                </div>
+                <div id="q10">
+                    <h4>Питання №10</h4>
+                    <p>В якому діапазоні генерує числа метод int nextInt() класу Random:</p>
+                    <label>
+                        <input type="radio" value="0" name="var10" class="var">0 – 2147483647
+                    </label>
+                    <label>
+                        <input type="radio" value="0" name="var10" class="var">0 - 1
+                    </label>
+                    <label>
+                        <input type="radio" value="1" name="var10" class="var">-2147483648 - +2147483647
+                    </label>
+                </div>
+                <br>
+                <!--                <input type="submit" value="Проверить" id="calc" class="btn">-->
+                <!--                <input type="reset" value="Сбросить" id="res" class="btn"><br>-->
+                <!--                <input id="totalGrad" type="hidden" value="0">-->
+                <p class="alert hidepr">Ви відповіли не на всі тести!</p>
+                <input type="submit" value="Перевірити" id="calc" class="btn">
+                <input type="reset" value="Скинути" id="res" class="btn"><br>
+                <div class="ans"><p class="q">Правильних відповідей:
+                    <p class="grade">0</p></p></div>
+            </form>
+        </section>
+        <section class="btn_sec">
+            <form action="/validate">
+                <input id="totalGrad" name="testsSummary" type="hidden" value="0">
+                <input name="lessonNumber" type="hidden" value="1">
+                <input  id="nextLesson" name="nextLesson" type="hidden" value="les2">
+                <input type="submit" class="btn_go btn" id="next" value="Наступний урок"/>
+            </form>
+        </section>
+        <footer>
+            <p>© All right reserved</p>
+            <p>Kyiv 2021</p>
+        </footer>
+    </div>
+    <aside class="right_panel">
+        <div class="top"></div>
+        <div class="lessons">
+            <div class="panel">
+                <a href="/courseplatform/src/main/resources/static/index.html" class="nL">Урок №1 "Команди й перша
+                    програма"</a>
+            </div>
+            <div class="panel">
+                <a href="/validate" class="nL">Урок №2 "Знайомство з
+                    типами й уведення з клавіатури"</a>
+            </div>
+            <div class="panel">
+                <a href="/courseplatform/src/main/resources/static/les3.html" class="nL">Урок №3 "Умовний оператор"</a>
+            </div>
+            <div class="panel">
+                <a href="/courseplatform/src/main/resources/static/les4.html" class="nL">Урок №4 "Цикли while та do-while"</a>
+            </div>
+            <div class="panel">
+                <a href="/courseplatform/src/main/resources/static/les5.html" class="nL">Урок №5 "Цикл for"</a>
+            </div>
+            <div class="panel">
+                <a href="/courseplatform/src/main/resources/static/les6.html" class="nL">Урок №6 "Масиви"</a>
+            </div>
+            <div class="panel">
+                <a href="/courseplatform/src/main/resources/static/les7.html" class="nL">Урок №7 "Двовимірні масиви"</a>
+            </div>
+            <div class="panel" >
+                <a href="/courseplatform/src/main/resources/static/les8.html" class="nL">Урок №8 "Допоміжний клас Arrays"</a>
+            </div>
+            <div class="panel">
+                <a href="/courseplatform/src/main/resources/static/les9.html" class="nL">Урок №9 "Створення власних функцій, передавання параметрів"</a>
+            </div>
+            <div class="panel">
+                <a href="/courseplatform/src/main/resources/static/les10.html" class="nL">Урок №10 "Модифікатори методів"</a>
+            </div>
+            <div class="panel">
+                <a href="/courseplatform/src/main/resources/static/les11.html" class="nL">Урок №11 "Примітивні типи в Java"</a>
+            </div>
+            <div class="panel">
+                <a href="/courseplatform/src/main/resources/static/les12.html" class="nL">Урок №12 "Об'єкти в Java"</a>
+            </div>
+            <div class="panel  activeP">
+                <a href="/courseplatform/src/main/resources/static/les13.html" class="nL">Урок №13 "Клас Math"</a>
+            </div>
+            <div class="panel">
+                <a href="/courseplatform/src/main/resources/static/les14.html" class="nL disable">Урок №14 "Побітові операції в Java"</a>
+            </div>
+            <div class="panel">
+                <a href="/courseplatform/src/main/resources/static/les15.html" class="nL disable">Урок №15 "Літерали в Java"</a>
+            </div>
+        </div>
+        <div class="botom"></div>
+        <div class="info">
+            <div>
+<!--                <img th:src="@{/img/inf.png}" src="/src/main/resources/static/img/inf.png" alt="" height="20px" width="20px">-->
+                <img th:src="@{/img/inf.png}" alt="" height="20px" width="20px">
+            </div>
+            <a target="_blank" href="https://docs.oracle.com/en/java/"> Документація Java</a>
+        </div>
+    </aside>
+
+</div>
+
+<script th:src="@{/js/script.js}" src="/src/main/resources/static/js/script.js"></script>
+<script th:src="@{/js/script.js}"></script>
+</body>
+</html>
