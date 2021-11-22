@@ -453,7 +453,7 @@
                     </label>
                     <label style="display: flex;">
                         <input type="radio" value="1" name="var7" class="var">TimeUnit.HOURS.sleep(15);
-                    </label style="display: flex;">
+                    </label>
                     <label>
                         <input type="radio" value="0" name="var7" class="var">Thread.HOURS.sleep(15);
                     </label>
@@ -527,51 +527,100 @@
         <div class="top"></div>
         <div class="lessons">
             <div class="panel">
-                <a href="/courseplatform/src/main/resources/static/index.html" class="nL">Урок №1 "Команди й перша
-                    програма"</a>
+                <div th:with="condition=${session.lesson10.get(0) > 7}" th:remove="tag">
+                    <a th:if="${condition}" href="/lesson?goToLesson=1" class="nL">Урок №1 "Команди й перша
+                        програма"</a>
+                    <span th:unless="${condition}" class="nL">Урок №1 "Команди й перша
+                        програма"</span>
+                </div>
+            </div>
+            <div class="panel activeP">
+                <div th:with="condition=${session.lesson10.get(1) > 7}" th:remove="tag">
+                    <a th:if="${condition}" href="/lesson?goToLesson=2" class="nL">Урок №2 "Знайомство з
+                        типами й уведення з клавіатури"</a>
+                    <span th:unless="${condition}" class="nL">Урок №2 "Знайомство з
+                        типами й уведення з клавіатури"</span>
+                </div>
             </div>
             <div class="panel">
-                <a href="/validate" class="nL">Урок №2 "Знайомство з
-                    типами й уведення з клавіатури"</a>
+                <div th:with="condition=${session.lesson10.get(2) >= 7}" th:remove="tag">
+                    <a th:if="${condition}" href="/lesson?goToLesson=3" class="nL">Урок №3 "Умовний оператор</a>
+                    <span th:unless="${condition}" class="nL">Урок №3 "Умовний оператор</span></div>
             </div>
             <div class="panel">
-                <a href="/courseplatform/src/main/resources/static/les3.html" class="nL">Урок №3 "Умовний оператор"</a>
+                <div th:with="condition=${session.lesson10.get(3) >= 7}" th:remove="tag">
+                    <a th:if="${condition}" href="/lesson?goToLesson=4" class="nL">Урок №4 "Цикли while та do-while"
+                    </a>
+                    <span th:unless="${condition}" class="nL">Урок №4 "Цикли while та do-while"</span></div>
             </div>
             <div class="panel">
-                <a href="/courseplatform/src/main/resources/static/les4.html" class="nL">Урок №4 "Цикли while та do-while"</a>
+                <div th:with="condition=${session.lesson10.get(4) >= 7}" th:remove="tag">
+                    <a th:if="${condition}" href="/lesson?goToLesson=5" class="nL">Урок №5 "Цикл for"</a>
+                    <span th:unless="${condition}" class="nL">Урок №5 "Цикл for"</span></div>
             </div>
             <div class="panel">
-                <a href="/courseplatform/src/main/resources/static/les5.html" class="nL">Урок №5 "Цикл for"</a>
+                <div th:with="condition=${session.lesson10.get(5) >= 7}" th:remove="tag">
+                    <a th:if="${condition}" href="/lesson?goToLesson=6" class="nL">Урок №6 "Масиви"</a>
+                    <span th:unless="${condition}" class="nL">Урок №6 "Масиви"</span></div>
             </div>
             <div class="panel">
-                <a href="/courseplatform/src/main/resources/static/les6.html" class="nL">Урок №6 "Масиви"</a>
+                <div th:with="condition=${session.lesson10.get(6) >= 7}" th:remove="tag">
+                    <a th:if="${condition}" href="/lesson?goToLesson=7" class="nL">Урок №7 "Двовимірні масиви"</a>
+                    <span th:unless="${condition}" class="nL">Урок №7 "Двовимірні масиви"</span></div>
             </div>
             <div class="panel">
-                <a href="/courseplatform/src/main/resources/static/les7.html" class="nL">Урок №7 "Двовимірні масиви"</a>
-            </div>
-            <div class="panel" >
-                <a href="/courseplatform/src/main/resources/static/les8.html" class="nL">Урок №8 "Допоміжний клас Arrays"</a>
-            </div>
-            <div class="panel">
-                <a href="/courseplatform/src/main/resources/static/les9.html" class="nL">Урок №9 "Створення власних функцій, передавання параметрів"</a>
+                <div th:with="condition=${session.lesson10.get(7) >= 7}" th:remove="tag">
+                    <a th:if="${condition}" href="/lesson?goToLesson=8" class="nL">Урок №8 "Допоміжний клас Arrays"</a>
+                    <span th:unless="${condition}" class="nL">Урок №8 "Допоміжний клас Arrays"</span></div>
             </div>
             <div class="panel">
-                <a href="/courseplatform/src/main/resources/static/les10.html" class="nL">Урок №10 "Модифікатори методів"</a>
+                <div th:with="condition=${session.lesson10.get(8) >= 7}" th:remove="tag">
+                    <a th:if="${condition}" href="/lesson?goToLesson=9" class="nL">Урок №9 "Тема
+                        уроку"</a>
+                    <span th:unless="${condition}" class="nL">Урок №9 "Тема
+                    уроку"</span></div>
             </div>
             <div class="panel">
-                <a href="/courseplatform/src/main/resources/static/les11.html" class="nL">Урок №11 "Примітивні типи в Java"</a>
+                <div th:with="condition=${session.lesson10.get(9) >= 7}" th:remove="tag">
+                    <a th:if="${condition}" href="/lesson?goToLesson=10" class="nL">Урок №10 "Тема
+                        уроку"</a>
+                    <span th:unless="${condition}" class="nL">Урок №10 "Тема
+                    уроку"</span></div>
             </div>
             <div class="panel">
-                <a href="/courseplatform/src/main/resources/static/les12.html" class="nL">Урок №12 "Об'єкти в Java"</a>
-            </div>
-            <div class="panel  activeP">
-                <a href="/courseplatform/src/main/resources/static/les13.html" class="nL">Урок №13 "Клас Math"</a>
-            </div>
-            <div class="panel">
-                <a href="/courseplatform/src/main/resources/static/les14.html" class="nL disable">Урок №14 "Побітові операції в Java"</a>
+                <div th:with="condition=${session.lesson10.get(10) >= 7}" th:remove="tag">
+                    <a th:if="${condition}" href="/lesson?goToLesson=11" class="nL">Урок №11 "Тема
+                        уроку"</a>
+                    <span th:unless="${condition}" class="nL">Урок №11 "Тема
+                    уроку"</span></div>
             </div>
             <div class="panel">
-                <a href="/courseplatform/src/main/resources/static/les15.html" class="nL disable">Урок №15 "Літерали в Java"</a>
+                <div th:with="condition=${session.lesson10.get(11) >= 7}" th:remove="tag">
+                    <a th:if="${condition}" href="/lesson?goToLesson=12" class="nL">Урок №12 "Тема
+                        уроку"</a>
+                    <span th:unless="${condition}" class="nL">Урок №12 "Тема
+                    уроку"</span></div>
+            </div>
+            <div class="panel">
+                <div th:with="condition=${session.lesson10.get(12) >= 7}" th:remove="tag">
+                    <a th:if="${condition}" href="/lesson?goToLesson=13" class="nL">Урок №13 "Тема
+                        уроку"</a>
+                    <span th:unless="${condition}" class="nL">Урок №13 "Тема
+                    уроку"</span></div>
+            </div>
+            <div class="panel">
+                <div th:with="condition=${session.lesson10.get(13) >= 7}" th:remove="tag">
+                    <a th:if="${condition}" href="/lesson?goToLesson=14" class="nL">Урок №14 "Тема
+                        уроку"</a>
+                    <span th:unless="${condition}" class="nL">Урок №14 "Тема
+                    уроку"</span></div>
+            </div>
+            <div class="panel">
+                <div th:with="condition=${session.lesson10.get(14) >= 7}" th:remove="tag">
+                    <a th:if="${condition}" href="/lesson?goToLesson=15" class="nL">Урок №15 "Тема
+                        уроку"</a>
+                    <span th:unless="${condition}" class="nL">Урок №15 "Тема
+                    уроку"</span></div>
             </div>
         </div>
         <div class="botom"></div>
