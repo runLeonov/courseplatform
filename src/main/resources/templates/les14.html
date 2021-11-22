@@ -187,7 +187,7 @@
             <p>У верхньому рядку розташовані найпріоритетніші оператори. Круглі дужки () використовуються для явного встановлення пріоритету. Квадратні дужки [] використовуються для індексування змінної-масиву. Оператор . використовується для отримання полів і методів від посилання на об'єкт або клас.</p> <br>
             <p>Що нижче оператори розташовані в таблиці, то нижче їхній пріоритет.</p> <br>
             <p>Якщо ви використовуєте у виразі кілька операторів, не лінуйтеся — ставте дужки.</p> <br>
-            <p>Так, у Java можна написати щось на кшталт if (a & 1<<b> ~c), але так робити не варто. Ви пишете код не лише для компілятора, але й для інших програмістів. Що читабельнішим буде код, то краще. </p> <br>
+            <p>Так, у Java можна написати щось на кшталт if (a & 1< ~c), але так робити не варто. Ви пишете код не лише для компілятора, але й для інших програмістів. Що читабельнішим буде код, то краще. </p> <br>
             <h4>Префіксний і постфіксний інкременти</h4>
             <p>Як ви вже знаєте, у Java є оператор інкременту (++) і оператор декременту (--), які збільшують і зменшують значення змінної на 1.</p> <br>
             <p>Однак ви, напевно, не знаєте, що є два види цих операцій: префіксні (оператор ставиться перед змінною) і постфіксні (оператор ставиться після змінної). І працюють ці оператори трохи по-різному.</p> <br>
@@ -429,8 +429,8 @@
         <section class="btn_sec">
             <form action="/validate">
                 <input id="totalGrad" name="testsSummary" type="hidden" value="0">
-                <input name="lessonNumber" type="hidden" value="1">
-                <input  id="nextLesson" name="nextLesson" type="hidden" value="les2">
+                <input name="lessonNumber" type="hidden" value="14">
+                <input  id="nextLesson" name="nextLesson" type="hidden" value="les15">
                 <input type="submit" class="btn_go btn" id="next" value="Наступний урок"/>
             </form>
         </section>
@@ -443,7 +443,7 @@
         <div class="top"></div>
         <div class="lessons">
             <div class="panel">
-                <div th:with="condition=${session.lesson10.get(0) > 7}" th:remove="tag">
+                <div th:with="condition=${session.lesson10.get(0) >= 7}" th:remove="tag">
                     <a th:if="${condition}" href="/lesson?goToLesson=1" class="nL">Урок №1 "Команди й перша
                         програма"</a>
                     <span th:unless="${condition}" class="nL">Урок №1 "Команди й перша
@@ -451,7 +451,7 @@
                 </div>
             </div>
             <div class="panel activeP">
-                <div th:with="condition=${session.lesson10.get(1) > 7}" th:remove="tag">
+                <div th:with="condition=${session.lesson10.get(1) >= 7}" th:remove="tag">
                     <a th:if="${condition}" href="/lesson?goToLesson=2" class="nL">Урок №2 "Знайомство з
                         типами й уведення з клавіатури"</a>
                     <span th:unless="${condition}" class="nL">Урок №2 "Знайомство з

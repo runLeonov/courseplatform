@@ -39,8 +39,7 @@ public class MainController {
             HttpSession session
     ) {
         User user = getUserFromSession();
-        if (user.getLessonTestByLessonNumber(lessonNumber) == 0)
-            userService.setTestGrade(user, testsSummary, lessonNumber);
+        userService.setTestGrade(user, testsSummary, lessonNumber);
         session.setAttribute("userDB", user);
         session.setAttribute("lesson10", userService.getTestList(user.getUsername()));
         session.setAttribute("thisLessonGrade", userService.getExistLessonsGrads(user.getUsername()));

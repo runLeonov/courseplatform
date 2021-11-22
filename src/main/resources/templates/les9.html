@@ -558,8 +558,8 @@
         <section class="btn_sec">
             <form action="/validate">
                 <input id="totalGrad" name="testsSummary" type="hidden" value="0">
-                <input name="lessonNumber" type="hidden" value="1">
-                <input  id="nextLesson" name="nextLesson" type="hidden" value="les2">
+                <input name="lessonNumber" type="hidden" value="9">
+                <input  id="nextLesson" name="nextLesson" type="hidden" value="les10">
                 <input type="submit" class="btn_go btn" id="next" value="Наступний урок"/>
             </form>
         </section>
@@ -572,7 +572,7 @@
         <div class="top"></div>
         <div class="lessons">
             <div class="panel">
-                <div th:with="condition=${session.lesson10.get(0) > 7}" th:remove="tag">
+                <div th:with="condition=${session.lesson10.get(0) >= 7}" th:remove="tag">
                     <a th:if="${condition}" href="/lesson?goToLesson=1" class="nL">Урок №1 "Команди й перша
                         програма"</a>
                     <span th:unless="${condition}" class="nL">Урок №1 "Команди й перша
@@ -580,7 +580,7 @@
                 </div>
             </div>
             <div class="panel activeP">
-                <div th:with="condition=${session.lesson10.get(1) > 7}" th:remove="tag">
+                <div th:with="condition=${session.lesson10.get(1) >= 7}" th:remove="tag">
                     <a th:if="${condition}" href="/lesson?goToLesson=2" class="nL">Урок №2 "Знайомство з
                         типами й уведення з клавіатури"</a>
                     <span th:unless="${condition}" class="nL">Урок №2 "Знайомство з

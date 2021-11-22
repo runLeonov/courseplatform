@@ -112,7 +112,6 @@
                 Java.</p>
         </div>
         <h2>Відеоурок</h2>
-        <h1 th:text="${session.suk}" class="user">USER</h1>
         <section class="video">
             <iframe src="https://www.youtube.com/embed/C5q0ULg0nmY" title="YouTube video player" frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -394,8 +393,6 @@
         </section>
         <section class="test">
             <form action="#" onsubmit="return false;">
-                <!--                <form action="/validate">-->
-                <!--                    <form>-->
                 <h2>Тестові завдання</h2>
                 <div id="q1">
                     <h4>Питання №1</h4>
@@ -552,7 +549,7 @@
         <div class="top"></div>
         <div class="lessons">
             <div class="panel">
-                <div th:with="condition=${session.lesson10.get(0) > 7}" th:remove="tag">
+                <div th:with="condition=${session.lesson10.get(0) >= 7}" th:remove="tag">
                     <a th:if="${condition}" href="/lesson?goToLesson=1" class="nL">Урок №1 "Команди й перша
                         програма"</a>
                     <span th:unless="${condition}" class="nL">Урок №1 "Команди й перша
@@ -560,7 +557,7 @@
                 </div>
             </div>
             <div class="panel activeP">
-                <div th:with="condition=${session.lesson10.get(1) > 7}" th:remove="tag">
+                <div th:with="condition=${session.lesson10.get(1) >= 7}" th:remove="tag">
                     <a th:if="${condition}" href="/lesson?goToLesson=2" class="nL">Урок №2 "Знайомство з
                         типами й уведення з клавіатури"</a>
                     <span th:unless="${condition}" class="nL">Урок №2 "Знайомство з
