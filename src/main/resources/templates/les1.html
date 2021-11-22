@@ -479,12 +479,12 @@
     <aside class="right_panel">
         <div class="top"></div>
         <div class="lessons">
-            <div class="panel">
+            <div class="panel activeP">
                 <div>
                     <a href="/lesson?goToLesson=1" class="nL">Урок №1 "Команди й перша програма"</a>
                 </div>
             </div>
-            <div class="panel activeP">
+            <div class="panel">
                 <div th:with="condition=${session.lesson10.get(0) >= 7}" th:remove="tag">
                     <a th:if="${condition}" href="/lesson?goToLesson=2" class="nL">Урок №2 "Знайомство з
                         типами й уведення з клавіатури"</a>

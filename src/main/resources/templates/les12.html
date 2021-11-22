@@ -441,7 +441,7 @@
                     <a href="/lesson?goToLesson=1" class="nL">Урок №1 "Команди й перша програма"</a>
                 </div>
             </div>
-            <div class="panel activeP">
+            <div class="panel">
                 <div th:with="condition=${session.lesson10.get(0) >= 7}" th:remove="tag">
                     <a th:if="${condition}" href="/lesson?goToLesson=2" class="nL">Урок №2 "Знайомство з
                         типами й уведення з клавіатури"</a>
@@ -501,7 +501,7 @@
                     <span th:unless="${condition}" class="nL">Урок №11 "Тема
                     уроку"</span></div>
             </div>
-            <div class="panel">
+            <div class="panel activeP">
                 <div th:with="condition=${session.lesson10.get(10) >= 7}" th:remove="tag">
                     <a th:if="${condition}" href="/lesson?goToLesson=12" class="nL">Урок №12 "Тема
                         уроку"</a>
