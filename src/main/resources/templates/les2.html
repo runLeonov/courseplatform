@@ -548,105 +548,145 @@
     <aside class="right_panel">
         <div class="top"></div>
         <div class="lessons">
-            <div class="panel">
+            <div class="panel activeP">
                 <div>
                     <a href="/lesson?goToLesson=1" class="nL">Урок №1 "Команди й перша програма"</a>
                 </div>
             </div>
-            <div class="panel activeP">
+            <div class="panel">
                 <div th:with="condition=${session.lesson10.get(0) >= 7}" th:remove="tag">
                     <a th:if="${condition}" href="/lesson?goToLesson=2" class="nL">Урок №2 "Знайомство з
                         типами й уведення з клавіатури"</a>
                     <span th:unless="${condition}" class="nL">Урок №2 "Знайомство з
                         типами й уведення з клавіатури"</span>
+                    <p style="color:rgb(230, 29, 29); font-size: 14px; width: 80%; margin:auto; border:rgb(109, 15, 15) 1px solid; 
+                    padding: 8px; border-radius: 10px; margin-top: 5px;">Ви не можете перейти на цей урок, тому що не завершили попередній</p>
                 </div>
             </div>
             <div class="panel">
                 <div th:with="condition=${session.lesson10.get(1) >= 7}" th:remove="tag">
                     <a th:if="${condition}" href="/lesson?goToLesson=3" class="nL">Урок №3 "Умовний оператор</a>
-                    <span th:unless="${condition}" class="nL">Урок №3 "Умовний оператор</span></div>
+                    <span th:unless="${condition}" class="nL">Урок №3 "Умовний оператор</span>
+                    <p style="color:rgb(230, 29, 29); font-size: 14px; width: 80%; margin:auto; border:rgb(109, 15, 15) 1px solid; 
+                    padding: 8px; border-radius: 10px; margin-top: 5px;">Ви не можете перейти на цей урок, тому що не завершили попередній</p>
+                </div>
             </div>
             <div class="panel">
                 <div th:with="condition=${session.lesson10.get(2) >= 7}" th:remove="tag">
                     <a th:if="${condition}" href="/lesson?goToLesson=4" class="nL">Урок №4 "Цикли while та do-while"
                     </a>
-                    <span th:unless="${condition}" class="nL">Урок №4 "Цикли while та do-while"</span></div>
+                    <span th:unless="${condition}" class="nL">Урок №4 "Цикли while та do-while"</span>
+                    <p style="color:rgb(230, 29, 29); font-size: 14px; width: 80%; margin:auto; border:rgb(109, 15, 15) 1px solid; 
+                    padding: 8px; border-radius: 10px; margin-top: 5px;">Ви не можете перейти на цей урок, тому що не завершили попередній</p></div>
             </div>
             <div class="panel">
                 <div th:with="condition=${session.lesson10.get(3) >= 7}" th:remove="tag">
                     <a th:if="${condition}" href="/lesson?goToLesson=5" class="nL">Урок №5 "Цикл for"</a>
-                    <span th:unless="${condition}" class="nL">Урок №5 "Цикл for"</span></div>
+                    <span th:unless="${condition}" class="nL">Урок №5 "Цикл for"</span>
+                    <p style="color:rgb(230, 29, 29); font-size: 14px; width: 80%; margin:auto; border:rgb(109, 15, 15) 1px solid; 
+                    padding: 8px; border-radius: 10px; margin-top: 5px;">Ви не можете перейти на цей урок, тому що не завершили попередній</p>
+                </div>
             </div>
             <div class="panel">
                 <div th:with="condition=${session.lesson10.get(4) >= 7}" th:remove="tag">
                     <a th:if="${condition}" href="/lesson?goToLesson=6" class="nL">Урок №6 "Масиви"</a>
-                    <span th:unless="${condition}" class="nL">Урок №6 "Масиви"</span></div>
+                    <span th:unless="${condition}" class="nL">Урок №6 "Масиви"</span>
+                    <p style="color:rgb(230, 29, 29); font-size: 14px; width: 80%; margin:auto; border:rgb(109, 15, 15) 1px solid; 
+                    padding: 8px; border-radius: 10px; margin-top: 5px;">Ви не можете перейти на цей урок, тому що не завершили попередній</p>
+                </div>
             </div>
             <div class="panel">
                 <div th:with="condition=${session.lesson10.get(5) >= 7}" th:remove="tag">
                     <a th:if="${condition}" href="/lesson?goToLesson=7" class="nL">Урок №7 "Двовимірні масиви"</a>
-                    <span th:unless="${condition}" class="nL">Урок №7 "Двовимірні масиви"</span></div>
+                    <span th:unless="${condition}" class="nL">Урок №7 "Двовимірні масиви"</span>
+                    <p style="color:rgb(230, 29, 29); font-size: 14px; width: 80%; margin:auto; border:rgb(109, 15, 15) 1px solid; 
+                    padding: 8px; border-radius: 10px; margin-top: 5px">Ви не можете перейти на цей урок, тому що не завершили попередній</p>
+                </div>
             </div>
             <div class="panel">
                 <div th:with="condition=${session.lesson10.get(6) >= 7}" th:remove="tag">
                     <a th:if="${condition}" href="/lesson?goToLesson=8" class="nL">Урок №8 "Допоміжний клас Arrays"</a>
-                    <span th:unless="${condition}" class="nL">Урок №8 "Допоміжний клас Arrays"</span></div>
+                    <span th:unless="${condition}" class="nL">Урок №8 "Допоміжний клас Arrays"</span>
+                    <p style="color:rgb(230, 29, 29); font-size: 14px; width: 80%; margin:auto; border:rgb(109, 15, 15) 1px solid; 
+                    padding: 8px; border-radius: 10px; margin-top: 5px;">Ви не можете перейти на цей урок, тому що не завершили попередній</p>
+                </div>
             </div>
             <div class="panel">
                 <div th:with="condition=${session.lesson10.get(7) >= 7}" th:remove="tag">
                     <a th:if="${condition}" href="/lesson?goToLesson=9" class="nL">Урок №9 "Тема
                         уроку"</a>
                     <span th:unless="${condition}" class="nL">Урок №9 "Тема
-                    уроку"</span></div>
+                    уроку"</span>
+                    <p style="color:rgb(230, 29, 29); font-size: 14px; width: 80%; margin:auto; border:rgb(109, 15, 15) 1px solid; 
+                    padding: 8px; border-radius: 10px; margin-top: 5px;">Ви не можете перейти на цей урок, тому що не завершили попередній</p>
+                </div>
             </div>
             <div class="panel">
                 <div th:with="condition=${session.lesson10.get(8) >= 7}" th:remove="tag">
                     <a th:if="${condition}" href="/lesson?goToLesson=10" class="nL">Урок №10 "Тема
                         уроку"</a>
                     <span th:unless="${condition}" class="nL">Урок №10 "Тема
-                    уроку"</span></div>
+                    уроку"</span>
+                    <p style="color:rgb(230, 29, 29); font-size: 14px; width: 80%; margin:auto; border:rgb(109, 15, 15) 1px solid; 
+                    padding: 8px; border-radius: 10px; margin-top: 5px;">Ви не можете перейти на цей урок, тому що не завершили попередній</p>
+                </div>
             </div>
             <div class="panel">
                 <div th:with="condition=${session.lesson10.get(9) >= 7}" th:remove="tag">
                     <a th:if="${condition}" href="/lesson?goToLesson=11" class="nL">Урок №11 "Тема
                         уроку"</a>
                     <span th:unless="${condition}" class="nL">Урок №11 "Тема
-                    уроку"</span></div>
+                    уроку"</span>
+                    <p style="color:rgb(230, 29, 29); font-size: 14px; width: 80%; margin:auto; border:rgb(109, 15, 15) 1px solid; 
+                    padding: 8px; border-radius: 10px; margin-top: 5px;">Ви не можете перейти на цей урок, тому що не завершили попередній</p>
+                </div>
             </div>
             <div class="panel">
                 <div th:with="condition=${session.lesson10.get(10) >= 7}" th:remove="tag">
                     <a th:if="${condition}" href="/lesson?goToLesson=12" class="nL">Урок №12 "Тема
                         уроку"</a>
                     <span th:unless="${condition}" class="nL">Урок №12 "Тема
-                    уроку"</span></div>
+                    уроку"</span>
+                    <p style="color:rgb(230, 29, 29); font-size: 14px; width: 80%; margin:auto; border:rgb(109, 15, 15) 1px solid; 
+                    padding: 8px; border-radius: 10px; margin-top: 5px;">Ви не можете перейти на цей урок, тому що не завершили попередній</p>
+                </div>
             </div>
             <div class="panel">
                 <div th:with="condition=${session.lesson10.get(11) >= 7}" th:remove="tag">
                     <a th:if="${condition}" href="/lesson?goToLesson=13" class="nL">Урок №13 "Тема
                         уроку"</a>
                     <span th:unless="${condition}" class="nL">Урок №13 "Тема
-                    уроку"</span></div>
+                    уроку"</span>
+                    <p style="color:rgb(230, 29, 29); font-size: 14px; width: 80%; margin:auto; border:rgb(109, 15, 15) 1px solid; 
+                    padding: 8px; border-radius: 10px; margin-top: 5px;">Ви не можете перейти на цей урок, тому що не завершили попередній</p>
+                </div>
             </div>
             <div class="panel">
                 <div th:with="condition=${session.lesson10.get(12) >= 7}" th:remove="tag">
                     <a th:if="${condition}" href="/lesson?goToLesson=14" class="nL">Урок №14 "Тема
                         уроку"</a>
                     <span th:unless="${condition}" class="nL">Урок №14 "Тема
-                    уроку"</span></div>
+                    уроку"</span>
+                    <p style="color:rgb(230, 29, 29); font-size: 14px; width: 80%; margin:auto; border:rgb(109, 15, 15) 1px solid; 
+                    padding: 8px; border-radius: 10px; margin-top: 5px;">Ви не можете перейти на цей урок, тому що не завершили попередній</p>
+                </div>
             </div>
             <div class="panel">
                 <div th:with="condition=${session.lesson10.get(13) >= 7}" th:remove="tag">
                     <a th:if="${condition}" href="/lesson?goToLesson=15" class="nL">Урок №15 "Тема
                         уроку"</a>
                     <span th:unless="${condition}" class="nL">Урок №15 "Тема
-                    уроку"</span></div>
+                    уроку"</span>
+                    <p style="color:rgb(230, 29, 29); font-size: 14px; width: 80%; margin:auto; border:rgb(109, 15, 15) 1px solid; 
+                    padding: 8px; border-radius: 10px; margin-top: 5px; ">Ви не можете перейти на цей урок, тому що не завершили попередній</p>
+                </div>
             </div>
         </div>
         <div class="botom"></div>
         <div class="info">
             <div>
+<!--                <img th:src="@{/img/inf.png}" src="/src/main/resources/static/img/inf.png" alt="" height="20px" width="20px">-->
                 <img th:src="@{/img/inf.png}" alt="" height="20px" width="20px">
-                <!--                <img th:src="@{/img/inf.png}" src="/src/main/resources/static/img/inf.png" alt="" height="20px" width="20px">-->
             </div>
             <a target="_blank" href="https://docs.oracle.com/en/java/"> Документація Java</a>
         </div>

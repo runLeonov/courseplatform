@@ -9,7 +9,20 @@ const thisLessonGrade = $("#thisLessonGrade").val()
 const alertp = document.querySelector('.alert')
 const labels = document.querySelectorAll('label')
 let a = document.querySelector('.right_panel')
+const pErr = $('.panel p')
 
+for(p of pErr) {
+    p.classList.add('hidepr')
+}
+
+for(let i = 0; i < $('span').length; i++) {
+    $('span')[i].onclick = () => {
+        pErr[i].classList.remove('hidepr')
+        setTimeout( () => {
+            pErr[i].classList.add('hidepr')
+        }, 3000)
+    }
+}
 
 calc.onclick = function () {
     var myform = this.form
