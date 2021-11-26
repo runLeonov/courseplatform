@@ -9,7 +9,7 @@
     <script th:src="@{js/jquery.js}"></script>
 <!--    <script th:src="@{js/jquery.js}" src="/src/main/resources/static/js/jquery.js"></script>-->
     <link rel="stylesheet" th:href="@{/css/style.css}">
-<!--    <link rel="stylesheet" th:href="@{/css/style.css}" href="/src/main/resources/static/css/style.css">- -->
+<!--    <link rel="stylesheet" th:href="@{/css/style.css}" href="/src/main/resources/static/css/style.css"> -->
 </head>
 <body onload="setNextLvlButtonColorIfExist()">
 <input th:if="${session.thisLessonGrade.containsKey(6)}" id="thisLessonGrade" type="hidden" value="1"/>
@@ -32,7 +32,7 @@
         </div>
         <div>
             <div class="subDiv"><div>Оцінка за урок №6:</div><div th:text="${session.lesson10.get(5)}">10</div></div>
-            <div class="subDiv"><div>Оцінка за урок №7:</div><div th:text="${session.lesson10.get(6)}">10</div>></div>
+            <div class="subDiv"><div>Оцінка за урок №7:</div><div th:text="${session.lesson10.get(6)}">10</div></div>
             <div class="subDiv"><div>Оцінка за урок №8:</div><div th:text="${session.lesson10.get(7)}">10</div></div>
             <div class="subDiv"><div>Оцінка за урок №9:</div><div th:text="${session.lesson10.get(8)}">10</div></div>
             <div class="subDiv"><div>Оцінка за урок №10:</div><div th:text="${session.lesson10.get(9)}">10</div></div>
