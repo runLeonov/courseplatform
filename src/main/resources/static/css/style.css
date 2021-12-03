@@ -4,6 +4,15 @@ aside, p, a, footer {
     text-decoration: none;
 }
 
+a {
+    color: white;
+}
+
+.name > div > a {
+    color: lightgreen;
+    text-decoration: underline;
+}
+
 pre, code {
     margin: 0;
     white-space:pre-line;
@@ -72,11 +81,6 @@ h1 {
 
 .name {
     display: flex;
-}
-
-.name > div > a {
-    text-decoration: none;
-    color: white;
 }
 
 .name > div > h2 {
