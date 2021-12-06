@@ -79,34 +79,34 @@
             <p>Ще один цікавий факт про масиви: масиви бувають не лише лінійними, а й двовимірними.</p> <br>
             <p>Це означає, що комірки масиву можна представити не тільки у вигляді стовпця (або рядка), а й у вигляді прямокутної таблиці.</p> <br>
             <p>Оголошення двовимірного масиву:</p> <br>
-            <pre><code>int[][] ім'я = new int[ширина][висота];</code></pre> <br>
+            <pre><code>int&#91;&#93;&#91;&#93; ім'я = new int&#91;ширина&#93;&#91;висота&#93;;</code></pre> <br>
             <p>де ім'я — це ім'я змінної-масиву, ширина — це ширина таблиці (виміряна в комірках), а висота — це висота таблиці. </p> <br>
             <p>Наприклад:</p> <br>
-            <pre><code>int[][] data = new int[2][5];
-                data[1][1] = 5;   
+            <pre><code>int&#91;&#93;&#91;&#93; data = new int&#91;2&#93;&#91;5&#93;;
+                data&#91;1&#93;&#91;1&#93; = 5;   
             </code></pre> <br>
             <p>Пояснення:</p> <br>
             <p>Створюємо двовимірний масив: два стовпці та 5 рядків. У комірку (1,1) записуємо 5.</p> <br>
             <p>До речі, для двовимірних масивів теж можна використовувати швидку ініціалізацію:</p> <br>
             <pre><code>// кількість днів у місяцях року поквартально
-                int[][] months = { {31, 28, 31}, {30, 31, 30}, {31, 31, 30}, {31, 30, 31} };
+                int&#91;&#93;&#91;&#93; months = &#123; &#123;31, 28, 31&#125;, &#123;30, 31, 30&#125;, &#123;31, 31, 30&#125;, &#123;31, 30, 31&#125; &#125;;
             </code></pre> <br>
             <p>Є дуже багато ситуацій, коли вам, як програмісту, може знадобитися двовимірний масив. Реалізація майже будь-якої настільної гри — це ж готовий двовимірний масив: «Шахи», «Шашки», «Хрестики-нулики», «Морський бій».</p> <br>
             <h4>Розташування елементів у масивах: (x,y) чи (y,x)</h4>
             <p>Тут, до речі, виникає цікава дилема.</p> <br>
-            <p>Створення масиву new int[2][5]; означає, що ми створили таблицю «два рядки та 5 стовпців» чи все-таки «два стовпці та 5 рядків»? Інакше кажучи, ми спочатку вказуємо «ширину», а потім «висоту», або все-таки спочатку «висоту», а потім — «ширину»? І, як то кажуть, не все настільки однозначно.</p> <br>
+            <p>Створення масиву new int&#91;2&#93;&#91;5&#93;; означає, що ми створили таблицю «два рядки та 5 стовпців» чи все-таки «два стовпці та 5 рядків»? Інакше кажучи, ми спочатку вказуємо «ширину», а потім «висоту», або все-таки спочатку «висоту», а потім — «ширину»? І, як то кажуть, не все настільки однозначно.</p> <br>
             <p>Почнімо із запитання: а як ця таблиця насправді зберігається в пам'яті?</p> <br>
             <p>Безпосередньо в пам'яті комп'ютера жодної таблиці немає: усі байти пам'яті пронумеровані як 0, 1, 2, ... Для нас це таблиця 2×5, а в пам'яті це просто 10 комірок і все — без розділення на рядки та стовпці.</p> <br>
             <p>Аргумент на користь гіпотези «ширина»–«висота».</p> <br>
             <p>Ще в школі всіх учили, що з пари координат спочатку вказують «x», а потім «y». І це не просто шкільний стандарт — це взагалі стандарт у математиці. Проти цариці наук, авжеж, не попреш. Так що? Спочатку «ширина», а потім «висота»?</p> <br>
             <p>Аргумент на користь гіпотези «висота»–«ширина».</p> <br>
             <p>Тут теж є цікавий аргумент, і ґрунтується він на… швидкій ініціалізації двовимірних масивів. Адже, якщо ми захочемо ініціалізувати наш масив, то напишемо цей код так:</p> <br>
-            <pre><code>int[][] matrix = { {1, 2, 3, 4, 5}, {1, 2, 3, 4, 5} };</code></pre> <br>
+            <pre><code>int&#91;&#93;&#91;&#93; matrix = &#123; &#123;1, 2, 3, 4, 5&#125;, &#123;1, 2, 3, 4, 5&#125; &#125;;</code></pre> <br>
             <p>Нічого не помічаєте? А якщо ось так?</p> <br>
-            <pre><code>int[][] matrix = {
-                {1, 2, 3, 4, 5},
-                {1, 2, 3, 4, 5}
-              };
+            <pre><code>int&#91;&#93;&#91;&#93; matrix = &#123;
+                &#123;1, 2, 3, 4, 5&#125;,
+                &#123;1, 2, 3, 4, 5&#125;
+              &#125;;
             </code></pre> <br>
             <p>Якщо написати наші дані в коді по рядках, отримаємо таблицю, що містить 2 рядки та 5 стовпців.</p> <br>
             <strong>Підсумки</strong> <br>
@@ -118,11 +118,11 @@
             <p>У Java ви, як програміст, можете не лише поміняти рядки двовимірного масиву місцями, але й сконструювати цей масив самостійно як заманеться.</p> <br>
             <p>Припустімо ви хочете, щоб перший рядок двовимірного масиву мав довжину 10, а другий — 50. Чи можна так зробити? Так, можна.</p> <br>
             <p>Спершу потрібно створити «контейнер контейнерів» — перший масив, який зберігатиме посилання на масиви-рядки. Це роблять так:</p> <br>
-            <pre><code>int[][] ім'я = new int[висота][];</code></pre> <br>
+            <pre><code>int&#91;&#93;&#91;&#93; ім'я = new int&#91;висота&#93;&#91;&#93;;</code></pre> <br>
             <p>Остаточний вигляд коду буде таким:</p> <br>
-            <pre><code>int[][] matrix = new int[2][];
-                matrix[0] = new int[10];
-                matrix[1] = new int[50]
+            <pre><code>int&#91;&#93;&#91;&#93; matrix = new int&#91;2&#93;&#91;&#93;;
+                matrix&#91;0&#93; = new int&#91;10&#93;;
+                matrix&#91;1&#93; = new int&#91;50&#93;
             </code></pre> <br>
             <p>Пояснення:</p> <br>
             <pre><code>Створюється двовимірний масив
@@ -132,19 +132,19 @@
             <p>Щойно ви створили так званий «нерівний масив».</p> <br>
             <p>І от якщо ми захочемо вивести всі елементи цього масиву на екран, нам стане у великій пригоді властивість length, адже рядки масиву мають різну довжину.</p> <br>
             <p>До речі, як визначити довжину «контейнера контейнерів» у нашому прикладі? Адже це теж об'єкт-масив, а значить, він має довжину. Правильна відповідь — matrix.length.</p> <br>
-            <p>А як щодо довжини масивів-рядків? matrix[0].length</p> <br>
+            <p>А як щодо довжини масивів-рядків? matrix&#91;0&#93;.length</p> <br>
             <h4>Робота з двовимірними масивами</h4>
             <p>Припустімо, ви хочете вивести на екран двовимірний масив. Як же це зробити?</p> <br>
             <p>Наш код матиме приблизно такий вигляд:</p> <br>
-            <pre><code>int[][] matrix = new int[3][];
-                matrix[0] = new int[]{1, 2, 3, 4, 5, 6};
-                matrix[1] = new int[]{1, 2, 3};
-                matrix[2] = new int[]{1};
-                for (int i = 0; i < matrix.length; i++) {
-                   for (int j = 0; j < matrix[i].length; j++)
-                      System.out.print( matrix[i][j] + " " );
+            <pre><code>int&#91;&#93;&#91;&#93; matrix = new int&#91;3&#93;&#91;&#93;;
+                matrix&#91;0&#93; = new int&#91;&#93;&#123;1, 2, 3, 4, 5, 6&#125;;
+                matrix&#91;1&#93; = new int&#91;&#93;&#123;1, 2, 3&#125;;
+                matrix&#91;2&#93; = new int&#91;&#93;&#123;1&#125;;
+                for (int i = 0; i < matrix.length; i++) &#123;
+                   for (int j = 0; j < matrix&#91;i&#93;.length; j++)
+                      System.out.print( matrix&#91;i&#93;&#91;j&#93; + " " );
                    System.out.println();
-                }
+                &#125;
             </code></pre> <br>
             <p>Пояснення:</p> <br>
             <pre><code>Створення масиву
@@ -164,21 +164,21 @@
             <p>Ще один цікавий факт про масиви. Напевно, ви вже здогадуєтеся, про що йдеться. Якщо можна зробити двовимірний масив, значить, можна зробити й тривимірний?</p> <br>
             <p>Так, можна створити масив будь-якої розмірності. Такі масиви називають багатовимірними.</p> <br>
             <p>З цікавості спробуймо створити багатовимірний масив розмірності 4.</p> <br>
-            <pre><code>int[][][][] matrix = new int[2][3][4][5];</code></pre><br>
+            <pre><code>int&#91;&#93;&#91;&#93;&#91;&#93;&#91;&#93; matrix = new int&#91;2&#93;&#91;3&#93;&#91;4&#93;&#91;5&#93;;</code></pre><br>
             <p>Занадто простий код, чи не так?</p> <br>
             <p>А якщо створити його вручну?</p> <br>
-            <pre><code>int[][][][] matrix;
-                matrix = new int[2][][][];                // створюємо масив «посилань на посилання на посилання» довжиною 2
+            <pre><code>int&#91;&#93;&#91;&#93;&#91;&#93;&#91;&#93; matrix;
+                matrix = new int&#91;2&#93;&#91;&#93;&#91;&#93;&#91;&#93;;                // створюємо масив «посилань на посилання на посилання» довжиною 2
                 for (int i = 0; i < matrix.length; i++)
-                {
-                  matrix[i] = new int[3][][];             // створюємо масив «посилань на посилання» довжиною 3
-                  for (j = 0; j < matrix[i].length; j++)
-                  {
-                    matrix[i][j] = new int[4][];          // створюємо масив посилань довжиною 4
-                    for (k = 0; k < matrix[i][j].length; k++)
-                      matrix[i][j][k] = new int[5];       // створюємо масиви цілих чисел довжиною 5
-                  }
-                }
+                &#123;
+                  matrix&#91;i&#93; = new int&#91;3&#93;&#91;&#93;&#91;&#93;;             // створюємо масив «посилань на посилання» довжиною 3
+                  for (j = 0; j < matrix&#91;i&#93;.length; j++)
+                  &#123;
+                    matrix&#91;i&#93;&#91;j&#93; = new int&#91;4&#93;&#91;&#93;;          // створюємо масив посилань довжиною 4
+                    for (k = 0; k < matrix&#91;i&#93;&#91;j&#93;.length; k++)
+                      matrix&#91;i&#93;&#91;j&#93;&#91;k&#93; = new int&#91;5&#93;;       // створюємо масиви цілих чисел довжиною 5
+                  &#125;
+                &#125;
             </code></pre> <br>
         </section>
         <section class="practice" id="practice">
@@ -197,27 +197,27 @@
             </code></pre> <br>
             <p class="solution">Показати рішення</p>
             <div class="p1 hidepr">
-                    <pre><code>public class Solution {
+                    <pre><code>public class Solution &#123;
 
-                        public static int[][] result = new int[10][];
+                        public static int&#91;&#93;&#91;&#93; result = new int&#91;10&#93;&#91;&#93;;
                     
-                        public static void main(String[] args) {
-                            for (int i = 0; i < result.length; i++) {
-                                result[i] = new int[i + 1];
-                                for (int j = 0; j < result[i].length; j++) {
-                                    result[i][j] = i + j;
-                                    System.out.print(result[i][j] + " ");
-                                }
+                        public static void main(String&#91;&#93; args) &#123;
+                            for (int i = 0; i < result.length; i++) &#123;
+                                result&#91;i&#93; = new int&#91;i + 1&#93;;
+                                for (int j = 0; j < result&#91;i&#93;.length; j++) &#123;
+                                    result&#91;i&#93;&#91;j&#93; = i + j;
+                                    System.out.print(result&#91;i&#93;&#91;j&#93; + " ");
+                                &#125;
                                 System.out.println();
-                            }
-                        }
-                    } 
+                            &#125;
+                        &#125;
+                    &#125; 
                 </code></pre>
                 <br>
                 <p class="collapse">Згорнути</p> <br>
             </div>
             <h4>Завдання №2</h4>
-            <p>Реалізуйте метод main(String[]), який:</p><br>
+            <p>Реалізуйте метод main(String&#91;&#93;), який:</p><br>
             <ol>
                 <li>Зчитує з консолі число N — кількість рядків масиву.</li>
                 <li>Зчитує N чисел із консолі.</li>
@@ -232,30 +232,30 @@
                 <li>Уведено числа 1, 7, 5, 9, 3.</li>
                 <li>Отримуємо такий масив:</li>
             </ol> <br>
-            <pre><code>[]
-                [][][][][][][]
-                [][][][][]
-                [][][][][][][][][]
-                [][][]
+            <pre><code>&#91;&#93;
+                &#91;&#93;&#91;&#93;&#91;&#93;&#91;&#93;&#91;&#93;&#91;&#93;&#91;&#93;
+                &#91;&#93;&#91;&#93;&#91;&#93;&#91;&#93;&#91;&#93;
+                &#91;&#93;&#91;&#93;&#91;&#93;&#91;&#93;&#91;&#93;&#91;&#93;&#91;&#93;&#91;&#93;&#91;&#93;
+                &#91;&#93;&#91;&#93;&#91;&#93;
             </code></pre> <br>
             <p>Натисність на кнопку нижче, щоб відкрити рішення.</p> <br>
             <p class="solution">Показати рішення</p>
             <div class="p2 hidepr">
-                    <pre><code>public class Solution {
+                    <pre><code>public class Solution &#123;
   
-                        public static int[][] multiArray;
+                        public static int&#91;&#93;&#91;&#93; multiArray;
                     
-                        public static void main(String[] args) {
+                        public static void main(String&#91;&#93; args) &#123;
                             Scanner scan = new Scanner(System.in);
                             int n = scan.nextInt();
-                            multiArray = new int[n][];
+                            multiArray = new int&#91;n&#93;&#91;&#93;;
                             for(int i = 0; i < n; i++)
-                            {
+                            &#123;
                                 int k = scan.nextInt();
-                                multiArray[i] = new int[k];
-                            }
-                        }
-                    }
+                                multiArray&#91;i&#93; = new int&#91;k&#93;;
+                            &#125;
+                        &#125;
+                    &#125;
                 </code></pre>
                 <br>
                 <p class="collapse">Згорнути</p> <br>
@@ -270,13 +270,13 @@
                     <h4>Питання №1</h4>
                     <p>Квадратний масив можна створити за допомогою такої команди:</p>
                     <label>
-                        <input type="radio" value="0" name="var1" class="var">int[100, 100] array;
+                        <input type="radio" value="0" name="var1" class="var">int&#91;100, 100&#93; array;
                     </label>
                     <label>
-                        <input type="radio" value="1" name="var1" class="var">int[][] array = new int[100][100];
+                        <input type="radio" value="1" name="var1" class="var">int&#91;&#93;&#91;&#93; array = new int&#91;100&#93;&#91;100&#93;;
                     </label>
                     <label>
-                        <input type="radio" value="0" name="var1" class="var">int[100][100] array;
+                        <input type="radio" value="0" name="var1" class="var">int&#91;100&#93;&#91;100&#93; array;
                     </label>
                 </div>
                 <div id="q2">
@@ -299,7 +299,7 @@
                         <input type="radio" value="0" name="var3" class="var">array.colums()
                     </label>
                     <label>
-                        <input type="radio" value="1" name="var3" class="var">array[0].length
+                        <input type="radio" value="1" name="var3" class="var">array&#91;0&#93;.length
                     </label>
                     <label>
                         <input type="radio" value="0" name="var3" class="var">array.size()
@@ -309,34 +309,34 @@
                     <h4>Питання №4</h4>
                     <p>Багатовимірний масив розмірності 4 можна створити за допомогою такої команди:</p>
                     <label>
-                        <input type="radio" value="1" name="var4" class="var">int[][][][] matrix = new int[2][3][4][5];
+                        <input type="radio" value="1" name="var4" class="var">int&#91;&#93;&#91;&#93;&#91;&#93;&#91;&#93; matrix = new int&#91;2&#93;&#91;3&#93;&#91;4&#93;&#91;5&#93;;
                     </label>
                     <label>
-                        <input type="radio" value="0" name="var4" class="var">int matrix = new int[2][3][4][5];
+                        <input type="radio" value="0" name="var4" class="var">int matrix = new int&#91;2&#93;&#91;3&#93;&#91;4&#93;&#91;5&#93;;
                     </label>
                     <label>
-                        <input type="radio" value="0" name="var4" class="var">int[2][3][4][5] matrix = new int[][][][];
+                        <input type="radio" value="0" name="var4" class="var">int&#91;2&#93;&#91;3&#93;&#91;4&#93;&#91;5&#93; matrix = new int&#91;&#93;&#91;&#93;&#91;&#93;&#91;&#93;;
                     </label>
                 </div>
                 <div id="q5">
                     <h4>Питання №5</h4>
                     <p>Зубчасті масиви можна створити за допомогою таких команд:</p>
                     <label style="display: flex;">
-                        <input type="radio" value="0" name="var5" class="var"><pre style="width: 80%;"><code>int[][] matrix = new int[2][];
-                            matrix[] = new int[0];
-                            matrix[] = new int[1];
+                        <input type="radio" value="0" name="var5" class="var"><pre style="width: 80%;"><code>int&#91;&#93;&#91;&#93; matrix = new int&#91;2&#93;&#91;&#93;;
+                            matrix&#91;&#93; = new int&#91;0&#93;;
+                            matrix&#91;&#93; = new int&#91;1&#93;;
                         </code></pre>
                     </label>
                     <label style="display: flex;">
-                        <input type="radio" value="1" name="var5" class="var"><pre style="width: 80%;"><code>int[][] matrix = new int[2][];
-                            matrix[0] = new int[10];
-                            matrix[1] = new int[50];
+                        <input type="radio" value="1" name="var5" class="var"><pre style="width: 80%;"><code>int&#91;&#93;&#91;&#93; matrix = new int&#91;2&#93;&#91;&#93;;
+                            matrix&#91;0&#93; = new int&#91;10&#93;;
+                            matrix&#91;1&#93; = new int&#91;50&#93;;
                         </code></pre>
                     </label>
                     <label style="display: flex;">
-                        <input type="radio" value="0" name="var5" class="var"><pre style="width: 80%;"><code>int[][] matrix = new int[][];
-                            matrix[0] = new int[];
-                            matrix[1] = new int[];
+                        <input type="radio" value="0" name="var5" class="var"><pre style="width: 80%;"><code>int&#91;&#93;&#91;&#93; matrix = new int&#91;&#93;&#91;&#93;;
+                            matrix&#91;0&#93; = new int&#91;&#93;;
+                            matrix&#91;1&#93; = new int&#91;&#93;;
                         </code></pre>
                     </label>
                 </div>
@@ -344,26 +344,26 @@
                     <h4>Питання №6</h4>
                     <p>Швидко ініціалізувати двовимірний масив можна за допомогою такої команди:</p>
                     <label style="display: flex;">
-                        <input type="radio" value="1" name="var6" class="var"><pre style="width: 80%;"><code>int[][] months = { {31, 28, 31}, {30, 31, 30}, {31, 31, 30}, {31, 30, 31} };</code></pre>
+                        <input type="radio" value="1" name="var6" class="var"><pre style="width: 80%;"><code>int&#91;&#93;&#91;&#93; months = &#123; &#123;31, 28, 31&#125;, &#123;30, 31, 30&#125;, &#123;31, 31, 30&#125;, &#123;31, 30, 31&#125; &#125;;</code></pre>
                     </label>
                     <label style="display: flex;">
-                        <input type="radio" value="0" name="var6" class="var"><pre style="width: 80%;"><code>int months = { {31, 28, 31}, {30, 31, 30}, {31, 31, 30}, {31, 30, 31} };</code></pre>
+                        <input type="radio" value="0" name="var6" class="var"><pre style="width: 80%;"><code>int months = &#123; &#123;31, 28, 31&#125;, &#123;30, 31, 30&#125;, &#123;31, 31, 30&#125;, &#123;31, 30, 31&#125; &#125;;</code></pre>
                     </label>
                     <label style="display: flex;">
-                        <input type="radio" value="0" name="var6" class="var"><pre style="width: 80%;"><code>int[][] months = { {31, 28, 31}; {30, 31, 30}; {31, 31, 30}; {31, 30, 31} };</code></pre>
+                        <input type="radio" value="0" name="var6" class="var"><pre style="width: 80%;"><code>int&#91;&#93;&#91;&#93; months = &#123; &#123;31, 28, 31&#125;; &#123;30, 31, 30&#125;; &#123;31, 31, 30&#125;; &#123;31, 30, 31&#125; &#125;;</code></pre>
                     </label>
                 </div>
                 <div id="q7">
                     <h4>Питання №7</h4>
-                    <p>Що буде результатом виконання коду:<pre style="border: none;"><code>int[][] matrix = new int[3][];
-                        matrix[0] = new int[]{1, 2, 3, 4, 5, 6};
-                        matrix[1] = new int[]{1, 2, 3};
-                        matrix[2] = new int[]{1};
-                        for (int i = 0; i < matrix.length; i++) {
-                           for (int j = 0; j < matrix[i].length; j++)
-                              System.out.print( matrix[i][j] + " " );
+                    <p>Що буде результатом виконання коду:<pre style="border: none;"><code>int&#91;&#93;&#91;&#93; matrix = new int&#91;3&#93;&#91;&#93;;
+                        matrix&#91;0&#93; = new int&#91;&#93;&#123;1, 2, 3, 4, 5, 6&#125;;
+                        matrix&#91;1&#93; = new int&#91;&#93;&#123;1, 2, 3&#125;;
+                        matrix&#91;2&#93; = new int&#91;&#93;&#123;1&#125;;
+                        for (int i = 0; i < matrix.length; i++) &#123;
+                           for (int j = 0; j < matrix&#91;i&#93;.length; j++)
+                              System.out.print( matrix&#91;i&#93;&#91;j&#93; + " " );
                            System.out.println();
-                        }
+                        &#125;
                     </code></pre></p>
                     <label style="display: flex;">
                         <input type="radio" value="1" name="var7" class="var"><pre style="width: 80%;"><code>1 2 3 4 5 6
@@ -383,7 +383,7 @@
                 </div>
                 <div id="q8">
                     <h4>Питання №8</h4>
-                    <p>Що робить команда: data[1][1] = 5;</p>
+                    <p>Що робить команда: data&#91;1&#93;&#91;1&#93; = 5;</p>
                     <label>
                         <input type="radio" value="0" name="var8" class="var">Створює масив з розмірністю 1х1 і передає йому значення 5.
                     </label>
@@ -409,14 +409,14 @@
                 </div>
                 <div id="q10">
                     <h4>Питання №10</h4>
-                    <p>Яким буде результат виконання цього коду: <pre style="border: none;"><code>int[][] matrix = {
-                        {1, 2, 3, 4, 5},
-                        {5, 4, 3, 2, 1}
-                      };
+                    <p>Яким буде результат виконання цього коду: <pre style="border: none;"><code>int&#91;&#93;&#91;&#93; matrix = &#123;
+                        &#123;1, 2, 3, 4, 5&#125;,
+                        &#123;5, 4, 3, 2, 1&#125;
+                      &#125;;
                       
-                      int[] tmp = matrix[0];
-                      matrix[0] = matrix[1];
-                      matrix[1] = tmp;                      
+                      int&#91;&#93; tmp = matrix&#91;0&#93;;
+                      matrix&#91;0&#93; = matrix&#91;1&#93;;
+                      matrix&#91;1&#93; = tmp;                      
                     </code></pre></p>
                     <label>
                         <input type="radio" value="0" name="var10" class="var">Об’єднає комірки масиву у одну

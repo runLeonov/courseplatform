@@ -83,9 +83,9 @@
             <p>Що ж таке метод? Ну, якщо дуже спростити визначення, то метод — це група команд, яка має унікальне ім'я. Інакше кажучи, ми просто компонуємо декілька команд в одну групу і даємо їй унікальне ім'я. І все — метод готовий.</p> <br>
             <p>Наприклад: Без методу</p> <br>
             <pre><code>class Solution
-                {
-                   public static void main(String[] args)
-                   {
+                &#123;
+                   public static void main(String&#91;&#93; args)
+                   &#123;
                      System.out.print("Wi-");
                      System.out.println("Fi");
                      System.out.print("Wi-");
@@ -93,24 +93,24 @@
                 
                      System.out.print("Wi-");
                      System.out.println("Fi");
-                   }
-                }
+                   &#125;
+                &#125;
             </code></pre> <br>
             <p>З методом</p> <br>
             <pre><code>class Solution
-                {
-                   public static void main(String[] args)
-                   {
+                &#123;
+                   public static void main(String&#91;&#93; args)
+                   &#123;
                      printWiFi();
                      printWiFi();
                      printWiFi();
-                   }
+                   &#125;
                    public static void printWiFi()
-                   {
+                   &#123;
                      System.out.print("Wi-");
                      System.out.println("Fi");
-                   }
-                }
+                   &#125;
+                &#125;
             </code></pre> <br>
             <p>У  першій програмі тричі повторюється один і той самий код — ми зробили так спеціально, для прикладу. А в другій програмі ми винесли повторюваний код в окремий метод і дали йому унікальне ім'я — printWiFi.</p> <br>
             <p>І замість винесеного коду тричі написали виклик методу printWiFi().</p> <br>
@@ -119,9 +119,9 @@
             <p>Як же все-таки правильно написати свій метод?</p> <br>
             <p>Під час оголошення (створення) методу слід враховувати багато нюансів, але почнімо з головного. Як же нам оголосити найпростіший метод? Оголошення простого методу має такий вигляд:</p> <br>
             <pre><code>public static void ім'я()
-                {
+                &#123;
                    код методу
-                }
+                &#125;
             </code></pre> <br>
             <p>де ім'я — це унікальне ім'я методу, а код методу — це команди, з яких він складається. Значення слів public, static і void ми розглянемо дещо пізніше.</p> <br>
             <p>Після створення методу ми можемо викликати його в інших наших методах. Виклик має такий вигляд: ім'я(); де ім'я — це унікальне ім'я методу, який ми хочемо викликати й команди якого хочемо виконати в місці виклику.</p> <br>
@@ -129,24 +129,24 @@
             <p>Як ви вже, напевно, здогадалися, більша частина вивчених нами команд — це просто методи, написані іншими програмістами, щоб полегшити нам життя.</p> <br>
             <p>Код методу може містити виклики інших методів:</p> <br>
             <pre><code>class Solution
-                {
-                   public static void main(String[] args)
-                   {
+                &#123;
+                   public static void main(String&#91;&#93; args)
+                   &#123;
                      print10TimesWiFi();
-                   }
+                   &#125;
                 
                    public static void print10TimesWiFi()
-                   {
+                   &#123;
                      for (int i = 0; i < 10; i++)
                        printWiFi();
-                   }
+                   &#125;
                 
                    public static void printWiFi()
-                   {
+                   &#123;
                      System.out.print("Wi-");
                      System.out.println("Fi");
-                   }
-                }
+                   &#125;
+                &#125;
             </code></pre> <br>
             <h4>Факти про методи</h4>
             <p>А от іще кілька фактів про методи:</p> <br>
@@ -188,52 +188,52 @@
             <p>А тепер починається найцікавіше. Як ви вже, напевно, знаєте завдяки знайомству з методами типу System.out.println(), у методи можна передавати параметри. І це значно збільшує користь від створення й використання методів.</p> <br>
             <p>Як же оголосити метод з параметрами? Насправді це досить просто:</p> <br>
             <pre><code>public static void ім'я(параметри)
-                {
+                &#123;
                    код методу
-                }
+                &#125;
             </code></pre> <br>
             <p>де ім'я — це унікальне ім'я методу, код методу — це команди, з яких він складається, а параметри — це параметри методу, перелічені через кому. Подивіться на цей шаблон в деталях:</p> <br>
             <pre><code>public static void ім'я(тип1 ім'я1, тип2 ім'я2, тип3 ім'я3)
-                {
+                &#123;
                    код методу
-                }
+                &#125;
             </code></pre> <br>
             <p>Приклад:</p> <br>
-            <pre><code>public static void print(String str, int count) { }</code></pre> <br>
+            <pre><code>public static void print(String str, int count) &#123; &#125;</code></pre> <br>
             <p>Оголошено метод print із двома параметрами: String str, int count</p> <br>
             <p>Якщо нашому метод параметри не потрібні, просто залишаємо круглі дужки порожніми.</p> <br>
             <p>Параметри — це спеціальні змінні методу. З їх допомогою в метод можна передавати різні значення під час його виклику.</p> <br>
             <p>Для прикладу спробуймо написати метод, який виводить на екран рядок тексту задану кількість разів.</p> <br>
             <p>Код цієї задачі матиме такий вигляд:</p> <br>
             <pre><code>class Solution
-                {
+                &#123;
                    public static void printLines(String text, int count)
-                   {
+                   &#123;
                      for (int i = 0; i < count; i++)
                        System.out.println(text);
-                   }
+                   &#125;
                 
-                   public static void main(String[] args)
-                   {
+                   public static void main(String&#91;&#93; args)
+                   &#123;
                      printLines("Привіт", 10);
-                   }
-                }
+                   &#125;
+                &#125;
             </code></pre> <br>
             <p>Кожного разу, коли викликається метод, його змінним-параметрам присвоюються передані значення, і лише потім починається виконання команд усередині методу.</p> <br>
             <h4>Методи з однаковими іменами</h4>
             <p>А зараз знову повернемося до імен методів.</p> <br>
             <p>Стандарти Java вимагають, щоб усі методи всередині одного класу мали унікальні імена. Тобто неможливо оголосити в одному класі два однакові методи.</p> <br>
             <p>Тільки от у процесі перевірки методів на однаковість враховуються не лише імена, але й типи параметрів! Причому імена змінних-параметрів не враховуються. Приклади:</p> <br>
-            <pre><code>void print(String str) {
-            }
-            void print(String str, String str2) {
-            }
-            void print(int val) {
-            }
-            void print(double val) {
-            }
-            void print() {
-            }
+            <pre><code>void print(String str) &#123;
+            &#125;
+            void print(String str, String str2) &#123;
+            &#125;
+            void print(int val) &#123;
+            &#125;
+            void print(double val) &#123;
+            &#125;
+            void print() &#123;
+            &#125;
             </code></pre> <br>
             <p>Усі ці п'ять методів вважаються різними. Їх можна оголосити в одному класі.</p> <br>
             <p>Чому ж одні методи вважаються однаковими, а інші — різними? І чому не враховуються імена змінних-параметрів під час визначення унікальності методу?</p> <br>
@@ -251,26 +251,26 @@
             <p>Якщо return викликати в методі main, метод main на цьому завершиться, а разом із ним — вся програма.</p> <br>
             <p>Приклад:</p> <br>
             <pre><code>class Solution
-                {
-                   public static void fill(int[] data, int from, int to, int value)
-                   {
+                &#123;
+                   public static void fill(int&#91;&#93; data, int from, int to, int value)
+                   &#123;
                 
                 
                      if (from < 0 || to > data.length)
                        return;
                 
                      for (int i = from; i < to; i++)
-                     {
-                       data[i] = value;
-                     }
-                   }
+                     &#123;
+                       data&#91;i&#93; = value;
+                     &#125;
+                   &#125;
                 
-                   public static void main(String[] args)
-                   {
-                     int[] months = {1, 2, 3, 4, 5, 6, 7, 8 ,9, 10, 11, 12};
+                   public static void main(String&#91;&#93; args)
+                   &#123;
+                     int&#91;&#93; months = &#123;1, 2, 3, 4, 5, 6, 7, 8 ,9, 10, 11, 12&#125;;
                      fill(months, 2, 10, 8);
-                   }
-                }
+                   &#125;
+                &#125;
             </code></pre> <br>
             <p>У наведеній вище програмі є метод fill, який заповнює переданий у нього масив значенням value, причому заповнює не весь масив, а його частину, задану індексами from і to.</p> <br>
             <p>На початку методу fill виконується перевірка, чи коректні значення в нього передано. Якщо індекс from менший за 0 або індекс to більший за довжину масиву, то метод fill на цьому завершується (викликає команду return).</p> <br>
@@ -286,9 +286,9 @@
             </code></pre> <br>
             <p>Кожен метод може повернути лише одне значення одного наперед заданого типу. Тип повернення значення визначається під час оголошення методу:</p> <br>
             <pre><code>public static тип ім'я(параметри)
-                {
+                &#123;
                    код методу
-                }
+                &#125;
             </code></pre> <br>
             <p>де ім'я — це ім'я методу, параметри — список параметрів методу, а тип — тип результату, що повертається методом.</p> <br>
             <p>Для методів, які нічого не повертають, є спеціальний тип-заглушка — void.</p> <br>
@@ -299,18 +299,18 @@
             <p>де return — це оператор, який негайно завершить роботу методу. А значення — це значення, що метод має повернути як результат у той метод, звідки відбувся виклик. Тип значення має збігатися з типом, зазначеним під час оголошення методу.</p> <br>
             <p>Приклад 1. Метод знаходить менше з двох чисел:</p> <br>
             <pre><code>int min(int a, int b)
-                {
+                &#123;
                    if (a < b)
                      return a;
                    else
                      return b;
-                }
+                &#125;
             </code></pre> <br>
             <p>Приклад 2: Метод знаходить більше з двох чисел за допомогою тернарного оператора:</p> <br>
             <pre><code>int max(int a, int b)
-                {
+                &#123;
                    return (a > b ? a : b);
-                }
+                &#125;
             </code></pre>
         </section>
         <section class="practice" id="practice">
@@ -323,12 +323,12 @@
             <p>Натисність на кнопку нижче, щоб відкрити рішення.</p> <br>
             <p class="solution">Показати рішення</p>
             <div class="p1 hidepr">
-                    <pre><code>public class Solution {
-                        public static void main(String[] args) {}
-                        public static long cube(long a){
+                    <pre><code>public class Solution &#123;
+                        public static void main(String&#91;&#93; args) &#123;&#125;
+                        public static long cube(long a)&#123;
                             return a*a*a;
-                        }
-                    }                    
+                        &#125;
+                    &#125;                    
                 </code></pre>
                 <br>
                 <p class="collapse">Згорнути</p> <br>
@@ -340,52 +340,52 @@
             <p>Натисність на кнопку нижче, щоб відкрити рішення.</p> <br>
             <p class="solution">Показати рішення</p>
             <div class="p2 hidepr">
-                    <pre><code>public class Solution {
+                    <pre><code>public class Solution &#123;
 
-                        public static void main(String[] args) {
+                        public static void main(String&#91;&#93; args) &#123;
                     
-                        }
+                        &#125;
                     
-                        public static void universalMethod(){
+                        public static void universalMethod()&#123;
                     
-                        }
+                        &#125;
                     
-                        public static void universalMethod(int a){
+                        public static void universalMethod(int a)&#123;
                     
-                        }
+                        &#125;
                     
-                        public static void universalMethod(int a, int b){
+                        public static void universalMethod(int a, int b)&#123;
                     
-                        }
+                        &#125;
                     
-                        public static void universalMethod(double a){
+                        public static void universalMethod(double a)&#123;
                     
-                        }
+                        &#125;
                     
-                        public static void universalMethod(double a, double b){
+                        public static void universalMethod(double a, double b)&#123;
                     
-                        }
+                        &#125;
                     
-                        public static void universalMethod(char a, char b){
+                        public static void universalMethod(char a, char b)&#123;
                     
-                        }
+                        &#125;
                     
-                        public static void universalMethod(String a, String b){
+                        public static void universalMethod(String a, String b)&#123;
                     
-                        }
+                        &#125;
                     
-                        public static void universalMethod(boolean a){
+                        public static void universalMethod(boolean a)&#123;
                     
-                        }
+                        &#125;
                     
-                        public static void universalMethod(boolean a, boolean b){
+                        public static void universalMethod(boolean a, boolean b)&#123;
                     
-                        }
+                        &#125;
                     
-                        public static void universalMethod(long a){
+                        public static void universalMethod(long a)&#123;
                     
-                        }
-                    }
+                        &#125;
+                    &#125;
                     
                 </code></pre>
                 <br>
@@ -505,9 +505,9 @@
                     <h4>Питання №9</h4>
                     <p>Що буде результатом виконання цього методу:</p>
                     <pre style="border: none;"><code>int max(int a, int b)
-                        {
+                        &#123;
                            return (a > b ? a : b);
-                        }
+                        &#125;
                     </code></pre>
                     <label>
                         <input type="radio" value="1" name="var9" class="var">Метод поверне найбільше з двох значень
@@ -523,24 +523,24 @@
                     <h4>Питання №10</h4>
                     <p>Як можна оголосити методи з однаковими назвами в одному класі:</p>
                     <label style="display: flex;">
-                        <input type="radio" value="0" name="var10" class="var"><pre style="width: 80%;"><code>void fill[1](int[] data, int value) {
-                        }
-                        void fill[2](int value) {
-                        }
+                        <input type="radio" value="0" name="var10" class="var"><pre style="width: 80%;"><code>void fill&#91;1&#93;(int&#91;&#93; data, int value) &#123;
+                        &#125;
+                        void fill&#91;2&#93;(int value) &#123;
+                        &#125;
                         </code></pre>
                     </label>
                     <label style="display: flex;">
-                        <input type="radio" value="1" name="var10" class="var"><pre style="width: 80%;"><code>void fill(int[] data, int value) {
-                        }
-                        void fill(int value) {
-                        }                        
+                        <input type="radio" value="1" name="var10" class="var"><pre style="width: 80%;"><code>void fill(int&#91;&#93; data, int value) &#123;
+                        &#125;
+                        void fill(int value) &#123;
+                        &#125;                        
                         </code></pre>
                     </label>
                     <label style="display: flex;">
-                        <input type="radio" value="0" name="var10" class="var"><pre style="width: 80%;"><code>void fill(1)(int[] data, int value) {
-                        }
-                        void fill(2)(int value) {
-                        }                        
+                        <input type="radio" value="0" name="var10" class="var"><pre style="width: 80%;"><code>void fill(1)(int&#91;&#93; data, int value) &#123;
+                        &#125;
+                        void fill(2)(int value) &#123;
+                        &#125;                        
                         </code></pre>
                     </label>
                 </div>

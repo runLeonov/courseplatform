@@ -92,7 +92,7 @@
             <p>Змінні цього типу можуть мати значення від -2 147 483,648 до +2 147 483,647.</p> <br>
             <p>Приклад:</p> <br>
             <pre><code>int n = "Рядок".length(); // Метод length() повертає довжину рядка.
-                String[] array = {"I", "love", "Java"};
+                String&#91;&#93; array = &#123;"I", "love", "Java"&#125;;
                 int n = array.length; // Поле length містить довжину масиву.
             </code></pre> <br>
             <p>Тип short</p> <br>
@@ -224,10 +224,10 @@
             <p>Усі вказівні змінні, доки їм не присвоєно певне посилання, мають значення null.</p> <br>
             <p>Приклад:</p> <br>
             <pre><code>class Person
-                {
+                &#123;
                    public static String name; //Змінна String name має значення за замовчуванням: null.
                    public static int age; //Змінна int age має значення за замовчуванням: 0.
-                }
+                &#125;
             </code></pre> <br>
             <p>І для примітивних, і для вказівних типів локальні змінні без значення вважаються неініціалізованими.</p> <br>
             <p>Якщо змінна зберігає посилання на певний об'єкт, а ви хочете видалити значення цієї змінної, просто присвойте їй посилання null.</p> <br>
@@ -243,7 +243,7 @@
             <p>Натисність на кнопку нижче, щоб відкрити рішення.</p> <br>
             <p class="solution">Показати рішення</p>
             <div class="p1 hidepr">
-                    <pre><code>public class Solution {
+                    <pre><code>public class Solution &#123;
                         byte a;
                         short b;
                         int c;
@@ -252,7 +252,7 @@
                         double f;
                         boolean g;
                         char i;
-                    }                    
+                    &#125;                    
                 </code></pre>
                 <br>
                 <p class="collapse">Згорнути</p> <br>
@@ -262,12 +262,12 @@
             <p>Натисність на кнопку нижче, щоб відкрити рішення.</p> <br>
             <p class="solution">Показати рішення</p>
             <div class="p2 hidepr">
-                    <pre><code>public class Solution {
+                    <pre><code>public class Solution &#123;
                         byte a = Byte.MAX_VALUE;
                         short b = Short.MAX_VALUE;
                         int c = Integer.MAX_VALUE;
                         long d = Long.MAX_VALUE;
-                    }                    
+                    &#125;                    
                 </code></pre>
                 <br>
                 <p class="collapse">Згорнути</p> <br>
@@ -360,7 +360,7 @@
                     <h4>Питання №7</h4>
                     <p>Що з цього не є змінною-посиланням:</p>
                     <label style="display: flex;">
-                        <input type="radio" value="0" name="var7" class="var">int[] array;
+                        <input type="radio" value="0" name="var7" class="var">int&#91;&#93; array;
                     </label>
                     <label style="display: flex;">
                         <input type="radio" value="0" name="var7" class="var">String s;

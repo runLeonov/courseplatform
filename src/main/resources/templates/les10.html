@@ -112,7 +112,7 @@
             <p>де модифікатори доступу — це public, protected, private або нічого;</p> <br>
             <p>static пишемо, якщо метод статичний (не пишемо для нестатичних методів);</p> <br>
             <p>тип — тип результату функції (void, якщо результату немає).</p> <br>
-            <p>Тепер ви вже, напевно, розумієте, що означають усі ключові слова під час оголошення методу main: public static void main(String[] args);</p> <br>
+            <p>Тепер ви вже, напевно, розумієте, що означають усі ключові слова під час оголошення методу main: public static void main(String&#91;&#93; args);</p> <br>
             <p>Доступ до методу main() можливий із будь-якого класу, про це говорить слово public.</p> <br>
             <p>Метод статичний (його можна явно викликати у вигляді Solution.main()).</p> <br>
             <p>Метод main не повертає жодного результату. Тип результату — void (порожній тип/заглушка)</p> <br>
@@ -122,58 +122,58 @@
             <p>Поговорімо трохи серйозніше про змінні. Натомість цього разу розгляньмо не їхню внутрішню будову, а взаємодію змінних із кодом, в якому вони знаходяться.</p> <br>
             <p>Усі змінні, оголошені всередині методів, називають локальними змінними. Локальна змінна існує тільки в тому блоці коду, в якому її оголошено. Точніше, вона існує з моменту оголошення й до кінця блока коду, в якому її оголошено.</p> <br>
             <p>Для простоти розгляньмо приклад:</p> <br>
-            <pre><code>public static void main(String[] args)
-                {
+            <pre><code>public static void main(String&#91;&#93; args)
+                &#123;
                     int a = 5; //a
                     if (a < 10) //a
-                    { //a
+                    &#123; //a
                         int b = 10; //a b
                         while (true)//a b
-                        {//a b
+                        &#123;//a b
                             int x = a + b;//a b x
                             System.out.println(x);// a b x
-                        }// a b 
-                    }//a
-                }
+                        &#125;// a b 
+                    &#125;//a
+                &#125;
             </code></pre> <br>
             <p>Обговорімо доступність локальних змінних іще раз. Є блок коду, обмежений фігурними дужками: це може бути тіло методу, тіло циклу або просто блок коду умовного оператора. Змінна, оголошена у блоці коду, існує до кінця цього блока коду.</p> <br>
             <p>Якщо змінну оголосити в тілі циклу, вона існуватиме лише в тілі циклу, створюючись і знищуючись на кожному витку циклу.</p> <br>
             <p>Неможливо оголосити дві локальні змінні з однаковими іменами в одному методі — програма не скомпілюється. Але можна це зробити, якщо блоки коду, в яких оголошено змінні, не перетинаються.</p> <br>
             <p>Приклад:</p> <br>
-            <pre><code>public static void main(String[] args)
-                {
+            <pre><code>public static void main(String&#91;&#93; args)
+                &#123;
                     int a = 5; //a
                     if (a < 10) //a
-                    { //a
+                    &#123;#123; //a
                         int b = 10;//a b
                         System.out.println(b);//a b
-                    }//a
+                    &#125;//a
                 
                     if (a < 20)//a
-                    { //a
+                    &#123; //a
                         int b = 20;//a b
                         System.out.println(b);//a b
-                    }//a
-                }
+                    &#125;//a
+                &#125;
             </code></pre> <br>
             <p>Другу локальну змінну з іменем b ми змогли оголосити лише тому, що першу змінну b не видно в блоці коду, де оголошено другу змінну b.</p> <br>
             <h4>Змінні-параметри</h4>
             <p>Як ми вже казали раніше, у кожного методу можуть бути змінні-параметри. А що можна сказати про їх видимість і час життя?</p> <br>
             <p>Тут усе досить просто. Змінні-параметри створюються, коли керування передається в код методу (код методу починає виконуватися), і видаляються, коли робота методу завершується. Їх видно в усьому тілі методу.</p> <br>
             <p>Приклад:</p> <br>
-            <pre><code>public static void main(String[] args)
-                {//args
+            <pre><code>public static void main(String&#91;&#93; args)
+                &#123;//args
                     int a = 5; //args a
                     if (a < 10)//args a
-                    {//args a
+                    &#123;//args a
                         int b = 10;//args a b
                         while (true)//args a b
-                        {//args a b
+                        &#123;//args a b
                             int x = a + b;//args a b x
                             System.out.println(x);//args a b x
-                        }//args a b
-                    }//args a
-                }
+                        &#125;//args a b
+                    &#125;//args a
+                &#125;
             </code></pre> <br>
             <p>Як ми вже зазначали, args — це просто змінна типу масив рядків. І подібно до всіх змінних-параметрів вона доступна всюди всередині тіла методу. Хоча в наших прикладах ми її зазвичай ігноруємо.</p> <br>
             <h4>Змінні класу</h4>
@@ -185,16 +185,16 @@
                 public int sum = 0;//count sum
                 //count sum
                 public void add(int data)// count sum
-                {//count sum data
+                &#123;//count sum data
                     sum = sum + data;//count sum data
                     count++;//count sum data
-                }//count sum
+                &#125;//count sum
                 //count sum
                 public void remove(int data)//count sum
-                {//count sum data
+                &#123;//count sum data
                     sum = sum - data;//count sum data
                     count--;//count sum data
-                }//count sum
+                &#125;//count sum
             </code></pre> <br>
             <p>У цьому прикладі маємо два методи — add() і remove(). Метод add() збільшує змінні класу sum і count, а метод remove() зменшує змінні sum і count. Обидва методи працюють зі спільними змінними класу.</p> <br>
             <p>Локальні змінні існують, поки виконується метод. А змінні класу існують стільки часу, скільки існує об'єкт класу, до якого вони належать. Детальніше про об'єкти класу ви дізнаєтеся на наступних лекціях.</p> <br>
@@ -205,25 +205,25 @@
             <p>ClassName.variableName</p> <br>
             <p>Приклад:</p> <br>
             <pre><code>public class Solution
-                {//Storage.count, Storage.sum
+                &#123;//Storage.count, Storage.sum
                     public void add(int data)//Storage.count, Storage.sum
-                    {//Storage.count, Storage.sum, data
+                    &#123;//Storage.count, Storage.sum, data
                         Storage.sum = Storage.sum + data;//Storage.count, Storage.sum, data
                         Storage.count++;//Storage.count, Storage.sum,data
-                    }//Storage.count, Storage.sum
+                    &#125;//Storage.count, Storage.sum
                     //Storage.count, Storage.sum
                     public void remove(int data)//Storage.count, Storage.sum
-                    {//Storage.count, Storage.sum, data
+                    &#123;//Storage.count, Storage.sum, data
                         Storage.sum = Storage.sum - data;//Storage.count, Storage.sum, data
                         Storage.count--;//Storage.count, Storage.sum, data
-                    }//Storage.count, Storage.sum
-                }
+                    &#125;//Storage.count, Storage.sum
+                &#125;
                 
                 public class Storage
-                {//Storage.count, Storage.sum
+                &#123;//Storage.count, Storage.sum
                     public static int count = 0;//Storage.count, Storage.sum
                     public static int sum = 0;//Storage.count, Storage.sum
-                }
+                &#125;
             </code></pre> <br>
             <p>У наведеному вище прикладі ми створили окремий клас Storage, винесли в нього змінні count і sum і оголосили їх статичними. До публічних статичних змінних можна звертатися з будь-якого методу програми (та й не тільки з методу).</p> <br>
             <h3>Особливості роботи зі змінними</h3> <br>
@@ -236,23 +236,23 @@
             <p>Модифікатор final можна вказувати перед будь-якими змінними: локальними, параметрами, полями класу і статичними змінними.</p> <br>
             <p>Зверніть увагу, що final — це лише захист від змінення змінної. Якщо змінна зберігає посилання на об'єкт, то об'єкт все ж таки міняти можна.</p> <br>
             <p>Приклад:</p> <br>
-            <pre><code>final int[] data = {1, 2, 3, 4, 5, 6};
+            <pre><code>final int&#91;&#93; data = &#123;1, 2, 3, 4, 5, 6&#125;;
 
-                data = {6, 7, 8, 9};//Так не можна
+                data = &#123;6, 7, 8, 9&#125;;//Так не можна
                 
-                data[0] = 0;//а так можна
-                data[1] = 0;
-                data[2] = 0;
+                data&#91;0&#93; = 0;//а так можна
+                data&#91;1&#93; = 0;
+                data&#91;2&#93; = 0;
             </code></pre> <br>
             <p>Глобальні константи</p> <br>
             <p>Якщо ви захочете оголосити у своїй програмі глобальні константи, вам потрібно створити статичні змінні класу, а також визначити їх як public і final. Для імен таких змінних існує спеціальний стиль написання: їх пишуть великими літерами, а як роздільник слів використовують знак підкреслення.</p> <br>
             <p>Приклади:</p> <br>
             <pre><code>class Solution
-                {
+                &#123;
                    public static final String SOURCE_ROOT = "c:\\projects\\my\\";
                    public static final int DISPLAY_WIDTH = 1024;
                    public static final int DISPLAY_HEIGHT = 768;
-                }
+                &#125;
             </code></pre> <br>
             <h4>Затінення змінних</h4>
             <p>Як ми вже казали, не можна в одному методі створити кілька локальних змінних з однаковими іменами. У різних методах — можна.</p> <br>
@@ -262,11 +262,11 @@
                 public int sum = 0; //count, sum
                 //count, sum
                 public void add(int data)//count, sum
-                {//count, sum, data
+                &#123;//count, sum, data
                     sum = sum + data;//count, sum, data
                     int sum = data * 2;//count, sum, data
                     count++;//count,sum, data
-                }//count, sum
+                &#125;//count, sum
             </code></pre> <br>
             <p>У методі add ми оголосили локальну змінну sum, і вона до кінця дії методу перекриває (або ще кажуть затіняє) собою змінну класу sum.</p> <br>
             <p>Ну гаразд, скажете ви, навіть в якомусь сенсі очікувана поведінка. Але це ще не все. Виявляється, якщо змінну класу затіняє локальна змінна, у методі все-таки є спосіб звернутися до змінної класу. Для цього потрібно перед її іменем написати ключове слово this: this.ім'я</p> <br>
@@ -275,27 +275,27 @@
                 public int sum = 0;//this.count, this.sum
                 //this.count, this.sum
                 public void add(int data)//this.count, this.sum
-                {//this.count, this.sum, data
+                &#123;//this.count, this.sum, data
                     int sum = data * 2;//this.count, this.sum, data, sum
                     this.sum = this.sum + data;//this.count, this.sum, data, sum
                     count++;//this.count, this.sum, data, sum
-                }//this.count, this.sum
+                &#125;//this.count, this.sum
             </code></pre> <br>
             <p>Змінні count і sum доступні всюди як із ключовим словом this, так і без нього. У тих рядках, де локальна змінна sum затіняє змінну класу sum, доступ до змінної класу sum можливий тільки за умови застосування this.</p> <br>
             <p>Якщо затіняється не просто змінна класу, а статична змінна класу, звертатися до неї потрібно не через this, а через ім'я класу: ClassName.ім'я;</p> <br>
             <p>Приклад:</p> <br>
             <pre><code>public class Solution
-                {//Solution.count, Solution.sum
+                &#123;//Solution.count, Solution.sum
                     public static int count = 0;//Solution.count, Solution.sum
                     public static int sum = 0;//Solution.count, Solution.sum
                     //Solution.count, Solution.sum
                     public void add(int data)//Solution.count, Solution.sum
-                    {//Solution.count, Solution.sum, data
+                    &#123;//Solution.count, Solution.sum, data
                         int sum = data * 2;//Solution.count, Solution.sum, data, sum
                         Solution.sum = Solution.sum + data;//Solution.count, Solution.sum, data, sum
                         count++;//Solution.count, Solution.sum, data, sum
-                    }//Solution.count, Solution.sum
-                }
+                    &#125;//Solution.count, Solution.sum
+                &#125;
             </code></pre> <br>
             <p>Статичні змінні count і sum доступні всюди як із префіксом у вигляді імені класу Solution, так и без нього. У тих рядках, де локальна змінна sum затіняє змінну класу sum, доступ до змінної класу sum можливий тільки за умови застосування префікса Solution.</p>
         </section>
@@ -304,42 +304,42 @@
             <h4>Завдання №1</h4>
             <p>Програма має виводити кількість населення найбільших міст світу й порівнювати його з найбільшим за чисельністю населення містом — Токіо. Але алгоритм програми трохи некоректний. Для виправлення помилки тобі потрібно зробити так, щоб у рядку з виведенням інформації про найбільше місто у світі використовувалися статичні змінні класу замість локальних аргументів методу.</p> <br>
             <p>Початковий код: </p> <br>
-            <pre><code>public class Solution {
+            <pre><code>public class Solution &#123;
                 public static String city = "Токіо";
                 public static double population = 34.5;
             
-                public static void main(String[] args) {
+                public static void main(String&#91;&#93; args) &#123;
                     printCityPopulation("Джакарта", 25.3);
                     printCityPopulation("Сеул", 25.2);
                     printCityPopulation("Делі", 23.1);
                     printCityPopulation("Нью-Йорк", 21.6);
-                }
+                &#125;
             
-                public static void printCityPopulation(String city, double population){
+                public static void printCityPopulation(String city, double population)&#123;
                     System.out.println("Населення міста " + city + " становить " + population + " млн осіб.");
                     System.out.println("А тимчасом у найбільш населеному місті " + city + " мешкає " + population + " млн осіб.");
-                }
-            }            
+                &#125;
+            &#125;            
             </code></pre> <br>
             <p>Натисність на кнопку нижче, щоб відкрити рішення.</p> <br>
             <p class="solution">Показати рішення</p>
             <div class="p1 hidepr">
-                    <pre><code>public class Solution {
+                    <pre><code>public class Solution &#123;
                         public static String city = "Токіо";
                         public static double population = 34.5;
                     
-                        public static void main(String[] args) {
+                        public static void main(String&#91;&#93; args) &#123;
                             printCityPopulation("Джакарта", 25.3);
                             printCityPopulation("Сеул", 25.2);
                             printCityPopulation("Делі", 23.1);
                             printCityPopulation("Нью-Йорк", 21.6);
-                        }
+                        &#125;
                     
-                        public static void printCityPopulation(String city, double population){
+                        public static void printCityPopulation(String city, double population)&#123;
                             System.out.println("Населення міста " + city + " становить " + population + " млн осіб.");
                             System.out.println("А тимчасом у найбільш населеному місті " + Solution.city + " мешкає " + Solution.population + " млн осіб.");
-                        }
-                    }                    
+                        &#125;
+                    &#125;                    
                 </code></pre>
                 <br>
                 <p class="collapse">Згорнути</p> <br>
@@ -347,30 +347,30 @@
             <h4>Завдання №2</h4>
             <p>Поглянь, що робить програма. Розстав модифікатор final біля загальноприйнятих констант (змінних з незмінними значеннями)</p><br>
             <p>Початковий код:</p> <br>
-            <pre><code>public class Solution {
+            <pre><code>public class Solution &#123;
                 public static double pi = 3.14;
                 public static double radius = 2.5;
                 public static double diameter = 5;
             
-                public static void main(String[] args) {
+                public static void main(String&#91;&#93; args) &#123;
                     System.out.println("Площа круга дорівнює : " + pi * radius * radius);
                     System.out.println("Периметр круга дорівнює : " + pi * diameter);
-                }
-            }            
+                &#125;
+            &#125;            
             </code></pre> <br>
             <p>Натисність на кнопку нижче, щоб відкрити рішення.</p> <br>
             <p class="solution">Показати рішення</p>
             <div class="p2 hidepr">
-                    <pre><code>public class Solution {
+                    <pre><code>public class Solution &#123;
                         public static final double pi = 3.14;
                         public static double radius = 2.5;
                         public static double diameter = 5;
                     
-                        public static void main(String[] args) {
+                        public static void main(String&#91;&#93; args) &#123;
                             System.out.println("Площа круга дорівнює: " + pi * radius * radius);
                             System.out.println("Периметр круга дорівнює: " + pi * diameter);
-                        }
-                    }                    
+                        &#125;
+                    &#125;                    
                 </code></pre>
                 <br>
                 <p class="collapse">Згорнути</p> <br>
@@ -385,13 +385,13 @@
                     <h4>Питання №1</h4>
                     <p>Виберіть правильний варіант методу main(), з якого починається виконання програми:</p>
                     <label>
-                        <input type="radio" value="1" name="var1" class="var">public static void main(String[] args)
+                        <input type="radio" value="1" name="var1" class="var">public static void main(String&#91;&#93; args)
                     </label>
                     <label>
-                        <input type="radio" value="0" name="var1" class="var">public static void main(String args[])
+                        <input type="radio" value="0" name="var1" class="var">public static void main(String args&#91;&#93;)
                     </label>
                     <label>
-                        <input type="radio" value="0" name="var1" class="var">static void main(String[] args)
+                        <input type="radio" value="0" name="var1" class="var">static void main(String&#91;&#93; args)
                     </label>
                 </div>
                 <div id="q2">
@@ -452,9 +452,9 @@
                     <pre style="border: none;"><code>int a = 5;
                         int b = 10;
                         while (true)
-                        {
+                        &#123;
                             int x = a + b;
-                        }
+                        &#125;
                     </code></pre>
                     <label style="display: flex;">
                         <input type="radio" value="0" name="var6" class="var">x
@@ -483,17 +483,17 @@
                     <h4>Питання №8</h4>
                     <p>Які змінні доступні в методі remove:</p>
                     <pre style="border: none;"><code>public class Storage
-                        {
+                        &#123;
                             public static int count = 0;
                             public static int sum = 0;
-                        }
+                        &#125;
                         public class Solution
-                        {
+                        &#123;
                             public void remove(int data)
-                            {
+                            &#123;
                                 Storage.sum = Storage.sum - data;
-                            }
-                        }
+                            &#125;
+                        &#125;
                     </code></pre>
                     <label>
                         <input type="radio" value="1" name="var8" class="var">Storage.count, Storage.sum, data

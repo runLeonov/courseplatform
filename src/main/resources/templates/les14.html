@@ -173,7 +173,7 @@
             <p>Якщо вираз1 дорівнює false, немає сенсу обчислювати вираз2 й вираз3: результат все одно буде false.</p> <br>
             <p>Це важливий момент, який дозволяє писати ось такі речі:</p> <br>
             <pre><code>String s = null;
-                if (s != null && s.length() > 0) {
+                if (s != null && s.length() > 0) 
             </code></pre> <br>
             <p>У прикладі вище ми ніколи не отримаємо NullPointerException, оскільки вираз s.length() виконуватиметься, тільки якщо перша частина, s != null, дорівнює true.</p> <br>
             <p>Якщо s виявиться рівним null, ліворуч від оператора && буде значення false, і результат усього логічного виразу буде false, тому обчислення другої частини (s.length() > 0) не виконується.</p> <br>
@@ -185,7 +185,7 @@
             <p>Отакий вигляд має таблиця з усіма операторами Java:</p> <br>
             <img  th:src="@{/img/table_les14.png}" alt=""> <br> <br>
             <!-- <img src="/src/main/resources/static/img/table_les14.png" alt="table_les14"> <br> <br> -->
-            <p>У верхньому рядку розташовані найпріоритетніші оператори. Круглі дужки () використовуються для явного встановлення пріоритету. Квадратні дужки [] використовуються для індексування змінної-масиву. Оператор . використовується для отримання полів і методів від посилання на об'єкт або клас.</p> <br>
+            <p>У верхньому рядку розташовані найпріоритетніші оператори. Круглі дужки () використовуються для явного встановлення пріоритету. Квадратні дужки &#91;&#93; використовуються для індексування змінної-масиву. Оператор . використовується для отримання полів і методів від посилання на об'єкт або клас.</p> <br>
             <p>Що нижче оператори розташовані в таблиці, то нижче їхній пріоритет.</p> <br>
             <p>Якщо ви використовуєте у виразі кілька операторів, не лінуйтеся — ставте дужки.</p> <br>
             <p>Так, у Java можна написати щось на кшталт if (a & 1< ~c), але так робити не варто. Ви пишете код не лише для компілятора, але й для інших програмістів. Що читабельнішим буде код, то краще. </p> <br>
@@ -238,20 +238,20 @@
             <p>Натисність на кнопку нижче, щоб відкрити рішення.</p> <br>
             <p class="solution">Показати рішення</p>
             <div class="p1 hidepr">
-                    <pre><code>public class Solution {
+                    <pre><code>public class Solution &#123;
 
-                        public static void main(String[] args) {
+                        public static void main(String&#91;&#93; args) &#123;
                             System.out.println(getPowerOfTwo(6));
-                        }
+                        &#125;
                     
-                        public static int getPowerOfTwo(int power) {
-                            if (power > 0) {
+                        public static int getPowerOfTwo(int power) &#123;
+                            if (power > 0) &#123;
                                 return 2 << (power - 1);
-                            } else {
+                            &#125; else &#123;
                                 return 2 >> -(power - 1);
-                            }
-                        }
-                    }                    
+                            &#125;
+                        &#125;
+                    &#125;                    
                 </code></pre>
                 <br>
                 <p class="collapse">Згорнути</p> <br>
@@ -268,14 +268,14 @@
             <p>Натисність на кнопку нижче, щоб відкрити рішення.</p> <br>
             <p class="solution">Показати рішення</p>
             <div class="p2 hidepr">
-                    <pre><code>public class Solution {
-                            public static void main(String[] args) {
+                    <pre><code>public class Solution &#123;
+                            public static void main(String&#91;&#93; args) &#123;
                                 Pair pair = new Pair(4, 5);
                                 System.out.println(pair);
                                 pair.swap();
                                 System.out.println(pair);
-                            }
-                        }
+                            &#125;
+                        &#125;
                 </code></pre>
                 <br>
                 <p class="collapse">Згорнути</p> <br>

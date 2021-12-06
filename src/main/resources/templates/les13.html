@@ -92,32 +92,32 @@
             <pre><code>Math.sin( Math.toRadians(45) )</code></pre> <br>
             <p>Приклад використання:</p> <br>
             <pre><code>public class Main
-                {
+                &#123;
                    public static int N = 10;
                 
                    public static void drawValue(double y)
-                   {
+                   &#123;
                      int value = (int) (y * N) + N;
                      for (int i = 0; i < 2 * N; i++)
-                     {
+                     &#123;
                        char c = i == N ? '|': '.';
                        if (i == value)
                          c = '*';
                        System.out.print(c);
-                     }
+                     &#125;
                      System.out.println();
-                   }
+                   &#125;
                 
-                   public static void main(String[] args)
-                   {
+                   public static void main(String&#91;&#93; args)
+                   &#123;
                      for (int i = 0; i < 10 * N; i++)
-                     {
+                     &#123;
                        double x = i * 1.0 / N;
                        double y = Math.sin(x);
                        drawValue(y);
-                     }
-                   }
-                }
+                     &#125;
+                   &#125;
+                &#125;
             </code></pre> <br>
             <h4>Алгебраїчні функції в Java</h4>
             <p>Здебільшого програмісту з головою вистачає шкільної математики: навіть синуси й косинуси в коді трапляються дуже рідко. Найчастіше вони потрібні під час роботи з іграми, картами або ігровими движками. 90 % програмістів із цим ніколи не стикаються.</p> <br>
@@ -159,33 +159,33 @@
             <p>Є багато алгоритмів генерування послідовності псевдовипадкових чисел, і майже всі вони генерують наступне випадкове число на основі попереднього та ще деяких допоміжних чисел.</p> <br>
             <p>Наприклад, ця програма виведе на екран 1000 неповторюваних чисел:</p> <br>
             <pre><code>public class Main
-                {
+                &#123;
                    public static int a = 41;
                    public static int c = 11119;
                    public static int m = 11113;
                    public static int seed = 1;
                 
                    public static int getNextRandom()
-                   {
+                   &#123;
                      seed = (a * seed + c) % m;
                      return seed;
-                   }
+                   &#125;
                 
-                   public static void main(String[] args)
-                   {
+                   public static void main(String&#91;&#93; args)
+                   &#123;
                      for (int i = 0; i < 1000; i++)
-                     {
+                     &#123;
                        System.out.println(getNextRandom());
-                     }
-                   }
-                }
+                     &#125;
+                   &#125;
+                &#125;
             </code></pre> <br>
             <p>До речі, ми говоримо не про окремі псевдовипадкові числа, а саме про послідовність таких чисел, оскільки дивлячись на одне число, неможливо зрозуміти, випадкове воно чи ні.</p> <br>
             <p>Адже випадкове число можна отримати різними способами:</p> <br>
             <pre><code>public static int getRandomNumber()
-                {
+                &#123;
                    return 4; // це точно випадкове число (викинули його на кубиках)
-                }
+                &#125;
             </code></pre> <br>
             <h4>Метод Math.random()</h4>
             <p>Клас Math у Java має спеціальний метод, який повертає випадкове число. І як ви вже, можливо, здогадуєтеся, цей метод має назву random. Його виклик має такий загальний вигляд:</p> <br>
@@ -193,54 +193,54 @@
             <p>Метод не отримує жодного параметра, але повертає результат — псевдовипадкове дійсне число в діапазоні від 0 до 1. Одиниця до діапазону не входить.</p> <br>
             <p>Наприклад:</p> <br>
             <pre><code>public class Main
-                {
-                   public static void main(String[] args)
-                   {
+                &#123;
+                   public static void main(String&#91;&#93; args)
+                   &#123;
                      for (int i = 0; i < 10; i++)
-                     {
+                     &#123;
                        System.out.println(Math.random());
-                     }
-                   }
-                }
+                     &#125;
+                   &#125;
+                &#125;
             </code></pre> <br>
             <p>А що робити, якщо вам цей метод не дуже підходить, а ви хочете, припустімо, написати програму, яка імітує кидання кубика з шістьма гранями? Як отримати випадкові цілі числа в діапазоні 1…6, а не дійсні в діапазоні 0…1?</p> <br>
             <p>Насправді це досить просто.</p> <br>
-            <p>Спочатку треба перетворити діапазон [0,1) на [0, 6). Для цього просто слід помножити результат функції random() на 6. Ну а щоб отримати цілі числа, потрібно це все округлити:</p> <br>
+            <p>Спочатку треба перетворити діапазон &#91;0,1) на &#91;0, 6). Для цього просто слід помножити результат функції random() на 6. Ну а щоб отримати цілі числа, потрібно це все округлити:</p> <br>
             <pre><code>public class Main
-                {
+                &#123;
                    public static int getRandomDiceNumber()
-                   {
+                   &#123;
                       return (int) (Math.random() * 6);
-                   }
+                   &#125;
                 
-                   public static void main(String[] args)
-                   {
+                   public static void main(String&#91;&#93; args)
+                   &#123;
                       for (int i = 0; i < 10; i++)
-                      {
+                      &#123;
                          int x = getRandomDiceNumber();
                          System.out.println(x);
-                      }
-                   }
-                }
+                      &#125;
+                   &#125;
+                &#125;
             </code></pre> <br>
             <p>Функція getRandomDiceNumber() повертає випадкове ціле число з діапазону 0…5 включно. Тільки це будуть числа не з набору 1,2,3,4,5,6, а з набору 0,1,2,3,4,5.</p> <br>
             <p>Якщо потрібні числа саме з набору 1,2,3,4,5,6, слід просто до всіх випадкових чисел додавати одиницю:</p> <br>
             <pre><code>public class Main
-                {
+                &#125;
                    public static int getRandomDiceNumber()
-                   {
+                   &#123;
                       return (int) (Math.random() * 6) + 1;
-                   }
+                   &#125;
                 
-                   public static void main(String[] args)
-                   {
+                   public static void main(String&#91;&#93; args)
+                   &#123;
                      for (int i = 0; i < 10; i++)
-                     {
+                     &#123;
                        int x = getRandomDiceNumber();
                        System.out.println(x);
-                     }
-                   }
-                }
+                     &#125;
+                   &#125;
+                &#125;
             </code></pre> <br>
             <h4>Клас Random</h4>
             <p>У Java є спеціальний клас Random, який інкапсулює послідовність псевдовипадкових чисел. Можна створити кілька об'єктів класу Random, і кожен із цих об'єктів генеруватиме свою послідовність псевдовипадкових чисел.</p> <br>
@@ -253,7 +253,7 @@
                 float f = r.nextFloat();
             </code></pre> <br>
             <p>Метод int nextInt(int max)</p> <br>
-            <p>Цей метод повертає випадкове ціле число в діапазоні [0, max). 0 входить до діапазону, max — не входить.</p> <br>
+            <p>Цей метод повертає випадкове ціле число в діапазоні &#91;0, max). 0 входить до діапазону, max — не входить.</p> <br>
             <p>Тобто якщо ви хочете отримати випадкове число з набору 1, 2, 3, 4, 5, 6, вам доведеться додати до отриманого випадкового числа одиницю:</p> <br>
             <pre><code>Random r = new Random();
                 int x = r.nextInt(6) + 1;
@@ -265,7 +265,7 @@
             <p>Цей метод подібний до методу nextInt(), тільки повертатиме він значення з усього можливого діапазону значень типу long.</p> <br>
             <p>Метод boolean nextBoolean()</p> <br>
             <p>Цей метод повертає випадкове значення типу boolean: false або true. Дуже зручно, якщо потрібно отримати довгу послідовність випадкових логічних значень.</p> <br>
-            <p>Метод void nextBytes(byte[] data)</p> <br>
+            <p>Метод void nextBytes(byte&#91;&#93; data)</p> <br>
             <p>Цей метод не повертає нічого (тип void). Натомість він заповнює переданий у нього масив випадковими значеннями. Дуже зручно, якщо потрібен великий буфер, заповнений випадковими даними.</p> <br>
             <p>Метод double nextGaussian()</p> <br>
             <p>Цей метод повертає випадкове дійсне число в діапазоні 0.0–1.0. От тільки числа в цьому діапазоні розподілені не рівномірно, а підпорядковані нормальному розподілу.</p> <br>
@@ -285,10 +285,10 @@
             </code></pre> <br>
             <p>Отак це можна застосовувати на практиці. Припустімо, ми пишемо програму, яка запускатиме космічний корабель. Отакий вигляд міг би мати її код:</p> <br>
             <pre><code>for (int i = 10; i > 0; i--)
-                {
+                &#125;
                    System.out.println(i);
                    Thread.sleep(1000);
-                }
+                   &#125;
                 System.out.println("Поїхали!");
             </code></pre> <br>
             <h4>Наносекунди</h4>
@@ -327,16 +327,16 @@
             <p>Натисність на кнопку нижче, щоб відкрити рішення.</p> <br>
             <p class="solution">Показати рішення</p>
             <div class="p1 hidepr">
-                    <pre><code>public class Solution {
+                    <pre><code>public class Solution &#123;
 
-                        public static void main(String[] args) {
+                        public static void main(String&#91;&#93; args) &#123;
                             System.out.println(generateNumber());
-                        }
+                            &#125;
                     
-                        public static int generateNumber() {
+                        public static int generateNumber() &#123;
                             return  (int) (Math.random() * 100);
-                        }
-                    }                    
+                            &#125;
+                            &#125;                    
                 </code></pre>
                 <br>
                 <p class="collapse">Згорнути</p> <br>
@@ -346,21 +346,21 @@
             <p>Натисність на кнопку нижче, щоб відкрити рішення.</p> <br>
             <p class="solution">Показати рішення</p>
             <div class="p2 hidepr">
-                    <pre><code>public class Solution {
+                    <pre><code>public class Solution &#123;
 
-                        public static void main(String[] args) {
+                        public static void main(String&#91;&#93; args) &#123;
                             printNumbers();
-                        }
+                            &#125;
                     
-                        public static void printNumbers(){
-                            for (int i = 1; i <= 10; i++) {
+                        public static void printNumbers() &#123;
+                            for (int i = 1; i <= 10; i++) &#123;
                                 System.out.println(i);
-                                if (i < 10) {
+                                if (i < 10) &#123;
                                     Thread.sleep(1, 300_000);
-                                }
-                            }
-                        }
-                    }                    
+                                    &#125;
+                                &#125;
+                                &#125;
+                                &#125;                  
                 </code></pre>
                 <br>
                 <p class="collapse">Згорнути</p> <br>

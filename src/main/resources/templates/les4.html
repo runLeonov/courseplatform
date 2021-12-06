@@ -85,9 +85,9 @@
             </code></pre> <br>
             <p>Або ж:</p> <br>
             <pre><code>while (умова)
-                {
+                &#123;
                    блок команд
-                }                
+                &#125;                
             </code></pre> <br>
             <p>Ось як це працює. Спочатку перевіряється умова, і якщо вона істинна, виконується тіло циклу (команда чи блок команд), потім знову перевіряється умова і знову виконується тіло циклу. І так доти, доки умова не стане хибною.</p> <br>
             <p>Якщо умова завжди буде істинною, цикл виконуватиметься нескінченно, і програма ніколи не припинить роботу.</p> <br>
@@ -97,10 +97,10 @@
             <p>Приклад №1</p> <br>
             <pre><code>int  n = 5;
                 while (n > 0) 
-                {
+                &#123;
                     System.out.println(n);
                     n--;
-                }
+                &#125;
             </code></pre> <br>
             <p>Пояснення: На екран буде виведено 5 рядків:
                 5
@@ -118,38 +118,38 @@
             <pre><code>Scanner console = new Scanner(System.in);
                 boolean isExit = false;
                 while (!isExit)
-                {
+                &#123;
                     String s = console.nextLine();
                     isExit = s.equals("exit");
-                }
+                &#125;
             </code></pre> <br>
             <p>Програма буде вводити рядки з клавіатури,доки не буде введено рядок exit.</p>
             <h4>Цикл у циклі</h4> <br>
             <p>Під час розгляду умовного оператора ви бачили, що, комбінуючи кілька умовних операторів, можна реалізовувати складну логіку. Тобто всередину одного оператора if можна вкласти інший if.</p> <br>
             <p>З циклами теж так можна. Щоб створити цикл у циклі, потрібно в тіло першого циклу вписати другий цикл. Ця конструкція має такий вигляд:</p> <br>
             <pre><code>while (умова зовнішнього циклу)
-                {
+                &#123;
                    while (умова внутрішнього циклу)
-                   {
+                   &#123;
                      блок команд
-                   }
-                }
+                   &#125;
+                &#125;
             </code></pre> <br>
             <p>Розгляньмо задачу.</p> <br>
             <p>Нам потрібно вивести на екран прямокутник із літер А розміром 4 рядки на 5 стовпців. І ось для цього нам вже знадобляться вкладені цикли. Просто візьмімо перший приклад, де ми виводимо 4 рядки, і замінимо код, який виводить один рядок, на код із другого прикладу.</p> <br>
             <p>Код:</p> <br>
             <pre><code>int n = 0;
                 while (n < 4)
-                {
+                &#123;
                     int m = 0;
                     while (m < 5)
-                    {
+                    &#123;
                         System.out.print("А");
                         m++;
-                    }
+                    &#125;
                     System.out.println();
                     n++;
-                }
+                &#125;
             </code></pre> <br>
             <p>У зовнішньому циклі використовується змінна n для підрахунку кількості витків циклу</p> <br>
             <p>Для підрахунку кількості витків внутрішнього циклу використовується змінна m.</p> <br>
@@ -167,10 +167,10 @@
             <pre><code>Scanner console = new Scanner(System.in);
                 boolean isExit = false;
                 while (!isExit)
-                {
+                &#123;
                     String s = console.nextLine();
                     isExit = s.equals("exit");
-                }
+                &#125;
             </code></pre> <br>
             <p>Програма зчитуватиме рядки з клавіатури, доки не буде введено рядок exit.</p> <br>
             <p>Програма читає рядки з консолі, доки не буде введено слово exit. Якщо ввести це слово, змінна isExit отримає значення true, а умова циклу !isExit набуде значення false, і цикл завершиться.</p> <br>
@@ -178,11 +178,11 @@
             <p>Ось як можна переписати розглянутий вище приклад, використовуючи команду break:</p> <br>
             <pre><code>Scanner console = new Scanner(System.in);
                 while (true)
-                {
+                &#123;
                     String s = console.nextLine();
                     if (s.equals("exit"))
                         break;
-                }
+                &#125;
             </code></pre> <br>
             <h4>Команда continue</h4> <br>
             <p>Проте break — це не єдиний оператор, за допомогою якого можна керувати виконанням циклів. У мові Java є ще один оператор — continue. Якщо виконати команду continue всередині циклу, поточний виток циклу завершиться достроково.</p> <br>
@@ -191,15 +191,15 @@
             <p>Задача: нам потрібно написати програму, яка виводить на екран 20 чисел від 1 до 20 й водночас пропускає числа, що діляться на 7. Цей код матиме такий вигляд:</p> <br>
             <pre><code>int i = 1;
                 while (i <= 20)
-                {
+                &#123;
                    if ( (i % 7) == 0 )
-                   {
+                   &#123;
                      i++;
                      continue;
-                   }
+                   &#125;
                    System.out.println(i);
                    i++;
-                }
+                &#125;
             </code></pre> <br>
             <p>Програма виводить на екран числа від 1 до 20. Якщо число ділиться на 7 (остача від ділення на 7 дорівнює 0), виведення на екран не виконується.</p> <br>
             <h3>Приклади використання циклу while</h3> <br>
@@ -208,10 +208,10 @@
             <pre><code>Scanner console = new Scanner(System.in);
                 int sum = 0;
                 while (console.hasNextInt())
-                {
+                &#123;
                     int x = console.nextInt();
                     sum = sum + x;
-                }
+                &#125;
                 System.out.println(sum);
             </code></pre> <br>
             <pre><code>Створюємо об'єкт Scanner для читання даних з консолі.
@@ -225,11 +225,11 @@
             <pre><code>Scanner console = new Scanner(System.in);
                 int max = 0;
                 while (console.hasNextInt())
-                {
+                &#123;
                    int x = console.nextInt();
                    if (x > max)
                      max = x;
-                }
+                &#125;
                 System.out.println(max);
             </code></pre> <br>
             <pre><code>Створюємо об'єкт Scanner для читання даних з консолі.
@@ -247,9 +247,9 @@
             </code></pre> <br>
             <p>Або</p> <br>
             <pre><code>do
-                {
+                &#123;
                    блок команд
-                }
+                &#125;
                 while (умова)
             </code></pre> <br>
             <p>Проте ці цикли відрізняються послідовністю виконання: у циклі while вона така: умова, тіло циклу, умова, тіло циклу, умова, тіло циклу.</p> <br>
@@ -263,18 +263,18 @@
             <p>while:</p> <br>
             <pre><code>String s;
                 while (true)
-                {
+                &#123;
                     s = console.nextLine();
                     if (s.equals("exit"))
                         break;
-                }
+                &#125;
             </code></pre> <br>
             <p>do while:</p> <br>
             <pre><code>String s;
                 do
-                {
+                &#123;
                     s = console.nextLine();
-                }
+                &#125;
                 while (!s.equals("exit"))
             </code></pre> <br>
             <p>Оператори break и continue в циклі do-while діють так само, як і в циклі while.</p> <br>
@@ -287,26 +287,26 @@
             <p>Натисність на кнопку нижче, щоб відкрити рішення.</p> <br>
             <p class="solution">Показати рішення</p>
             <div class="p1 hidepr">
-                    <pre><code>ublic class Solution {
-                        public static void main(String[] args) {
+                    <pre><code>ublic class Solution &#123;
+                        public static void main(String&#91;&#93; args) &#123;
                             int height = 1;
-                            while (height <= 10) {
+                            while (height <= 10) &#123;
                                 int width = 1;
-                                while (width <= 20) {
-                                    if (height == 1 || height == 10) {
+                                while (width <= 20) &#123;
+                                    if (height == 1 || height == 10) &#123;
                                         System.out.print('Б');
-                                    } else if (width == 1 || width == 20) {
+                                    &#125; else if (width == 1 || width == 20) &#123;
                                         System.out.print('Б');
-                                    } else {
+                                    &#125; else &#123;
                                         System.out.print(' ');
-                                    }
+                                    &#125;
                                     width++;
-                                }
+                                &#125;
                                 System.out.println();
                                 height++;
-                            }
-                        }
-                    }</code></pre>
+                            &#125;
+                        &#125;
+                    &#125;</code></pre>
                 <br>
                 <p class="collapse">Згорнути</p> <br>
             </div>
@@ -315,21 +315,21 @@
             <p>Натисність на кнопку нижче, щоб відкрити рішення.</p> <br>
             <p class="solution">Показати рішення</p>
             <div class="p2 hidepr">
-                    <pre><code>public class Solution {
-                        public static void main(String[] args) {
+                    <pre><code>public class Solution &#123;
+                        public static void main(String&#91;&#93; args) &#123;
                             int sum = 0;
                             int number = 0;
-                            while (number <= 100) {
-                                if (number % 3 == 0) {
+                            while (number <= 100) &#123;
+                                if (number % 3 == 0) &#123;
                                     number++;
                                     continue;
-                                }
+                                &#125;
                                 sum = sum + number;
                                 number++;
-                            }
+                            &#125;
                             System.out.println(sum);
-                        }
-                    }</code></pre>
+                        &#125;
+                    &#125;</code></pre>
                 <br>
                 <p class="collapse">Згорнути</p> <br>
             </div>
@@ -342,26 +342,26 @@
                     <p>У якому прикладі цикл виведе на екран числа від 1 до 10?</p>
                     <label style="display: flex;">
                         <input type="radio" value="0" name="var1" class="var"><pre style="width: 80%;"><code>int i = 1;
-                            while (i < 10) {
+                            while (i < 10) &#123;
                                 System.out.println(i);
                                 i++;
-                            }
+                            &#125;
                         </code></pre>
                     </label>
                     <label style="display: flex;">
                         <input type="radio" value="0" name="var1" class="var"><pre style="width: 80%;"><code>int i = 0;
-                            while (i <= 10) {
+                            while (i <= 10) &#123;
                                 System.out.println(i);
                                 i++;
-                            }
+                            &#125;
                         </code></pre>
                     </label>
                     <label style="display: flex;">
                         <input type="radio" value="1" name="var1" class="var"><pre style="width: 80%;"><code>int i = 1;
-                            while (i <= 10) {
+                            while (i <= 10) &#123;
                                 System.out.println(i);
                                 i++;
-                            }
+                            &#125;
                         </code></pre>
                     </label>
                 </div>
@@ -370,26 +370,26 @@
                     <p>У якому прикладі цикл виведе на екран числа від 10 до 1?</p>
                     <label style="display: flex;">
                         <input type="radio" value="1" name="var1" class="var"><pre style="width: 80%;"><code>int i = 10;
-                            while (i > 0) {
+                            while (i > 0) &#123;
                                 System.out.println(i);
                                 i--;
-                            }
+                            &#125;
                         </code></pre>
                     </label>
                     <label style="display: flex;">
                         <input type="radio" value="0" name="var1" class="var"><pre style="width: 80%;"><code>int i = 10;
-                            while (i > 1) {
+                            while (i > 1) &#123;
                                 System.out.println(i);
                                 i--;
-                            }
+                            &#125;
                         </code></pre>
                     </label>
                     <label style="display: flex;">
                         <input type="radio" value="0" name="var1" class="var"><pre style="width: 80%;"><code>int i = 10;
-                            while (i > 1) {
+                            while (i > 1) &#123;
                                 System.out.println(i);
                                 i--;
-                            }
+                            &#125;
                         </code></pre>
                     </label>
                 </div>
@@ -463,10 +463,10 @@
                 <div id="q8">
                     <h4>Питання №8</h4>
                     <p>Скільки разів виконається наступний код? <pre style="border: none;"><code>int i = 13;
-                        while(i > 1){
+                        while(i > 1)&#123;
                             System.out.println(i);
                             i++;
-                        }
+                        &#125;
                     </code></pre></p>
                     <label>
                         <input type="radio" value="0" name="var8" class="var">12
@@ -481,10 +481,10 @@
                 <div id="q9">
                     <h4>Питання №9</h4>
                     <p>Скільки разів виконається наступний код:<pre style="border: none;"><code>int i = -19;
-                        while(i < 1){
+                        while(i < 1)&#123;
                             System.out.println(i);
                             i++;
-                        }                        
+                        &#125;                        
                     </code></pre></p>
                     <label>
                         <input type="radio" value="0" name="var9" class="var">19

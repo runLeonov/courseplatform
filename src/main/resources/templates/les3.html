@@ -92,20 +92,20 @@
             <h4>Блок команд</h4> <br>
             <p>Якщо ви хочете, щоб у разі виконання (або невиконання) умови ваша програма виконала кілька команд, їх можна об'єднати в блок команд.</p> <br>
             <p>Щоб об'єднати команди в блок, потрібно «загорнути» їх у фігурні дужки. Отак це виглядає в загальному випадку:</p> <br>
-            <pre><code>{
+            <pre><code>&#123;
                 команда1;
                 команда2;
                 команда3;
-             }
+             &#125;
             </code></pre> <br>
             <p>Команд у блоці може бути скільки завгодно. І навіть нуль.</p> <br>
             <p>Приклади поєднання оператора if-else і блоку команд:</p> <br>
             <pre><code>int temperature = 5;
                 if (temperature < 0)
-                {
+                &#123;
                     System.out.println("На вулиці мороз");
                     System.out.println("Потрібно вдягнутися тепліше!");
-                }
+                &#125;
                 else
                     System.out.println("На вулиці тепло");
             </code></pre> <br>
@@ -144,12 +144,12 @@
             <p>Вище написаний код правильніше написати так:</p> <br>
             <pre><code>int age = 65;
                 if (age < 60)
-                {
+                &#123;
                     if (age > 20)
                         System.out.println("Треба працювати");
                     else
                         System.out.println("Можна не працювати");
-                }
+                &#125;
             </code></pre> <br>
             <h3>Логічний тип boolean</h3> <br>
             <h4>Тип boolean</h4> <br>
@@ -235,15 +235,15 @@
             <p>Натисність на кнопку нижче, щоб відкрити рішення.</p> <br>
             <p class="solution">Показати рішення</p>
             <div class="p1 hidepr">
-                    <pre><code>public static void main(String[] args)
-                        {
+                    <pre><code>public static void main(String&#91;&#93; args)
+                        &#123;
                             String militaryCommissar = ", з'явіться до військкомату";
                             Scanner scan = new Scanner(System.in);
                             String name = scan.nextLine();
                             int age = scan.nextInt();
                             if((age>=18)&&(age<=27))
                                 System.out.println(name + militaryCommissar);
-                        }
+                        &#125;
                     </code></pre>
                 <br>
                 <p class="collapse">Згорнути</p> <br>
@@ -255,8 +255,8 @@
             <p>Натисність на кнопку нижче, щоб відкрити рішення.</p> <br>
             <p class="solution">Показати рішення</p>
             <div class="p2 hidepr">
-                    <pre><code>public static void main(String[] args)
-                        {
+                    <pre><code>public static void main(String&#91;&#93; args)
+                        &#123;
                             Scanner scan = new Scanner(System.in);
                             int a = scan.nextInt();
                             int b = scan.nextInt();
@@ -273,7 +273,7 @@
                                 System.out.println(a + " " + c);
                             else if(bc)
                                 System.out.println(b + " " + c);
-                        }
+                        &#125;
                     </code></pre>
                 <br>
                 <p class="collapse">Згорнути</p> <br>

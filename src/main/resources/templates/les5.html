@@ -82,32 +82,32 @@
             <p>Начебто все працює як слід, але це не дуже зручно. Перед циклом ми присвоюємо змінній-лічильнику початкове значення, а потім в умові перевіряємо, чи не досягла вона кінцевого значення. А от змінюємо її зазвичай аж наприкінці тіла циклу.</p> <br>
             <p>А якщо тіло циклу велике? Або маємо кілька вкладених циклів? Загалом у таких випадках бажано зібрати всю цю інформацію про змінну-лічильник в одному місці. Так у мові Java з'явився цикл for. Він теж має зовсім нескладний вигляд:</p> <br>
             <pre><code>for (команда1; умова; команда2)
-                {
+                &#123;
                    БЛОК КОМАНД
-                }
+                &#125;
             </code></pre> <br>
             <p>У циклі while у круглих дужках була тільки умова, а тут додано ще дві команди, розділені крапкою з комою.</p> <br>
             <p>Насправді все досить просто: компілятор перетворює цикл for на звичайний цикл while таким чином: команда1;</p> <br>
             <pre><code>while (умова)
-                {
+                &#123;
                    БЛОК КОМАНД
                    команда2;
-                }
+                &#125;
             </code></pre> <br>
             <p>Покажемо це на прикладі: два приклади нижче ідентичні.</p> <br>
             <p>Цикл for:</p> <br>
             <pre><code>for (int i = 0; i < 20; i++)
-                {
+                &#123;
                    System.out.println(i);
-                }
+                &#125;
             </code></pre> <br>
             <p>Цикл while:</p> <br>
             <pre><code>int i = 0;
                 while (i < 20)
-                {
+                &#123;
                    System.out.println(i);
                    i++;
-                }
+                &#125;
             </code></pre> <br>
             <p>Ми просто зібрали в одному місці весь код, який стосується змінної-лічильника — i. команда1 у циклі for виконується тільки один раз перед початком циклу (це видно у другому прикладі)</p> <br>
             <p>команда2 виконується таку саму кількість разів, як і тіло циклу, але вона виконується щоразу вже після повного завершення тіла циклу</p> <br>
@@ -116,33 +116,33 @@
             <p>Приклад №1</p> <br>
             <p>for:</p> <br>
             <pre><code>for (int i = 3; i >= 0; i--)
-                {
+                &#123;
                    System.out.println(i);
-                }
+                &#125;
             </code></pre> <br>
             <p>while:</p> <br>
             <pre><code>int i = 3;
                 while (i >= 0)
-                {
+                &#123;
                    System.out.println(i);
                    i--;
-                }
+                &#125;
             </code></pre> <br>
             <p>Приклад №2</p> <br>
             <p>for:</p> <br>
             <pre><code>for (boolean isExit = false; !isExit; )
-                {
+                &#123;
                    String s = console.nextLine();
                    isExit = s.equals("exit");
-                }
+                &#125;
             </code></pre> <br>
             <p>while:</p> <br>
             <pre><code>boolean isExit = false;
                 while (!isExit)
-                {
+                &#123;
                    String s = console.nextLine();
                    isExit = s.equals("exit");
-                }
+                &#125;
             </code></pre> <br>
             <p>Java дозволяє не писати в циклі for команди для ініціалізації лічильника та змінення лічильника. І навіть вираз-умову циклу можна не писати.</p> <br>
             <h4>Особливості використання циклу for</h4>
@@ -150,33 +150,33 @@
             <p>Оператор break у циклі for діє так само, як і в циклі while — призводить до негайного завершення циклу. А от коли використовується оператор continue, тіло циклу пропускається, а команда2 (яка змінює лічильник циклу) — ні.</p> <br>
             <p>Подивімося ще раз, як пов'язані між собою цикли for і while.</p> <br>
             <pre><code>for (команда1; умова; команда2)
-                {
+                &#123;
                    блок команд
-                }
+                &#125;
                 команда1;
                 while (умова)
-                {
+                &#123;
                    блок команд
                    команда2;
-                }
+                &#125;
             </code></pre> <br>
             <p>Якщо в блоці команд циклу for викликати оператор continue, наступні команди блоку будуть пропущені, а от команда2 (яка змінює лічильник циклу for) все одно буде виконана.</p> <br>
             <p>Повернімося до нашого прикладу з пропусканням чисел, що діляться на 7.</p> <br>
             <p>Цей код зациклиться:</p> <br>
             <pre><code>int i = 1;
                 while (i <= 20)
-                {
+                &#123;
                    if ( (i % 7) == 0) continue;
                    System.out.println(i);
                    i++;
-                }
+                &#125;
             </code></pre> <br>
             <p>Цей код чудово працюватиме:</p> <br>
             <pre><code>for (int i = 1; i <= 20; i++)
-                {
+                &#123;
                    if ( (i % 7) == 0) continue;
                    System.out.println(i);
-                }
+                &#125;
             </code></pre> <br>
             <p>Код із циклом while не діятиме — значення змінної i ніколи не перевищить 7. А от код із циклом for діятиме чудово.</p> <br>
             <h3>Приклади використання циклу for</h3> <br>
@@ -186,11 +186,11 @@
             <pre><code>Scanner console = new Scanner(System.in);
                 int count = 0;
                 for (int i = 0; i < 10; i++)
-                {
+                &#123;
                    if (console.hasNextInt())
                       count++;
                    console.nextLine();
-                }
+                &#125;
                 System.out.println(count);
             </code></pre> <br>
             <pre><code>Створюємо об'єкт Scanner для читання даних з консолі.
@@ -310,21 +310,21 @@
             <p>Натисність на кнопку нижче, щоб відкрити рішення.</p> <br>
             <p class="solution">Показати рішення</p>
             <div class="p1 hidepr">
-                    <pre><code>public class Solution {
-                        public static void main(String[] args) {
+                    <pre><code>public class Solution &#123;
+                        public static void main(String&#91;&#93; args) &#123;
                             double glass = 0.5;
                     
                             Scanner scanner = new Scanner(System.in);
                             boolean isOptimist = scanner.nextBoolean();
                             int result;
-                            if (isOptimist) {
+                            if (isOptimist) &#123;
                                 result = (int) Math.ceil(glass);
-                            } else {
+                            &#125; else &#123;
                                 result = (int) Math.floor(glass);
-                            }
+                            &#125;
                             System.out.println(result);
-                        }
-                    }</code></pre>
+                        &#125;
+                    &#125;</code></pre>
                 <br>
                 <p class="collapse">Згорнути</p> <br>
             </div>
@@ -334,23 +334,23 @@
             <p>Натисність на кнопку нижче, щоб відкрити рішення.</p> <br>
             <p class="solution">Показати рішення</p>
             <div class="p2 hidepr">
-                    <pre><code>public class Solution {
-                        public static void main(String[] args) {
+                    <pre><code>public class Solution &#123;
+                        public static void main(String&#91;&#93; args) &#123;
                             Scanner scanner = new Scanner(System.in);
                             int start = scanner.nextInt();
                             int end = scanner.nextInt();
                             int multiple = scanner.nextInt();
                     
                             int sum = 0;
-                            for (int i = start; i < end; i++) {
-                                if (i % multiple != 0) {
+                            for (int i = start; i < end; i++) &#123;
+                                if (i % multiple != 0) &#123;
                                     continue;
-                                }
+                                &#125;
                                 sum = sum + i;
-                            }
+                            &#125;
                             System.out.println(sum);
-                        }
-                    }</code></pre>
+                        &#125;
+                    &#125;</code></pre>
                 <br>
                 <p class="collapse">Згорнути</p> <br>
             </div>
@@ -362,10 +362,10 @@
                 <h2>Тестові завдання</h2>
                 <div id="q1">
                     <h4>Питання №1</h4>
-                    <p>Виберіть найбільш правильне твердження для наступного коду:<pre style="border: none;"><code>for(int i = 0; i < 10; i++) {
+                    <p>Виберіть найбільш правильне твердження для наступного коду:<pre style="border: none;"><code>for(int i = 0; i < 10; i++) &#123;
                         System.out.println(i);
                         continue;
-                    }                  
+                    &#125;                  
                     </code></pre></p>
                     <label>
                         <input type="radio" value="0" name="var1" class="var">Код не скомпілюється
@@ -379,10 +379,10 @@
                 </div>
                 <div id="q2">
                     <h4>Питання №2</h4>
-                    <p>Виберіть найбільш правильне твердження для наступного коду:<pre style="border: none;"><code>for(int i = 0; i < 10; i++) {
+                    <p>Виберіть найбільш правильне твердження для наступного коду:<pre style="border: none;"><code>for(int i = 0; i < 10; i++) &#123;
                         continue;
                         System.out.println(i);
-                    }                  
+                    &#125;                  
                     </code></pre></p>
                     <label>
                         <input type="radio" value="1" name="var2" class="var">Код не скомпілюється
@@ -424,45 +424,45 @@
                     <h4>Питання №5</h4>
                     <p>У якому з наступних циклів відбудеться виведення на екран чисел від 1 до 10?</p>
                     <label style="display: flex;">
-                        <input type="radio" value="0" name="var5" class="var"><pre style="width: 80%;"><code>for(int i = 0; i < 10; i++) {
+                        <input type="radio" value="0" name="var5" class="var"><pre style="width: 80%;"><code>for(int i = 0; i < 10; i++) &#123;
                             System.out.println(i);
-                        }</code></pre>
+                        &#125;</code></pre>
                     </label>
                     <label style="display: flex;">
-                        <input type="radio" value="1" name="var5" class="var"><pre style="width: 80%;"><code>for(int i = 1; i <= 10; i++) {
+                        <input type="radio" value="1" name="var5" class="var"><pre style="width: 80%;"><code>for(int i = 1; i <= 10; i++) &#123;
                             System.out.println(i);
-                        }</code></pre>
+                        &#125;</code></pre>
                     </label>
                     <label style="display: flex;">
-                        <input type="radio" value="0" name="var5" class="var"><pre style="width: 80%;"><code>for(int i = 0; i <= 10; i++) {
+                        <input type="radio" value="0" name="var5" class="var"><pre style="width: 80%;"><code>for(int i = 0; i <= 10; i++) &#123;
                             System.out.println(i);
-                        }</code></pre>
+                        &#125;</code></pre>
                     </label>
                 </div>
                 <div id="q6">
                     <h4>Питання №6</h4>
                     <p>У якому з наступних циклів відбудеться виведення на екран чисел від 10 до 5?</p>
                     <label style="display: flex;">
-                        <input type="radio" value="0" name="var6" class="var"><pre style="width: 80%;"><code>for(int i = 10; i > 5; i--) {
+                        <input type="radio" value="0" name="var6" class="var"><pre style="width: 80%;"><code>for(int i = 10; i > 5; i--) &#123;
                             System.out.println(i);
-                        }</code></pre>
+                        &#125;</code></pre>
                     </label>
                     <label style="display: flex;">
-                        <input type="radio" value="0" name="var6" class="var"><pre style="width: 80%;"><code>for(int i = 10; i > 6; i--) {
+                        <input type="radio" value="0" name="var6" class="var"><pre style="width: 80%;"><code>for(int i = 10; i > 6; i--) &#123;
                             System.out.println(i);
-                        }</code></pre>
+                        &#125;</code></pre>
                     </label>
                     <label style="display: flex;">
-                        <input type="radio" value="1" name="var6" class="var"><pre style="width: 80%;"><code>for(int i = 10; i >= 5; i++) {
+                        <input type="radio" value="1" name="var6" class="var"><pre style="width: 80%;"><code>for(int i = 10; i >= 5; i++) &#123;
                             System.out.println(i);
-                        }</code></pre>
+                        &#125;</code></pre>
                     </label>
                 </div>
                 <div id="q7">
                     <h4>Питання №7</h4>
-                    <p>Що буде результатом виконання коду:<pre style="border: none;"><code>for(int i = 0;; i++){
+                    <p>Що буде результатом виконання коду:<pre style="border: none;"><code>for(int i = 0;; i++)&#123;
                         System.out.println(i);
-                    }</code></pre></p>
+                    &#125;</code></pre></p>
                     <label style="display: flex;">
                         <input type="radio" value="1" name="var7" class="var">Відбудеться зациклення
                     </label>
@@ -475,11 +475,11 @@
                 </div>
                 <div id="q8">
                     <h4>Питання №8</h4>
-                    <p>Скільки витків циклу буде виконано?</p> <pre style="border: none;"><code>for(int i = 0; i < 8; i++){
+                    <p>Скільки витків циклу буде виконано?</p> <pre style="border: none;"><code>for(int i = 0; i < 8; i++)&#123;
                         if(i%4==0)
                             break;
                         System.out.println(i);
-                    }
+                    &#125;
                     </code></pre></p>
                     <label>
                         <input type="radio" value="1" name="var8" class="var">1
